@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system.cat">
+   <refnamediv>
+    <refname>System::&amp;cat</refname>
+    <refpurpose>concatenate files</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once "System.php";
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>boolean <function>System::&amp;cat</function></funcdef>
+      
+      <paramdef choice="req">
+       string <parameter>$args</parameter>
+      </paramdef>
+      
+                  
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.system.cat.desc">
+    &title.desc;
+    <para>
+     Concatenate files. The method uses <function>fopen</function>, 
+     URLs should work too.
+    </para>
+   </refsection>   
+   
+   <refsection xml:id="core.pear.system.cat.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      
+      <listitem>
+       <para>
+        <parameter>string $args</parameter> -
+        the arguments
+       </para>
+      </listitem>      
+            
+     </itemizedlist>
+    </para>
+   </refsection>   
+      
+         
+   <refsection xml:id="core.pear.system.cat.return">
+    &title.returns;
+    <para>
+     <parameter>boolean</parameter> - &true; on success
+    </para>
+   </refsection>      
+            
+               
+                
+   <refsection xml:id="core.pear.system.cat.note">
+    &title.note;  
+                 
+    &note.canstatic;
+    
+                         
+                             
+  <simpara/>
+   </refsection>    
+   <refsection xml:id="core.pear.system.cat.see">
+    &title.see;
+    <para>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.man;cat"><command>cat</command> man page</link>
+    </para>
+   </refsection>         
+   
+   <refsection xml:id="core.pear.system.cat.example">
+    &title.example;
+    <example><info><title>Using <function>&amp;cat</function></title></info>
+     
+      <programlisting role="php">
+       <![CDATA[        
+       $var = System::cat('sample.txt test.txt');       
+       System::cat('sample.txt test.txt > final.txt');
+       System::cat('sample.txt test.txt >> final.txt');
+]]>    
+     </programlisting>
+    </example>
+   </refsection>         
+  </refentry>

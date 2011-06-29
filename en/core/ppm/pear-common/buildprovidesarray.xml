@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.buildprovidesarray">
+   <refnamediv>
+    <refname><function>PEAR_Common::buildProvidesArray</function></refname>
+    <refpurpose>Build a array</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable>
+       <function>PEAR_Common::buildProvidesArray</function></funcdef>
+      <paramdef choice="req">array <parameter>$srcinfo</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.buildprovidesarray.desc">
+     &title.desc;
+     <para>
+      Build a &quot;provides&quot; array from data returned 
+      by <function>analyzeSourceCode</function>. 
+      The format of the built array is like this:
+      <programlisting role="php">
+       <![CDATA[
+        array(
+        'class;MyClass' => 
+           array(
+           'type' => 'class',
+           'name' => 'MyClass'
+           ),
+           ...  
+        )
+        ]]>
+      </programlisting>
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.buildprovidesarray.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$srcinfo</parameter>
+       </term>      
+       <listitem>
+        <para>
+         array with information about a 
+         source file as returned by the 
+         <function>analyzeSourceCode</function> method.
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.buildprovidesarray.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

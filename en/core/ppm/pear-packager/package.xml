@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packager.package">
+   <refnamediv>
+    <refname><function>PEAR_Packager::package</function></refname>
+    <refpurpose>Create Package archive</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+             require_once 'PEAR/Packager.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Packager::package</function></funcdef>
+      <paramdef choice="opt">string <parameter>$pkgfile</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">boolean <parameter>$compress</parameter>
+       <initializer>true</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-packager.package.desc">
+     &title.desc;
+     <para>
+      Creates a Package archive from package definition file and
+      package files
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-packager.package.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+         &type.string;
+         <parameter>$pkgfile</parameter>
+       </term>      
+       <listitem>
+        <para>
+         path to package definition file   
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.bool;
+         <parameter>$compress</parameter>
+       </term>      
+       <listitem>
+        <para>
+         if &true; package archive will be compessed using
+         gzip
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-packager.package.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     name of the created package archive
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-packager.package.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-packager.package.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

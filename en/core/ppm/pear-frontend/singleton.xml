@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="package.pear.pear.pear-frontend.singleton">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Frontend::singleton</function>
+  </refname>
+  <refpurpose>Retrieve the frontend object</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Frontend.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     PEAR_Frontend_CLI|PEAR_Frontend_Web|PEAR_Frontend_Gtk&amp;
+     <function>PEAR_Frontend::singleton</function>
+    </funcdef>
+    <paramdef choice="opt">
+     mixed
+     <parameter>
+      $type = null
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="package.pear.pear.pear-frontend.singleton.desc">
+  &title.desc;
+  <para>
+   Get a single unique copy of the current PEAR frontend object.
+  </para>
+</refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.singleton.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&null;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>
+       if being called for the first time, the user can specify the kind of frontend to
+       return.  Otherwise, this parameter is ignored, and the existing single frontend is
+       returned.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.singleton.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.singleton.note">
+  &title.note;
+  &note.canstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.phpdir">
+ <info><title>php_dir</title></info>
+
+ <section xml:id="pyrus.configuration.system.phpdir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Files with roles <literal>php</literal> are installed
+   into the <literal>php_dir</literal> configuration variable.
+  </para>
+  <para>
+   In Pyrus, this is a pseudo-configuration variable: its value cannot be changed
+   without creating an entirely new repository.  PHP files are always stored in the
+   directory <literal>php/</literal> relative to the location of the installation.
+  </para>
+ </section>
+</section>

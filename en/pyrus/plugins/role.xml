@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="pyrus.plugins.role">
+ <info><title>Pyrus plugins: custom file roles</title></info>
+
+ <section xml:id="pyrus.plugins.role.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   If you are not familiar with how file roles install, read the
+   <link linkend="guide.users.concepts.filerole">introduction to file roles</link>
+   first.  This segment of the documentation assumes you are familiar with
+   concepts such as <literal>baseinstalldir</literal> and with what a file
+   role means in terms of installation location.
+  </para>
+  <para>
+   Custom file roles can implement a single role, and are defined by
+   an xml file that is noted in package.xml with the <literal>customrole</literal>
+   file role.  The XML format is defined and validated by pyrus with the
+   <link xlink:href="https://github.com/pear2/PEAR2_Pyrus/blob/master/data/customrole-2.0.xsd">customrole-2.0.xsd</link>
+   XSchema file.
+  </para>
+  <para>
+   Here is a human-readable custom file role xml file definition.
+   Optional elements are enclosed in [brackets], and if there is a choice of
+   values, they are delimited with a vertical bar <literal>|</literal> and
+   enclosed in (parentheses).
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<role version="2.0" xmlns="http://pear2.php.net/dtd/customrole-2.0">
+ <name>rolename</name>
+ <class>MyPlugin_Rolename</class>
+[<validationmethod>validate</validationmethod>]
+[<autoloadpath>relative/path/to/MyPlugin</autoloadpath>]
+(<releasetype>php</releasetype>|<releasetype>extsrc</releasetype>|
+ <releasetype>extbin</releasetype>|<releasetype>zendextsrc</releasetype>|
+ <releasetype>zendextbin</releasetype>)
+ <installable>(1|0)</installable>
+ <locationconfig>config_var</locationconfig>
+ <honorsbaseinstall>(1|0)</honorsbaseinstall>
+ <unusualbaseinstall>(1|0)</unusualbaseinstall>
+ <executable>(1|0)</executable>
+[<configvar>
+  <name>config_name</name>
+  <type>string</type>
+  <default>
+   <![CDATA[
+    <?php $default = 'hi'; ?>
+   ]]]]><![CDATA[>
+  </default>
+  <doc>Extensive, multi-line documentation</doc>
+ [<validset>val1</validset><validset>val2</validset>...]
+  <prompt>summary documentation</prompt>
+  <group>Custom</group>
+  <configtype>(system|user|channel-specific)</configtype>
+ </configvar>]*
+</role>
+   ]]>
+  </programlisting>
+ </section>
+ <section xml:id="pyrus.plugins.role.autoload">
+  <title>Telling Pyrus how to load your role: &lt;class&gt; and &lt;autoloadpath&gt;</title>
+  <para>
+   This is the same method used for all plugins, and is documented
+   <link linkend="pyrus.plugins.autoload">here</link>.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.packagetimevalidation">
+  <title>Validating your custom role at packaging time</title>
+  <para>
+   Some roles benefit from the ability to validate the files they represent
+   at packaging time.  For instance, a <literal>customcommand</literal> file
+   is checked to ensure it conforms to its XML schema, so that a custom command
+   with invalid XML cannot be distributed by mistake.
+  </para>
+  <para>
+   By convention, a validation method should be named <literal>validate</literal>,
+   although the xml supports any name.  The method name should be placed in
+   the <literal>&lt;validationmethod</literal> tag, and the method itself should
+   have the same method signature as this example from Pyrus's
+   <literal>customrole</literal> validation:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+    function validate(\PEAR2\Pyrus\IPackage $package, array $file)
+    {
+        $parser = new \PEAR2\Pyrus\XMLParser;
+        $schemapath = \PEAR2\Pyrus\Main::getDataPath();
+        if (!file_exists(\PEAR2\Pyrus\Main::getDataPath() . '/customrole-2.0.xsd')) {
+            $schemapath = realpath(__DIR__ . '/../../../../data');
+        }
+        $taskschema = $schemapath . '/customrole-2.0.xsd';
+        try {
+            $taskinfo = $parser->parse($package->getFilePath($file['attribs']['name']), $taskschema);
+        } catch (\Exception $e) {
+            throw new \PEAR2\Pyrus\Installer\Role\Exception('Invalid custom role definition file,' .
+                                                           ' file does not conform to the schema', $e);
+        }
+    }
+   ]]>
+  </programlisting>
+  <para>
+   A custom file role package-time validator should throw a
+   <literal>PEAR2_Pyrus_Installer_Role_Exception</literal> exception object
+   with an error message describing the reason for validation failure, or simply
+   return on success.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.releasetype">
+  <title>Release Types and file roles</title>
+  <para>
+   The <literal>&lt;releasetype&gt;</literal> element is used to tell Pyrus
+   which releases can contain a file with this role.  For instance, the
+   <literal>src</literal> role only has meaning in a PHP extension source release,
+   and is only allowed in <literal>extsrc</literal> and <literal>zendextsrc</literal>
+   release types.
+  </para>
+  <para>
+   There are 5 release types that Pyrus recognizes:
+   <itemizedlist>
+    <listitem><para><literal>php</literal> - this is for PEAR-style packages distributing PHP code</para></listitem>
+    <listitem><para><literal>extsrc</literal> - this is for PHP extension source packages</para></listitem>
+    <listitem><para><literal>extbin</literal> - this is for PHP extension binary packages</para></listitem>
+    <listitem><para><literal>zendextsrc</literal> - this is for PHP Zend extension source packages</para></listitem>
+    <listitem><para><literal>zendextbin</literal> - this is for PHP Zend extension binary packages</para></listitem>
+   </itemizedlist>
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.installable">
+  <title>&lt;installable&gt;</title>
+  <para>
+   If set to <literal>0</literal>, the file will not actually be installed onto
+   the system.  Most file roles should set this to <literal>1</literal>.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.locationconfig">
+  <title>&lt;locationconfig&gt;</title>
+  <para>
+   This element is used to tell Pyrus which configuration variable should be
+   used to determine where to install the file.  This can be a
+   <link linkend="pyrus.plugins.role.configvar">custom configuration variable</link>.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.baseinstall">
+  <title>&lt;honorsbaseinstall&gt; and &lt;unusualbaseinstall&gt;</title>
+  <para>
+   The <literal>&lt;honorsbaseinstall&gt;</literal> element tells Pyrus to
+   honor the <literal>baseinstalldir</literal> attribute (documentation on
+   baseinstalldir is <link linkend="guide.users.concepts.filerole.baseinstalldir">here</link>)
+   for roles like <literal>php</literal>.
+  </para>
+  <para>
+   The <literal>&lt;unusualbaseinstall&gt;</literal> element tells Pyrus to
+   honor the <literal>baseinstalldir</literal> attribute for roles like
+   <literal>data</literal> that also prepend channel/package name to the
+   installation location.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.executable">
+  <title>&lt;executable&gt;</title>
+  <para>
+   If <literal>&lt;executable&gt;</literal> is set to <literal>1</literal>,
+   Pyrus will make the installed file an executable file on unix systems
+   (the equivalent of <screen>chmod +x filename</screen>).
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.role.configvar">
+  <title>Defining custom configuration variables</title>
+  <para>
+   A custom file role can optionally define a single or multiple custom
+   configuration variables.  There are 3 kinds of configuration variables
+   that Pyrus supports, <literal>system</literal>, <literal>user</literal> and
+   <literal>channel-specific</literal>.  Documentation on configuration is
+   available <link linkend="pyrus.configuration">here</link>.  Read that before
+   continuing in order to understand how different configuration variables work.
+  </para>
+  <para>
+   Pyrus supports one type of configuration variable: <literal>string</literal>.
+   The values can be restricted to a specific set of values with the
+   <literal>&lt;validset&gt;</literal> element.
+  </para>
+ </section>
+</section>

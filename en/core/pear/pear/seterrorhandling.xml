@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.seterrorhandling">
+   <refnamediv>
+    <refname>PEAR::setErrorHandling()</refname>
+    <refpurpose>sets handling of errors generated through PEAR packages</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR::setErrorHandling</function></funcdef>
+      <paramdef choice="opt">
+       integer <parameter>$mode</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">
+       mixed <parameter>$options</parameter>
+       <initializer>null</initializer>
+      </paramdef>      
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.seterrorhandling.desc">
+    &title.desc;
+    <para>
+     <function>setErrorHandling</function> can be invoked as both a standard
+     object method ($obj-&gt;setErrorHandling) and as a static method
+     (PEAR::setErrorHandling).  If called
+     statically, <function>PEAR::setErrorHandling</function> sets the default
+     error handling behaviour for all
+     PEAR objects (global error handling behaviour). If called as an object method,
+     <function>$obj-&gt;setErrorHandling</function> sets
+     the default error handling for only that object (local error handling behaviour).
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.seterrorhandling.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>integer $mode</parameter> - one of the following constants
+        <itemizedlist>
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_RETURN</constant> If an error occurs, a 
+           &class.pear-error; is returned from the error-generation
+           method (normally <link linkend="core.pear.pear.raiseerror"><function>raiseError</function></link>.)
+          </para>
+         </listitem>
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_PRINT</constant> Like <constant>
+           PEAR_ERROR_RETURN</constant>, but an error message will be 
+           printed additionally.
+          </para>
+         </listitem>         
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_TRIGGER</constant> Like <constant>
+           PEAR_ERROR_RETURN</constant>, but the PHP builtin-function
+           <function>trigger_error</function> will be called in PEAR_Error's
+           constructor with the error message.
+          </para>
+         </listitem>         
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_DIE</constant> The script will terminate and
+           an error message will be printed on instantiation of a PEAR_Error.
+          </para>
+         </listitem>         
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_CALLBACK</constant> If a error occurs, the
+           callback passed to <parameter>$options</parameter> is called.
+          </para>
+         </listitem>                  
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_EXCEPTION</constant> If Zend Engine 2 is present,
+           then an exception will be thrown using the &class.pear-error; object.
+          </para>
+         </listitem>         
+        </itemizedlist>         
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>mixed $options</parameter> - the value for <parameter>$options</parameter>
+        depends on <parameter>$mode</parameter>
+        <itemizedlist>
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_PRINT</constant> and 
+           <constant>PEAR_ERROR_DIE</constant> support
+           an optional <function>printf</function> format string used 
+           when printing the error message.  This format string should contain
+           a single %s, which will be used to insert the error message into the
+           string.  Use the string to enclose the error message with other
+           useful information not included in the error message prefix or
+           error message.
+          </para>
+         </listitem>
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_TRIGGER</constant> requires an user error 
+           level constant used by <function>trigger_error</function> (possible constants: <constant>E_USER_NOTICE</constant>, 
+           <constant>E_USER_WARNING</constant> or 
+           <constant>E_USER_ERROR</constant>).  Note that if the error constant
+           is not one of these valid error constants, a PHP warning will be
+           triggered.
+          </para>
+         </listitem>
+         <listitem>
+          <para>
+           <constant>PEAR_ERROR_CALLBACK</constant> The callback must be a function
+           name in the format described in the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.callback;">Pseudo-Type</link>
+           section of the PHP manual (either a string, or an array). The callback must accept a single
+           parameter, the &class.pear-error; object generated by an error condition.
+           Note that if the callback is not a valid callback, a PHP warning will
+           be triggered.
+          </para>
+         </listitem>                  
+        </itemizedlist>         
+       </para>
+      </listitem>      
+     </itemizedlist>
+    </para>
+    <para>
+     Here's an example of a few ways to use setErrorHandling:
+     <programlisting role="php">
+<![CDATA[
+<?php
+require_once 'PEAR.php';
+// dummy error constant for this example
+define('MYCLASS_ERROR_CODE', 1);
+
+// demonstration of default global error handling
+// in this case, all PEAR Errors will trigger a PHP warning
+PEAR::setErrorHandling(PEAR_ERROR_TRIGGER, E_USER_WARNING);
+// Note that the file and line number will be in the constructor of PEAR_Error
+// in PEAR.php
+PEAR::raiseError('test warning', MYCLASS_ERROR_CODE);
+
+// this error specifies a mode, and overrides the default global error handling
+$e = PEAR::raiseError('return only', MYCLASS_ERROR_CODE, PEAR_ERROR_RETURN);
+
+PEAR::setErrorHandling(PEAR_ERROR_PRINT, "Gronk error: %s<br />\n");
+
+// prints "Gronk error: test warning<br />\n"
+PEAR::raiseError('test warning', MYCLASS_ERROR_CODE);
+
+/**
+ * Fake class to demonstrate error handling
+ * @package myClass
+ */
+class myClass extends PEAR {
+    /**
+     * Demonstration of default local error handling
+     */
+    function myClass()
+    {
+        // object method callback
+        $this->setErrorHandling(PEAR_ERROR_CALLBACK, array(&$this, 'handleErr'));
+        // prints "custom handler...is working"
+        PEAR::raiseError('custom handler', MYCLASS_ERROR_CODE);
+        // static class method callback
+        $this->setErrorHandling(PEAR_ERROR_CALLBACK,
+            array('myClass', 'handleErrStatic'));
+        PEAR::raiseError('custom handler', MYCLASS_ERROR_CODE);
+        // function callback
+        $this->setErrorHandling(PEAR_ERROR_CALLBACK, 'standardCallback');
+        PEAR::raiseError('custom handler', MYCLASS_ERROR_CODE);
+    }
+    
+    /**
+     * Callback set by the constructor
+     * @param PEAR_Error The error object
+     */
+    function handleErr($error)
+    {
+        $this->lastError = $error->getMessage();
+        print $error->getMessage() . "...is working\n";
+    }
+    
+    /**
+     * Static callback set by the constructor
+     *
+     * Note that in PHP 5, $this is not set if the method is declared with
+     * the "static" access modifier.  In PHP 4, $this is set, but is not
+     * set to the myClass object, so don't use it!
+     * @param PEAR_Error The error object
+     * @static
+     */
+    function handleErrStatic($error)
+    {
+        print 'static ' . $error->getMessage() . "...is working\n";
+    }
+}
+
+/**
+ * @param PEAR_Error The error object
+ */
+function standardCallback($error)
+{
+    print 'normal function callback: ' . $error->getMessage();
+}
+// This causes the printing of three messages through error callbacks:
+// "custom handler...is working"
+// "static custom handler... is working"
+// "normal function callback: custom handler"
+$mine = new myClass;
+
+PEAR::setErrorHandling(PEAR_ERROR_DIE);
+// terminates the script with the error message "oops"
+PEAR::raiseError('oops', MYCLASS_ERROR_CODE);
+?>
+]]>
+     </programlisting>
+    </para>
+   </refsection>   
+  </refentry>

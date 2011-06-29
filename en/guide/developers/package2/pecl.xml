@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.pecl">
+ <refnamediv>
+  <refname>extsrcrelease and extbinrelease changes for PECL developers</refname>
+  <refpurpose>PECL-specific details of package.xml 2.0</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.pecl.intro"><info><title>Special extension package tags</title></info>
+  
+  <para>
+   Most of the tags for PECL-style PHP extension releases are identical to those for
+   PEAR-style PHP script releases.  There are a few extsrc/extbin-specific tags that
+   all PECL developers must know about.
+  </para>
+  <para>
+   <table xml:id="guide.developers.package2.pecl.intro.chart"><title>PECL extsrc/extbin-specific tags in package.xml 2.0</title>
+    
+    <tgroup cols="2">
+     <thead>
+      <row>
+       <entry>Tag</entry>
+       <entry>Description of usage</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry>
+        &lt;providesextension&gt;
+       </entry>
+       <entry>
+        The &lt;providesextension&gt; tag must be right after &lt;dependencies&gt;.  This
+        tag tells the installer the name of the extension provided by the package, allowing
+        different package names from the extension.  This could be important for binary packages
+        (such as PDO and PDO_windows or something along those lines).
+        <programlisting role="xml">
+         <![CDATA[
+<providesextension>PDO</providesextension>
+         ]]>
+        </programlisting>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        &lt;srcpackage&gt; or &lt;srcuri&gt;
+       </entry>
+       <entry>
+        &lt;srcpackage&gt; or &lt;srcuri&gt; must follow &lt;providesextension&gt;.
+        Extension binary packages must define either a &lt;srcpackage&gt; tag (for package.xml
+        containing <link linkend="guide.developers.package2.channel">&lt;channel&gt;</link>) or
+        a &lt;srcuri&gt; tag (for package.xml containing
+        <link linkend="guide.developers.package2.uri">&lt;uri&gt;</link>).
+        <programlisting role="xml">
+         <![CDATA[
+<name>PDO_windowsbin</name>
+<channel>pecl.php.net</channel>
+<!-- snip -->
+<providesextension>PDO</providesextension>
+<srcpackage>PDO</srcpackage>
+         ]]>
+        </programlisting>
+        or,
+        <programlisting role="xml">
+         <![CDATA[
+<name>Foo_windowsbin</name>
+<uri>http://www.example.com/Foo_windowsbin-1.5.0.tgz</uri>
+<!-- snip -->
+<providesextension>Foo</providesextension>
+<srcuri>http://www.example.com/Foo-1.5.0.tgz</srcuri>
+         ]]>
+        </programlisting>
+       </entry>
+      </row>
+      <row>
+       <entry>
+        &lt;configureoption&gt;
+       </entry>
+       <entry>
+        The &lt;configureoption&gt; tag is used to ask a user a specific
+        question, which is then used to influence the building of the extension.
+        Any configure option beginning with <quote>with</quote> is assumed
+        to be a question about enabling a feature.  Other options have the user's
+        response automatically passed to <command>configure</command>.  The
+        following configureoptions:
+        <programlisting role="xml">
+         <![CDATA[
+<configureoption name="with-blah" prompt="enable blah?" default="yes"/>
+<configureoption name="foo" prompt="what foo to use?" default="bar"/>
+         ]]>
+        </programlisting>
+        will generate a configure line similar to:
+        <screen>--with-blah --foo=bar</screen> if the user accepts the default
+        values.
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </para>
+ </refsection>
+ </refentry>

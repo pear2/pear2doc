@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.autodiscover">
+ <info><title>auto_discover</title></info>
+
+ <section xml:id="pyrus.configuration.user.autodiscover.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   <literal>auto_discover</literal> is a flag (boolean), defaulting to
+   <literal>0</literal> or off.  If on, this flag instructs Pyrus
+   to automatically discover channels of dependencies (see
+   <link linkend="pyrus.commands.channeldiscover">channel-discover</link> for
+   a more in-depth description of what channel discovery means).
+  </para>
+  <para>
+   For example, let's say we are installing Package <literal>foo</literal> from channel
+   <literal>pear2.php.net</literal>, and that <literal>foo</literal> depends on package
+   <literal>bar</literal> from channel <literal>pear.example.com</literal>.
+   If Pyrus does not know the <literal>pear.example.com</literal> channel, and
+   <literal>auto_discover</literal> is set to <literal>1</literal>, it will
+   attempt to discover information on the channel, and after successfully
+   adding its information to the registry, will then successfully download
+   and install the dependency <literal>bar</literal>.  However, if
+   <literal>auto_discover</literal> is disabled, Pyrus will simply fail
+   with an error explaining that nothing is known about the
+   <literal>pear.example.com</literal> channel, and that it must be
+   added prior to installation.
+  </para>
+ </section>
+</section>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getvalidationobject">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getValidationObject</function>
+  </refname>
+  <refpurpose>Retrieve the object that can be used for custom validation</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>PEAR_Validate|false</replaceable>
+     &amp;
+     <function>PEAR_ChannelFile::getValidationObject</function>
+    </funcdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$package</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getvalidationobject.desc">
+  &title.desc;
+  <para>
+   Retrieve the channel validation object.  The package parameter is intended to notify
+   <function>getValidationObject</function> of the package to be validated.  If the package
+   is in fact the channel validation package, then PEAR_Validate will be used for validation.
+   This prevents an endless loop that would otherwise occur.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getvalidationobject.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$package</parameter>
+     </term>
+     <listitem>
+      <para>
+       The name of the package to validate.  If the package is
+       the channel validation package, <classname>PEAR_Validate</classname> is returned.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getvalidationobject.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   false is returned if the validation package          cannot be located
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getvalidationobject.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getvalidationobject.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

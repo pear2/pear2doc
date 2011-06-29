@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preface xmlns="http://docbook.org/ns/docbook"
+ xmlns:phd="http://www.php.net/ns/phd"
+ version="lillet" xml:id="preface"
+ phd:chunk="false"
+>
+ <info>
+  <title>Preface</title>
+  <abstract>
+   <simpara>
+    <acronym>PEAR</acronym> is the PHP Extension and Application
+    Repository.
+   </simpara>
+   <!-- FIXME: more info
+    place for developers, 400+ packages, mailing lists, cvs, bug tracker,...
+   -->
+  </abstract>
+
+  &copyright;
+ </info>
+
+
+
+  <section xml:id="about" xmlns:xlink="http://www.w3.org/1999/xlink" phd:chunk="false">
+   <info>
+    <title>This Manual</title>
+   </info>
+
+   <para>
+    This manual is written in <acronym>XML</acronym> using a slightly enhanced
+    version of the
+    <link xlink:href="&url.docbook.xml;">DocBook 5 XML DTD</link>,
+    using PHP's very own DocBook rendering system
+    <link xlink:href="&url.phd;">PhD</link>.
+   </para>
+  </section>
+
+  <section xml:id="structure" phd:chunk="false">
+   <info>
+    <title>The structure of the Manual</title>
+   </info>
+
+   <para>
+    This guide explains the general structure, layout, and conventions used
+    in the PEAR manual.  The manual is divided into six main parts, they
+    are:
+   </para>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       <link linkend="guide-developers">Developer Guide</link>
+      </para>
+      <para>
+       General information about developing and releasing
+       PEAR-Packages.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <link linkend="developers-core">Core components</link>
+      </para>
+      <para>
+       This section contains documentation about the core PEAR classes.
+       These core components are the base to every PEAR class and
+       understanding the basics will allow general use of the PEAR library.
+       Topics include the &class.pear; base, PEAR administration, error
+       handling through use of the &class.pear-error; object, and system
+       commands.  These classes are generally shipped with every source
+       PHP distribution.
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </section>
+
+  <section xml:id="authors" xmlns:xlink="http://www.w3.org/1999/xlink" phd:chunk="false">
+   <info>
+    <title>Authors and Contributors</title>
+    <titleabbrev>Authors</titleabbrev>
+   </info>
+
+   <para>
+    The following is a list of people that are helping to maintain this
+    documentation. If you would like to contact one of them, please
+    write to <link xlink:href="mailto:&email.pear.doc;">&email.pear.doc;</link>.
+   </para>
+
+   &authors.list;
+
+   <simpara>
+    (In alphabetic order.)
+   </simpara>
+  </section>
+ </preface>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.retrievecachefirst">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::retrieveCacheFirst</function>
+  </refname>
+  <refpurpose>Retrieve REST data, but always retrieve the local cache if it is available.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string|array
+     <function>PEAR_REST::retrieveCacheFirst</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     array|false
+     <parameter>
+      $accept = false
+     </parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     boolean
+     <parameter>
+      $forcestring = false
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.retrievecachefirst.desc">
+  &title.desc;
+  <para>This is useful for elements that should never change, such as information on a particular  release</para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.retrievecachefirst.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>full URL to this resource</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;|&false;
+      <parameter>$accept</parameter>
+     </term>
+     <listitem>
+      <para>contents of the accept-encoding header</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$forcestring</parameter>
+     </term>
+     <listitem>
+      <para>
+       if &true;, xml will be returned as a string, otherwise, xml will be
+       parsed using PEAR_XMLParser
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.retrievecachefirst.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.retrievecachefirst.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

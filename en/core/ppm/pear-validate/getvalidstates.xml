@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.getvalidstates">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::getValidStates</function>
+  </refname>
+  <refpurpose>Get a list of valid stability levels</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_Validate::getValidStates</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.getvalidstates.desc">
+  &title.desc;
+  <para>
+   Utility function for future extensibility of the list of valid stability levels.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.getvalidstates.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.getvalidstates.final"><info><title>Final</title></info>
+  
+  <para>
+   <emphasis>final</emphasis> - this method must not be overridden
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.getvalidstates.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

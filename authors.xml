@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<itemizedlist xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="authors.list">
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Lorenzo</firstname><surname>Alberton</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>David</firstname><surname>Coallier</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Daniel</firstname><surname>Convissor</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>David</firstname><surname>Costa</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Thomas</firstname><surname>V.V. Cox</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Michael</firstname><surname>Gauthier</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Christophe</firstname><surname>Gesché</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Ken</firstname><surname>Guest</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Martin</firstname><surname>Jansen</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Alan</firstname><surname>Knowles</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Clay</firstname><surname>Loveless</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Alexander</firstname><surname>Merz</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Stefan</firstname><surname>Neufeind</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Jon</firstname><surname>Parise</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Tobias</firstname><surname>Schlitt</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Stephan</firstname><surname>Schmidt</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Mika</firstname><surname>Tuupola</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Michael</firstname><surname>Wallner</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Christian</firstname><surname>Weiske</surname></personname></author>
+  </para>
+ </listitem>
+
+ <listitem>
+  <para>
+   <author><personname><firstname>Mark</firstname><surname>Wiesemann</surname></personname></author>
+  </para>
+ </listitem>
+
+</itemizedlist>

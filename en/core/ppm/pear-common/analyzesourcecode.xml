@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.analyzesourcecode">
+   <refnamediv>
+    <refname><function>PEAR_Common::analyzeSourceCode</function></refname>
+    <refpurpose>analyze the source code of the given PHP file</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array
+       <function>PEAR_Common::analyzeSourceCode</function></funcdef>
+      <paramdef choice="req">string <parameter>$file</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.analyzesourcecode.desc">
+     &title.desc;
+     <para>Analyze the source code of the given PHP file</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.analyzesourcecode.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Filename of the PHP file
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.analyzesourcecode.return">
+    &title.returns;
+    <para>
+     <parameter>array</parameter> - hash list of
+     <parameter>declared_classes</parameter>,
+     <parameter>declared_methods</parameter>,
+     <parameter>declared_functions</parameter> and
+     <parameter>used_classes</parameter>     
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.analyzesourcecode.note">
+    &title.note;
+    &note.canstatic;
+   </refsection>
+</refentry>

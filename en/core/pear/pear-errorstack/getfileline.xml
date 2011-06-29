@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.getfileline">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::getFileLine</function></refname>
+    <refpurpose>Standard file/line number/function/class context callback</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>array|false</replaceable>      <function>PEAR_ErrorStack::getFileLine</function></funcdef>
+      <paramdef choice="req">array <parameter>$code</parameter></paramdef>
+      <paramdef choice="req">unused <parameter>$params</parameter></paramdef>
+      <paramdef choice="opt">integer <parameter> $backtrace</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.getfileline.desc">
+     &title.desc;
+     <para>This function uses a backtrace generated from <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.lookup;debug_backtrace">debug_backtrace</link>
+      and so will not work at all in PHP &lt; 4.3.0.  The frame should  reference the frame that
+      contains the source of the error.
+     </para>
+
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.getfileline.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>$code</parameter>
+       </term>
+       <listitem>
+        <para>
+         Results of debug_backtrace()
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>unused</type>
+        <parameter>$params</parameter>
+       </term>
+       <listitem>
+        <para>
+         
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.int;
+        <parameter>$backtrace</parameter>
+       </term>
+       <listitem>
+        <para>
+         backtrace frame.
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.getfileline.returns">
+    &title.returns;
+        <para>
+      <emphasis>returns</emphasis> either
+      array(&apos;file&apos; =&gt; file, &apos;line&apos; =&gt; line,
+          &apos;function&apos; =&gt; function name, &apos;class&apos; =&gt; class name) or
+          if this doesn&apos;t work, then false
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.getfileline.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+
+   <refsection xml:id="core.pear.pear-errorstack.getfileline.note">
+    &title.note;
+    &note.shouldstatic;    
+   </refsection>
+</refentry>

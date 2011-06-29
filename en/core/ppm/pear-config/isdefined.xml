@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.isdefined">
+   <refnamediv>
+    <refname><function>PEAR_Config::isDefined</function></refname>
+    <refpurpose>Tells whether a key exists as config value</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::isDefined</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.isdefined.desc">
+     &title.desc;
+     <para>Tells whether a given key exists as a config value.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.isdefined.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.isdefined.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> - whether <parameter>$key</parameter> exists in this object
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.isdefined.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

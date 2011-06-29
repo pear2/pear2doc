@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.testdir">
+ <info><title>test_dir</title></info>
+
+ <section xml:id="pyrus.configuration.system.testdir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Files with <literal>test</literal> role are installed into this directory.
+  </para>
+ </section>
+</section>

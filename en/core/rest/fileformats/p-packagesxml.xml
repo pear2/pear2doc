@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.p-packagesxml"><info><title>packages.xml (p)</title></info>
+ 
+ <synopsis>List of all packages</synopsis>
+
+ <para>
+  This file lists all packages in this channel, together with the channel server
+  name itself.
+ </para>
+
+ <para>
+  Package names should not contain any spaces; the behavior of the installer
+  in such cases is undefined.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.p-packagesxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>p/packages.xml</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.p-packagesxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<a xmlns="http://pear.php.net/dtd/rest.allpackages"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.allpackages
+                       http://pear.php.net/dtd/rest.allpackages.xsd"
+>
+ <c>pear.example.org</c>
+ <p>Earth</p>
+ <p>WorldDominator</p>
+</a>]]></programlisting>
+ </section>
+
+</section>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.usesrole">
+ <refnamediv>
+  <refname>&lt;usesrole&gt;</refname>
+  <refpurpose>documenting custom file roles used in &lt;contents&gt;</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.usesrole.purpose"><info><title>Documenting custom file roles</title></info>
+  
+  <para>
+   Standard file roles provided by default with PEAR are:
+  </para>
+  <para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      php
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      data
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      doc
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      test
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      script
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      src
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      ext
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <para>
+   If your package chooses to use a role provided by a third party that implements some
+   more advanced file installation handling, all you need to do is specify the role in
+   the xml for the &lt;file&gt; tag that contains it like so:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<file role="foo"/>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   However, if a user does not have the package installed that provides the custom role
+   &quot;foo&quot;, then the error message on installation will simply say &quot;unknown
+   role 'foo'&quot;, which is not very helpful.
+  </para>
+  <para>
+   The &lt;usesrole&gt; tag instead prompts the installer to tell the user &quot;this package
+   uses the custom role 'foo', install package pear.example.com/Foo to use&quot;
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<usesrole>
+ <role>foo</role>
+ <package>Foo</package>
+ <channel>pear.example.com</channel>
+</usesrole>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Note that static URI packages (channel-less packages) are also supported:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<usesrole>
+ <role>foo</role>
+ <uri>http://pear.example.com/Foo-1.2.0</uri>
+</usesrole>
+    ]]>
+   </programlisting>
+  </para>
+ </refsection>
+ </refentry>

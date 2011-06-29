@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="installationpyrus">
+  <info>
+   <title>Installation (Pyrus)</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-17</date>
+  </info>
+
+  <simpara>
+   This chapter describes how to install Pyrus, the package manager for PEAR2 and PHP 5.3+.
+  </simpara>
+
+  &guide.users.installationpyrus.introduction;
+ </chapter>

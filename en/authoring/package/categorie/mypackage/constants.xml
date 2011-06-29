@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="packages.categorie.mypackage.constants">
+ <refnamediv>
+  <refname>Constants</refname>
+  <refpurpose>Predefined Constants</refpurpose>
+ </refnamediv>
+
+ <refsection xml:id="packages.categorie.mypackage.constants.my-constant"><info><title><constant>MY_CONSTANT</constant></title></info>
+  
+  <para>
+   Just a constant which is never used.
+  </para>
+
+  <refsection xml:id="packages.categorie.mypackage.constants.my-constant.used"><info><title>Used in</title></info>
+   
+   <para>
+    <link linkend="packages.categorie.mypackage.myfunction">
+     <function>MyPackage::myFunction</function>
+    </link>
+   </para>
+  </refsection>
+
+ </refsection>
+</refentry>

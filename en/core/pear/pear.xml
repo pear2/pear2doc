@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear"><info><title>PEAR</title><titleabbrev>PEAR base and error handling class</titleabbrev></info>
+  
+  
+
+  <para>
+   <classname>PEAR</classname> provides functions for handling errors and sets
+   the behaviour in case of error.  And, it gives package developers a set of
+   functions to make their lives easier.
+  </para>
+
+  &core.pear.pear.intro;
+  &core.pear.pear.constants;  
+  &core.pear.pear.pear;    
+  &core.pear.pear.-pear;      
+  &core.pear.pear.getstaticproperty;
+  &core.pear.pear.registershutdownfunction;
+  &core.pear.pear.iserror;
+  &core.pear.pear.raiseerror;
+  &core.pear.pear.seterrorhandling;  
+  &core.pear.pear.expecterror;    
+  &core.pear.pear.popexpect;      
+  &core.pear.pear.loadextension;
+ </section>

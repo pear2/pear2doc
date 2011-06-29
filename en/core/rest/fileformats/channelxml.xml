@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.channelxml"><info><title>channel.xml</title></info>
+ 
+ <synopsis>Information about the channel</synopsis>
+
+ <para>
+  This is the main file for a channel; nothing works without it.
+  When discovering a channel, this file is retrieved.
+  It defines the REST directory locations as well as mirrors.
+ </para>
+
+ <para>
+  The channel <literal>&lt;name&gt;</literal> is a full qualified domain
+  name and is used as part of the URL when e.g. updating the
+  <filename>channel.xml</filename> file.
+ </para>
+
+ <para>
+  PEAR provides aliases for channels as shortcuts in the daily work of your
+  user's lifes. The <literal>&lt;suggestedalias&gt;</literal> should be
+  a short and easy to write word. Benefit is that, instead of
+  <screen><![CDATA[pear install pear.mynicelittlespaceon.example.org/package]]></screen>
+  they just can type
+  <screen><![CDATA[pear install nice/package]]></screen>
+  if the alias was <literal>nice</literal>.
+ </para>
+
+ <!-- FIXME: more explanation about SSL and such -->
+
+
+ <section xml:id="core.rest.fileformats.channelxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>/channel.xml</filename>
+  </para>
+  <para>
+   It needs to be in the root directory of the domain.
+   While all other files can be located somewhere deep in a directory structure,
+   <filename>channel.xml</filename> needs to be in <filename>/</filename>.
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.channelxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<channel version="1.0"
+         xmlns="http://pear.php.net/channel-1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pear.php.net/channel-1.0
+                             http://pear.php.net/dtd/channel-1.0.xsd"
+>
+ <name>pear.example.org</name><!-- URL, used to update channel.xml and such -->
+ <suggestedalias>example</suggestedalias>
+ <summary>Simple demo channel server</summary>
+ <servers>
+  <primary>
+   <!-- you can ignore xmlrpc, it's deprecated anyway -->
+   <xmlrpc>
+    <function version="1.0">logintest</function>
+    <function version="1.0">package.listLatestReleases</function>
+    <function version="1.0">package.listAll</function>
+    <function version="1.0">package.info</function>
+    <function version="1.0">package.getDownloadURL</function>
+    <function version="1.1">package.getDownloadURL</function>
+    <function version="1.0">package.getDepDownloadURL</function>
+    <function version="1.1">package.getDepDownloadURL</function>
+    <function version="1.0">package.search</function>
+    <function version="1.0">channel.listAll</function>
+   </xmlrpc>
+   <rest>
+    <baseurl type="REST1.0">http://pear.example.org/rest/</baseurl>
+    <baseurl type="REST1.1">http://pear.example.org/rest/</baseurl>
+    <baseurl type="REST1.2">http://pear.example.org/rest/</baseurl>
+    <baseurl type="REST1.3">http://pear.example.org/rest/</baseurl>
+   </rest>
+  </primary>
+
+  <mirror host="us.pear.example.org">
+   <rest>
+    <baseurl type="REST1.0">http://us.pear.example.org/rest/</baseurl>
+    <baseurl type="REST1.1">http://us.pear.example.org/rest/</baseurl>
+    <baseurl type="REST1.2">http://us.pear.example.org/rest/</baseurl>
+    <baseurl type="REST1.3">http://us.pear.example.org/rest/</baseurl>
+   </rest>
+  </mirror>
+
+  <mirror host="de.pear.example.org" ssl="yes" port="3452">
+   <rest>
+    <baseurl type="REST1.0">https://de.pear.example.org:3452/rest/</baseurl>
+    <baseurl type="REST1.1">https://de.pear.example.org:3452/rest/</baseurl>
+    <baseurl type="REST1.2">https://de.pear.example.org:3452/rest/</baseurl>
+    <baseurl type="REST1.3">https://de.pear.example.org:3452/rest/</baseurl>
+   </rest>
+  </mirror>
+
+ </servers>
+</channel>]]></programlisting>
+ </section>
+
+</section>

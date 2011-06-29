@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.users.concepts.package">
+ <info><title>PEAR Packages</title></info>
+
+ <para>
+  The smallest unit that can be managed by Pyrus or the PEAR Installer is
+  a <literal>package</literal>.  A package is a collection of files
+  that are organized and defined by a meta-information file called
+  <link linkend="guide.developers.package2.intro">package.xml</link>.
+ </para>
+ <para>
+  A package also contains meta-information about the collected files, such
+  as the name of the package, the <link linkend="guide.users.concepts.channel">channel</link>
+  that the package is from, the version of the package, information
+  on the developers who created the package, and any external dependencies the
+  package has on other packages or installation requirements (such as minimum PHP version).
+ </para>
+ <para>
+  Packages can exist as a collection of files on disk, or can be placed into
+  an archive in phar, tar, or zip format and then later installed on another
+  system.
+ </para>
+</section>

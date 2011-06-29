@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command.gethelp">
+   <refnamediv>
+    <refname><function>PEAR_Command::getHelp</function></refname>
+    <refpurpose>get help for command</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/command.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string       <function>PEAR_Command::getHelp</function></funcdef>
+      <paramdef choice="req">string <parameter>$command</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-command.gethelp.desc">
+     &title.desc;
+     <para>Get help for command.</para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-command.gethelp.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$command</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Name of the command to return help for
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.gethelp.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> help text
+    </para>
+   </refsection>
+   
+   <refsection xml:id="core.ppm.pear-command.gethelp.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.gethelp.note">
+    &title.note;
+    &note.shouldstatic;
+   </refsection>
+</refentry>

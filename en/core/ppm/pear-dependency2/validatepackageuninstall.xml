@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.validatepackageuninstall">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Dependency2::validatePackageUninstall</function>
+  </refname>
+  <refpurpose>validatePackageUninstall</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     true|PEAR_Error|array
+     <function>PEAR_Dependency2::validatePackageUninstall</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Installer
+     <parameter>&amp;$dl</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackageuninstall.desc">
+  &title.desc;
+  <para>
+   As with all dependency validation, true is returned on success, PEAR_Error on failure
+   for required dependencies (and the PEAR installer dependency is required).  If the
+   <literal>soft</literal>, <literal>force</literal> or <literal>ignore-errors</literal>
+   options are specified, an array containing the error message will be returned instead.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackageuninstall.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      PEAR_Installer
+      <parameter>&amp;$dl</parameter>
+     </term>
+     <listitem>
+      <para>
+       This method retrieves the list of packages to be uninstalled from the
+       PEAR_Installer object, and makes sure no dependencies with existing packages
+       would be broken if the current package were to be uninstalled.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackageuninstall.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackageuninstall.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

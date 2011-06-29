@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.staticpush">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::staticPush</function>
+  </refname>
+  <refpurpose>
+   Static version of 
+   <link linkend="core.pear.pear-errorstack.push">
+    <function>push</function>
+   </link>
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>PEAR_Error|array</replaceable>      
+     <function>PEAR_ErrorStack::staticPush</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.string; 
+     <parameter>$package</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     &type.int; 
+     <parameter>$code</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string; 
+     <parameter> $level = 'error'</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.array; 
+     <parameter> $params = array()</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string; 
+     <parameter> $msg</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.array; 
+     <parameter> $repackage</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.array; 
+     <parameter> $backtrace</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticpush.desc">
+  &title.desc;
+  <para/>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpush.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$package</parameter>
+     </term>
+     <listitem>
+      <para>
+       Package name this error belongs to
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$code</parameter>
+     </term>
+     <listitem>
+      <para>
+       Package-specific error code
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$level</parameter>
+     </term>
+     <listitem>
+      <para>
+       Error level.  This is NOT spell-checked
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>
+       associative array of error parameters
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$msg</parameter>
+     </term>
+     <listitem>
+      <para>
+       Error message, or a portion of 
+       it if the message is to be generated
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$repackage</parameter>
+     </term>
+     <listitem>
+      <para>
+       If this error re-packages an error pushed by                          
+       another package, place the array returned from                          
+       <link linkend="core.pear.pear-errorstack.pop">
+        <function>pop</function>
+       </link>
+       in this parameter
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$backtrace</parameter>
+     </term>
+     <listitem>
+      <para>
+       Protected parameter: use this to pass in the                          
+       <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.lookup;debug_backtrace">debug_backtrace</link>
+       that should be used to find error context
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis> 
+   if compatibility mode is on, 
+   a PEAR_Error is also thrown.
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpush.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticpush.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

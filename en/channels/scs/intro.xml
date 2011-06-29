@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs.intro">
+ <info><title>Introduction to PEAR2_SimpleChannelServer</title></info>
+
+ <para>
+   The SimpleChannelServer package allows developers to create a 
+   PEAR compatible channel server to distribute packages. This channel server
+   is simple in that it only works with the local filesystem to create the 
+   necessary files for package distribution.
+ </para>
+ <note>
+  <para>
+   At a minimum, the ability to post files to the webspace where your channel
+   will be hosted.
+  </para>
+ </note>
+ <para>
+   It is possible to host your PEAR channel on webspace such as Google
+   Code, just use the webpath to the svn directory as your channel name,
+   and be sure to set the correct svn:mime-type on the xml files.
+ </para>
+ <para>
+    To get started, simply download the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/pear2/PEAR2_SimpleChannelServer/raw/master/pearscs.phar">pearscs.phar</link>
+    file to your local filesystem, and execute the <literal>pearscs.phar</literal> 
+    file with the <literal>create</literal> command. Then, build the rest of
+    the channel using the <link linkend="channels.scs.commands">other SimpleChannelServer commands</link>.
+ </para>
+</section>

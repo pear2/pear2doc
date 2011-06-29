@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.getstaticproperty">
+   <refnamediv>
+    <refname>PEAR::getStaticProperty()</refname>
+    <refpurpose>handle static properties &pdevrel;</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed <function>&amp;PEAR::getStaticProperty</function></funcdef>
+      <paramdef choice="req">
+       string <parameter>$class</parameter>
+      </paramdef>
+      <paramdef choice="req">
+       string <parameter>$var</parameter>
+      </paramdef>      
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.getstaticproperty.desc">
+    &title.desc;
+    <para>
+     If you have a class that's mostly/entirely static, and you need static
+     properties, you can use this method to simulate them. Eg. in your method(s)
+     do this: 
+     <programlisting role="php">
+     <![CDATA[
+     $myVar = &PEAR::getStaticProperty('myVar');
+     ]]>
+    </programlisting>
+     You <emphasis>must</emphasis> use a reference, or they will not persist!
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.getstaticproperty.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>string $class</parameter> - the name of your class, where you
+        call <function>getStaticProperty</function>
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>string $var</parameter> the variable to retrieve.
+       </para>
+      </listitem>            
+     </itemizedlist>
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.getstaticproperty.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> -
+     A reference to the variable. If not set, it will be 
+     auto initialised to &null;.
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear.getstaticproperty.example">
+    &title.example;
+    <example><info><title>Using <function>getStaticProperty</function></title></info>
+     
+     <programlisting role="php">
+      <![CDATA[
+<?php
+
+require_once 'PEAR.php';
+
+class myClass {
+
+function setValue( $set) 
+{
+ $foo = &PEAR::getStaticProperty('myClass', "foo");
+ $foo = $set;
+}
+
+function view()
+{
+ print PEAR::getStaticProperty('myClass', "foo");
+}
+
+}
+
+myClass::setValue('value = foo');
+myClass::view();
+?>      
+      ]]>
+     </programlisting>
+     <para>
+      This would print
+     </para>       
+     <programlisting>
+      value = foo
+     </programlisting>
+    </example>
+   </refsection>         
+  </refentry>

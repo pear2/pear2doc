@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm"><info><title>PEAR Installer classes</title></info>
+
+ 
+
+ <para>
+  The PEAR Installer classes provides an API for
+  the administration and management
+  of PEAR Packages.
+ </para>
+ <warning>
+  <para>
+   Documentation is not fully up-to-date with PEAR version 1.4.0.
+  </para>
+ </warning>
+
+
+ &core.ppm.pear-autoloader;
+ &core.ppm.pear-builder;
+ &core.ppm.pear-channelfile;
+ &core.ppm.pear-command;
+ &core.ppm.pear-common;
+ &core.ppm.pear-config;
+ &core.ppm.pear-dependency;
+ &core.ppm.pear-dependency2;
+ &core.ppm.pear-dependencydb;
+ &core.ppm.pear-frontend;
+ &core.ppm.pear-installer;
+ &core.ppm.pear-packagefile;
+ &core.ppm.pear-packager;
+ &core.ppm.pear-registry;
+ &core.ppm.pear-remote;
+ &core.ppm.pear-rest;
+ &core.ppm.pear-runtest;
+ &core.ppm.pear-validate;
+ &core.ppm.pear-xmlparser;
+
+</chapter>

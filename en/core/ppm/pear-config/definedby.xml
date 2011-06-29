@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.definedby">
+   <refnamediv>
+    <refname><function>PEAR_Config::definedBy</function></refname>
+    <refpurpose>Tells what config layer that gets to define a key</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string       <function>PEAR_Config::definedBy</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.definedby.desc">
+     &title.desc;
+     <para>Tells what config layer that gets to define a key.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.definedby.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.definedby.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - the config layer, or an empty string if not found
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.definedby.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

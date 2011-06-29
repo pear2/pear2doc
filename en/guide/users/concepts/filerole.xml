@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="guide.users.concepts.filerole">
+ <info><title>File roles</title></info>
+
+ <para>
+  Pyrus and The PEAR Installer categorize file types by their <literal>role</literal>.
+  A file role is equivalent to the web's concept of <literal>MIME type</literal>,
+  a concept that allows web browsers to determine how a file should be displayed
+  or processed.  A file role allows Pyrus and the PEAR Installer to determine
+  where a file should be installed, the conditions under which the role can be
+  used, and even whether the file should be installed at all.  A file may only
+  have one role in a package.
+ </para>
+ <para>
+  Generally speaking, each file role has its own installation location.  For
+  example, <literal>php</literal> files (files whose file role is
+  <literal>php</literal>) are installed into the location specified by the
+  <literal>php_dir</literal> configuration variable, <literal>data</literal>
+  files (files whose file role is <literal>data</literal>) are installed into
+  the location specified by the <literal>data_dir</literal> configuration
+  variable.  Some file roles do not have a direct mapping of role name
+  to configuration variable, such as Pyrus's <literal>customcommand</literal>
+  file role.  This file role is installed into the location specified by the
+  <literal>data_dir</literal> configuration variable.
+ </para>
+ <para>
+  File roles also control how package.xml attributes are handled.  The
+  <literal>php</literal> file role installs files into the exact
+  relative path as specified in package.xml.  The <literal>data</literal>
+  file role always installs files into a subdirectory containing the package name
+  for PEAR packages, and both the channel and package name for packages designed
+  to be installed by Pyrus.
+ </para>
+ <para>
+  Here is an example of the same file path in package.mxl as <literal>php</literal>
+  role and as <literal>data</literal> role.  All examples assume this is a
+  package named <literal>PackageName</literal> in the <literal>pear2.php.net</literal>
+  channel.
+ </para>
+ <programlisting role="xml">
+  <![CDATA[
+  <contents>
+   <dir name="\">
+    <dir name="base">
+     <file name="foo" role="php">
+    </dir>
+   </dir>
+  </contents>
+  ]]>
+ </programlisting>
+ <para>
+  This installs as <literal>base/foo</literal> in the location specified
+  by <literal>php_dir</literal>.
+ </para>
+ <programlisting role="xml">
+  <![CDATA[
+  <contents>
+   <dir name="\">
+    <dir name="base">
+     <file name="foo" role="data">
+    </dir>
+   </dir>
+  </contents>
+  ]]>
+ </programlisting>
+ <para>
+  For PEAR Installer packages, this installs as <literal>PackageName/base/foo</literal>
+  in the location specified by <literal>php_dir</literal>.  For Pyrus packages,
+  this installs as <literal>pear2.php.net/PackageName/base/foo</literal>.
+ </para>
+ <section xml:id="guide.users.concepts.filerole.baseinstalldir">
+  <title>How the baseinstalldir attribute is handled by different file roles</title>
+  <para>
+   The <literal>baseinstalldir</literal> (base installation directory) attribute
+   is a tool that can be used to install a file into a different directory than
+   its location in the source repository.
+  </para>
+  <para>
+   As an example, the path in the subversion repository to the file
+   <literal>PEAR2\Foo.php</literal> is at
+   <literal>Foo.php</literal>.  To inform the installer to install this
+   package into the <literal>PEAR2</literal> directory, we would use a baseinstalldir
+   attribute:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+   <contents>
+    <dir name="\">
+     <file name="Foo.php" role="php" baseinstalldir="PEAR2">
+    </dir>
+   </contents>
+   ]]>
+  </programlisting>
+  <para>
+   The attribute can also be used on <literal>&lt;dir&gt;</literal> tags to apply
+   the base installation directory to all files within the directory:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+   <contents>
+    <dir name="\" baseinstalldir="PEAR2">
+     <file name="Foo.php" role="php">
+    </dir>
+   </contents>
+   ]]>
+  </programlisting>
+  <para>
+   The <literal>baseinstalldir</literal> role can also be used to inform
+   the PEAR Installer or Pyrus to strip all relative paths by using
+   <literal>/</literal> as the base installation directory.  Here is an
+   example from the PEAR package:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+   <dir name="scripts" baseinstalldir="/">
+    <file name="pear.bat" role="script"/>
+   ]]>
+  </programlisting>
+  <para>
+   This file would be installed as <literal>scripts/pear.bat</literal>, but
+   the <literal>baseinstalldir</literal> attribute of <literal>/</literal>
+   informs the installer to instead install it to <literal>pear.bat</literal>.
+  </para>
+  <para>
+   Each file role reacts differently to the <literal>baseinstalldir</literal>
+   attribute.  Packages designed to be installed by the PEAR Installer also
+   handle them differently from packages designed for installation by Pyrus.
+   The <literal>php</literal>, <literal>script</literal> and <literal>www</literal>
+   file roles react the
+   same way as documented above.  In packages designed for the PEAR Installer,
+   the other file roles do not honor the
+   <literal>baseinstalldir</literal> attribute, meaning they ignore it.  For
+   example:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+   <contents>
+    <dir name="\" baseinstalldir="PEAR2">
+     <file name="Foo.dat" role="data">
+    </dir>
+   </contents>
+   ]]>
+  </programlisting>
+  <para>
+   installs <literal>Foo.dat</literal> into the <literal>PackageName/Foo.dat</literal>
+   directory.  The same XML in a package designed for installation by Pyrus
+   will install the file into <literal>pear2.php.net/PackageName/PEAR2/Foo.dat</literal>.
+  </para>
+ </section>
+</section>

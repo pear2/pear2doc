@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.c-categoriesxml"><info><title>categories.xml</title></info>
+ 
+ <synopsis>List of all categories</synopsis>
+
+ <para>
+  Provides a names and links to for all categories known on the server.
+  Links are URL-encoded.
+ </para>
+
+ <note>
+  <para>
+   Unlike all other files, the channel name is wrapped in a
+   <literal>&lt;ch&gt;</literal> instead of a plain
+   <literal>&lt;c&gt;</literal> tag.
+  </para>
+ </note>
+
+
+ <section xml:id="core.rest.fileformats.c-categoriesxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>c/categories.xml</filename>
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.c-categoriesxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<a xmlns="http://pear.php.net/dtd/rest.allcategories"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.allcategories
+                       http://pear.php.net/dtd/rest.allcategories.xsd"
+>
+ <ch>pear.example.org</ch>
+ <c xlink:href="/rest/c/Tools/info.xml">Tools</c>
+ <c xlink:href="/rest/c/Garbage%2Band%2BStuff/info.xml">Garbage and Stuff</c>
+</a>]]></programlisting>
+ </section>
+
+</section>

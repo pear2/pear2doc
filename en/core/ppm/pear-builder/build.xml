@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-builder.build">
+   <refnamediv>
+    <refname><function>PEAR_Builder::build</function></refname>
+    <refpurpose>Build an extension from source</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/builder.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Builder::build</function></funcdef>
+      <paramdef choice="req">string <parameter>$descfile</parameter></paramdef>
+      <paramdef choice="opt">mixed <parameter> $callback</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-builder.build.desc">
+     &title.desc;
+     <para>Build an extension from source.  Runs <command>phpize</command> in the source directory, 
+     but compiles in a temporary directory (/var/tmp/pear-build-USER/PACKAGE-VERSION).</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-builder.build.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$descfile</parameter>
+       </term>      
+       <listitem>
+        <para>
+         path to XML package description file
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>$callback</parameter>
+       </term>      
+       <listitem>
+        <para>
+         callback function used to report output
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-builder.build.return">
+    &title.returns;
+    <para>
+      <parameter>array</parameter> -
+      an array of associative arrays with built files, format: 
+      <programlisting role="php">
+      <![CDATA[
+      array( array( 'file' => '/path/to/ext.so',
+                    'php_api' => YYYYMMDD,
+                    'zend_mod_api' => YYYYMMDD,
+                    'zend_ext_api' =>; YYYYMMDD ),
+       ... )
+      ]]>
+      </programlisting>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-builder.build.see">
+    &title.see;
+    <para>
+      PEAR_Common::infoFromDescriptionFile
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-builder.build.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-builder.build.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

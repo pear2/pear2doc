@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.push">
+ <refnamediv>
+  <refname><function>PEAR_ErrorStack::push</function></refname>
+  <refpurpose>Add an error to the stack</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>PEAR_Error|array <function>PEAR_ErrorStack::push</function></funcdef>
+    <paramdef choice="req">
+     &type.int; 
+     <parameter>$code</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string; 
+     <parameter> $level = 'error'</parameter>
+    </paramdef>
+    <paramdef choice="opt"> 
+     &type.array; 
+     <parameter> $params = array()</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string; 
+     <parameter> $msg</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.array; 
+     <parameter> $repackage</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.array; 
+     <parameter> $backtrace</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.push.bcwarning"><info><title>Backwards Compatibility Warning</title></info>
+  
+  <warning>
+   <para>
+    As of PEAR 1.3.2, 
+    PEAR_ErrorStack no longer instantiates 
+    and returns an Exception object in PHP5.
+    
+    Code that relies upon this behavior will break.
+   </para>
+  </warning>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.push.desc">
+  &title.desc;
+  <para>
+   If the message generator exists, 
+   it is called with 2 parameters. 
+   <itemizedlist>
+    <listitem>
+     <para>the current Error Stack object</para>
+    </listitem>
+    <listitem>
+     <para>
+      an array that is in the same format as an error.  
+       
+      Available indices are 
+      &apos;code&apos;, &apos;package&apos;, 
+      &apos;time&apos;, &apos;params&apos;,
+      &apos;level&apos;, and &apos;context&apos;
+     </para>
+    </listitem>
+   </itemizedlist>
+   Next, if the error should contain context information, 
+   this is  handled by the context
+   grabbing method.  
+    
+   Finally, the error is pushed onto the proper error stack
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.push.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$code</parameter>
+     </term>
+     <listitem>
+      <para>
+       Package-specific error code
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$level</parameter>
+     </term>
+     <listitem>
+      <para>
+       Error level.  This is NOT spell-checked
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>
+       associative array of error parameters
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$msg</parameter>
+     </term>
+     <listitem>
+      <para>
+       Error message, 
+       or a portion of it if the message is to be generated
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$repackage</parameter>
+     </term>
+     <listitem>
+      <para>
+       If this error re-packages an error pushed by                          
+       another package, 
+       place the array returned from 
+       <link linkend="core.pear.pear-errorstack.pop"><function>pop</function></link>
+       in this parameter
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$backtrace</parameter>
+     </term>
+     <listitem>
+      <para>
+       Protected parameter: 
+       use this to pass in the                          
+       <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.lookup;debug_backtrace">&url.php.lookup;debug_backtrace</link>
+       that should be used to 
+       find error context.
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.push.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   if compatibility mode is on, 
+   a PEAR_Error is also thrown.  
+   
+   If the class Exception exists, 
+   then one is returned to allow code like:
+   <programlisting role="php-highlighted">
+&lt;?php
+1      throw ($stack-&gt;<link linkend="core.pear.pear-errorstack.push">push</link>(MY_ERROR_CODE, &apos;error&apos;, array(&apos;username&apos; =&gt; &apos;grob&apos;)));
+?&gt;
+   </programlisting>
+  </para>
+  <para>
+   The errorData property of the exception class 
+   will be set to the array 
+   that would normally be returned.  
+   
+   If a 
+   <link linkend="core.pear.pear-error"><classname>PEAR_Error</classname></link> 
+   is returned, the userinfo property is set to the array
+  </para>
+  <para>Otherwise, an array is returned in this format:
+   <programlisting role="php-highlighted">
+&lt;?php
+1      array(
+2         &apos;code&apos; =&gt; $code,
+3         &apos;params&apos; =&gt; $params,
+4         &apos;package&apos; =&gt; $this-&gt;_package,
+5         &apos;level&apos; =&gt; $level,
+6         &apos;time&apos; =&gt; <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.lookup;time">time</link>(),
+7         &apos;context&apos; =&gt; $context,
+8         &apos;message&apos; =&gt; $msg,
+9      //[&apos;repackage&apos; =&gt; $err] repackaged error array
+10     );
+?&gt;
+   </programlisting>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.push.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.push.note">
+  &title.note;
+  &note.notstatic;
+ </refsection>
+</refentry>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="guide.users.concepts.version">
+ <info><title>Package version</title></info>
+
+ <para>
+  Versioning and stability are separate entities for
+  <link linkend="guide.users.concepts.package">packages</link>.
+  The version of a package is a numeric string like <literal>1.2.3</literal> that
+  is incremented every time a new version of the package is released.
+  The stability of a package determines how likely the package is to contain bugs
+  or to have changes to its <link linkend="guide.users.concepts.api">API</link>.
+ </para>
+ <para>
+  In addition, PEAR makes a distinction between the
+  <link linkend="guide.users.concepts.api">API</link> version and the package
+  version.
+<!-- disabling this part until it is approved by the man
+  This allows fine-grained control for Pyrus users,
+  who can request even finer control over the API version to be installed
+  by setting the <literal>paranoid</literal> setting higher than the default value.
+  This is documented <link linkend="guide.users.concepts.paranoid">here</link>. -->
+ </para>
+ <section xml:id="guide.users.concepts.version.guidelines">
+  <title>Versioning guidelines</title>
+  <para>
+   There are a few conventions that should be followed when deciding which version
+   number or stability to use for your package.  Version numbers should always
+   contain three decimals such as <literal>1.2.3</literal>.  This is because of
+   the way that PHP's <function>version_compare</function> function calculates
+   the difference between versions:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+ <?php
+ var_dump(version_compare("1.0", "1.0.0")); // int(-1)
+ ?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The example above shows that in fact version <literal>1.0</literal> is
+   considered to be a different version from version <literal>1.0.0</literal>,
+   a distinction that is confusing at best for users.  Use of 3 decimals for
+   every version will ensure that both your users and PHP will not be confused
+   by which of two versions is the same or newer.
+  </para>
+  <para>
+   Package versions can be abstractly referred to as <literal>X.Y.Z</literal>.
+   For version <literal>1.2.3</literal>, <literal>X</literal> is <literal>1</literal>,
+   <literal>Y</literal> is <literal>2</literal> and <literal>Z</literal> is
+   <literal>3</literal>.
+  </para>
+  <para>
+   Generally speaking, it is best if <literal>X</literal> is used to refer to
+   major API changes, sweeping addition of new features, or any break of
+   backwards compatibility.  The <literal>Y</literal> component should be reserved
+   for small to large feature additions, but should never be used for
+   breaks of backwards compatibility.  The <literal>Z</literal> component should
+   only be used for bugfixes.
+  </para>
+  <para>
+   These three questions can be used to determine how to increase the version
+   number:
+   <orderedlist>
+    <listitem>
+     <simpara>
+      Breaking backwards compatibility? Yes = increment <literal>X</literal>,
+      set <literal>Y</literal> = <literal>Z</literal> = 0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      Adding new features? Yes = increment <literal>Y</literal>, set
+      <literal>Z</literal> = 0
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      Fixing bugs? Yes = increment <literal>Z</literal>
+     </simpara>
+    </listitem>
+   </orderedlist>
+  </para>
+  <para>
+   Here is a typical life cycle for a package:
+   <table>
+    <title>A version life cycle for a package</title>
+    <tgroup cols="3">
+     <thead>
+      <row>
+       <entry>Release Notes</entry>
+       <entry>Release Stability</entry>
+       <entry>API Stability</entry>
+       <entry>Release Version</entry>
+       <entry>API Version</entry>
+      </row>
+     </thead>
+
+     <tbody>
+      <row>
+       <entry>Initial release</entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>0.1.0</literal></entry>
+       <entry><literal>0.1.0</literal></entry>
+      </row>
+      <row>
+       <entry>Bugs fixed</entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>0.1.1</literal></entry>
+       <entry><literal>0.1.0</literal></entry>
+      </row>
+      <row>
+       <entry>More bugs fixed</entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>0.1.2</literal></entry>
+       <entry><literal>0.1.0</literal></entry>
+      </row>
+      <row>
+       <entry>API changed, more bugs fixed</entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>0.2.0</literal></entry>
+       <entry><literal>0.2.0</literal></entry>
+      </row>
+      <row>
+       <entry>API changed, more bugs fixed</entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>devel</literal> or <literal>alpha</literal></entry>
+       <entry><literal>0.3.0</literal></entry>
+       <entry><literal>0.3.0</literal></entry>
+      </row>
+      <row>
+       <entry>API changed, documentation started, tests expanding</entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>0.4.0</literal></entry>
+       <entry><literal>0.4.0</literal></entry>
+      </row>
+      <row>
+       <entry>API stabilizing, documentation nearly finished, tests expanding</entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>0.5.0</literal></entry>
+       <entry><literal>0.4.1</literal></entry>
+      </row>
+      <row>
+       <entry>API stabilizing, code stabilizing, documentation nearly finished, tests expanding</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>0.5.1</literal></entry>
+       <entry><literal>0.4.1</literal></entry>
+      </row>
+      <row>
+       <entry>API problem fixed, code stabilizing, documentation nearly finished, tests expanding</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>0.6.0</literal></entry>
+       <entry><literal>0.5.0</literal></entry>
+      </row>
+      <row>
+       <entry>API stabilized, code stabilizing, documentation nearly finished, tests expanding</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>0.6.1</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>API stabilized, code stabilizing, documentation finished, tests expanding</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.0.0RC1</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>API stabilized, code stabilizing, documentation finished, tests full coverage</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.0.0RC2</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>code ready for use in production</entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>bugs fixed</entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.0.1</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>bugs fixed</entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.0.2</literal></entry>
+       <entry><literal>1.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>new features added, bugs fixed</entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.1.0</literal></entry>
+       <entry><literal>1.1.0</literal></entry>
+      </row>
+      <row>
+       <entry>bugs fixed, package enters maintenance mode to develop next generation</entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>1.1.1</literal></entry>
+       <entry><literal>1.1.0</literal></entry>
+      </row>
+<!-- disabling this part until it is actually approved by the man
+      <row>
+       <entry>new features added, and backwards compatibility broken (PEAR2 only)</entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>2.0.0a1</literal></entry>
+       <entry><literal>2.0.0a1</literal></entry>
+      </row>
+      <row>
+       <entry>bugs fixed (PEAR2 only)</entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>2.0.0a2</literal></entry>
+       <entry><literal>2.0.0a1</literal></entry>
+      </row>
+      <row>
+       <entry>bugs fixed, API stabilizing (PEAR2 only)</entry>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>2.0.0a3</literal></entry>
+       <entry><literal>2.0.0b1</literal></entry>
+      </row>
+      <row>
+       <entry>bugs fixed, API stable (PEAR2 only)</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>2.0.0b1</literal></entry>
+       <entry><literal>2.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>code stabilizing, API stable (PEAR2 only)</entry>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>2.0.0RC1</literal></entry>
+       <entry><literal>2.0.0</literal></entry>
+      </row>
+      <row>
+       <entry>ready for production use (PEAR2 only)</entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>2.0.0</literal></entry>
+       <entry><literal>2.0.0</literal></entry>
+      </row>-->
+     </tbody>
+    </tgroup>
+   </table>
+  </para>
+  <para>
+   Note that the PEAR coding standards require packages to be renamed when they
+   break backwards compatibility.  Thus, a PEAR package can never reach
+   version <literal>2.0.0</literal>.
+  </para>
+ </section>
+</section>

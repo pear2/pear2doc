@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.geterrors">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::getErrors</function></refname>
+    <refpurpose>Retrieve all errors since last purge</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array      <function>PEAR_ErrorStack::getErrors</function></funcdef>
+      <paramdef choice="opt">boolean <parameter> $purge</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+      <paramdef choice="opt">string|false <parameter> $level</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.geterrors.desc">
+     &title.desc;
+     <para>Retrieve all errors since last purge, or filter all errors and only return errors of a particular error level,
+      leaving the rest on the stack.
+     </para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrors.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.bool;
+        <parameter>$purge</parameter>
+       </term>
+       <listitem>
+        <para>
+         set in order to empty the error stack
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$level</parameter>
+       </term>
+       <listitem>
+        <para>
+         Level name to check for a particular severity. Use this to determine whether only a particular
+         class of errors has occurred, such as whether any warnings have occurred (errors will be ignored)
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrors.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrors.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.toarray">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::toArray</function>
+  </refname>
+  <refpurpose>return the channel representation in array format</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_ChannelFile::toArray</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.toarray.desc">
+  &title.desc;
+  <para>
+   This function should not be used to directly manipulate data, but instead as a means
+   to serialize and transport the data in a more efficient manner than as the original xml.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.toarray.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.toarray.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

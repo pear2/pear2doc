@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.downloadhttp">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::downloadHttp</function>
+  </refname>
+  <refpurpose>
+   Efficiently Download a file through HTTP.  Returns downloaded file as a
+   string in-memory  This is best used for small files
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string|array
+     <function>PEAR_REST::downloadHttp</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     false|string|array
+     <parameter>
+      $lastmodified = null
+     </parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     false|array
+     <parameter>
+      $accept = false
+     </parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$save_dir</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.downloadhttp.desc">
+  &title.desc;
+  <para>If an HTTP proxy has been configured (http_proxy PEAR_Config  setting), the proxy will be used.</para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.downloadhttp.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>the URL to download</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &false;|&type.string;|&type.array;
+      <parameter>$lastmodified</parameter>
+     </term>
+     <listitem>
+      <para>
+       header values to check against for caching use
+       &false; to return the header values from this download
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &false;|&type.array;
+      <parameter>$accept</parameter>
+     </term>
+     <listitem>
+      <para>
+       Accept headers to send.  This should be a list of MIME types like
+       <literal>text/xml</literal>, <literal>frog/legs</literal>, etc.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$save_dir</parameter>
+     </term>
+     <listitem>
+      <para>directory to save file in</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.downloadhttp.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   Returns the contents of the downloaded file or a PEAR                        error on failure.  If the error is caused by                        socket-related errors, the error object will                        have the fsockopen error code available through                        getCode().  If caching is requested, then return the header                        values.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.downloadhttp.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.downloadhttp.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

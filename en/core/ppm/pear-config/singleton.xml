@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.singleton">
+   <refnamediv>
+    <refname><function>PEAR_Config::singleton</function></refname>
+    <refpurpose>Return a reference of a PEAR_Config object</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>object &amp;<function>PEAR_Config::singleton</function></funcdef>
+      <paramdef choice="opt">string <parameter>$user_file = ''</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$system_file = ''</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.singleton.desc">
+     &title.desc;
+     <para>
+      If you want to keep only one instance of 
+      this class in use, this method will give you 
+      a reference to the last created 
+      <classname>PEAR_Config</classname> object if 
+      one exists, or create a new object.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.singleton.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$user_file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file to read user-defined options from
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$system_file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file to read system-wide defaults from
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.singleton.return">
+    &title.returns;
+
+    <para>
+     <parameter>object</parameter> -
+     an existing or new <classname>PEAR_Config</classname> instance
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.singleton.see">
+    &title.see;
+    <para>
+     <link linkend="core.ppm.pear-config.pear-config">
+      <function>PEAR_Config::PEAR_Config</function>
+     </link> 
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.singleton.note">
+    &title.note;
+    &note.shouldstatic;
+   </refsection>
+</refentry>

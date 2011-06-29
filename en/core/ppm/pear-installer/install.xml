@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-installer.install">
+   <refnamediv>
+    <refname><function>PEAR_Installer::install</function></refname>
+    <refpurpose>Installs package files</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Installer.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Installer::install</function></funcdef>
+      <paramdef choice="req">string <parameter>$pkgfile</parameter></paramdef>
+      <paramdef choice="opt">array <parameter>$options = array()</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-installer.install.desc">
+     &title.desc;
+     <para>Installs the files within the package file specified.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-installer.install.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$pkgfile</parameter>
+       </term>      
+       <listitem>
+        <para>
+         path to the package file
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$options</parameter>
+       </term>      
+       <listitem>
+        <para>
+         installating options, to enable an option
+         use the option name as array key and &true; or
+         <parameter>1</parameter> as value.
+         <itemizedlist>
+          <listitem>
+           <para>
+            <parameter>$options['force'] = 1</parameter> -
+            force installation
+           </para>
+          </listitem>                  
+          <listitem>
+           <para>
+            <parameter>$options['register-only'] = 1</parameter> -
+            update registry but don't install files
+           </para>
+          </listitem>           
+          <listitem>
+           <para>
+            <parameter>$options['upgrade'] = 1</parameter> -
+            upgrade existing install 
+           </para>
+          </listitem>           
+          <listitem>
+           <para>
+            <parameter>$options['soft'] = 1</parameter> -
+            fail silently
+           </para>
+          </listitem>                     
+         </itemizedlist>         
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-installer.install.return">
+    &title.returns;
+    <para>
+     <parameter>array</parameter> package info if successful
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-installer.install.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-installer.install.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validate">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validate</function>
+  </refname>
+  <refpurpose>validate</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::validate</function>
+    </funcdef>
+    <paramdef choice="opt">
+     int
+     <parameter>$state</parameter>
+     <initializer>null</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validate.desc">
+  &title.desc;
+  <para>
+   Validate the package.xml passed into
+   <link linkend="core.ppm.pear-validate.setpackagefile"><function>setPackageFile</function></link>.
+   The parameter passed in is the installer state that should be used, and is one of
+   <literal>PEAR_VALIDATE_INSTALLING</literal>, <literal>PEAR_VALIDATE_DOWNLOADING</literal>,
+   <literal>PEAR_VALIDATE_NORMAL</literal>, <literal>PEAR_VALIDATE_UNINSTALLING</literal>,
+   or <literal>PEAR_VALIDATE_PACKAGING</literal>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.validate.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$state</parameter>
+     </term>
+     <listitem>
+      <para>one of the PEAR_VALIDATE_* constants</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validate.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validate.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.raiseerror">
+   <refnamediv>
+    <refname>PEAR::raiseError()</refname>
+    <refpurpose>Create a new &class.pear-error; object and optionally specify error-handling instructions</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>PEAR_Error <function>PEAR::raiseError</function></funcdef>
+      <paramdef choice="req">
+       mixed <parameter>$message</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       int <parameter>$code</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       int <parameter>$mode</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       int|array <parameter>$options</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       mixed <parameter>$userinfo</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       string <parameter>$error_class</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       boolean <parameter>$skipmsg</parameter>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.raiseerror.desc">
+    &title.desc;
+    <para>
+     <function>raiseError</function>        
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.raiseerror.parameter">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$message</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error message string or PEAR_Error object.
+         The default message is <literal>unknown error</literal>
+         if left blank.
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.int;
+        <parameter>$code</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error code.  It is recommended to use an error code for even the simplest
+         errors, in order to simplify error handling and processing.
+        </para>
+       </listitem>
+      </varlistentry>      
+      <varlistentry>
+       <term>
+        &type.int;
+        <parameter>$mode</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error mode.  This is one of <constant>PEAR_ERROR_RETURN</constant>,
+         <constant>PEAR_ERROR_PRINT</constant>,
+         <constant>PEAR_ERROR_TRIGGER</constant>,
+         <constant>PEAR_ERROR_DIE</constant>,
+         <constant>PEAR_ERROR_CALLBACK</constant>, or
+         <constant>PEAR_ERROR_EXCEPTION</constant>.  See <link linkend="core.pear.pear.seterrorhandling"><function>setErrorHandling</function></link>
+         for detailed information and examples of the meaning of these constants.
+        </para>
+       </listitem>
+      </varlistentry>      
+      <varlistentry>
+       <term>
+        &type.mixed;
+        <parameter>$options</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error options.  This depends on the value of <parameter>$mode</parameter>,
+         and is documented in <link linkend="core.pear.pear.seterrorhandling"><function>setErrorHandling</function></link>.
+        </para>
+       </listitem>
+      </varlistentry>      
+      <varlistentry>
+       <term>
+        &type.mixed;
+        <parameter>$userinfo</parameter>
+       </term>
+       <listitem>
+        <para>
+         Optional user information.  This can be used to store any error-specific
+         information, and has an unspecified format.
+        </para>
+       </listitem>
+      </varlistentry>      
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$error_class</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error class name to use as the error object.  The default error class
+         is &class.pear-error;.  Use this parameter to specify another class
+         to use, such as a custom class extending &class.pear-error;
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.bool;
+        <parameter>$skipmsg</parameter>
+       </term>
+       <listitem>
+        <para>
+         Use this parameter if you are using a custom class that does not
+         accept an error message in its constructor.  <emphasis>Never</emphasis>
+         use this parameter without the <parameter>$error_class</parameter>
+         parameter - it will not work.
+        </para>
+       </listitem>
+      </varlistentry>      
+     </variablelist>
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.raiseerror.return">
+    &title.returns;
+    <para>
+     A &class.pear-error; object is returned, unless PEAR_ERROR_DIE terminates
+     execution or a PEAR_ERROR_EXCEPTION is never handled.
+    </para>
+   </refsection>      
+  </refentry>

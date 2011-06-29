@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.-log">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::_log</function></refname>
+    <refpurpose>Log an error using PEAR::Log</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void      <function>PEAR_ErrorStack::_log</function></funcdef>
+      <paramdef choice="req">array <parameter>$err</parameter></paramdef>
+      <paramdef choice="opt">array <parameter> $levels = array(
+                'exception' =&gt; PEAR_LOG_CRIT,
+                'alert' =&gt; PEAR_LOG_ALERT,
+                'critical' =&gt; PEAR_LOG_CRIT,
+                'error' =&gt; PEAR_LOG_ERR,
+                'warning' =&gt; PEAR_LOG_WARNING,
+                'notice' =&gt; PEAR_LOG_NOTICE,
+                'info' =&gt; PEAR_LOG_INFO,
+                'debug' =&gt; PEAR_LOG_DEBUG)</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.-log.desc">
+     &title.desc;
+     <para>This is a protected function, and should only be called by child classes that extend <classname>PEAR_ErrorStack</classname></para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.-log.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>$err</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error array
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>$levels</parameter>
+       </term>
+       <listitem>
+        <para>
+         Error level =&gt; Log constant map
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.-log.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.-log.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

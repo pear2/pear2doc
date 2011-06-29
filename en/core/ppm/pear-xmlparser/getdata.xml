@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-xmlparser.getdata">
+ <refnamediv>
+  <refname>
+   <function>PEAR_XMLParser::getData</function>
+  </refname>
+  <refpurpose>getData</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/XMLParser.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_XMLParser::getData</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-xmlparser.getdata.desc">
+  &title.desc;
+  <para>
+   Return the array representation of XML as parsed by
+   <link linkend="core.ppm.pear-xmlparser.parse"><function>parse</function></link>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-xmlparser.getdata.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-xmlparser.getdata.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

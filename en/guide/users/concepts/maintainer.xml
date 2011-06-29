@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="guide.users.concepts.maintainer">
+ <info><title>Maintainers and maintainer roles</title></info>
+
+ <para>
+  PEAR and PEAR2 calls its developers <literal>maintainers</literal>, and
+  classifies maintainers by their level of contribution to a package, or
+  their <literal>role</literal>.  In addition, each maintainer must choose a
+  handle which can be used to refer
+  to them in package.xml and in bug reports.  A handle is an alphanumeric
+  word with all lower-cased letters such as <literal>cellog</literal>
+  or <literal>tony2001</literal>.  If you are developing for pear.php.net,
+  pear2.php.net or pecl.php.net, this handle is the account name you use
+  to log into the website.
+ </para>
+ <para>
+  Developer roles are <literal>lead</literal>, <literal>developer</literal>,
+  <literal>contributor</literal> and <literal>helper</literal>.  Only lead
+  maintainers have the permission to release a package.  Both lead and
+  developer maintainers may create and modify package roadmaps, and
+  all developers can directly log into pear.php.net and change the status of
+  bugs for the packages that they maintain.
+ </para>
+ <para>
+  For channels outside of pear.php.net, pecl.php.net, and pear2.php.net, these
+  handles are still required, and have no special meaning beyond what the channel
+  defines them to be.  However, both the Pyrus simple channel server and other
+  external channel server implementations require the lead developer of a
+  package to perform releases.
+ </para>
+</section>

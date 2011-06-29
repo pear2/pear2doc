@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.addpackage">
+   <refnamediv>
+    <refname><function>PEAR_Registry::addPackage</function></refname>
+    <refpurpose>Registers a package to the registry</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>boolean <function>PEAR_Registry::addPackage</function></funcdef>
+      <paramdef choice="req">string <parameter>$package</parameter></paramdef>
+      <paramdef choice="req">array <parameter>$info</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.addpackage.desc">
+     &title.desc;
+     <para>
+      Adds a Package entry to the registry
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.addpackage.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$package</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Package name        
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$info</parameter>
+       </term>      
+       <listitem>
+        <para>
+         additional information for the package entry
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.addpackage.return">
+    &title.returns;
+    <para>
+     <parameter>boolean</parameter> -
+     &false; if Package is already registered;
+     
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.addpackage.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.addpackage.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

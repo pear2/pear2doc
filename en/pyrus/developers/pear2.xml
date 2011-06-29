@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.developers.pear2">
+ <info><title>Using Pyrus to create PEAR2 packages</title></info>
+
+ <section xml:id="pyrus.developers.pear2.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Pyrus is particularly well-suited to maintaining a PEAR2 package, and can
+   be used to easily create a package.xml with the <link linkend="pyrus.commands.make">make</link>
+   command.  Once the requisite files are in place for this command, creating
+   a release is as simple as
+  </para>
+  <para>
+   <screen>php -dphar.readonly=0 pyrus.phar make -pphar,tar,tgz,zip</screen>
+  </para>
+  <para>
+   In addition, Pyrus provides a simple facility for creating a new PEAR2 package,
+   the <link linkend="pyrus.commands.generatepear2">generate-pear2</link>
+   command.  With this command, a skeleton directory and file setup is created
+   that can be immediately used to get started with a new package.
+  </para>
+ </section>
+</section>

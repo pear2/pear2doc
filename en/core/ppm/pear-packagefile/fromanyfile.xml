@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.fromanyfile">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::fromAnyFile</function>
+  </refname>
+  <refpurpose>Returns package information from different sources</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string&amp;
+     <function>PEAR_PackageFile::fromAnyFile</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$info</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     int
+     <parameter>$state</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.fromanyfile.desc">
+  &title.desc;
+  <para>This method is able to extract information about a package  from a .tgz archive or from a XML package definition file.</para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromanyfile.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$info</parameter>
+     </term>
+     <listitem>
+      <para>path to a file containing a package.xml (package archive or package.xml)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$state</parameter>
+     </term>
+     <listitem>
+      <para>package state (one of 
+      <link linkend="core.ppm.pear-validate.constants"><literal>PEAR_VALIDATE_*</literal></link> constants)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromanyfile.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromanyfile.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

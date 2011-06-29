@@ -1,0 +1,27 @@
+<!-- $Revision: 289284 $ -->
+
+ <!--
+   This file should only be present in the English doc tree. If you
+   copy it over to your translation tree you will be hunted down
+   relentlessly! You have been warned! :)
+ -->
+
+<!-- Editors displayed on the manual frontpage -->
+
+<!ENTITY frontpage.editors '
+  <authorgroup xml:id="editors" xmlns="http://docbook.org/ns/docbook">
+   <editor>
+    <personname>
+     <firstname>Daniel</firstname><surname>Convissor</surname></personname>
+   </editor>
+   <editor>
+    <personname>
+     <firstname>Martin</firstname><surname>Jansen</surname>
+    </personname>
+   </editor>
+   <editor>
+    <personname>
+     <firstname>Alexander</firstname><surname>Merz</surname>
+    </personname>
+   </editor>
+  </authorgroup>'>

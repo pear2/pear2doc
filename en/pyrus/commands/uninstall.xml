@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.uninstall">
+ <info><title>uninstall - remove a package</title></info>
+
+ <section xml:id="pyrus.commands.uninstall.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The uninstall command removes a package and accepts a list of installed
+   packages to remove as arguments.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.uninstall.plugins">
+  <title>--plugin</title>
+  <para>
+   Plugins (documented <link linkend="pyrus.plugins">here</link>) must be explicitly
+   uninstalled with the <literal>-p</literal> or <literal>--plugin</literal> option.
+   Plugins are installed into the location specified by the <literal>plugins_dir</literal>
+   configuration variable, which defaults to the same location that the user
+   configuration file is located (<literal>$HOME/.pear</literal> in unix,
+   <literal>&lt;My Documents&gt;\pear</literal> on windows).
+  </para>
+  <para>
+   <screen>php pyrus.phar uninstall -p PEAR2_Pyrus_Developer</screen>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.uninstall.force">
+  <title>--force</title>
+  <para>
+   The <literal>--force</literal> or <literal>-f</literal> option can be used
+   to force uninstallation if there are errors.  For instance, this can be used
+   to override problems in dependency validation.  As such, it should be used
+   sparingly if at all.  Better is to uninstall the packages tha depend on the
+   package being uninstalled.
+  </para>
+ </section>
+</section>

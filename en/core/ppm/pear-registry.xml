@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry"><info><title>PEAR_Registry</title></info>
+ 
+ <para>
+  Administration class used to maintain 
+  the installed package database.
+ </para>
+ <para>
+  Class Trees for <classname>PEAR_Registry</classname>
+ </para>
+ <para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     PEAR
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        PEAR_Registry
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </para>
+
+&core.ppm.pear-registry.pear-registry;
+&core.ppm.pear-registry.addpackage;
+&core.ppm.pear-registry.checkfilemap;
+&core.ppm.pear-registry.deletepackage;
+&core.ppm.pear-registry.listpackages;
+&core.ppm.pear-registry.packageexists;
+&core.ppm.pear-registry.packageinfo;
+&core.ppm.pear-registry.rebuilddepsfile;
+&core.ppm.pear-registry.rebuildfilemap;
+&core.ppm.pear-registry.removepackagedep;
+&core.ppm.pear-registry.setpackagedep;
+&core.ppm.pear-registry.updatepackage;
+
+</section>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.developers">
+ <refnamediv>
+  <refname>&lt;lead&gt;, &lt;developer&gt;, &lt;contributor&gt;, and &lt;helper&gt;</refname>
+  <refpurpose>Developer documentation for a release</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.developers.purpose"><info><title>Documenting who develops a package</title></info> 
+  
+  <para>
+   In package.xml 1.0, a developer was documented using the &lt;maintainer&gt; tag inside of
+   a redundant &lt;maintainers&gt; container tag.  This has been simplified in package.xml 2.0
+   both to slightly speed parsing and to make validation of the xml simpler.  Now, the contents
+   of the &lt;role&gt; tag has been extracted as 4 tags to describe the maintainers of a package.
+  </para>
+  <para>
+   In addition, a new internal tag &lt;active&gt; has been added, so that you can honor retired
+   developers' work without having to remove them altogether from package.xml.
+  </para>
+  <para>
+   <emphasis>WARNING:</emphasis> tag order is important.  List leads followed by developers followed
+   by contributors and finally helpers.
+  </para>
+ </refsection>
+ </refentry>

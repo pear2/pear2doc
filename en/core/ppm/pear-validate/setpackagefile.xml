@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.setpackagefile">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::setPackageFile</function>
+  </refname>
+  <refpurpose>setPackageFile</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::setPackageFile</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_PackageFile_v1|PEAR_PackageFile_v2
+     <parameter>&amp;$pf</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.setpackagefile.desc">
+  &title.desc;
+  <para>
+   Sets the packagefile object that will be used to retrieve data for validation.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.setpackagefile.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>PEAR_PackageFile_v1|PEAR_PackageFile_v2</type>
+      <parameter>&amp;$pf</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.setpackagefile.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.setpackagefile.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

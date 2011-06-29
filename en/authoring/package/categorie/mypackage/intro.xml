@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="packages.categorie.mypackage.intro">
+ <refnamediv>
+  <refname>Introduction</refname>
+  <refpurpose>
+   How to use My_Package
+  </refpurpose>
+ </refnamediv>
+
+ <refsection xml:id="packages.categorie.mypackage.intro.contrib"><info><title>Contributors</title></info>
+  
+  <para>
+   <itemizedlist>
+    <listitem><simpara>Alexander Merz</simpara></listitem>
+   </itemizedlist>
+  </para>
+ </refsection>
+
+ <refsection xml:id="packages.categorie.mypackage.intro.desc"><info><title>Description</title></info>
+  
+  <para>
+   <classname>My_Package</classname> provides a lot of non-usefull
+   functions... Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+  </para>
+
+  <para>
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+   Bla bla Bla bla Bla bla Bla bla Bla bla Bla bla
+  </para>
+ </refsection>
+
+</refentry>

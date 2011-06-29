@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2"><info><title>The package definition file <filename>package.xml</filename>, version 2.0</title><titleabbrev><filename>package.xml 2.0</filename></titleabbrev></info>
+  
+  
+
+  <section xml:id="guide.developers.package2.intro"><info><title>A quick and dirty guide to version 2.0 of the package definition file <filename>package.xml</filename></title><titleabbrev>Introduction</titleabbrev></info>
+   
+   
+
+   <simpara>
+    The package definition file <filename>package.xml</filename> is,
+    as the name already implies, a well-formed XML file that contains
+    all information about a PEAR package.  Version 2.0 contains several important
+    enhancements over version 1.0, including
+   </simpara>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       Channel support
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       Binary PECL packages support (not fully implemented in PEAR 1.4.0)
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       More specific dependency resolution
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+   <simpara>
+    For those of you with an existing package.xml version 1.0, you can create an approximate
+    equivalent package using the
+   </simpara>
+   <para>
+    <screen>
+     <userinput>
+&dollar; pear convert
+     </userinput>
+    </screen>
+   </para>
+
+   <simpara>
+    command.  Note that as of version 1.6.0,
+    <classname>PEAR_PackageFileManager</classname> supports package.xml
+    2.0 with the PEAR_PackageFileManager2 class.
+   </simpara>
+   <simpara>
+    PECL developers: for more information on pecl-specific features,
+    <link linkend="guide.developers.package2.pecl">read here</link>.
+   </simpara>
+
+   <note>
+   <para>
+    <filename>package.xml</filename> version 2.0 is supported from PEAR 1.4 on.
+    As of 2007-04, PEAR 1.4 or greater is used in more than 99.8% of all
+    installations in the wild that downloaded packages - there is no need
+    to support v1.0 for backwards compatibility anymore.
+   </para>
+   </note>
+
+   <section xml:id="guide.developers.package2.example"><info><title>An example file with all elements</title></info>
+    
+
+    <para>
+     <programlisting role="xml">
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;package version=&quot;2.0&quot; xmlns=&quot;http://pear.php.net/dtd/package-2.0&quot;
+    xmlns:tasks=&quot;http://pear.php.net/dtd/tasks-1.0&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd&quot;&gt;
+ &lt;name&gt;PEAR&lt;/name&gt;
+ <link linkend="guide.developers.package2.channel">&lt;channel&gt;</link>pear.php.net&lt;/channel&gt;
+ <link linkend="guide.developers.package2.extends">&lt;extends&gt;</link>OldPackage&lt;/extends&gt;
+ &lt;summary&gt;Any one-line summary&lt;/summary&gt;
+ &lt;description&gt;any static long description.
+ This text should not change very much between releases, use the &quot;notes&quot; tag
+ for release notes
+ &lt;/description&gt;
+ <link linkend="guide.developers.package2.developers">&lt;lead&gt;</link>
+  &lt;name&gt;Greg Beaver&lt;/name&gt;
+  &lt;user&gt;cellog&lt;/user&gt;
+  &lt;email&gt;cellog@php.net&lt;/email&gt;
+  &lt;active&gt;yes&lt;/active&gt;
+ &lt;/lead&gt;
+ &lt;date&gt;2005-02-26&lt;/date&gt;
+ &lt;time&gt;20:30:13&lt;/time&gt; &lt;-- note: &lt;time&gt; is optional --&gt;
+ <link linkend="guide.developers.package2.version">&lt;version&gt;</link>
+  &lt;release&gt;1.4.0a2&lt;/release&gt;
+  &lt;api&gt;1.4.0&lt;/api&gt;
+ &lt;/version&gt;
+ <link linkend="guide.developers.package2.stability">&lt;stability&gt;</link>
+  &lt;release&gt;alpha&lt;/release&gt;
+  &lt;api&gt;alpha&lt;/api&gt;
+ &lt;/stability&gt;
+ <link linkend="guide.developers.package2.license">&lt;license uri=&quot;</link>&url.license.php;&quot;&gt;PHP License&lt;/license&gt;
+ &lt;notes&gt;
+ Put release notes here.
+ They can be multi-line
+ &lt;/notes&gt;
+ <link linkend="guide.developers.package2.contents">&lt;contents&gt;</link>
+  <link linkend="guide.developers.package2.dir">&lt;dir name=&quot;/&quot;&gt;</link>
+   &lt;dir name=&quot;PEAR&quot;&gt;
+    &lt;dir name=&quot;ChannelFile&quot;&gt;
+     <link linkend="guide.developers.package2.file">&lt;file name=&quot;Parser.php&quot; role=&quot;php&quot; /&gt;</link>
+    &lt;/dir&gt; &lt;!-- /PEAR/ChannelFile --&gt;
+    &lt;file name=&quot;Dependency2.php&quot; role=&quot;php&quot;&gt;
+     &lt;tasks:replace from=&quot;@PEAR-VER@&quot; to=&quot;version&quot; type=&quot;package-info&quot;/&gt;
+    &lt;/file&gt;
+   &lt;/dir&gt; &lt;!-- /PEAR --&gt;
+   &lt;dir name=&quot;scripts&quot; baseinstalldir=&quot;/&quot;&gt;
+    &lt;file name=&quot;pear.bat&quot; role=&quot;script&quot;&gt;
+     <link linkend="guide.developers.package2.tasks.replace">&lt;tasks:replace from=&quot;@bin_dir@&quot; to=&quot;bin_dir&quot; type=&quot;pear-config&quot; /&gt;</link>
+     &lt;tasks:replace from=&quot;@php_bin@&quot; to=&quot;php_bin&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@include_path@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     <link linkend="guide.developers.package2.tasks.windowseol">&lt;tasks:windowseol/&gt;</link>
+    &lt;/file&gt;
+    &lt;file name=&quot;pecl.bat&quot; role=&quot;script&quot;&gt;
+     &lt;tasks:replace from=&quot;@bin_dir@&quot; to=&quot;bin_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@php_bin@&quot; to=&quot;php_bin&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@include_path@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:windowseol/&gt;
+    &lt;/file&gt;
+    &lt;file name=&quot;pear.sh&quot; role=&quot;script&quot;&gt;
+     &lt;tasks:replace from=&quot;@php_bin@&quot; to=&quot;php_bin&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@php_dir@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@pear_version@&quot; to=&quot;version&quot; type=&quot;package-info&quot; /&gt;
+     &lt;tasks:replace from=&quot;@include_path@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     <link linkend="guide.developers.package2.tasks.unixeol">&lt;tasks:unixeol/&gt;</link>
+    &lt;/file&gt;
+    &lt;file name=&quot;pecl.sh&quot; role=&quot;script&quot;&gt;
+     &lt;tasks:replace from=&quot;@php_bin@&quot; to=&quot;php_bin&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@php_dir@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@pear_version@&quot; to=&quot;version&quot; type=&quot;package-info&quot; /&gt;
+     &lt;tasks:replace from=&quot;@include_path@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:unixeol/&gt;
+    &lt;/file&gt;
+    &lt;file name=&quot;pearcmd.php&quot; role=&quot;php&quot;&gt;
+     &lt;tasks:replace from=&quot;@php_bin@&quot; to=&quot;php_bin&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@php_dir@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@pear_version@&quot; to=&quot;version&quot; type=&quot;package-info&quot; /&gt;
+     &lt;tasks:replace from=&quot;@include_path@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+    &lt;/file&gt;
+    &lt;file name=&quot;peclcmd.php&quot; role=&quot;php&quot;&gt;
+     &lt;tasks:replace from=&quot;@php_bin@&quot; to=&quot;php_bin&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@php_dir@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:replace from=&quot;@pear_version@&quot; to=&quot;version&quot; type=&quot;package-info&quot; /&gt;
+     &lt;tasks:replace from=&quot;@include_path@&quot; to=&quot;php_dir&quot; type=&quot;pear-config&quot; /&gt;
+     &lt;tasks:footask/&gt;
+    &lt;/file&gt;
+   &lt;/dir&gt; &lt;!-- /scripts --&gt;
+   &lt;file name=&quot;package.dtd&quot; role=&quot;data&quot; /&gt;
+   &lt;file name=&quot;postinstall.php&quot; role=&quot;php&quot;&gt;
+    <link linkend="guide.developers.package2.tasks.postinstallscript">&lt;tasks:postinstallscript/&gt;</link>
+   &lt;/file&gt;
+   &lt;file name=&quot;template.spec&quot; role=&quot;foo&quot; /&gt;
+  &lt;/dir&gt; &lt;!-- / --&gt;
+ &lt;/contents&gt;
+ <link linkend="guide.developers.package2.compatible">&lt;compatible&gt;</link>
+  &lt;name&gt;FooPackage&lt;/name&gt;
+  &lt;channel&gt;pear.php.net&lt;/channel&gt;
+  &lt;min&gt;1.3.0&lt;/min&gt;
+  &lt;max&gt;1.5.0&lt;/max&gt;
+ &lt;/compatible&gt;
+ <link linkend="guide.developers.package2.dependencies">&lt;dependencies&gt;</link>
+  &lt;required&gt;
+   <link linkend="guide.developers.package2.dependencies.php">&lt;php&gt;</link>
+    &lt;min&gt;4.2&lt;/min&gt;
+    &lt;max&gt;6.0.0&lt;/max&gt;
+   &lt;/php&gt;
+   <link linkend="guide.developers.package2.dependencies.pearinstaller">&lt;pearinstaller&gt;</link>
+    &lt;min&gt;1.4.0dev13&lt;/min&gt;
+   &lt;/pearinstaller&gt;
+   <link linkend="guide.developers.package2.dependencies.package.channel">&lt;package&gt;</link>
+    &lt;name&gt;Archive_Tar&lt;/name&gt;
+    &lt;channel&gt;pear.php.net&lt;/channel&gt;
+    &lt;min&gt;1.1&lt;/min&gt;
+    &lt;recommended&gt;1.2&lt;/recommended&gt;
+   &lt;/package&gt;
+   <link linkend="guide.developers.package2.dependencies.package.uri">&lt;package&gt;</link>
+    &lt;name&gt;Foo&lt;/name&gt;
+    &lt;uri&gt;http://www.example.com/Foo-1.2.0.tgz&lt;/uri&gt;
+   &lt;/package&gt;
+   <link linkend="guide.developers.package2.dependencies.extension">&lt;extension&gt;</link>
+    &lt;name&gt;xml&lt;/name&gt;
+   &lt;/extension&gt;
+   <link linkend="guide.developers.package2.dependencies.os">&lt;os&gt;</link>
+    &lt;name&gt;windows&lt;/name&gt;
+    &lt;conflicts/&gt;
+   &lt;/os&gt;
+   <link linkend="guide.developers.package2.dependencies.arch">&lt;arch&gt;</link>
+    &lt;pattern&gt;*-i?86-*-*&lt;/pattern&gt;
+   &lt;/arch&gt;
+  &lt;/required&gt;
+  <link linkend="guide.developers.package2.dependencies.structure">&lt;optional&gt;</link>
+   &lt;package&gt;
+    &lt;name&gt;PEAR_Frontend_Web&lt;/name&gt;
+    &lt;channel&gt;pear.php.net&lt;/channel&gt;
+    &lt;min&gt;0.5.0&lt;/min&gt;
+   &lt;/package&gt;
+   &lt;package&gt;
+    &lt;name&gt;PEAR_Frontend_Gtk&lt;/name&gt;
+    &lt;channel&gt;pear.php.net&lt;/channel&gt;
+    &lt;min&gt;0.4.0&lt;/min&gt;
+   &lt;/package&gt;
+  &lt;/optional&gt;
+  &lt;group name=&quot;remoteinstall&quot; hint=&quot;adds the ability to install packages to a remote ftp server&quot;&gt;
+   &lt;package&gt;
+    &lt;name&gt;Net_FTP&lt;/name&gt;
+    &lt;channel&gt;pear.php.net&lt;/channel&gt;
+    &lt;min&gt;1.3.0RC1&lt;/min&gt;
+    &lt;recommended&gt;1.3.0&lt;/recommended&gt;
+   &lt;/package&gt;
+  &lt;/group&gt;
+  &lt;group name=&quot;webinstaller&quot; hint=&quot;PEAR's web-based installer&quot;&gt;
+   &lt;package&gt;
+    &lt;name&gt;PEAR_Frontend_Web&lt;/name&gt;
+    &lt;channel&gt;pear.php.net&lt;/channel&gt;
+    &lt;min&gt;0.5.0&lt;/min&gt;
+   &lt;/package&gt;
+  &lt;/group&gt;
+  &lt;group name=&quot;gtkinstaller&quot; hint=&quot;PEAR's PHP-GTK-based installer&quot;&gt;
+   &lt;package&gt;
+    &lt;name&gt;PEAR_Frontend_Gtk&lt;/name&gt;
+    &lt;channel&gt;pear.php.net&lt;/channel&gt;
+    &lt;min&gt;0.4.0&lt;/min&gt;
+   &lt;/package&gt;
+  &lt;/group&gt;
+ &lt;/dependencies&gt;
+ <link linkend="guide.developers.package2.usesrole">&lt;usesrole&gt;</link>
+  &lt;role&gt;foo&lt;/role&gt;
+  &lt;package&gt;Foo&lt;/package&gt;
+  &lt;channel&gt;pear.example.com&lt;/channel&gt;
+ &lt;/usesrole&gt;
+ <link linkend="guide.developers.package2.usestask">&lt;usestask&gt;</link>
+  &lt;task&gt;footask&lt;/task&gt;
+  &lt;package&gt;Footask&lt;/package&gt;
+  &lt;channel&gt;pear.example.com&lt;/channel&gt;
+ &lt;/usestask&gt;
+ <link linkend="guide.developers.package2.release">&lt;phprelease&gt;</link>
+  &lt;installconditions&gt;
+   &lt;os&gt;
+    &lt;name&gt;windows&lt;/name&gt;
+   &lt;/os&gt;
+  &lt;/installconditions&gt;
+  &lt;filelist&gt;
+   &lt;install as=&quot;pear.bat&quot; name=&quot;scripts/pear.bat&quot; /&gt;
+   &lt;install as=&quot;pecl.bat&quot; name=&quot;scripts/pecl.bat&quot; /&gt;
+   &lt;install as=&quot;pearcmd.php&quot; name=&quot;scripts/pearcmd.php&quot; /&gt;
+   &lt;install as=&quot;peclcmd.php&quot; name=&quot;scripts/peclcmd.php&quot; /&gt;
+   &lt;ignore name=&quot;scripts/pear.sh&quot; /&gt;
+   &lt;ignore name=&quot;scripts/pecl.sh&quot; /&gt;
+  &lt;/filelist&gt;
+ &lt;/phprelease&gt;
+ &lt;phprelease&gt;
+  &lt;filelist&gt;
+   &lt;install as=&quot;pear&quot; name=&quot;scripts/pear.sh&quot; /&gt;
+   &lt;install as=&quot;pecl&quot; name=&quot;scripts/pecl.sh&quot; /&gt;
+   &lt;install as=&quot;pearcmd.php&quot; name=&quot;scripts/pearcmd.php&quot; /&gt;
+   &lt;install as=&quot;peclcmd.php&quot; name=&quot;scripts/peclcmd.php&quot; /&gt;
+   &lt;ignore name=&quot;scripts/pear.bat&quot; /&gt;
+   &lt;ignore name=&quot;scripts/pecl.bat&quot; /&gt;
+  &lt;/filelist&gt;
+ &lt;/phprelease&gt;
+ &lt;changelog&gt;
+  &lt;release&gt;
+   &lt;version&gt;
+    &lt;release&gt;1.3.5&lt;/release&gt;
+    &lt;api&gt;1.3.0&lt;/api&gt;
+   &lt;/version&gt;
+   &lt;stability&gt;
+    &lt;release&gt;stable&lt;/release&gt;
+    &lt;api&gt;stable&lt;/api&gt;
+   &lt;/stability&gt;
+   &lt;date&gt;2005-02-26&lt;/date&gt;
+   &lt;license uri=&quot;http://www.php.net/license/3_0.txt&quot;&gt;PHP License&lt;/license&gt;
+   &lt;notes&gt;
+ * fix Bug #3505: pecl can't install PDO
+ * enhance pear run-tests dramatically
+ * fix Bug #3506: pear install should export the pear version into the environment
+
+   &lt;/notes&gt;
+  &lt;/release&gt;
+  &lt;release&gt;
+   &lt;version&gt;
+    &lt;release&gt;1.4.0a1&lt;/release&gt;
+    &lt;api&gt;1.4.0&lt;/api&gt;
+   &lt;/version&gt;
+   &lt;stability&gt;
+    &lt;release&gt;alpha&lt;/release&gt;
+    &lt;api&gt;alpha&lt;/api&gt;
+   &lt;/stability&gt;
+   &lt;date&gt;2005-02-26&lt;/date&gt;
+   &lt;license uri=&quot;http://www.php.net/license/3_0.txt&quot;&gt;PHP License&lt;/license&gt;
+   &lt;notes&gt;
+  This is a major milestone release for PEAR.  In addition to several killer features,
+  every single element of PEAR has a regression test, and so stability is much higher
+  than any previous PEAR release, even with the alpha label.
+
+  New features in a nutshell:
+  * full support for channels
+  * pre-download dependency validation
+  * new package.xml 2.0 format allows tremendous flexibility while maintaining BC
+  * support for optional dependency groups and limited support for sub-packaging
+  * robust dependency support
+  * full dependency validation on uninstall
+  * support for binary PECL packages
+  * remote install for hosts with only ftp access - no more problems with
+    restricted host installation
+  * full support for mirroring
+  * support for bundling several packages into a single tarball
+  * support for static dependencies on a url-based package
+
+  Specific changes from 1.3.5:
+  * Implement request #1789: SSL support for xml-rpc and download
+  * Everything above here that you just read
+   &lt;/notes&gt;
+  &lt;/release&gt;
+ &lt;/changelog&gt;
+&lt;/package&gt;
+    </programlisting>
+   </para>
+   </section>
+  </section>
+  <section xml:id="guide.developers.package2.peclinfo"><info><title>Special information for PECL developers</title></info>
+   
+
+   &guide.developers.package2.pecl;
+  </section>
+  <section xml:id="guide.developers.package2.tags"><info><title>Detailed Tag Reference for package.xml version 2.0</title></info>
+   
+
+   <para>
+    Each tag that needs further explanation is documented here (unfinished)
+   </para>
+
+   &guide.developers.package2.channel;
+   &guide.developers.package2.extends;
+   &guide.developers.package2.uri;
+   &guide.developers.package2.developers;
+   &guide.developers.package2.version;
+   &guide.developers.package2.stability;
+   &guide.developers.package2.license;
+   &guide.developers.package2.contents;
+   &guide.developers.package2.dir;
+   &guide.developers.package2.file;
+   &guide.developers.package2.tasks;
+   &guide.developers.package2.compatible;
+   &guide.developers.package2.dependencies;
+   &guide.developers.package2.usesrole;
+   &guide.developers.package2.usestask;
+   &guide.developers.package2.release;
+  </section>
+ </chapter>

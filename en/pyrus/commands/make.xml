@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.make">
+ <info><title>make - create a package.xml from its source directory</title></info>
+
+ <section xml:id="pyrus.commands.make.intro">
+  <info><title>Introduction</title></info>
+  <note>
+   <simpara>
+    The <literal>make</literal> command is available through the developer tools.
+    If you do not have the developer tools installed, simply run
+   </simpara>
+   <screen>php pyrus.phar make</screen>
+   <simpara>
+    and Pyrus will ask if you would like to install the developer tools.  If you
+    assent with the word <literal>yes</literal>, Pyrus will automatically
+    download them and install them for you.
+   </simpara>
+  </note>
+  <para>
+   This command creates a package.xml file from a standard PEAR2 directory layout,
+   and then optionally creates a package release.
+  </para>
+  <para>
+   This command looks for these standard files:
+   <itemizedlist>
+    <listitem><simpara><literal>CREDITS</literal></simpara></listitem>
+    <listitem><simpara><literal>README</literal></simpara></listitem>
+    <listitem><simpara><literal>RELEASE-X.Y.Z</literal> (where X.Y.Z is the release version)</simpara></listitem>
+    <listitem><simpara><literal>API-X.Y.Z</literal> (where X.Y.Z is the API version)</simpara></listitem>
+   </itemizedlist>
+
+   and for a standard directory layout of
+
+   <table>
+    <title>Standard directory layout</title>
+    <tgroup cols="2">
+     <thead>
+      <row>
+       <entry>Sub-directory</entry>
+       <entry>Description</entry>
+      </row>
+     </thead>
+
+     <tbody>
+      <row>
+       <entry><literal>src/</literal></entry>
+       <entry>PHP files</entry>
+      </row>
+      <row>
+       <entry><literal>data/</literal></entry>
+       <entry>Data files</entry>
+      </row>
+      <row>
+       <entry><literal>test/</literal></entry>
+       <entry>Test files</entry>
+      </row>
+      <row>
+       <entry><literal>doc/</literal></entry>
+       <entry>Documentation files</entry>
+      </row>
+      <row>
+       <entry><literal>examples/</literal></entry>
+       <entry>Example files (documentation)</entry>
+      </row>
+      <row>
+       <entry><literal>scripts/</literal></entry>
+       <entry>Executable files, scripts</entry>
+      </row>
+      <row>
+       <entry><literal>www/</literal></entry>
+       <entry>Web files</entry>
+      </row>
+      <row>
+       <entry><literal>customrole/</literal></entry>
+       <entry>Custom installer role XML definition files</entry>
+      </row>
+      <row>
+       <entry><literal>customtask/</literal></entry>
+       <entry>Custom installer task XML definition files</entry>
+      </row>
+      <row>
+       <entry><literal>customcommand/</literal></entry>
+       <entry>Custom command XML definition files</entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </para>
+  <para>
+   The <literal>CREDITS</literal> file must have this format:
+
+   <programlisting role="txt">
+    <![CDATA[
+;; comments ignored
+Maintainer One [handle1] <email@example.com> (role)
+Maintainer Two [handle2] <email@example.com> (role)
+    ]]>
+   </programlisting>
+
+   Where role is one of <literal>lead</literal>, <literal>developer</literal>,
+   <literal>contributor</literal>, or <literal>helper</literal>.
+  </para>
+  <para>
+   The first line of <literal>README</literal> is used as the summary of the
+   package, the rest is used as the description.
+   <literal>RELEASE-X.Y.Z</literal> is used as the release notes.  Pyrus will
+   scan all release notes (such as <literal>RELEASE-1.0.0</literal> and
+   <literal>RELEASE-1.2.3</literal>) and use the most recent version number
+   (<literal>1.2.3</literal> in our example) as the version, and the contents
+   of the file (<literal>RELEASE-1.2.3</literal> in our example) as the release
+   notes.
+  </para>
+  <para>
+   <literal>API-X.Y.Z</literal> is used as notes about the
+   <link linkend="guide.users.concepts.api">API</link> and the version
+   <literal>X.Y.Z</literal> is used as the API version.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.make.packagexmlsetup">
+  <title>--packagexmlsetup</title>
+  <para>
+   if <literal>--packagexmlsetup</literal> or <literal>-s</literal> is specified,
+   it should be passed the name of a file in the package base directory that is
+   used to fine-tune the generated package.xml.  This file should work with variable
+   <literal>$package</literal> for modifying the package.xml, and
+   <literal>$compatible</literal> for the compatible
+   one (if present).  If --packagexmlsetup is not specified, and
+   <literal>packagexmlsetup.php</literal>
+   exists in the package base directory, it will be used.
+  </para>
+  <para>
+   Here is an example <literal>packagexmlsetup.php</literal>:
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$package->dependencies['required']->package['pear2.php.net/PEAR2_Autoload']->save();
+$package->dependencies['required']->package['pear2.php.net/PEAR2_Exception']->save();
+$package->dependencies['required']->package['pear2.php.net/PEAR2_MultiErrors']->save();
+
+$compatible->dependencies['required']->package['pear2.php.net/PEAR2_Autoload']->save();
+$compatible->dependencies['required']->package['pear2.php.net/PEAR2_Exception']->save();
+$compatible->dependencies['required']->package['pear2.php.net/PEAR2_MultiErrors']->save();
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.make.nocompatible">
+  <title>--nocompatible</title>
+  <para>
+   If <literal>--nocompatible</literal> or <literal>-n</literal> option
+   is passed in, Pyrus will not generate a package.xml that is compatible
+   with the PEAR Installer.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.make.package">
+  <title>--package</title>
+  <para>
+   This option instruct the <literal>make</literal> command to pass off the
+   finished package.xml to the
+   <link linkend="pyrus.commands.package"><literal>package</literal></link>
+   command.  It accepts a comma-delimited list of file formats, and can be any
+   of <literal>phar</literal>, <literal>tar</literal>, <literal>tgz</literal>
+   or <literal>zip</literal>.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.make.stub">
+  <title>--stub</title>
+  <para>
+   This option is identical to the option for the
+   <link linkend="pyrus.commands.package.stub"><literal>--stub</literal></link>
+   option of the <link linkend="pyrus.commands.package"><literal>package</literal></link>
+   command, and is ignored if <literal>--package</literal> or <literal>-p</literal>
+   is not also specified.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.make.extrasetup">
+  <title>--extrasetup</title>
+  <para>
+   This option is identical to the option for the
+   <link linkend="pyrus.commands.package.extrasetup"><literal>--extrasetup</literal></link>
+   option of the <link linkend="pyrus.commands.package"><literal>package</literal></link>
+   command, and is ignored if <literal>--package</literal> or <literal>-p</literal>
+   is not also specified.
+  </para>
+ </section>
+</section>

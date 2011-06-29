@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.packageinfo">
+   <refnamediv>
+    <refname><function>PEAR_Registry::packageInfo</function></refname>
+    <refpurpose>Get Package information</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed <function>PEAR_Registry::packageInfo</function></funcdef>
+      <paramdef choice="opt">string <parameter>$package</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">string <parameter>$key</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.packageinfo.desc">
+     &title.desc;
+     <para>
+      Returns (specific) information stored in the registry about a Package.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.packageinfo.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$package</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Package name
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         the name of a specific information to get
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.packageinfo.return">
+    &title.returns;
+
+    <para>
+     <parameter>mixed</parameter> -
+     an array with all information, or a key specific information,
+     if <parameter>$key</parameter> was used; &null; if Package
+     or specific information does not exist
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.packageinfo.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

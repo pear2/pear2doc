@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validateversion">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validateVersion</function>
+  </refname>
+  <refpurpose>protected function to validate a version</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::validateVersion</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validateversion.desc">
+  &title.desc;
+  <para>
+   Override this function in a channel validator in order to apply a different
+   version validation scheme.  An example of this use is in the <classname>PEAR_Validate_PECL</classname>
+   class, which overrides <function>validateVersion</function> to be less strict than
+   the default <function>PEAR_Validate::validateVersion</function>.
+  </para>
+  <para>
+   Errors should be reported using
+   <link linkend="core.ppm.pear-validate.-addfailure"><function>_addFailure</function></link>
+   method, and non-fatal errors (warnings) should be reported using the
+   <link linkend="core.ppm.pear-validate.-addwarning"><function>_addWarning</function></link>
+   method.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.validateversion.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validateversion.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

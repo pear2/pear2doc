@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.version">
+ <refnamediv>
+  <refname>&lt;version&gt;</refname>
+  <refpurpose>versioning in package.xml 2.0</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.version.purpose"><info><title>Documenting release version and API version</title></info>
+  
+  <para>
+   In package.xml 1.0, the version was simply the version.  package.xml 2.0
+   splits the concept of versioning into two components, release and api.
+  </para>
+  <para>
+   The release version is the same familiar versioning concept from package.xml 1.0.
+   This version is validated very carefully by the packager.
+  </para>
+  <para>
+   The API version is informational only - the installer does not use it.  It can be used for
+   a package-time replacement by the installer.  This can be very useful when implementing a
+   reflective method such as <function>getApiVersion</function>.  In addition, the API version
+   is very loosely validated, and only requires a version_compare()-compatible version number.
+  </para>
+ </refsection>
+ </refentry>

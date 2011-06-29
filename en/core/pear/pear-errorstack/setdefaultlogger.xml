@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.setdefaultlogger">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::setDefaultLogger</function>
+  </refname>
+  <refpurpose>
+   Set up a PEAR::Log object for all 
+   error stacks that don&apos;t have one
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.void; 
+     <function>PEAR_ErrorStack::setDefaultLogger</function>
+    </funcdef>
+    <paramdef choice="req">
+     Log <parameter>&amp;$log</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultlogger.desc">
+  &title.desc;
+  <para>
+   Set up a PEAR::Log object for all 
+   error stacks that don&apos;t have one
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultlogger.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>Log</type>
+      <parameter>&amp;$log</parameter>
+     </term>
+     <listitem>
+      <para>
+       
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultlogger.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultlogger.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

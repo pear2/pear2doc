@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-remote.pear-remote">
+   <refnamediv>
+    <refname><function>PEAR_Remote::PEAR_Remote</function></refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Remote.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Remote::PEAR_Remote</function></funcdef>
+      <paramdef choice="req">object <parameter>&amp;$config</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-remote.pear-remote.desc">
+     &title.desc;
+     <para>
+      constructor
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-remote.pear-remote.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.object;
+         <parameter>&amp;$config</parameter>
+       </term>      
+       <listitem>
+        <para>
+         an instance of <classname>PEAR_Config</classname>         
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-remote.pear-remote.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

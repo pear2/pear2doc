@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validstate">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validState</function>
+  </refname>
+  <refpurpose>Determine whether $state represents a valid stability level</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_Validate::validState</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$state</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validstate.desc">
+  &title.desc;
+  <para>
+   This utility method can be used to determine whether a string is a valid state.
+   Currently, states must be one of <literal>snapshot</literal>, <literal>devel</literal>,
+   <literal>alpha</literal>, <literal>beta</literal>, and <literal>stable</literal>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.validstate.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$state</parameter>
+     </term>
+     <listitem>
+      <para>
+       State string to validate.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validstate.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validstate.final"><info><title>Final</title></info>
+  
+  <para>
+   <emphasis>final</emphasis> - this method should not be overridden.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validstate.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

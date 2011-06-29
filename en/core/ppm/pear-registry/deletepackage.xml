@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.deletepackage">
+   <refnamediv>
+    <refname><function>PEAR_Registry::deletePackage</function></refname>
+    <refpurpose>Remove Package from registry</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>boolean <function>PEAR_Registry::deletePackage</function></funcdef>
+      <paramdef choice="req">string <parameter>$package</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.deletepackage.desc">
+     &title.desc;
+     <para>
+      Removes a Package entry from the registry.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.deletepackage.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$package</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Package name
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   
+   <refsection xml:id="core.ppm.pear-registry.deletepackage.return">
+    &title.returns;
+    <para>
+     <parameter>boolean</parameter> - 
+     &return.success;
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.deletepackage.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.deletepackage.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section
+ xmlns="http://docbook.org/ns/docbook"
+ xmlns:phd="http://www.php.net/ns/phd"
+ version="lillet"
+ xml:id="core.rest.directorystructure"
+ phd:chunk="true"
+>
+ <info>
+  <title>Directory structure</title>
+  <titleabbrev>Which files a channel server provides</titleabbrev>
+ </info>
+  
+  
+
+  <para>
+   A REST channel server simply delivers files in a certain directory
+   structure. The content of those files is static. Their location is relative
+   to the URLs given in the <filename>channel.xml</filename>
+   <literal>baseurl</literal> tags.
+  </para>
+
+  <note>
+   <para>
+    All files are static - you do <emphasis>not</emphasis> need a scripting
+    language installed on your server.
+   </para>
+  </note>
+
+  <para>
+   The following table lists all known files, a tiny description as well
+   as the version they appeared in first.
+  </para>
+
+  <table><title>Directory- and file structure</title>
+    
+
+    <tgroup cols="5">
+      <thead>
+        <row>
+          <entry>Level 0</entry>
+
+          <entry>Level 1</entry>
+
+          <entry>Level 2</entry>
+
+          <entry>Description</entry>
+
+          <entry>REST version</entry>
+        </row>
+      </thead>
+
+      <tbody>
+        <row>
+          <entry><filename>c/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry><emphasis>Categories</emphasis></entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.c-categoriesxml"><filename>categories.xml</filename></link></entry>
+
+          <entry/>
+
+          <entry>List of all categories</entry>
+
+          <entry>1.1</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><filename>$CategoryName/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.c-category-infoxml">info.xml</link></filename></entry>
+
+          <entry>Info about the category</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.c-category-packagesxml">packages.xml</link></filename></entry>
+
+          <entry>List of packages in category</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.c-category-packagesinfoxml">packagesinfo.xml</link></filename></entry>
+
+          <entry>Info about all packages</entry>
+
+          <entry>1.1</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+        </row>
+
+        <row>
+          <entry><filename>m/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry><emphasis>Maintainers</emphasis></entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.m-allmaintainersxml">allmaintainers.xml</link></filename></entry>
+
+          <entry/>
+
+          <entry>List of all maintainers</entry>
+
+          <entry>1.1</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><filename>$maintainernick/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.m-maintainer-infoxml">info.xml</link></filename></entry>
+
+          <entry>Info about the maintainer</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+        </row>
+
+        <row>
+          <entry><filename>p/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry><emphasis>Packages</emphasis></entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.p-packagesxml">packages.xml</link></filename></entry>
+
+          <entry/>
+
+          <entry>List of all packages</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><filename>$packagename/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.p-package-infoxml">info.xml</link></filename></entry>
+
+          <entry>General package information</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.p-package-maintainersxml">maintainers.xml</link></filename></entry>
+
+          <entry>List of package maintainers</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.p-package-maintainers2xml">maintainers2.xml</link></filename></entry>
+
+          <entry>List of developers and their roles</entry>
+
+          <entry>1.2</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+        </row>
+
+        <row>
+          <entry><filename>r/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry><emphasis>Releases</emphasis></entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry><filename>$packagename/</filename></entry>
+
+          <entry/>
+
+          <entry/>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.r-package-allreleasesxml">allreleases.xml</link></filename></entry>
+
+          <entry>List of all releases</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.r-package-allreleases2xml">allreleases2.xml</link></filename></entry>
+
+          <entry>List of all releases including minimum PHP version</entry>
+
+          <entry>1.3</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><filename><link linkend="core.rest.fileformats.r-package-latesttxt">latest.txt</link></filename></entry>
+
+          <entry>Latest version number</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-stabletxt"><filename>stable.txt</filename></link></entry>
+
+          <entry>Latest stable version number</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-betatxt"><filename>beta.txt</filename></link></entry>
+
+          <entry>Latest beta version number</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-alphatxt"><filename>alpha.txt</filename></link></entry>
+
+          <entry>Latest alpha version number</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-develtxt"><filename>devel.txt</filename></link></entry>
+
+          <entry>Latest development version number</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-012xml"><filename>0.1.2.xml</filename></link></entry>
+
+          <entry>Short package info for version 0.1.2</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-v2012xml"><filename>v2.0.1.2.xml</filename></link></entry>
+
+          <entry>Short version of package.xml, version 2</entry>
+
+          <entry>1.3</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-package012xml"><filename>package.0.1.2.xml</filename></link></entry>
+
+          <entry>package.xml for version 0.1.2</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry><link linkend="core.rest.fileformats.r-package-deps012txt"><filename>deps.0.1.2.txt</filename></link></entry>
+
+          <entry>Serialized dependencies for version 0.1.2</entry>
+
+          <entry>1.0</entry>
+        </row>
+
+        <row>
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+
+          <entry/>
+        </row>
+      </tbody>
+    </tgroup>
+  </table>
+</section>

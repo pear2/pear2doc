@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packager"><info><title>PEAR_Packager</title></info>
+ 
+ <para>
+  Administration class used to make a PEAR release tarball.
+ </para>
+ <para>
+  Class Trees for <classname>PEAR_Packager</classname>
+ </para>
+ <para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     PEAR_Common
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        PEAR_Packager
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </para>
+
+&core.ppm.pear-packager.pear-packager;
+&core.ppm.pear-packager.package;
+
+
+</section>

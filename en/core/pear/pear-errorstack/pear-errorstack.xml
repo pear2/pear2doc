@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.pear-errorstack">
+   <refnamediv>
+    <refname>constructor <function>PEAR_ErrorStack::PEAR_ErrorStack</function></refname>
+    <refpurpose>Set up a new error stack instance</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void      constructor <function>PEAR_ErrorStack::PEAR_ErrorStack</function></funcdef>
+      <paramdef choice="req">string <parameter>$package</parameter></paramdef>
+      <paramdef choice="opt">callback <parameter> $msgCallback</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+      <paramdef choice="opt">callback <parameter> $contextCallback</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+      <paramdef choice="opt">boolean <parameter> $throwPEAR_Error</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.pear-errorstack.bcwarning"><info><title>Backwards Compatibility Warning</title></info>
+     
+     <warning>
+      <para>
+       As of PEAR 1.3.2, PEAR_ErrorStack no longer instantiates and returns an Exception object in PHP5, and
+       the last parameter has been removed.  Code that relies upon this behavior will break.
+      </para>
+     </warning>
+    </refsection>
+    <refsection xml:id="core.pear.pear-errorstack.pear-errorstack.desc">
+     &title.desc;
+     <para>Creates a new private PEAR_ErrorStack.  To access a universal stack, use <link linkend="core.pear.pear-errorstack.singleton"><function>PEAR_ErrorStack::singleton</function></link></para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pear-errorstack.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$package</parameter>
+       </term>
+       <listitem>
+        <para>
+         name of the package this error stack represents
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>callback</type>
+        <parameter>$msgCallback</parameter>
+       </term>
+       <listitem>
+        <para>
+         callback used for error message generation
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>callback</type>
+        <parameter>$contextCallback</parameter>
+       </term>
+       <listitem>
+        <para>
+         callback used for context generation, defaults to <link linkend="core.pear.pear-errorstack.getfileline"><function>getFileLine</function></link>
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.bool;
+        <parameter>$throwPEAR_Error</parameter>
+       </term>
+       <listitem>
+        <para>
+         
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$exceptionClass</parameter>
+       </term>
+       <listitem>
+        <para>
+         exception class to instantiate if                  in PHP 5
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

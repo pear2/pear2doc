@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.m-allmaintainersxml"><info><title>allmaintainers.xml</title></info>
+ 
+ <synopsis>Lists all maintainers</synopsis>
+
+ <para>
+  Simply lists names and links to all developers of any package
+  on the server.
+ </para>
+
+ <para>
+  FIXME: full names or just nicks?
+  FIXME: lowercased nicks?
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.m-allmaintainersxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>m/allmaintainers.xml</filename>
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.m-allmaintainersxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<m xmlns="http://pear.php.net/dtd/rest.allmaintainers"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.allmaintainers
+                       http://pear.php.net/dtd/rest.allmaintainers.xsd"
+>
+ <h xlink:href="/rest/m/pinky">pinky</h>
+ <h xlink:href="/rest/m/thebrain">the brain</h>
+</m>]]></programlisting>
+ </section>
+
+</section>

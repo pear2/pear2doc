@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.upgrade">
+ <info><title>upgrade - upgrade or install a package</title></info>
+
+ <section xml:id="pyrus.commands.upgrade.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The upgrade command is almost identical to the <link linkend="pyrus.commands.install">install</link>
+   command.  The only difference is that upgrade will also upgrade an existing package
+   as well as install a new one.
+  </para>
+  <para>
+   The <literal>--packagingroot</literal> option is also unavailable,
+   <literal>--packagingroot</literal>
+   should only be used for installing new files.
+  </para>
+ </section>
+</section>

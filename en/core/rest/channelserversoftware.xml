@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section
+ xmlns="http://docbook.org/ns/docbook"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:phd="http://www.php.net/ns/phd"
+ version="lillet"
+ xml:id="core.rest.channelserversoftware"
+ phd:chunk="true"
+>
+ <info>
+  <title>Channel server software</title>
+ </info>
+
+ <para>
+  While you can use this documentation to build you own channel server,
+  it is possibly easier for you to either get your package
+  into PEAR itself, or setup your own channel server.
+  The reference implementation of a PEAR channel server is the PEAR website
+  itself, but it should not be used for your own server.
+ </para>
+
+ <para>
+  If you seek for an easy-to-setup software,
+  try <classname>Chiara_PEAR_Server</classname> which resides on its own
+  channel <link xlink:href="&url.chiara;">&url.chiara;</link>.
+ </para>
+
+ <para>
+  Another project is <link linkend="channels.scs.intro">SimpleChannelServer</link>,
+  which is available as a plugin for Pyrus, or a standalone phar
+  <link xlink:href="&url.simplechannelserver.phar;">pearscs.phar</link>.
+  View the <link linkend="channels.scs.intro">online documentation</link>,
+  or the source <link xlink:href="&url.simplechannelserver;">in SVN</link>.
+ </para>
+
+</section>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.channeldiscover">
+ <info><title>channel-discover - add a channel by channel name</title></info>
+
+ <section xml:id="pyrus.commands.channeldiscover.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This command searches for a channel.xml first at a secure <literal>https</literal>
+   and then unsecured <literal>http</literal> address.
+  </para>
+  <para>
+   Examples:
+   <screen>php pyrus.phar channel-discover pear.example.com</screen>
+   This tries to locate <literal>https://pear.example.com/channel.xml</literal>
+   and if that fails, <literal>http://pear.example.com/channel.xml</literal>,
+   then adds the channel to the registry.
+  </para>
+  <para>
+   Use <link linkend="pyrus.commands.channeladd">channel-add</link> to add a
+   local channel.xml to the registry.
+  </para>
+ </section>
+</section>

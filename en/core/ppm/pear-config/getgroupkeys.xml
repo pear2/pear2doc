@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getgroupkeys">
+   <refnamediv>
+    <refname><function>PEAR_Config::getGroupKeys</function></refname>
+    <refpurpose>Get the list of the parameters in a group</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Config::getGroupKeys</function></funcdef>
+      <paramdef choice="req">string <parameter>$group</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.getgroupkeys.desc">
+     &title.desc;
+     <para>Get the list of the parameters in a group.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getgroupkeys.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$group</parameter>
+       </term>      
+       <listitem>
+        <para>
+         parameter group
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getgroupkeys.return">
+    &title.returns;
+    <para>
+     <parameter>array</parameter> list of parameters in
+     <parameter>$group</parameter>
+    </para>
+   </refsection>
+
+
+   <refsection xml:id="core.ppm.pear-config.getgroupkeys.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

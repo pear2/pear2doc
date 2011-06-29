@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.setinstallroot">
+   <refnamediv>
+    <refname><function>PEAR_Config::setInstallRoot</function></refname>
+    <refpurpose>setInstallRoot</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Config::setInstallRoot</function></funcdef>
+      <paramdef choice="req">string|false <parameter>$root</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.setinstallroot.desc">
+     &title.desc;
+     <para>
+      This is used to implement the --installroot option for installation.  In earlier
+      PEAR versions, this was implemented in <function>PEAR_Installer::install</function>,
+      but this makes it more difficult to track with the introduction of channels, and to
+      satisfy better encapsulation, it has been moved to <classname>PEAR_Config</classname>.
+     </para>
+     <para>
+      Pass in a full path.  On retrieving any directory configuration variable, the
+      value will be prepended with the installroot specified in this method.  For example,
+      if <literal>php_dir</literal> is <literal>/usr/lib/php</literal>, and
+      <function>setInstallRoot</function> is used with <literal>/hoopla/boo</literal>,
+      the value returned from <function>get</function> would be
+      <literal>/hoopla/boo/usr/lib/php</literal>.  Use an empty string <literal>''</literal>
+      to reset an installroot.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.setinstallroot.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;|&false;
+        <parameter>$root</parameter>
+       </term>
+       <listitem>
+        <para>
+         installation directory to prepend to all _dir variables, or &false; to     
+         disable
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.setinstallroot.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.setinstallroot.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

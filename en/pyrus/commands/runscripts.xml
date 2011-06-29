@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.runscripts">
+ <info><title>run-scripts - execute post-install scripts for specified packages</title></info>
+
+ <section xml:id="pyrus.commands.runscripts.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>run-scripts</literal> command is used to execute
+   post-install scripts of a package.  It accepts a list
+   of <link linkend="guide.users.concepts.abstractpackage">abstract package names</link>.</para>
+ </section>
+</section>

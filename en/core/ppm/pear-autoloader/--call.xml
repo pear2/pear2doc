@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-autoloader.--call">
+   <refnamediv>
+    <refname><function>PEAR_Autoloader::__call</function></refname>
+    <refpurpose>Overloaded object call handler</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/autoloader.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed       <function>PEAR_Autoloader::__call</function></funcdef>
+      <paramdef choice="req">string <parameter>$method</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$args</parameter></paramdef>
+      <paramdef choice="req">mixed <parameter>&amp;$retval</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-autoloader.--call.desc">
+    &title.desc;
+    <para>
+     Overloaded object call handler, called each time an
+     undefined/aggregated method is invoked. This method repeats
+     the call in the right aggregate object and passes on 
+     the return value.
+    </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.--call.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$method</parameter>
+       </term>      
+       <listitem>
+        <para>
+         which method that was called
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$args</parameter>
+       </term>      
+       <listitem>
+        <para>
+         An array of the parameters passed in the     
+         original call
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>&amp;$retval</parameter>
+       </term>      
+       <listitem>
+        <para>
+        
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.--call.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> -
+     The return value from the aggregated method, or a 
+     <classname>PEAR_Error</classname> if the called method was unknown.
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-autoloader.--call.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-autoloader.--call.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.tostring">
+   <refnamediv>
+    <refname>PEAR_Error::toString()</refname>
+    <refpurpose>make string representation</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Error::toString</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.tostring.desc">
+    &title.desc;
+    <para>
+     Makes a string representation of the error object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.tostring.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     object representation
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear-error.tostring.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.seterrormessagetemplate">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::setErrorMessageTemplate</function>
+  </refname>
+  <refpurpose>Set the Error Message Template array</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.string;      
+     <function>PEAR_ErrorStack::setErrorMessageTemplate</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.mixed; 
+     <parameter>$template</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.seterrormessagetemplate.desc">
+  &title.desc;
+  <para>
+   The array format must be:  
+   <![CDATA[ array(error code => 'message template',...)]]>
+  </para>
+  <para>
+   Error message parameters passed into 
+   <link linkend="core.pear.pear-errorstack.push">
+    <function>push</function>
+   </link>
+   will be used as input  for the error message.  
+   
+   If the template is &apos;message %foo% was %bar%&apos;, 
+   and the parameters are 
+   array(&apos;foo&apos; =&gt; &apos;one&apos;, 
+   &apos;bar&apos; =&gt; &apos;six&apos;), 
+   the error message returned will  be 
+   &apos;message one was six&apos;
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.seterrormessagetemplate.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$template</parameter>
+     </term>
+     <listitem>
+      <para>
+       
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.seterrormessagetemplate.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.seterrormessagetemplate.note">
+  &title.note;
+  &note.notstatic;
+ </refsection>
+</refentry>

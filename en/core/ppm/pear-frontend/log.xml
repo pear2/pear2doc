@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-frontend.log">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Frontend::log</function>
+  </refname>
+  <refpurpose>log</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Frontend.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Frontend::log</function>
+    </funcdef>
+    <paramdef choice="req">
+     int
+     <parameter>$level</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$msg</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     bool
+     <parameter>$append_crlf</parameter>
+     <initializer>true</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-frontend.log.desc">
+  &title.desc;
+  <para>
+   Log a message in a frontend-specific way.  By default, nothing is done.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-frontend.log.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$level</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$msg</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$append_crlf</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.log.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.log.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

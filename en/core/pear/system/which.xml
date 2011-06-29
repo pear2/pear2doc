@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system.system.which">
+   <refnamediv>
+    <refname>System::which</refname>
+    <refpurpose>show full path of a command</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once "System.php";
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed <function>System::which</function></funcdef>
+      <paramdef choice="req">
+       string <parameter>$program</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       boolean <parameter>$fallback</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.system.system.which.desc">
+    &title.desc;
+    <para>
+     The command shows the full path of a command.
+    </para>
+   </refsection>   
+   
+   <refsection xml:id="core.pear.system.system.which.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      
+      <listitem>
+       <para>
+        <parameter>string $program</parameter> -
+        the command to search for
+       </para>
+      </listitem>      
+      
+      <listitem>
+       <para>
+        <parameter>boolean $fallback</parameter> -
+        value to return in case of program not found
+       </para>
+      </listitem>      
+            
+     </itemizedlist>
+    </para>
+   </refsection>   
+      
+         
+   <refsection xml:id="core.pear.system.system.which.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> - 
+     A string with the full path or &false; if not found
+    </para>
+   </refsection>      
+            
+               
+                
+   <refsection xml:id="core.pear.system.system.which.note">
+    &title.note;  
+                 
+    &note.canstatic;
+    
+                         
+                             
+  <simpara/>
+   </refsection>    
+
+   <refsection xml:id="core.pear.system.which.see">
+    &title.see;
+    <para>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.man;which"><command>which</command> man page</link>
+    </para>
+   </refsection>         
+
+
+  </refentry>

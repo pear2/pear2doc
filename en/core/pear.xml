@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear"><info><title>PEAR base classes</title></info>
+ 
+ 
+
+ <para>
+  The Core section provides information about the base classes in PEAR
+ </para>
+ 
+ &core.pear.pear;
+ &core.pear.pear-exception;
+ &core.pear.pear-errorstack;
+ &core.pear.pear-error;
+ &core.pear.system;
+</chapter>

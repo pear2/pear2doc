@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.p-package-infoxml"><info><title>info.xml (package)</title></info>
+ 
+ <synopsis>Information about a package</synopsis>
+
+ <para>
+  This file contains general version-independent information
+  about the package: License, category, summary, description
+  and a link to the release directory.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.p-package-infoxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/info.xml</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.p-package-infoxml.usage"><info><title>Usage</title></info>
+  
+  <para>
+   <command>remote-info</command> fetches this file and displays
+   its information.
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.p-package-infoxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<p xmlns="http://pear.php.net/dtd/rest.package"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.package
+                       http://pear.php.net/dtd/rest.package.xsd"
+>
+ <n>WorldDomination</n>
+ <c>pear.example.org</c>
+ <ca xlink:href="/rest/c/Tools">Tools</ca>
+ <l>Dictatoric License</l>
+ <s>Tool to dominate the world</s>
+ <d>
+  Helps you dominating the world by fulfilling various tasks:
+  - Feed the cats
+  - Lock the doors after 23:42
+ </d>
+ <r xlink:href="/rest/r/worlddomination"/>
+</p>]]></programlisting>
+ </section>
+
+</section>

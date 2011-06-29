@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getconffile">
+   <refnamediv>
+    <refname><function>PEAR_Config::getConfFile</function></refname>
+    <refpurpose>Gets the file used for storing the config for a layer</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Config::getConfFile</function></funcdef>
+      <paramdef choice="req">string <parameter>$layer</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.getconffile.desc">
+     &title.desc;
+     <para>
+      Use this to retrieve the name of the configuration file that provides values
+      for a particular configuration layer.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getconffile.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$layer</parameter>
+       </term>
+       <listitem>
+        <para>
+         <literal>user</literal>, <literal>system</literal>, or <literal>ftp</literal>
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getconffile.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.getconffile.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

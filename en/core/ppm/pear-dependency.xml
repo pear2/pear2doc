@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency"><info><title>PEAR_Dependency</title></info>
+ 
+ <para>This class is deprecated by
+  <link linkend="core.ppm.pear-dependency2"><classname>PEAR_Dependency2</classname></link>
+  in PEAR 1.4.0
+ </para>
+ &core.ppm.pear-dependency.pear-dependency;
+ &core.ppm.pear-dependency.callcheckmethod;
+ &core.ppm.pear-dependency.checkextension;
+ &core.ppm.pear-dependency.checkos;
+ &core.ppm.pear-dependency.checkpackage;
+ &core.ppm.pear-dependency.checkphp;
+ &core.ppm.pear-dependency.checkprogram;
+ &core.ppm.pear-dependency.checksapi;
+ &core.ppm.pear-dependency.checkzend;
+</section>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common"><info><title>PEAR_Common</title></info>
+ 
+ <para>
+  Class providing common functionality for PEAR 
+  administration classes.
+ </para>
+ <para>
+  Class Trees for <function>PEAR_Common</function>
+ </para>
+ <para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     PEAR
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        PEAR_Common
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </para>
+
+&core.ppm.pear-common.pear-common;
+&core.ppm.pear-common.addtempfile;
+&core.ppm.pear-common.analyzesourcecode;
+&core.ppm.pear-common.buildprovidesarray;
+&core.ppm.pear-common.downloadhttp;
+&core.ppm.pear-common.infofromany;
+&core.ppm.pear-common.infofromdescriptionfile;
+&core.ppm.pear-common.infofromstring;
+&core.ppm.pear-common.infofromtgzfile;
+&core.ppm.pear-common.log;
+&core.ppm.pear-common.mkdirhier;
+&core.ppm.pear-common.mktempdir;
+&core.ppm.pear-common.setfrontendobject;
+&core.ppm.pear-common.validatepackageinfo;
+&core.ppm.pear-common.validpackagename;
+&core.ppm.pear-common.xmlfrominfo;
+
+</section>

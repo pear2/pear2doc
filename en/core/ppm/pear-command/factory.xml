@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command.factory">
+   <refnamediv>
+    <refname><function>PEAR_Command::factory</function></refname>
+    <refpurpose>get object for executing a command.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/command.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>object       <function>PEAR_Command::factory</function></funcdef>
+      <paramdef choice="req">string <parameter>$command</parameter></paramdef>
+      <paramdef choice="req">object <parameter>&amp;$config</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-command.factory.desc">
+     &title.desc;
+     <para>Get the right object for executing a command.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-command.factory.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$command</parameter>
+       </term>      
+       <listitem>
+        <para>
+         The name of the command
+        </para>
+       </listitem>
+      </varlistentry>
+       <varlistentry>
+       <term>
+        &type.object;
+         <parameter>&amp;$config</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Instance of <classname>PEAR_Config</classname> object
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-command.factory.return">
+    &title.returns;
+    <para>
+     <parameter>object</parameter> the command object 
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.factory.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.factory.note">
+    &title.note;
+    &note.shouldstatic;
+   </refsection>
+</refentry>

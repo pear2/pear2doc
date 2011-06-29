@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency.pear-dependency">
+   <refnamediv>
+    <refname><function>PEAR_Dependency::PEAR_Dependency</function></refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Dependency.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void       <function>PEAR_Dependency::PEAR_Dependency</function></funcdef>
+      <paramdef choice="req">object <parameter>&amp;$registry</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-dependency.pear-dependency.desc">
+     &title.desc;
+     <para>
+      Constructor
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.pear-dependency.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.object;
+         <parameter>&amp;$registry</parameter>
+       </term>      
+       <listitem>
+        <para>
+         a <link linkend="core.ppm.pear-registry">
+          <classname>PEAR_Registry</classname></link> instance
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-dependency.pear-dependency.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

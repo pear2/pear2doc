@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.savecache">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::saveCache</function>
+  </refname>
+  <refpurpose>Save the value retrieved from a remote REST resource in the local cache.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_REST::saveCache</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     mixed
+     <parameter>$contents</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array
+     <parameter>$lastmodified</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     bool
+     <parameter>
+      $nochange = false
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.savecache.desc">
+  &title.desc;
+  <para>
+   Use this to save a resource after retrieving.  Since the <literal>cache_ttl</literal>
+   configuration variable is used in determining when to check the remote server, and
+   HTTP caching is used as well, it is possible for this scenario to arise:
+  </para>
+  <para>
+   <orderedlist>
+    <listitem>
+     <para>
+      retrieve REST resource
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      cache the resource
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      a few days later, retrieve the REST resource again
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      HTTP caching returns 304 not modified
+     </para>
+    </listitem>
+   </orderedlist>
+  </para>
+  <para>
+   In this situation, it doesn't make much sense to save the resource contents
+   redundantly.  Instead, the last access time can be saved in the cache id by passing
+   true into the last parameter.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-rest.savecache.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>
+       The REST resource's URL
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$contents</parameter>
+     </term>
+     <listitem>
+      <para>
+       Contents retrieved from the REST resource (ignored if the last parameter is true)
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$lastmodified</parameter>
+     </term>
+     <listitem>
+      <para>
+       The ETag and LastModified headers retrieved from the remote server, used for
+       HTTP caching.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$nochange</parameter>
+     </term>
+     <listitem>
+      <para>
+       If false, the cache is saved normally.  If true, only the <parameter>$lastmodified</parameter>
+       parameter is saved in the cache id file, registering an HTTP cache hit.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.savecache.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.savecache.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

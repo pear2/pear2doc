@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.geterrors">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getErrors</function>
+  </refname>
+  <refpurpose>Wrapper to PEAR_ErrorStack::getErrors()</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_ChannelFile::getErrors</function>
+    </funcdef>
+    <paramdef choice="opt">
+     boolean
+     <parameter>$purge</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.geterrors.desc">
+  &title.desc;
+  <para>
+   Retrieve any errors from the last validation attempt.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.geterrors.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$purge</parameter>
+     </term>
+     <listitem>
+      <para>determines whether to purge the error stack after retrieving</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.geterrors.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.geterrors.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

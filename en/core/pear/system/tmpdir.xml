@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system.tmpdir">
+   <refnamediv>
+    <refname>System::tmpdir</refname>
+    <refpurpose>Get path of temporal directory</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once "System.php";
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>System::tmpdir</function></funcdef>
+      
+      
+      <paramdef choice="req"/>
+                  
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.system.tmpdir.desc">
+    &title.desc;
+    <para>
+     Get the path of the temporal directory set in the system 
+     by looking in its environments variables.   
+    </para>
+   </refsection>   
+      
+         
+   <refsection xml:id="core.pear.system.tmpdir.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - The temporal directory on the system
+    </para>
+   </refsection>      
+            
+               
+                
+   <refsection xml:id="core.pear.system.tmpdir.note">
+    &title.note;  
+                 
+    &note.canstatic;
+                            
+    <para>
+     php.ini-recommended removes the <parameter>E</parameter> from 
+     the variables_order setting, making unavailable the $_ENV 
+     array
+    </para>
+   </refsection>    
+   <refsection xml:id="core.pear.system.tmpdir.see">
+    &title.see;
+    <para>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.man;tmpdir"><command>tmpdir</command> man page</link>
+    </para>
+   </refsection>         
+                   
+
+  </refentry>

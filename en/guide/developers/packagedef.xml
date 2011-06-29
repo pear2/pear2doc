@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="developers.packagedef">
+    <info><title>The package definition file <filename>package.xml</filename> (deprecated)</title>
+    <titleabbrev><filename>package.xml</filename></titleabbrev></info>
+  
+  
+
+  <section xml:id="developers.packagedef.intro"><info><title>Introduction to the package definition file <filename>package.xml</filename></title><titleabbrev>Introduction</titleabbrev></info>
+   
+   
+
+   <warning><info><title>package.xml version 1.0 is deprecated</title></info>
+    
+    <para>
+     package.xml 1.0 is deprecated.
+     You should really be using package.xml version 2.0.
+     Documentation can be found at
+     <link linkend="guide.developers.package2">package.xml 2.0 documentation</link>.
+    </para>
+    <para>
+     As of 2007-04, More than 99.8% of all PEAR
+     installations in the wild are capable of using package.xml 2.0
+     files, so you should not worry about backwards compatibility.
+    </para>
+   </warning>
+
+   <simpara>
+    The package definition file <filename>package.xml</filename> is,
+    as the name already implies, a well-formed XML file that contains
+    all information about a PEAR package.
+   </simpara>
+   <simpara>
+    This chapter will describe the allowed elements of the package
+    definition file and it will discuss how to create such a file for
+    your package.
+   </simpara>
+
+   <simpara>
+   The PEAR_PackageFileManager
+   package simplifies the creation of package.xml.
+   You can install PEAR_PackageFileManager via the usual command
+   </simpara>
+
+    <para>
+     <screen>
+      <userinput>
+&dollar; pear install PEAR_PackageFileManager
+      </userinput>
+     </screen>
+    </para>
+
+   <section xml:id="developers.packagedef.elements"><info><title>Allowed elements</title></info>
+    
+
+    <para>
+     The toplevel element in <filename>package.xml</filename> is the
+     element <literal>&lt;package version="1.0"&gt;</literal>. The
+     allowed sub elements are:
+    </para>
+
+    <itemizedlist>
+     <listitem>
+      <simpara>
+       <literal>&lt;name&gt;</literal>: The name of the package.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       <literal>&lt;summary&gt;</literal>: Short summary of the
+       package's description.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       <literal>&lt;description&gt;</literal>: Full length description
+       of the package.
+      </simpara>
+     </listitem>
+
+     <listitem>
+      <para>
+       <literal>&lt;maintainers&gt;</literal>: Information about the
+       maintainers of the package.
+       <itemizedlist>
+        <listitem>
+         <para>
+          maintainer: Information about a single maintainer. (May be used
+          multiple times.)
+          <itemizedlist>
+           <listitem>
+            <simpara>
+             <literal>&lt;user&gt;</literal>: The account name of the user.
+            </simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;role&gt;</literal>: The role the user has
+             during package development. (Can be either lead, developer,
+             helper.)</simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;name&gt;</literal>: The realname of the user.
+            </simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;email&gt;</literal>: The email address of the user.
+            </simpara>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>&lt;release&gt;</literal>: Information about the current
+       release.
+       <itemizedlist>
+        <listitem>
+         <simpara>
+          <literal>&lt;version&gt;</literal>: The version number of
+          the release.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          <literal>&lt;state&gt;</literal>: The state of the release.
+          (Can be one of stable, beta, alpha, devel, or snapshot.)
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          <literal>&lt;date&gt;</literal>: The date when the release has
+          been rolled.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          <literal>&lt;license&gt;</literal>: The license
+          under which the code is available.
+         </simpara>
+        </listitem>
+        <listitem>
+         <simpara>
+          <literal>&lt;notes&gt;</literal>: Releasenotes
+         </simpara>
+        </listitem>
+        <listitem>
+         <para>
+          <literal>&lt;filelist&gt;</literal>
+          <itemizedlist>
+           <listitem>
+            <simpara><literal>&lt;file name="xxx" role="xxx" /&gt;</literal>: Filename</simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;dir name="xxx" [role="xxx"]&gt;</literal>: Name
+             of a subdirectory. This subdirectory can again contain
+             <literal>&lt;file role="xxx"&gt;</literal> entries.
+            </simpara>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+        <listitem>
+         <para>
+          <literal>&lt;deps&gt;</literal>: List of dependencies of the
+          package.
+          <itemizedlist>
+           <listitem>
+            <para>
+             <literal>
+              &lt;dep type="xxx" rel="yyy" optional="yes"&gt;name&lt;/dep&gt;
+             </literal>: For more information about dependencies, please
+             see
+             <link linkend="guide.developers.packagedef.deps">below</link>.
+            </para>
+           </listitem>
+           </itemizedlist>
+          </para>
+         </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <literal>&lt;changelog&gt;</literal>: Changelog-like information
+       about the package.
+       <itemizedlist>
+        <listitem>
+         <para>
+          <literal>&lt;release&gt;</literal>
+          <itemizedlist>
+           <listitem>
+            <simpara>
+             <literal>&lt;version&gt;</literal>: Version of the
+             specific release.
+            </simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;state&gt;</literal>: State of the specific
+             release.
+            </simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;date&gt;</literal>: Date when the specific
+             release has been rolled.
+            </simpara>
+           </listitem>
+           <listitem>
+            <simpara>
+             <literal>&lt;notes&gt;</literal>: Changelog information
+            </simpara>
+           </listitem>
+          </itemizedlist>
+         </para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+
+   </section>
+
+   <section xml:id="developers.packagedef.characters"><info><title>Allowed characters</title></info>
+    
+    <para>
+     The letters allowed inside elements are A-Z and a-z.
+     Other characters, such as <literal>&eacute;</literal>
+     must use entities
+     (in this case: <literal>&amp;eacute;</literal>).
+    </para>
+    <para>
+     If you create your package.xml files using the
+     PEAR_PackageFileManager, upgrade your PEAR installation
+     to version 1.4.0a2 or greater and you won't have
+     to worry about this because the file manager takes care
+     of this automatically.
+    </para>
+    <para>
+     If you write your package.xml files manually, you will
+     need to enter the entities yourself.
+     A list of the  most common entities can be found at:
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.xml.entities.common;">
+      &url.xml.entities.common;</link>
+     If the characters you need aren't in that list, go to
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.xml.entities.all;">
+      &url.xml.entities.all;</link>
+     and look at the other entity lists.
+    </para>
+   </section>
+
+   <section xml:id="developers.packagedef.validating"><info><title>Validating</title></info>
+     
+
+     <para>
+       In order to validate <filename>package.xml</filename> files one
+       can use the <command>xmllint</command> tool that comes with
+       <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.libxml;">libxml2</link>.
+     </para>
+     <para>
+       <command>
+         xmllint --dtdvalid http://pear.php.net/dtd/package-1.0 --noout package.xml
+       </command>
+     </para>
+   </section>
+
+   <section xml:id="developers.packagedef.creating"><info><title>Creating a package definition file</title><titleabbrev>Creating the file</titleabbrev></info>
+    
+    
+
+    <para>
+     <example><info><title>Basic <filename>package.xml</filename></title></info>
+      
+      <programlisting role="xml">
+<![CDATA[
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<package version="1.0">
+ <name>Money_Fast</name>
+ <summary>Make money fast.</summary>
+ <description>
+  This package helps you to make money pretty fast.
+ </description>
+ <license>PHP License</license>
+ <maintainers>
+  <maintainer>
+   <user>foo</user>
+   <name>Joe Foo</name>
+   <email>foo@example.com</email>
+   <role>lead</role>
+  </maintainer>
+ </maintainers>
+
+ <release>
+  <version>1.0</version>
+  <date>2002-05-27</date>
+  <state>stable</state>
+  <notes>
+   This is the first release.
+  </notes>
+  <filelist>
+   <dir name="/" baseinstalldir="Money">
+    <file role="php" name="Fast.php" />
+   </dir>
+  </filelist>
+ </release>
+</package>
+]]>
+      </programlisting>
+     </example>
+    </para>
+    <para>
+     This <filename>package.xml</filename> can serve as a template for
+     you as it already contains all necessary elements. In most cases
+     you only need to change the character data between the tags in order
+     to use the example in your package.
+    </para>
+    <para>
+     <example><info><title>Example for nested directories</title></info>
+      
+      <programlisting role="xml">
+<![CDATA[
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+[...]
+
+ <release>
+  <version>1.0</version>
+  <date>2002-07-23</date>
+  <state>stable</state>
+  <notes>
+   This is the first release.
+  </notes>
+  <filelist>
+   <dir name="/" baseinstalldir="Money">
+    <file role="php" name="Fast.php" />
+    <dir name="Calculator">
+     <file name="Calculator.php" role="php" />
+     <file name="Currency.php" role="php" />
+     <file name="Stocks.php" role="php" />
+    </dir>
+    <dir name="docs">
+     <file name="README.txt" role="doc" />
+     <file name="tutorial.txt" role="doc" />
+     <dir name="examples">
+      <file name="NASDAQ.php" role="php" />
+      <file name="DAX.php" role="php" />
+     </dir>
+    </dir>
+   </dir>
+  </filelist>
+ </release>
+</package>
+]]>
+      </programlisting>
+     </example>
+    </para>
+    <para>
+     In this example you get to know a very handy feature: When you
+     have a directory in your package that only contains files of
+     the same type, you can add to role attribute even to the
+     <literal>&lt;dir&gt;</literal> tag instead of adding it to every
+     single <literal>&lt;file&gt;</literal> tag.
+    </para>
+    <para>
+     With the knowledge you've acquired from this chapter you should now
+     be able to produce a package definition file for your own package.
+     If you still have questions concerning the topic, don't hesitate
+     to ask on the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:&email.pear.general;">mailinglist</link>.
+    </para>
+   </section>
+
+   <section xml:id="developers.packagedef.roles"><info><title>The file roles</title></info>
+    
+    <para>
+     The <literal>role</literal>-attribute in the &lt;file&gt; tag
+     defines what type the file has and in which location it should
+     be installed.
+     <table><title>Possible values</title>
+      
+      <tgroup cols="3">
+       <thead>
+        <row>
+         <entry>Value</entry>
+         <entry/>
+         <entry>Destination dir</entry>
+        </row>
+       </thead>
+       <tbody>
+
+        <row>
+         <entry>php</entry>
+         <entry>PHP source file</entry>
+         <entry>the directory is determined by the package name</entry>
+        </row>
+
+        <row>
+         <entry>ext</entry>
+         <entry>Extension, dynamically loadable library</entry>
+         <entry>the PHP extension directory or
+          <constant>PHP_PEAR_EXTENSION_DIR</constant>
+          if defined</entry>
+        </row>
+
+        <row>
+         <entry>doc</entry>
+         <entry>Documentation file</entry>
+         <entry>{PEAR_documentation_dir}/Package_Name/</entry>
+        </row>
+
+        <row>
+         <entry>data</entry>
+         <entry>Package related data files (graphics, data tables etc)</entry>
+         <entry>{PEAR_data_dir}/Package_Name/</entry>
+        </row>
+
+        <row>
+         <entry>test</entry>
+         <entry>Package related test files (unit-tests etc)</entry>
+         <entry>{PEAR_test_dir}/Package_Name/</entry>
+        </row>
+
+        <row>
+         <entry>script</entry>
+         <entry>Package related shell scripts</entry>
+         <entry>the PHP binary directory or
+          <constant>PHP_PEAR_BIN_DIR</constant>
+          if defined</entry>
+        </row>
+
+        <row>
+         <entry>src and extsrc</entry>
+         <entry>C or C++ source code</entry>
+         <entry>not copied directly - used to build a
+         extension</entry>
+        </row>
+
+       </tbody>
+      </tgroup>
+     </table>
+    </para>
+
+   </section>
+   <section xml:id="guide.developers.packagedef.deps"><info><title>Defining Dependencies</title></info>
+    
+
+    <para>
+     The PEAR Package Manager supports checking for
+     different system capabilities. You define those
+     dependencies with the <literal>&lt;dep&gt;</literal> tag:
+     <example><info><title><filename>package.xml</filename> with dependencies</title></info>
+      
+      <simpara>
+       The following example shows how to specify dependencies for
+       PHP 4.3.0 or better and <classname>XML_Parser</classname> 1.0.
+      </simpara>
+      <programlisting role="xml">
+       <![CDATA[
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+[...]
+ </release>
+ <deps>
+  <dep type="php" rel="ge" version="4.3.0" />
+  <dep type="pkg" rel="has" version="1.0">XML_Parser</dep>
+ </deps>
+</package>
+       ]]>
+      </programlisting>
+     </example>
+    </para>
+    <section><info><title>The <literal>type</literal>-attribute</title></info>
+     
+     <para>
+      The following <literal>type</literal>s are supported:
+     <table><title>type values</title>
+      
+      <tgroup cols="4">
+       <thead>
+        <row>
+         <entry>Value</entry>
+         <entry/>
+         <entry>Meaning</entry>
+         <entry>Example</entry>
+        </row>
+       </thead>
+       <tbody>
+
+        <row>
+         <entry>pkg</entry>
+         <entry>Package</entry>
+         <entry>depends on a certain Package</entry>
+         <entry><quote>HTML_Flexy</quote></entry>
+        </row>
+
+        <row>
+         <entry>ext</entry>
+         <entry>Extension</entry>
+         <entry>depends on a certain PHP extension</entry>
+         <entry><quote>curl</quote></entry>
+        </row>
+
+        <row>
+         <entry>php</entry>
+         <entry>PHP</entry>
+         <entry>depends on a certain PHP version</entry>
+         <entry><quote>4.2</quote></entry>
+        </row>
+
+        <row>
+         <entry>prog</entry>
+         <entry>Program</entry>
+         <entry>
+          depends on a certain Program available in the
+          system path.  This is not supported in the PEAR installer.
+         </entry>
+         <entry><quote>latex</quote></entry>
+        </row>
+
+        <row>
+         <entry>os</entry>
+         <entry>Operating System</entry>
+         <entry>depends on a certain OS version</entry>
+         <entry><quote>Linux</quote></entry>
+        </row>
+
+        <row>
+         <entry>sapi</entry>
+         <entry>Server API</entry>
+         <entry>depends on a certain Server API.  This is not supported in the PEAR installer.</entry>
+         <entry><quote>Apache</quote></entry>
+        </row>
+
+        <row>
+         <entry>zend</entry>
+         <entry>Zend</entry>
+         <entry>depends on a certain version of the Zend API.
+          This is not supported in the PEAR installer.</entry>
+         <entry><quote>2</quote></entry>
+        </row>
+       </tbody>
+      </tgroup>
+     </table>
+
+    </para>
+    <warning>
+     <simpara>
+      The DTD for the package definition file supports
+      further types, but those are not supported yet.
+     </simpara>
+    </warning>
+   </section>
+   <section><info><title>The <literal>rel</literal>-attribute</title></info>
+    
+    <para>
+     The <literal>rel</literal>-attribute
+     defines the relationship between the existing
+     capability and the required.
+    </para>
+     <table><title>rel values</title>
+      
+      <tgroup cols="4">
+       <thead>
+        <row>
+         <entry>Value</entry>
+         <entry/>
+         <entry>Meaning</entry>
+         <entry>Can be used with</entry>
+        </row>
+       </thead>
+       <tbody>
+
+        <row>
+         <entry>has</entry>
+         <entry>has</entry>
+         <entry>
+          the existing capability must have the
+          requirement - version-attribute is
+          ignored
+         </entry>
+         <entry>pkg, ext, php, prog, os, sapi, zend</entry>
+        </row>
+
+        <row>
+         <entry>eq</entry>
+         <entry>equal</entry>
+         <entry>
+          the existing capability must exactly match the
+          version value
+         </entry>
+         <entry>pkg, ext, php, prog, os, sapi, zend</entry>
+        </row>
+
+        <row>
+         <entry>lt</entry>
+         <entry>less than</entry>
+         <entry>
+          the existing capability must be less than the version value
+         </entry>
+         <entry>pkg, ext, php, zend</entry>
+        </row>
+
+        <row>
+         <entry>le</entry>
+         <entry>less than or equal</entry>
+         <entry>
+          the existing capability must be less than or equal to the
+          version value
+         </entry>
+         <entry>pkg, ext, php, zend</entry>
+        </row>
+
+        <row>
+         <entry>gt</entry>
+         <entry>greater than</entry>
+         <entry>
+          the existing capability must be greater than the version
+          value
+         </entry>
+         <entry>pkg, ext, php, zend</entry>
+        </row>
+
+        <row>
+         <entry>ge</entry>
+         <entry>greater than or equal</entry>
+         <entry>
+          the existing capability must greater than or equal to the
+          version value
+         </entry>
+         <entry>pkg, ext, php, zend</entry>
+        </row>
+
+        <row>
+         <entry>not</entry>
+         <entry>conflicting dependency</entry>
+         <entry>
+          the dependency conflicts with the package, the two cannot co-exist.
+          version is ignored.
+         </entry>
+         <entry>ext, php</entry>
+        </row>
+
+       </tbody>
+      </tgroup>
+     </table>
+     <para>
+      <literal>Has</literal> will be used if no other value has been
+      defined.  Note that rel is required in PEAR 1.4.0 and newer.
+     </para>
+    </section>
+    <section><info><title>The <literal>version</literal>-attribute</title></info>
+     
+
+     <para>
+      The attribute <literal>version</literal> defines the version
+      that is used to compare.
+     </para>
+    </section>
+    <section><info><title>The <literal>optional</literal>-attribute</title></info>
+     
+
+     <para>
+      The attribute <literal>optional</literal> can be used when
+      a dependency is not required but having the package installed
+      can bring enhanced functionalities.  The only legal values are &quot;yes&quot;
+      and &quot;no&quot;.  If the optional attribute is not present, a dependency is
+      required.
+      When <literal>optional=&quot;yes&quot;</literal> is used, this attribute
+      will result in installation messages similar to the following messages:
+     </para>
+    <para>
+     <screen>
+      <userinput>
+&dollar; pear install &lt;package&gt;
+Optional dependencies:
+Package `XML_Tree' is recommended to utilize some features.
+Package `MDB' is recommended to utilize some features.
+      </userinput>
+     </screen>
+    </para>
+    </section>
+   </section>
+  </section>
+ </chapter>

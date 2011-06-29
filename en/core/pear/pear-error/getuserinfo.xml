@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.getuserinfo">
+   <refnamediv>
+    <refname>PEAR_Error::getUserInfo()</refname>
+    <refpurpose>get additional user-supplied information</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Error::getUserInfo</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.getuserinfo.desc">
+    &title.desc;
+    <para>
+     Returns additional information about an error
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.getuserinfo.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     error information
+    </para>
+   </refsection>     
+   <refsection xml:id="core.pear.pear-error.getuserinfo.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

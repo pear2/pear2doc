@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getsummary">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getSummary</function>
+  </refname>
+  <refpurpose>Get channel summary</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>string|false</replaceable>
+     <function>PEAR_ChannelFile::getSummary</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getsummary.desc">
+  &title.desc;
+  <para>
+   Return the brief description of a channel's purpose.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getsummary.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getsummary.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

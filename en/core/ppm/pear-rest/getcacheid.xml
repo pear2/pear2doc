@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.getcacheid">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::getCacheId</function>
+  </refname>
+  <refpurpose>getCacheId</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array|false
+     <function>PEAR_REST::getCacheId</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.getcacheid.desc">
+  &title.desc;
+  <para>
+   Retrieve the HTTP caching information for a REST resource, or &false; if no cache is found.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-rest.getcacheid.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>
+       REST resource URL
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.getcacheid.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.getcacheid.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

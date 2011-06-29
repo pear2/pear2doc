@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.handle">
+ <info><title>handle</title></info>
+
+ <section xml:id="pyrus.configuration.user.handle.intro">
+  <info><title>Introduction</title></info>
+  <note><simpara>This is a channel-specific configuration value</simpara></note>
+  <para>
+   The <literal>handle</literal> variable should be set to the handle you use
+   to identify yourself in the <literal>&lt;maintainers&gt;</literal> section
+   of package.xml for packages in a specific channel.
+  </para>
+  <para>
+   For example, if your <literal>&lt;maintainer&gt;</literal> entry in package.xml
+   is:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+ <lead>
+  <name>Greg Beaver</name>
+  <user>cellog</user>
+  <email>cellog@php.net</email>
+  <active>no</active>
+ </lead>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Your handle is <literal>cellog</literal>.
+  </para>
+  <para>
+   This configuration variable is used in conjunction with the
+   <link linkend="pyrus.configuration.user.opensslcert">openssl_cert</link>
+   configuration variable to implement package signing.
+  </para>
+ </section>
+</section>

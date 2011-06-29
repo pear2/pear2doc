@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="package.pear.pear.pear-dependencydb.getdependentpackages">
+ <refnamediv>
+  <refname>
+   <function>PEAR_DependencyDB::getDependentPackages</function>
+  </refname>
+  <refpurpose>Get a list of installed packages that depend on this package</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/DependencyDB.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>array|false</replaceable>
+     <function>PEAR_DependencyDB::getDependentPackages</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_PackageFile_v1|PEAR_PackageFile_v2|array
+     <parameter>&amp;$pkg</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="package.pear.pear.pear-dependencydb.getdependentpackages.desc">
+  &title.desc;
+  <para>
+   This is most useful at uninstall-time.  A list of installed packages that depend
+   upon the package can be used to prevent uninstallation, and to emit warnings
+   for optional dependencies.
+  </para>
+</refsection>
+ <refsection xml:id="package.pear.pear.pear-dependencydb.getdependentpackages.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>PEAR_PackageFile_v1|PEAR_PackageFile_v2|array</type>
+      <parameter>&amp;$pkg</parameter>
+     </term>
+     <listitem>
+      <para>
+       This parameter, if an array, should be in format:
+      </para>
+      <para>
+       <programlisting>
+        <![CDATA[
+<?php
+array(
+  'package' => 'packagename',
+  'channel' => 'channelname'
+);
+?>
+        ]]>
+       </programlisting>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-dependencydb.getdependentpackages.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-dependencydb.getdependentpackages.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

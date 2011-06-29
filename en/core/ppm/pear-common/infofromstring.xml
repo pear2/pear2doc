@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.infofromstring">
+   <refnamediv>
+    <refname><function>PEAR_Common::infoFromString</function></refname>
+    <refpurpose>Returns information about a package file</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array
+       <function>PEAR_Common::infoFromString</function></funcdef>
+      <paramdef choice="req">string <parameter>$data</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.infofromstring.desc">
+     &title.desc;
+     <para>Returns information about a package file. 
+      Expects the contents of a package xml file as input.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.infofromstring.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$data</parameter>
+       </term>      
+       <listitem>
+        <para>
+        content of package xml file
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.infofromstring.return">
+    &title.returns;
+    <para>
+     <parameter>array</parameter> -
+     array with package information
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.infofromstring.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.infofromstring.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

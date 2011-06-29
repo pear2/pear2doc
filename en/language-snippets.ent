@@ -1,0 +1,85 @@
+<!-- $Revision: 289292 $ -->
+
+<!ENTITY warn.experimental '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This module is
+<emphasis>EXPERIMENTAL</emphasis>. That means that the behaviour of these
+functions, these function names, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this module at your own risk.</simpara></warning>'>
+
+<!ENTITY warn.experimental.func '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This function is
+<emphasis>EXPERIMENTAL</emphasis>. That means, that the behaviour of this
+function, the function name, in concreto ANYTHING documented here can
+change in a future release of this package WITHOUT NOTICE. Be warned, and
+use this function at your own risk.</simpara></warning>'>
+
+<!ENTITY warn.undocumented.func '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This function is
+currently not documented.</simpara></warning>'>
+
+<!ENTITY warn.undocumented.method '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This method is
+currently not documented.</simpara></warning>'>
+
+<!ENTITY tip.ob-capture '<tip xmlns="http://docbook.org/ns/docbook"><simpara>As with anything that outputs its
+result directly to the browser, you can use the 
+<ulink url="&url.php.lookup;outcontrol">output-control functions</ulink> to
+capture the output of this function, and save it - for example - in a
+<type>string</type>.</simpara></tip>'>
+
+<!ENTITY return.success 'Returns &true; on success, &false; on failure.'>
+
+<!ENTITY return.success-pearerror 'Returns &true; on success,
+<classname xmlns="http://docbook.org/ns/docbook">PEAR_Error</classname> on failure.'>
+
+<!ENTITY return.falseproblem '<warning xmlns="http://docbook.org/ns/docbook"><simpara>This function may return
+&false;, but may also return a value evaluating to &false; in a simple if
+statement. Please use <ulink url="&url.php.lookup;operators.comparison">
+the === operator</ulink> for testing the return value of this function.
+</simpara></warning>'>
+
+<!ENTITY link.coding-standards 'PEAR <link linkend="standards" xmlns="http://docbook.org/ns/docbook">coding
+standards</link>'>
+
+<!ENTITY note.canstatic '<simpara xmlns="http://docbook.org/ns/docbook">This function can be called
+statically.</simpara>'>
+
+<!ENTITY note.shouldstatic '<simpara xmlns="http://docbook.org/ns/docbook">This function should be called
+statically.</simpara>'>
+
+<!ENTITY note.notstatic '<simpara xmlns="http://docbook.org/ns/docbook">This function can not be called
+statically.</simpara>'>
+
+<!ENTITY note.deprecated '<warning xmlns="http://docbook.org/ns/docbook"><para>This function is
+<emphasis>deprecated</emphasis>. That means that future versions of
+this package may not support it anymore.</para></warning>'>
+
+<!ENTITY title.desc '<title xmlns="http://docbook.org/ns/docbook">Description</title>'>
+<!ENTITY title.param '<title xmlns="http://docbook.org/ns/docbook">Parameter</title>'>
+<!ENTITY title.deprecated '<title xmlns="http://docbook.org/ns/docbook">Deprecated</title>'>
+<!ENTITY title.returns '<title xmlns="http://docbook.org/ns/docbook">Return value</title>'>
+<!ENTITY title.throws '<title xmlns="http://docbook.org/ns/docbook">Throws</title>'>
+<!ENTITY title.throws.errortable 'Possible PEAR_Error values'>
+<!ENTITY title.note '<title xmlns="http://docbook.org/ns/docbook">Note</title>'>
+<!ENTITY title.example '<title xmlns="http://docbook.org/ns/docbook">Example</title>'>
+<!ENTITY title.see '<title xmlns="http://docbook.org/ns/docbook">See</title>'>
+<!ENTITY title.since '<title xmlns="http://docbook.org/ns/docbook">Since</title>'>
+<!ENTITY title.constants 'Constants'>
+
+<!ENTITY type.array '<type xmlns="http://docbook.org/ns/docbook">array</type>'>
+<!ENTITY type.bool '<type xmlns="http://docbook.org/ns/docbook">boolean</type>'>
+<!ENTITY type.callback '<type xmlns="http://docbook.org/ns/docbook">callback</type>'>
+<!ENTITY type.float '<type xmlns="http://docbook.org/ns/docbook">float</type>'>
+<!ENTITY type.int '<type xmlns="http://docbook.org/ns/docbook">integer</type>'>
+<!ENTITY type.integer '<type xmlns="http://docbook.org/ns/docbook">integer</type>'>
+<!ENTITY type.mixed '<type xmlns="http://docbook.org/ns/docbook">mixed</type>'>
+<!ENTITY type.object '<type xmlns="http://docbook.org/ns/docbook">object</type>'>
+<!ENTITY type.res '<type xmlns="http://docbook.org/ns/docbook">resource</type>'>
+<!ENTITY type.resource '<type xmlns="http://docbook.org/ns/docbook">resource</type>'>
+<!ENTITY type.string '<type xmlns="http://docbook.org/ns/docbook">string</type>'>
+<!ENTITY type.void '<type xmlns="http://docbook.org/ns/docbook">void</type>'>
+
+<!ENTITY purpose.preconstants 'predefined constants'>
+
+<!ENTITY pdevrel '(package developer related)'>
+
+<!ENTITY notdocumented '<para xmlns="http://docbook.org/ns/docbook">This package is not documented yet.</para>'>
+
+<!ENTITY noexceptions '<para xmlns="http://docbook.org/ns/docbook">No exceptions thrown.</para>'>

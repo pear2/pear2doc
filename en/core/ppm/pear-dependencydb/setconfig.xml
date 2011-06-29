@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependencydb.setconfig">
+ <refnamediv>
+  <refname>
+   <function>PEAR_DependencyDB::setConfig</function>
+  </refname>
+  <refpurpose>Set up the registry/location of dependency DB</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/DependencyDB.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_DependencyDB::setConfig</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Config|false
+     <parameter>&amp;$config</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$depdb</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependencydb.setconfig.desc">
+  &title.desc;
+  <para>
+   This crucial method is used to set the <classname>PEAR_Config</classname> object
+   that should be used to retrieve both configuration information and a
+   <classname>PEAR_Registry</classname> class for internal manipulation.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.setconfig.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <link linkend="core.ppm.pear-config"><classname>PEAR_Config</classname></link>|&false;
+      <parameter>&amp;$config</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$depdb</parameter>
+     </term>
+     <listitem>
+      <para>full path to the dependency database, or &false; to use default</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.setconfig.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.setconfig.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

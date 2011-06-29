@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.install">
+ <info><title>install - install a package</title></info>
+
+ <section xml:id="pyrus.commands.install.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The install command is used to install packages and accepts a list of package
+   names to install as arguments.  Unlike
+   <link linkend="pyrus.commands.upgrade">upgrade</link>, the install command will
+   only install new packages.
+  </para>
+  <para>
+   Install recognizes several different ways of specifying a package:
+   <table>
+    <title>Ways of specifying a package for installation</title>
+    <tgroup cols="3">
+     <thead>
+      <row>
+       <entry>Package type</entry>
+       <entry>Local/Remote</entry>
+       <entry>Example</entry>
+      </row>
+     </thead>
+
+     <tbody>
+      <row>
+       <entry><literal>package.xml</literal> file</entry>
+       <entry>Local</entry>
+       <entry><userinput>php pyrus.phar install /path/to/package.xml</userinput></entry>
+      </row>
+      <row>
+       <entry>Package release archive</entry>
+       <entry>Local</entry>
+       <entry><userinput>php pyrus.phar install /path/to/PackageName-1.2.3.tgz</userinput></entry>
+      </row>
+      <row>
+       <entry>Static url</entry>
+       <entry>Remote</entry>
+       <entry><userinput>php pyrus.phar install http://example.com/PackageName-1.2.3.tgz</userinput></entry>
+      </row>
+      <row>
+       <entry>Abstract package</entry>
+       <entry>Remote</entry>
+       <entry><userinput>php pyrus.phar install PackageName</userinput></entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </para>
+  <para>
+   Abstract Packages are documented
+   <link linkend="guide.users.concepts.abstractpackage">here</link>.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.install.optionaldeps">
+  <title>--optionaldeps</title>
+  <para>
+   By default, required package dependencies are also installed.  To also
+   automatically install optional dependencies (not dependency groups, but
+   dependencies specified using the &lt;optional&gt; tag in package.xml),
+   pass the <literal>-o</literal> or <literal>--optionaldeps</literal> option
+   to the install command:
+  </para>
+  <para>
+   <screen>php pyrus.phar install -o PackageName</screen>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.install.plugin">
+  <title>--plugin</title>
+  <para>
+   Plugins (documented <link linkend="pyrus.plugins">here</link>) must be explicitly
+   installed with the <literal>-p</literal> or <literal>--plugin</literal> option.
+   Plugins are installed into the location specified by the <literal>plugins_dir</literal>
+   configuration variable, which defaults to the same location that the user
+   configuration file is located (<literal>$HOME/.pear</literal> in unix,
+   <literal>&lt;My Documents&gt;\pear</literal> on windows).
+  </para>
+  <para>
+   <screen>php pyrus.phar install -p PEAR2_Pyrus_Developer</screen>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.install.packagingroot">
+  <title>--packagingroot</title>
+  <para>
+   Developers packaging RPMs or other forms of distribution for OS vendors
+   should use the <literal>-r</literal> or <literal>--packagingroot</literal>
+   option to install a package into a subdirectory for creating the RPM.
+  </para>
+  <para>
+   <screen>php pyrus.phar install -r /home/myuser/package PackageName</screen>
+  </para>
+  <para>
+   For the example above, if the default Pyrus installation is in
+   <literal>/usr/local/lib/pear</literal>, all files will be installed
+   into <literal>/home/myuser/package/usr/local/lib/pear</literal>.  Another
+   way of understanding this is that the packagingroot option instructs
+   Pyrus to treat <literal>/home/myuser/package</literal> as if it were the
+   root directory <literal>/</literal>.
+  </para>
+  <para>
+   Developers packaging RPMs or other forms of distribution for OS vendors
+   should use the <literal>-r</literal> or <literal>--packagingroot</literal>
+   option to install a package into a subdirectory for creating the RPM.
+  </para>
+  <para>
+   <screen>php pyrus.phar install -r /home/myuser/package PackageName</screen>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.install.force">
+  <title>--force</title>
+  <para>
+   The <literal>--force</literal> or <literal>-f</literal> option can be used
+   to force installation if there are errors.  For instance, this can be used
+   to override problems in dependency validation, or to force installation of a
+   package that is not stable enough.  As such, it should be used sparingly if
+   at all.  Better is to request a specific version for installation.
+  </para>
+ </section>
+</section>

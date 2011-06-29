@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-runtest.run">
+ <refnamediv>
+  <refname>
+   <function>PEAR_RunTest::run</function>
+  </refname>
+  <refpurpose>run</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/RunTest.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string|PEAR_Error
+     <function>PEAR_RunTest::run</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$file</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>
+      $ini_settings = ''
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-runtest.run.desc">
+  &title.desc;
+  <para>
+   Run a unit test.  The return value is one of:
+  </para>
+  <para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>PASSED</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>SKIPPED</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>WARNED</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>FAILED</literal>
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-runtest.run.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$file</parameter>
+     </term>
+     <listitem>
+      <para>
+       Full path to the test file to run.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$ini_settings</parameter>
+     </term>
+     <listitem>
+      <para>
+       Additional customized settings to pass on the command-line to the PHP
+       instance used for testing.  For example, requesting disabling use of php.ini
+       or a testing php.ini can be specified.  For a full list of possible settings,
+       type:
+      </para>
+      <para>
+       <screen>
+        <![CDATA[
+$ php -h
+        ]]>
+       </screen>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-runtest.run.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-runtest.run.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

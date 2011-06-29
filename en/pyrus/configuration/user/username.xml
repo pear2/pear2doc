@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.username">
+ <info><title>username</title></info>
+
+ <section xml:id="pyrus.configuration.user.username.intro">
+  <info><title>Introduction</title></info>
+  <note><simpara>This is a channel-specific configuration value</simpara></note>
+  <para>
+   This configuration variable is a legacy variable from PEAR, is not yet
+   used in Pyrus, and may be removed before the stable release.
+  </para>
+ </section>
+</section>

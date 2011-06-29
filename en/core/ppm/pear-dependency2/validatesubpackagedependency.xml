@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.validatesubpackagedependency">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Dependency2::validateSubpackageDependency</function>
+  </refname>
+  <refpurpose>validateSubpackageDependency</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array|true|PEAR_Error
+     <function>PEAR_Dependency2::validateSubpackageDependency</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$dep</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     bool
+     <parameter>$required</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array
+     <parameter>$params</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.validatesubpackagedependency.desc">
+  &title.desc;
+  <para>
+   Validate a subpackage-style dependency.  This is identical to a package dependency
+   from a validation perspective, and so documentation for
+   <link linkend="core.ppm.pear-dependency2.validatepackagedependency"><function>validatePackageDependency</function></link> should be referenced for details.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatesubpackagedependency.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$dep</parameter>
+     </term>
+     <listitem>
+      <para>
+       dependency array as defined by package.xml 2.0
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$required</parameter>
+     </term>
+     <listitem>
+      <para>
+       whether this is a required or optional dependency
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>
+       array of PEAR_Downloader_Package objects representing packages to be
+       downloaded that can be used to validate dependencies
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatesubpackagedependency.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatesubpackagedependency.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.todefault">
+   <refnamediv>
+    <refname><function>PEAR_Config::toDefault</function></refname>
+    <refpurpose>Revert value of config key to the system-defined one</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::toDefault</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.todefault.desc">
+     &title.desc;
+     <para>
+      Unset the user-defined value of a config key, 
+      reverting the value to the system-defined one.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.todefault.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.todefault.return">
+    &title.returns;
+
+    <para>
+     <parameter>bool</parameter> -
+     &return.success;
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.todefault.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

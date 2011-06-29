@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.mkdirhier">
+   <refnamediv>
+    <refname><function>PEAR_Common::mkDirHier</function></refname>
+    <refpurpose>Create a directory and necessary parent directories</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool
+       <function>PEAR_Common::mkDirHier</function></funcdef>
+      <paramdef choice="req">string <parameter>$dir</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.mkdirhier.desc">
+     &title.desc;
+     <para>
+      Wrapper to System::mkDir(), 
+      creates a directory as well as any necessary parent directories.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.mkdirhier.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$dir</parameter>
+       </term>      
+       <listitem>
+        <para>
+         directory name
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.mkdirhier.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> - 
+     &return.success-pearerror;
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.mkdirhier.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.mkdirhier.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

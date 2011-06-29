@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.pickle">
+ <info><title>pickle - automatically create a PECL package.xml and package release from source directory</title></info>
+
+ <section xml:id="pyrus.commands.pickle.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The pickle command is designed to make the creation of an extension for
+   <acronym>PECL</acronym> developers very easy.  It scans a SVN checkout
+   of a PECL package directory, generates package.xml, and packages a
+   release in one step.
+  </para>
+  <para>
+   The pickle command looks for these standard files:
+
+   <itemizedlist>
+    <listitem><simpara>CREDITS</simpara></listitem>
+    <listitem><simpara>README</simpara></listitem>
+    <listitem><simpara>RELEASE-X.Y.Z (where X.Y.Z is the release version)</simpara></listitem>
+    <listitem><simpara>API-X.Y.Z (where X.Y.Z is the API version)</simpara></listitem>
+   </itemizedlist>
+
+   and for a standard directory layout of
+
+<screen>
+/                Extension source files
+data/            Data files
+tests/           Test files
+doc/             Documentation files
+examples/        Example files (documentation)
+</screen>
+
+   The CREDITS file must have this format for the pickle command to recognize it:
+
+<screen>
+ <![CDATA[
+;; extensionname
+Maintainer One [handle1] <email@example.com> (role)
+Maintainer Two [handle2] <email@example.com> (role)
+ ]]>
+</screen>
+
+   Where role is one of lead, developer, contributor, helper.
+
+   The first line of README is used as the summary of the package.
+   RELEASE-X.Y.Z is used as the release notes.
+  </para>
+  <para>
+   <literal>X.Y.Z</literal> in the filename <literal>RELEASE-X.Y.Z</literal> is
+   also used to automatically calculate the stability, and
+   <literal>X.Y.Z</literal> in the filename <literal>API-X.Y.Z</literal> is used
+   to calculate the API stability.  The formula is relatively simple: if X is
+   <literal>0</literal>, the stability is set to <literal>alpha</literal>.
+   Otherwise, if X is <literal>1</literal> or greater, the following methods are
+   used to calculate the stability.
+   <itemizedlist>
+    <listitem>
+     <para>
+      If Z contains <literal>a</literal> as in the version <literal>1.0.0a1</literal>
+      the stability is set to <literal>alpha</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      If Z contains <literal>b</literal> as in the version <literal>1.0.0b1</literal>
+      the stability is set to <literal>beta</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      If Z contains <literal>RC</literal> as in the version <literal>1.0.0RC1</literal>
+      the stability is set to <literal>beta</literal>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Otherwise, stability is set to <literal>stable</literal>.
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.pickle.args">
+  <title>Arguments to the pickle command</title>
+  <para>
+   The pickle command has 4 arguments:
+   <screen>php pyrus.phar pickle extname channelname /path/to/packagedir extensions...</screen>
+  </para>
+  <para>
+   <literal>/path/to/packagedir</literal> specifies the location in which to
+   package up the release.  If not present, it defaults to the current working
+   directory.  The pickle command usually should be executed from that directory,
+   this argument is present to allow batch creation of package.xml files for
+   multiple extensions with a single shell script.
+  </para>
+  <para>
+   If <literal>package.xml</literal> does not exist in the location packaging
+   will take place, then the first argument is required.  The first argument
+   is the name of the package, which is usually the same name as the extension,
+   and the second argument is the channel name.  If not specified, the package
+   is assumed to be in the <literal>pecl.php.net</literal> channel.
+  </para>
+  <para>
+   The final argument, <literal>extensions</literal> is a list of file extensions
+   that should be considered source files.  By default, the file extensions
+   recognized as source files are:
+
+   <itemizedlist>
+    <listitem><simpara>c</simpara></listitem>
+    <listitem><simpara>cc</simpara></listitem>
+    <listitem><simpara>h</simpara></listitem>
+    <listitem><simpara>m4</simpara></listitem>
+    <listitem><simpara>w32</simpara></listitem>
+    <listitem><simpara>re</simpara></listitem>
+    <listitem><simpara>y</simpara></listitem>
+    <listitem><simpara>l</simpara></listitem>
+    <listitem><simpara>frag</simpara></listitem>
+   </itemizedlist>
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.pickle.donotpackage">
+  <title>--donotpackage</title>
+  <para>
+   If <literal>--donotpackage</literal> or <literal>-n</literal> is specified,
+   then the pickle command will only generate package.xml, and will not
+   package up a release.  The <link linkend="pyrus.commands.package">package</link>
+   command can be used to build the release after reviewing package.xml.
+  </para>
+ </section>
+</section>

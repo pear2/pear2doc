@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="pyrus.extending.installation">
+ <info><title>Leveraging Pyrus's installation API</title></info>
+
+ <section xml:id="pyrus.extending.installation.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Pyrus provides a very simple API for performing installation tasks.  This
+   API begins with the ability to pass any packagename that can be
+   specified on the command-line to a <literal>PEAR2\Pyrus\Package</literal>
+   object:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+// examples of the range of valid package names
+$package = new \PEAR2\Pyrus\Package('package.xml');
+$package = new \PEAR2\Pyrus\Package('/full/path/to/package.xml');
+$package = new \PEAR2\Pyrus\Package('Package-1.2.3.tgz');
+$package = new \PEAR2\Pyrus\Package('/full/path/to/Package-1.2.3.zip');
+$package = new \PEAR2\Pyrus\Package('RemotePackage');
+$package = new \PEAR2\Pyrus\Package('RemotePackage-alpha');
+$package = new \PEAR2\Pyrus\Package('RemotePackage-1.2.3');
+$package = new \PEAR2\Pyrus\Package('channelname/RemotePackage');
+$package = new \PEAR2\Pyrus\Package('http://example.com/RemotePackage-1.2.3.phar');
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   If there is a problem with the package name as passed to the constructor,
+   an exception is thrown.  This can be any of a wide variety of exceptions
+   ranging from a <literal>PEAR2\Pyrus\PackageFile\Exception</literal> for
+   invalid package.xml, a <literal>PEAR2\Pyrus\Package\Exception</literal> for
+   higher-level errors (file does not exist, invalid abstract package name),
+   a <literal>PEAR2\Pyrus\Package\InstalledException</literal> if an abstract
+   remote package was requested and a newer version is installed, and
+   a <literal>PEAR2\Pyrus\Channel\Exception</literal> if any problems with
+   retrieving remote REST information occur.  Also possible are
+   <literal>PEAR2\Pyrus\Package\Phar\Exception</literal> for errors relating
+   to local <literal>tar</literal>, <literal>tgz</literal>, <literal>zip</literal>
+   or <literal>phar</literal> archives.
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.installation.install">
+  <info><title>Installing and Uninstalling packages</title></info>
+  <para>
+   Once you have a valid package object, installation is very simple.  Pyrus
+   conducts all installation activities within a transaction, meaning that all
+   changes are applied nearly simultaneously, and any failure mid-transaction
+   does not leave an invalid installation lying around.
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+// import the class names into the current scope
+// this step is optional, you can also use the full class names
+// like PEAR2\Pyrus\Installer::begin()
+use PEAR2\Pyrus\Installer as Installer,
+    PEAR2\Pyrus\Package as Package;
+
+try {
+    $p1 = new Package('package.xml');
+    $p2 = new Package('Package.tgz');
+    $p3 = new Package('pear2/RemotePackage');
+
+    // here is the meat of the installation transaction
+    Installer::begin();
+
+    Installer::prepare($p1);
+    Installer::prepare($p2);
+    Installer::prepare($p3);
+
+    Installer::commit();
+} catch (\Exception $e) {
+    echo "Install failed\n";
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Uninstalling a package is even simpler:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+// import the class names into the current scope
+// this step is optional, you can also use the full class names
+// like PEAR2\Pyrus\Uninstaller::begin()
+use PEAR2\Pyrus\Uninstaller as Uninstaller;
+
+try {
+    $p1 = new Package('package.xml');
+    $p2 = new Package('Package.tgz');
+    $p3 = new Package('pear2/RemotePackage');
+
+    // here is the meat of the installation transaction
+    Uninstaller::begin();
+
+    Uninstaller::prepare('pear2.php.net/Package1');
+    Uninstaller::prepare('pear.php.net/Package');
+    Uninstaller::prepare('__uri/Package');
+
+    Uninstaller::commit();
+} catch (\Exception $e) {
+    echo "Uninstall failed\n";
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+</section>

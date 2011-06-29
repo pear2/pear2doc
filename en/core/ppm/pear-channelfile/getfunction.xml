@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getfunction">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getFunction</function>
+  </refname>
+  <refpurpose>getFunction</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_ChannelFile::getFunction</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$name</parameter>
+     <initializer>null</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunction.desc">
+  &title.desc;
+  <para>
+   Retrieve the xml representation of a function.  If found, the array is of format:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+array(
+ '_content' => 'functionname',
+ 'attribs' => array('version' => 'version.number')
+);
+?>
+    ]]>
+   </programlisting>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunction.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>Protocol type</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>
+       Function name (&null; to return the                first protocol of the
+       type requested)
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>Mirror name, if any</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunction.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunction.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

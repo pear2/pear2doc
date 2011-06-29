@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getport">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getPort</function>
+  </refname>
+  <refpurpose>retrieve the socket port used to connect to the server</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     int|80
+     <function>PEAR_ChannelFile::getPort</function>
+    </funcdef>
+    <paramdef choice="opt">
+     mixed
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getport.desc">
+  &title.desc;
+  <para>
+   web services are served through http servers, and so most servers use port 80.
+   This function can be used to determine if a non-standard port is in use at a channel.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getport.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror name or &false; for primary server
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getport.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   port number to connect to
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getport.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getport.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

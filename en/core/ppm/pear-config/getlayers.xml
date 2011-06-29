@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getlayers">
+   <refnamediv>
+    <refname><function>PEAR_Config::getLayers</function></refname>
+    <refpurpose>Returns the layers defined</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Config::getLayers</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.getlayers.desc">
+     &title.desc;
+     <para>Returns the layers defined, except the <parameter>'default'</parameter> one</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getlayers.return">
+    &title.returns;
+
+    <para>
+     <parameter>array</parameter> the defined layers
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getlayers.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

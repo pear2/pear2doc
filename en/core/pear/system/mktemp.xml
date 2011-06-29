@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system.mktemp">
+   <refnamediv>
+    <refname>System::mktemp</refname>
+    <refpurpose>Create temporary files or directories</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once "System.php";
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed <function>System::mktemp</function></funcdef>      
+      <paramdef choice="opt">
+       string <parameter>$args</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.system.mktemp.desc">
+    &title.desc;
+    <para>
+     Creates temporary files or directories. 
+     This function will remove the created files when the scripts 
+     finish its execution.     
+
+    </para>
+   </refsection>   
+   
+   <refsection xml:id="core.pear.system.mktemp.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      
+      <listitem>
+       <para>
+        <parameter>string $args</parameter> -
+        The arguments
+        <itemizedlist>
+         <listitem>
+          <para>
+           <parameter>prefix</parameter> - 
+           The string that will be prepended to the temp name
+           (defaults to <parameter>tmp</parameter>)
+          </para>
+         </listitem>
+         <listitem>
+          <para>
+           <parameter>-d</parameter> - 
+           A temporary dir will be created instead of a file.
+          </para>
+         </listitem>
+         <listitem>
+          <para>
+           <parameter>-t</parameter> - 
+           The target dir where the temporary file or directory 
+           will be created. If this parameter is missing, by default 
+           the environment vars <parameter>TMP</parameter> on 
+           Windows or <parameter>TMPDIR</parameter> on 
+           Unix will be used. If these vars are also missing
+           <parameter>c:\windows\temp</parameter> or 
+           <parameter>/tmp</parameter> will be used.
+          </para>
+         </listitem>         
+        </itemizedlist>
+       </para>
+      </listitem>      
+            
+     </itemizedlist>
+    </para>
+   </refsection>   
+      
+         
+   <refsection xml:id="core.pear.system.mktemp.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> - 
+     the full path of the created file or dir, or &false;
+    </para>
+   </refsection>      
+            
+               
+                
+   <refsection xml:id="core.pear.system.mktemp.note">
+    &title.note;  
+                 
+    &note.canstatic;
+    
+                         
+                             
+  <simpara/>
+   </refsection>    
+                   
+   <refsection xml:id="core.pear.system.mktemp.see">
+    &title.see;
+    <para>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.man;mktemp"><command>mktemp</command> man page</link>
+    </para>
+   </refsection>         
+
+   <refsection xml:id="core.pear.system.mktemp.example">
+    &title.example;
+    <example><info><title>Using <function>mktemp</function></title></info>
+     
+      <programlisting role="php">
+       <![CDATA[        
+$tempfile = System::mktemp("prefix");       
+$tempdir  = System::mktemp("-d prefix");
+$tempfile = System::mktemp();
+$tempfile = System::mktemp("-t /var/tmp prefix");
+]]>    
+     </programlisting>
+    </example>
+   </refsection>         
+  </refentry>

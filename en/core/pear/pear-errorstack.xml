@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack"><info><title>PEAR_ErrorStack</title><titleabbrev>PEAR_ErrorStack</titleabbrev></info>
+ 
+ 
+ <para>
+  <classname>PEAR_ErrorStack</classname> is an experimental error raising and handling implementation for PEAR that is designed
+  to replace PEAR_Error when it has stabilized.  PEAR_ErrorStack is both backwards compatible with <classname>PEAR_Error</classname>
+  and forward compatible with PHP 5's <classname>PEAR_Exception</classname> class.  There are many other features, all described
+  in the Introduction.
+ </para>
+ <para>Usage:
+  <programlisting role="php-highlighted">
+1      // global error stack
+2      $global_stack = &amp;PEAR_ErrorStack::<link linkend="core.pear.pear-errorstack.singleton">singleton</link>(&apos;MyPackage&apos;);
+3      // local error stack
+4      $local_stack = new <link linkend="core.pear.pear-errorstack.pear-errorstack">PEAR_ErrorStack</link>(&apos;MyPackage&apos;);
+   </programlisting>
+ </para>
+
+&core.pear.pear-errorstack.intro;
+&core.pear.pear-errorstack.pear-errorstack;
+&core.pear.pear-errorstack.geterrormessage;
+&core.pear.pear-errorstack.geterrormessagetemplate;
+&core.pear.pear-errorstack.geterrors;
+&core.pear.pear-errorstack.getfileline;
+&core.pear.pear-errorstack.getmessagecallback;
+&core.pear.pear-errorstack.haserrors;
+&core.pear.pear-errorstack.pop;
+&core.pear.pear-errorstack.popcallback;
+&core.pear.pear-errorstack.push;
+&core.pear.pear-errorstack.pushcallback;
+&core.pear.pear-errorstack.raiseerror;
+&core.pear.pear-errorstack.setcontextcallback;
+&core.pear.pear-errorstack.setdefaultcallback;
+&core.pear.pear-errorstack.setdefaultlogger;
+&core.pear.pear-errorstack.seterrormessagetemplate;
+&core.pear.pear-errorstack.setlogger;
+&core.pear.pear-errorstack.setmessagecallback;
+&core.pear.pear-errorstack.singleton;
+&core.pear.pear-errorstack.staticgeterrors;
+&core.pear.pear-errorstack.statichaserrors;
+&core.pear.pear-errorstack.staticpop;
+&core.pear.pear-errorstack.staticpopcallback;
+&core.pear.pear-errorstack.staticpush;
+&core.pear.pear-errorstack.staticpushcallback;
+&core.pear.pear-errorstack.-log;
+&core.pear.pear-errorstack.constants;
+</section>

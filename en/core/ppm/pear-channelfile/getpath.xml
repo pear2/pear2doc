@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getpath">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getPath</function>
+  </refname>
+  <refpurpose>getPath</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>PEAR_ChannelFile::getPath</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$protocol</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getpath.desc">
+  &title.desc;
+  <para>
+   Retrieve the relative path to access the protocol desired.  If the channel is named
+   <literal>foo.example.com</literal> and xmlrpc is accessed at <literal>foo.example.com/xml/rpc</literal>
+   then path will be <literal>xml/rpc</literal>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getpath.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$protocol</parameter>
+     </term>
+     <listitem>
+      <para><literal>xmlrpc</literal> or <literal>soap</literal></para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>mirror name or &false; for primary server</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getpath.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getpath.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

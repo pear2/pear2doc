@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs.commands.addcategory">
+ <info><title>add-category - adds a package category</title></info>
+ <para>
+    The <literal>add-category</literal> command adds a category to the channel.
+ </para>
+ <para>
+   <screen>
+   pearscs add-cateogry category
+   </screen>
+ </para>
+ <para>
+  This command adds a category to the channel for grouping related packages.
+ </para>
+</section>

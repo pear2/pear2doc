@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.validpackagename">
+   <refnamediv>
+    <refname><function>PEAR_Common::validPackageName</function></refname>
+    <refpurpose>Test whether a string is a valid package name</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool
+       <function>PEAR_Common::validPackageName</function></funcdef>
+      <paramdef choice="req">string <parameter>$name</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.validpackagename.desc">
+     &title.desc;
+     <para>Test whether a string contains a valid package name.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.validpackagename.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$name</parameter>
+       </term>      
+       <listitem>
+        <para>
+         the package name to test
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.validpackagename.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> -
+     &return.success;
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.validpackagename.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

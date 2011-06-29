@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate"><info><title>PEAR_Validate</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-validate-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_Validate</classname>
+   </refname>
+   <refpurpose>
+    Validation class for package.xml - channel-level advanced validation
+   </refpurpose>
+  </refnamediv>
+  <refsection><info><title>
+    Validation class for package.xml - channel-level advanced validation
+   </title></info>
+   
+   &notdocumented;
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_Validate</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_Validate</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-validate.-addfailure;
+ &core.ppm.pear-validate.-addwarning;
+ &core.ppm.pear-validate.getfailures;
+ &core.ppm.pear-validate.getvalidstates;
+ &core.ppm.pear-validate.setpackagefile;
+ &core.ppm.pear-validate.validate;
+ &core.ppm.pear-validate.validatechangelog;
+ &core.ppm.pear-validate.validatedate;
+ &core.ppm.pear-validate.validatedependencies;
+ &core.ppm.pear-validate.validatedeps;
+ &core.ppm.pear-validate.validatedescription;
+ &core.ppm.pear-validate.validatefilelist;
+ &core.ppm.pear-validate.validatelicense;
+ &core.ppm.pear-validate.validatemainfilelist;
+ &core.ppm.pear-validate.validatemaintainers;
+ &core.ppm.pear-validate.validatenotes;
+ &core.ppm.pear-validate.validatepackagename;
+ &core.ppm.pear-validate.validatereleasefilelist;
+ &core.ppm.pear-validate.validatestability;
+ &core.ppm.pear-validate.validatestate;
+ &core.ppm.pear-validate.validatesummary;
+ &core.ppm.pear-validate.validatetime;
+ &core.ppm.pear-validate.validateversion;
+ &core.ppm.pear-validate.validgroupname;
+ &core.ppm.pear-validate.validpackagename;
+ &core.ppm.pear-validate.validstate;
+ &core.ppm.pear-validate.validversion;
+ &core.ppm.pear-validate.-validpackagename;
+ &core.ppm.pear-validate.constants;
+</section>

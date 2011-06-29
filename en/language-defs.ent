@@ -1,0 +1,18 @@
+<!-- $Revision: 283280 $ -->
+
+<!ENTITY PEARManual        "PEAR Manual">
+<!ENTITY Translatedby      "Translated by">
+<!ENTITY Date              "Date:">
+<!ENTITY AboutPEAR         "About PEAR and PEAR2">
+<!ENTITY CodingStandards   "Coding Standards">
+<!ENTITY Pyrus             "Using Pyrus, the PEAR Installer for PHP 5.3+">
+<!ENTITY DevelopersGuide   "PEAR Developer Guide">
+<!ENTITY Channels          "Channels: distributing your packages">
+<!ENTITY UsersGuide        "User Guide">
+<!ENTITY NewMaintainersGuide   "Becoming a PEAR developer: how to get involved">
+<!ENTITY ChangesInPear14   "PEAR Installer: customizing the installer itself">
+<!ENTITY Features          "Features">
+<!ENTITY PEAR              "PEAR: the PHP Extension and Application Repository">
+<!ENTITY PEAR2Packages     "PEAR2 Packages">
+<!ENTITY Core              "PEAR Installer: Core components (Installer API, error handling)">
+<!ENTITY Contributing      "Contributing to PEAR">

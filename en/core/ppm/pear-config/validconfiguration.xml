@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.validconfiguration">
+   <refnamediv>
+    <refname><function>PEAR_Config::validConfiguration</function></refname>
+    <refpurpose>Determine whether any configuration files have been detected, and whether a
+ registry object can be retrieved from this configuration.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool <function>PEAR_Config::validConfiguration</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.validconfiguration.desc">
+     &title.desc;
+     <para>
+      This method can be used to ward off any real problems with the default configuration.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.validconfiguration.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.validconfiguration.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

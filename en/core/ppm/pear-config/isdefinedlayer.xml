@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.isdefinedlayer">
+   <refnamediv>
+    <refname><function>PEAR_Config::isDefinedLayer</function></refname>
+    <refpurpose>Tells whether a config layer exists</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::isDefinedLayer</function></funcdef>
+      <paramdef choice="req">string <parameter>$layer</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.isdefinedlayer.desc">
+     &title.desc;
+     <para>Tells whether a given config layer exists.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.isdefinedlayer.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config layer
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.isdefinedlayer.return">
+    &title.returns;
+
+    <para>
+     <parameter>bool</parameter> - whether <parameter>$layer</parameter> exists in this object
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.isdefinedlayer.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

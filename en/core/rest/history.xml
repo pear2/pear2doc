@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section
+ xmlns="http://docbook.org/ns/docbook"
+ xmlns:phd="http://www.php.net/ns/phd"
+ version="lillet"
+ xml:id="core.rest.history"
+ phd:chunk="true"
+>
+ <info>
+  <title>REST version history</title>
+  <titleabbrev>Changes between PEAR REST interface versions</titleabbrev>
+ </info>
+  
+  
+
+  <para>
+   This page lists the known REST versions and their changes they introduced.
+  </para>
+
+
+  <section xml:id="core.rest.history.rest10"><info><title>REST 1.0</title></info>
+   
+
+   <para>
+    This was the initial and first supported version of the REST interface.
+   </para>
+  </section>
+
+
+  <section xml:id="core.rest.history.rest11"><info><title>REST 1.1</title></info>
+   
+
+   <para>
+    This version added files to allow spidering channels without
+    requiring the server to have directory listings enabled.
+    These files are:
+   </para>
+
+   <itemizedlist>
+    <listitem>
+     <para>
+      <link linkend="core.rest.fileformats.c-categoriesxml">
+       <filename>c/categories.xml</filename>
+      </link>
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      <link linkend="core.rest.fileformats.c-category-packagesinfoxml">
+       <filename>c/$categoryname/packagesinfo.xml</filename>
+      </link>
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      <link linkend="core.rest.fileformats.m-allmaintainersxml">
+       <filename>m/allmaintainers.xml</filename>
+      </link>
+     </para>
+    </listitem>
+   </itemizedlist>
+  </section>
+
+
+  <section xml:id="core.rest.history.rest12"><info><title>REST 1.2</title></info>
+   
+
+   <para>
+    Now the developer's roles are listed in the package's
+    maintainer list.
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <link linkend="core.rest.fileformats.p-package-maintainers2xml">
+       <filename>p/${packagename}/maintainers2.xml</filename>
+      </link>
+     </para>
+    </listitem>
+   </itemizedlist>
+  </section>
+
+
+  <section xml:id="core.rest.history.rest13"><info><title>REST 1.3</title></info>
+   
+
+   <para>
+    This version makes it possible to resolve PHP version incompatibilities
+    by downloading the releases list only.
+    <filename>allreleases2.xml</filename> lists the minimum PHP version
+    for each package release, thus the package name does not need to be
+    changed when upgrading the package's minimum PHP version.
+   </para>
+
+   <itemizedlist>
+    <listitem>
+     <para>
+      <link linkend="core.rest.fileformats.r-package-allreleases2xml">
+       <filename>r/${packagename}/allreleases2.xml</filename>
+      </link>
+     </para>
+    </listitem>
+
+    <listitem>
+     <para>
+      <link linkend="core.rest.fileformats.r-package-v2012xml">
+       <filename>r/${packagename}/v2.0.1.2.xml</filename>
+      </link>
+     </para>
+    </listitem>
+
+   </itemizedlist>
+  </section>
+
+ </section>

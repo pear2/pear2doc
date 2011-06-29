@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.set">
+   <refnamediv>
+    <refname><function>PEAR_Config::set</function></refname>
+    <refpurpose>Set config value in specific layer</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::set</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$value</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$layer = 'user'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.set.desc">
+     &title.desc;
+     <para>
+      Set a config value in a specific layer (defaults to 
+      <parameter>'user'</parameter>). Enforces the types defined 
+      in the configuration_info array.  An integer config 
+      variable will be cast to int, and a set config 
+      variable will be validated against its legal values.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.set.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$value</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config value
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config layer
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.set.return">
+    &title.returns; 
+    <para>
+     <parameter>bool</parameter> -
+     &return.success;
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.set.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

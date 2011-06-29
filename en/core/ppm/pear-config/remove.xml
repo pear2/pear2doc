@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.remove">
+   <refnamediv>
+    <refname><function>PEAR_Config::remove</function></refname>
+    <refpurpose>Remove a config key from a config layer</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::remove</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$layer = 'user'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.remove.desc">
+     &title.desc;
+     <para>Remove a config key from a specific config layer.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.remove.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config layer
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.remove.return">
+    &title.returns;
+
+    <para>
+     <parameter>bool</parameter> -
+     &return.success-pearerror;
+    </para>
+   </refsection>
+   
+   <refsection xml:id="core.ppm.pear-config.remove.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.remove.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

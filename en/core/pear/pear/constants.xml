@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.constants">
+   <refnamediv>
+    <refname>Constants</refname>
+    <refpurpose>Predefined Constants</refpurpose>
+   </refnamediv>
+   <refsection xml:id="core.pear.pear.constants.pear-error-callback"><info><title><constant>PEAR_ERROR_CALLBACK</constant></title></info>
+    
+    <simpara>
+     PEAR error handling related.
+    </simpara>
+    <para>
+     See &class.pear-error;,
+     <link linkend="core.pear.pear.seterrorhandling"><function>
+       setErrorHandling</function></link>
+    </para>
+   </refsection>         
+   <refsection xml:id="core.pear.pear.constants.pear-error-die"><info><title><constant>PEAR_ERROR_DIE</constant></title></info>
+    
+    <simpara>
+     PEAR error handling related.
+    </simpara>
+    <para>
+     See &class.pear-error;,
+     <link linkend="core.pear.pear.seterrorhandling"><function>
+       setErrorHandling</function></link>
+    </para>
+   </refsection>  
+   <refsection xml:id="core.pear.pear.constants.pear-error-print"><info><title><constant>PEAR_ERROR_PRINT</constant></title></info>
+    
+    <simpara>
+     PEAR error handling related.
+    </simpara>
+    <para>
+     See &class.pear-error;,
+     <link linkend="core.pear.pear.seterrorhandling"><function>
+       setErrorHandling</function></link>
+    </para>
+   </refsection>         
+   <refsection xml:id="core.pear.pear.constants.pear-error-return"><info><title><constant>PEAR_ERROR_RETURN</constant></title></info>
+    
+    <simpara>
+     PEAR error handling related.
+    </simpara>
+    <para>
+     See &class.pear-error;,
+     <link linkend="core.pear.pear.seterrorhandling"><function>
+       setErrorHandling</function></link>
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear.constants.pear-error-trigger"><info><title><constant>PEAR_ERROR_TRIGGER</constant></title></info>
+    
+    <simpara>
+     PEAR error handling related.
+    </simpara>
+    <para>
+     See &class.pear-error;,
+     <link linkend="core.pear.pear.seterrorhandling"><function>
+       setErrorHandling</function></link>
+    </para>
+   </refsection>   
+  </refentry>

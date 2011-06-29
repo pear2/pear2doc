@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getgroups">
+   <refnamediv>
+    <refname><function>PEAR_Config::getGroups</function></refname>
+    <refpurpose>Get the list of parameter groups</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Config::getGroups</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.getgroups.desc">
+     &title.desc;
+     <para>Get the list of parameter groups.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getgroups.return">
+    &title.returns;
+
+    <para>
+     <parameter>array</parameter> - list of parameter groups
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.getgroups.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

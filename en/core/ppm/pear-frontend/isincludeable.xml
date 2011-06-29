@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-frontend.isincludeable">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Frontend::isIncludeable</function>
+  </refname>
+  <refpurpose>isIncludeable</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Frontend.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_Frontend::isIncludeable</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$path</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-frontend.isincludeable.desc">
+  &title.desc;
+  <para>
+   Simple utility class used to determine whether a file can be included via <literal>include_path</literal>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-frontend.isincludeable.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>relative or absolute include path</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.isincludeable.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.isincludeable.note">
+  &title.note;
+  &note.canstatic;
+</refsection>
+</refentry>

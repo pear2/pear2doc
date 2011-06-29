@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.downloaddir">
+ <info><title>download_dir</title></info>
+
+ <section xml:id="pyrus.configuration.user.downloaddir.intro">
+  <info><title>Introduction</title></info>
+  <note><simpara>This is a channel-specific configuration value</simpara></note>
+  <para>
+   The <literal>download_dir</literal> is where downloaded packages are kept.
+   This can allow later repairing or easy cloning of an installation.  There is
+   no penalty if the files are removed, and they may be easily removed to
+   conserve space.
+  </para>
+ </section>
+</section>

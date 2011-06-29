@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xmlns:phd="http://www.php.net/ns/phd" xml:id="channels.scs.commands">
+ <info><title>Commands Available In PEAR2_SimpleChannelServer</title></info>
+ 
+ <!-- this thing does not work whatsoever. -->
+  <phd:toc phd:toc-depth="3" phd:element="channels.scs.commands"/>
+  <simpara>
+   Commands available for the pearscs command-line script.
+  </simpara>
+  
+  &channels.scs.commands.create;
+  &channels.scs.commands.release;
+  &channels.scs.commands.update;
+  &channels.scs.commands.addmaintainer;
+  &channels.scs.commands.addcategory;
+</section>

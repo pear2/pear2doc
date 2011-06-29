@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validatenotes">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validateNotes</function>
+  </refname>
+  <refpurpose>validateNotes</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::validateNotes</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validatenotes.desc">
+  &title.desc;
+  <para>
+   Override this in a channel-specific validator to validate the contents of
+   release notes in a &lt;notes&gt; tag.
+  </para>
+  <para>
+   Errors should be reported using
+   <link linkend="core.ppm.pear-validate.-addfailure"><function>_addFailure</function></link>
+   method, and non-fatal errors (warnings) should be reported using the
+   <link linkend="core.ppm.pear-validate.-addwarning"><function>_addWarning</function></link>
+   method.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.validatenotes.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validatenotes.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

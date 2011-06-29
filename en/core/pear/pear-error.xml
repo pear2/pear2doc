@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error"><info><title>PEAR_Error [deprecated]</title><titleabbrev>PEAR Error object</titleabbrev></info>
+  
+  
+
+  <para>
+   <classname>PEAR_Error</classname> is an object created by
+   every function in PEAR in case of a failure. It provides information
+   on why a function fails.
+  </para>
+  <para>
+   How you get the object depends on
+   <link linkend="core.pear.pear.seterrorhandling">
+    <function>PEAR::SetErrorHandling</function></link>
+  </para>
+
+  &core.pear.pear-error.adduserinfo;
+  &core.pear.pear-error.getcallback;  
+  &core.pear.pear-error.getcode;  
+  &core.pear.pear-error.getmessage;  
+  &core.pear.pear-error.getmode;
+  &core.pear.pear-error.getdebuginfo;
+  &core.pear.pear-error.gettype;  
+  &core.pear.pear-error.getuserinfo;  
+  &core.pear.pear-error.pear-error;
+  &core.pear.pear-error.tostring;
+  
+ </section>

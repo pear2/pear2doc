@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getdefaultchannel">
+   <refnamediv>
+    <refname><function>PEAR_Config::getDefaultChannel</function></refname>
+    <refpurpose>Retrieve the default channel.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>string|false</replaceable> <function>PEAR_Config::getDefaultChannel</function></funcdef>
+      <paramdef choice="opt">string <parameter> $layer</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.getdefaultchannel.desc">
+     &title.desc;
+     <para>
+      On startup, channels are not initialized, so if the default channel is not
+      pear.php.net, then initialize the config.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getdefaultchannel.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$layer</parameter>
+       </term>
+       <listitem>
+        <para>
+         layer from which to retrieve the registry, or null for the first to match
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getdefaultchannel.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.getdefaultchannel.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

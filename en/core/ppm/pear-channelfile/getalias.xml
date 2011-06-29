@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getalias">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getAlias</function>
+  </refname>
+  <refpurpose>Return the suggested alias users can use to refer to this channel on the command-line.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>PEAR_ChannelFile::getAlias</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getalias.desc">
+  &title.desc;
+  <para>
+   This returns the channel alias.  For instance, channel <literal>pear.php.net</literal>'s
+   alias is <literal>pear</literal>, channel <literal>pecl.php.net</literal>'s alias is
+   <literal>pecl</literal>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getalias.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getalias.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

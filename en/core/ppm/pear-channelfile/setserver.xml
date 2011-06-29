@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setserver">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setServer</function>
+  </refname>
+  <refpurpose>set the Channel server</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>string|false</replaceable>
+     <function>PEAR_ChannelFile::setServer</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$server</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setserver.desc">
+  &title.desc;
+  <para>
+   This is an alias to <link linkend="core.ppm.pear-channelfile.setname"><function>setName</function></link>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setserver.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$server</parameter>
+     </term>
+     <listitem>
+      <para>
+       Server name
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror server name or &false; for primary server.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setserver.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setserver.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

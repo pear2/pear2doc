@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-xmlparser"><info><title>PEAR</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-xmlparser-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_XMLParser</classname>
+   </refname>
+   <refpurpose>Parser for any xml file</refpurpose>
+  </refnamediv>
+  <refsection><info><title>Parser for any xml file</title></info>
+   
+   &notdocumented;
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_XMLParser</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_XMLParser</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-xmlparser.getdata;
+&core.ppm.pear-xmlparser.parse;
+&core.ppm.pear-xmlparser.preprocessstupidsaxon;
+</section>

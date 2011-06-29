@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.singleton">
+ <refnamediv>
+  <refname><function>PEAR_ErrorStack::singleton</function></refname>
+  <refpurpose>Return a single error stack for this package.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="core.pear.pear-errorstack">
+       <classname>PEAR_ErrorStack</classname>
+      </link>
+     </replaceable>&amp;      
+     <function>PEAR_ErrorStack::singleton</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.string; 
+     <parameter>$package</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.callback; 
+     <parameter> $msgCallback</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.callback; 
+     <parameter> $contextCallback</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.bool;
+     <parameter> $throwPEAR_Error</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string; 
+     <parameter> 
+      $stackClass = 'PEAR_ErrorStack'
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.singleton.bcwarning"><info><title>Backwards Compatibility Warning</title></info>
+  
+  <warning>
+   <para>
+    As of PEAR 1.3.2, 
+    PEAR_ErrorStack no longer instantiates 
+    and returns an Exception object in PHP5, 
+    and the second-to-last parameter has been removed.  
+    
+    Code that relies upon this behavior will break.
+   </para>
+  </warning>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.singleton.desc">
+  &title.desc;
+  <para>
+   Note that all parameters are ignored if the 
+   stack for package $package has already been instantiated
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.singleton.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$package</parameter>
+     </term>
+     <listitem>
+      <para>
+       name of the package this error stack represents
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>callback</type>
+      <parameter>$msgCallback</parameter>
+     </term>
+     <listitem>
+      <para>
+       callback used for error message generation
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>callback</type>
+      <parameter>$contextCallback</parameter>
+     </term>
+     <listitem>
+      <para>
+       callback used for context generation, defaults to <link linkend="core.pear.pear-errorstack.getfileline"><function>getFileLine</function></link>
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$throwPEAR_Error</parameter>
+     </term>
+     <listitem>
+      <para>
+       If &true;, then 
+       <link linkend="core.pear.pear.raiseerror">
+        <function>PEAR::raiseError</function>
+       </link> will be called and a 
+       <link linkend="core.pear.pear-error">
+        <classname>PEAR_Error</classname>
+       </link> 
+       object will be returned from calls to 
+       <link linkend="core.pear.pear-errorstack.push">
+        <function>PEAR_ErrorStack::push</function>
+       </link>
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$stackClass</parameter>
+     </term>
+     <listitem>
+      <para>
+       class to instantiate
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.singleton.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.singleton.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

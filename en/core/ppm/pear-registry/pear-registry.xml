@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.pear-registry">
+   <refnamediv>
+    <refname><function>PEAR_Registry::PEAR_Registry</function></refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Registry::PEAR_Registry</function></funcdef>
+      <paramdef choice="opt">string <parameter>$pear_install_dir = PEAR_INSTALL_DIR</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.pear-registry.desc">
+     &title.desc;
+     <para>constructor</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.pear-registry.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$pear_install_dir</parameter>
+       </term>      
+       <listitem>
+        <para>
+         PEAR install directory (for .php files)
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.pear-registry.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

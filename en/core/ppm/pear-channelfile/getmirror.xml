@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getmirror">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getMirror</function>
+  </refname>
+  <refpurpose>Get the unserialized XML representing a mirror</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>array|false</replaceable>
+     <function>PEAR_ChannelFile::getMirror</function>
+    </funcdef>
+    <paramdef choice="req">
+     mixed
+     <parameter>$server</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirror.desc">
+  &title.desc;
+  <para>
+   This returns the entire contents of the &lt;mirror&gt; tag as unserialized by the
+   parser.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirror.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$server</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirror.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirror.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest">
+    
+    <title>PEAR channel server REST interface</title>
+
+
+
+ <para>
+  This manual section describes how the REST interface of
+  a PEAR channel server works, as well as the files and their
+  formats look like.
+ </para>
+
+ &core.rest.directorystructure;
+ &core.rest.fileformats;
+ &core.rest.history;
+ &core.rest.usecases;
+ &core.rest.channelserversoftware;
+
+ <!-- FIXME: faq
+- how do I find the latest version of a package? (incl. stable/beta/..)
+- where do I get the download URL from?
+- URL calculation
+- can a package have multiple categories?
+
+<bbieber> cweiske: the only thing I can think of off-hand is omission of the /get/ directories - and including both .tar/.tgz (are both necessary anymore?)
+<cweiske> i think they are
+<cweiske> since you need to decide if you can work with compression or not
+<cweiske> if you got no gzip lib, you need the tar only
+<cweiske> otherwise you can save bandwith and load the gz
+<bbieber> slide 16 has some info on the archive file... which could have the info.
+<bbieber> cweiske: ah yes.
+<cweiske> btw, I found no docs where the /get/ dirs are located
+<cweiske> they are referenced in the package xyz info
+<cweiske> but nothing more
+ -->
+
+</section>

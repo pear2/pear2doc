@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:phd="http://www.php.net/ns/phd" version="lillet" xml:id="pyrus.commands">
+  <info>
+   <title>Commands available in Pyrus</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-25</date>
+  </info>
+
+  <!-- this thing does not work whatsoever. -->
+  <phd:toc phd:toc-depth="3" phd:element="pyrus.commands"/>
+  <simpara>
+   Commands available for the Pyrus command-line script.
+  </simpara>
+
+  &pyrus.commands.install;
+  &pyrus.commands.upgrade;
+  &pyrus.commands.uninstall;
+  &pyrus.commands.runscripts;
+  &pyrus.commands.download;
+
+  &pyrus.commands.channeladd;
+  &pyrus.commands.channeldiscover;
+  &pyrus.commands.channeldel;
+
+  &pyrus.commands.info;
+  &pyrus.commands.listpackages;
+  &pyrus.commands.listchannels;
+  &pyrus.commands.remotelist;
+  &pyrus.commands.listupgrades;
+  &pyrus.commands.upgraderegistry;
+
+  &pyrus.commands.configshow;
+  &pyrus.commands.set;
+  &pyrus.commands.mypear;
+
+  &pyrus.commands.runphpt;
+  &pyrus.commands.generatepear2;
+  &pyrus.commands.generateext;
+  &pyrus.commands.make;
+  &pyrus.commands.package;
+
+  &pyrus.commands.pickle;
+  &pyrus.commands.build;
+  
+ </chapter>

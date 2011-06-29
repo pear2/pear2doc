@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.preferredstate">
+ <info><title>preferred_state</title></info>
+
+ <section xml:id="pyrus.configuration.user.preferredstate.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>preferred_state</literal> configuration variable controls the
+   release stability level of packages that will be installed.  By default it
+   is <literal>stable</literal>, which instructs Pyrus to ignore any releases
+   with lesser stabilities <literal>beta</literal>, <literal>alpha</literal>
+   or <literal>devel</literal> unless explicitly requested by the user.
+  </para>
+  <para>
+   This can be changed to allow riskier installation of newer, less-tested
+   releases that are on the cutting edge of development.
+  </para>
+ </section>
+</section>

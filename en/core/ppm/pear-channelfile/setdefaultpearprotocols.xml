@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setdefaultpearprotocols">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setDefaultPEARProtocols</function>
+  </refname>
+  <refpurpose>Set a channel&apos;s protocols to the protocols supported by pearweb</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_ChannelFile::setDefaultPEARProtocols</function>
+    </funcdef>
+    <paramdef choice="opt">
+     string
+     <parameter>
+      $version = '1.0'
+     </parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setdefaultpearprotocols.desc">
+  &title.desc;
+  <para>
+   This method sets up a channel's <literal>xmlrpc</literal> protocols to match
+   that of pearweb (pear.php.net).  Note that it does not configure REST resources,
+   that must be done manually through <link linkend="core.ppm.pear-channelfile.setbaseurl"><function>setBaseURL</function></link>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setdefaultpearprotocols.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para>
+       version of pearweb protocols to use.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror name or false for primary server.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setdefaultpearprotocols.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setdefaultpearprotocols.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

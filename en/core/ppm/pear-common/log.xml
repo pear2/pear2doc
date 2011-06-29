@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.log">
+   <refnamediv>
+    <refname><function>PEAR_Common::log</function></refname>
+    <refpurpose>Logging method</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable>
+       <function>PEAR_Common::log</function></funcdef>
+      <paramdef choice="req">int <parameter>$level</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$msg</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.log.desc">
+     &title.desc;
+     <para>Logging method.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.log.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.int;
+         <parameter>$level</parameter>
+       </term>      
+       <listitem>
+        <para>
+         log level (0 is quiet, higher is noisier)
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$msg</parameter>
+       </term>      
+       <listitem>
+        <para>
+         message to write to the log
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.log.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

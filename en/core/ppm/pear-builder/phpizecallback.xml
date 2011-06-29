@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-builder.phpizecallback">
+   <refnamediv>
+    <refname><function>PEAR_Builder::phpizeCallback</function></refname>
+    <refpurpose>Message callback function when running phpize</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+             require_once 'PEAR/builder.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable>       <function>PEAR_Builder::phpizeCallback</function></funcdef>
+      <paramdef choice="req">string <parameter>$what</parameter></paramdef>
+      <paramdef choice="req">mixed <parameter>$data</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-builder.phpizecallback.desc">
+     &title.desc;
+     <para>
+      Message callback function used when running the <command>phpize</command> program.  
+                      Extracts the API numbers used.  Ignores other message types than 
+                      <quote>cmdoutput</quote>.
+      </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-builder.phpizecallback.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$what</parameter>
+       </term>      
+       <listitem>
+        <para>
+         the type of message
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>$data</parameter>
+       </term>      
+       <listitem>
+        <para>
+         the message
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-builder.phpizecallback.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

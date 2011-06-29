@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.p-package-maintainersxml"><info><title>maintainers.xml</title></info>
+ 
+ <synopsis>Lists all developers on the package</synopsis>
+
+ <para>
+  All package developers are listed in this file, regardless if active
+  or inactive.
+ </para>
+
+ <para>
+  Each maintainer's handle (<literal>&lt;h&gt;</literal>) and
+  activity state (<literal>&lt;a&gt;</literal>, <literal>0</literal>
+  for inactive, <literal>1</literal> for active)
+  is provided.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.p-package-maintainersxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/maintainers.xml</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.p-package-maintainersxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<m xmlns="http://pear.php.net/dtd/rest.packagemaintainers"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.packagemaintainers
+                       http://pear.php.net/dtd/rest.packagemaintainers.xsd"
+>
+ <p>WorldDominator</p>
+ <c>pear.example.org</c>
+ <m>
+  <h>pinky</h>
+  <a>1</a>
+ </m>
+ <m>
+  <h>thebrain</h>
+  <a>1</a>
+ </m>
+ <m>
+  <h>deadcow</h>
+  <a>0</a>
+ </m>
+</m>]]></programlisting>
+ </section>
+
+</section>

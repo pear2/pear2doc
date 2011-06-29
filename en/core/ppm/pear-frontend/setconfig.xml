@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="package.pear.pear.pear-frontend.setconfig">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Frontend::setConfig</function>
+  </refname>
+  <refpurpose>setConfig</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Frontend.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Frontend::setConfig</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Config
+     <parameter>&amp;$config</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="package.pear.pear.pear-frontend.setconfig.desc">
+  &title.desc;
+  <para>
+   Set the configuration object used by this frontend.
+  </para>
+</refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.setconfig.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>PEAR_Config</type>
+      <parameter>&amp;$config</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.setconfig.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.setconfig.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

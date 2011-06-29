@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.pear-dependency2">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>PEAR_Dependency2::PEAR_Dependency2</function>
+  </refname>
+  <refpurpose>PEAR_Dependency2</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void constructor
+     <function>PEAR_Dependency2::PEAR_Dependency2</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Config
+     <parameter>&amp;$config</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array
+     <parameter>$installoptions</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array
+     <parameter>$package</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     int
+     <parameter>
+      $state = PEAR_VALIDATE_INSTALLING
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.pear-dependency2.desc">
+  &title.desc;
+  &notdocumented;
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.pear-dependency2.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>PEAR_Config</type>
+      <parameter>&amp;$config</parameter>
+     </term>
+     <listitem>
+      <para>
+       Current configuration object.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$installoptions</parameter>
+     </term>
+     <listitem>
+      <para>installation options</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$package</parameter>
+     </term>
+     <listitem>
+      <para>
+       The current package.  For installation dependencies, this is the package
+       that contains dependencies.  For uninstallation dependencies, this is the package
+       that is going to be uninstalled.
+      </para>
+      <para>
+       format of <function>PEAR_Registry::parsedPackageName</function>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$state</parameter>
+     </term>
+     <listitem>
+      <para>installation state (one of PEAR_VALIDATE_*)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.pear-dependency2.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.pear-dependency2.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

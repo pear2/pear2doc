@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.usecases.addcategory"><info><title>Adding a new category</title></info>
+ 
+
+ <para>
+  When creating a fresh category on your channel server, the following
+  steps are necessary:
+ </para>
+
+ <orderedlist>
+  <listitem>
+   <para>
+     Create <filename>c/${CategoryName}</filename> directory.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Create the following files:
+    <itemizedlist>
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.c-category-infoxml">
+        <filename>c/${CategoryName}/info.xml</filename>
+       </link>
+      </para>
+     </listitem>
+
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.c-category-packagesxml">
+        <filename>c/${CategoryName}/packages.xml</filename>
+       </link>
+      </para>
+     </listitem>
+
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.c-category-packagesinfoxml">
+        <filename>c/${CategoryName}/packagesinfo.xml</filename>
+       </link>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Update
+    <link linkend="core.rest.fileformats.c-categoriesxml">
+     <filename>c/categories.xml</filename>
+    </link>.
+   </para>
+  </listitem>
+ </orderedlist>
+
+</section>

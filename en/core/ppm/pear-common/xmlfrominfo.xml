@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.xmlfrominfo">
+   <refnamediv>
+    <refname><function>PEAR_Common::xmlFromInfo</function></refname>
+    <refpurpose>Return an XML document based on the package info</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string
+       <function>PEAR_Common::xmlFromInfo</function></funcdef>
+      <paramdef choice="req">array <parameter>$pkginfo</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.xmlfrominfo.desc">
+     &title.desc;
+     <para>
+      Return an XML document based on the package info 
+      (as returned by the <function>PEAR_Common::infoFrom*</function> 
+      methods).
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.xmlfrominfo.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$pkginfo</parameter>
+       </term>      
+       <listitem>
+        <para>
+         package info
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.xmlfrominfo.return">
+    &title.returns;
+
+    <para>
+     <parameter>string</parameter> - 
+     XML data
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.xmlfrominfo.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

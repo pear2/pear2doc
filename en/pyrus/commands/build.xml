@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.build">
+ <info><title>build - build a PECL PHP extension package</title></info>
+
+ <section xml:id="pyrus.commands.build.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This command builds an installed PECL extension.  It accepts as its
+   arguments a list of installed php extension packages to build.
+   It performs an automatic version of:
+  </para>
+  <para>
+   <screen>
+phpize --clean
+phpize
+./configure
+make
+make install
+   </screen>
+  </para>
+  <para>
+   In the source directory of the package.  It also will prompt the user
+   if any <literal>&lt;configureoption&gt;</literal> tags exist in package.xml
+   (see the documentation for <literal>&lt;configureoption&gt;</literal>
+   <link linkend="guide.developers.package2.pecl">here</link>)
+  </para>
+ </section>
+</section>

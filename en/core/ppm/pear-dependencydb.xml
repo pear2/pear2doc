@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependencydb"><info><title>PEAR_DependencyDB</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-dependencydb-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_DependencyDB</classname>
+   </refname>
+   <refpurpose>Track dependency relationships between installed packages</refpurpose>
+  </refnamediv>
+  <refsection><info><title>Track dependency relationships between installed packages</title></info>
+   
+   <para>
+    This provides sophisticated dependency handling relationships between
+    installed packages and downloaded to-be-installed packages.
+   </para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_DependencyDB</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_DependencyDB</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-dependencydb.assertdepsdb;
+ &core.ppm.pear-dependencydb.dependson;
+ &core.ppm.pear-dependencydb.getdependencies;
+ &core.ppm.pear-dependencydb.getdependentpackagedependencies;
+ &core.ppm.pear-dependencydb.getdependentpackages;
+ &core.ppm.pear-dependencydb.haswriteaccess;
+ &core.ppm.pear-dependencydb.installpackage;
+ &core.ppm.pear-dependencydb.rebuilddb;
+ &core.ppm.pear-dependencydb.setconfig;
+ &core.ppm.pear-dependencydb.singleton;
+ &core.ppm.pear-dependencydb.uninstallpackage;
+</section>

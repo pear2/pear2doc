@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.getmode">
+   <refnamediv>
+    <refname>PEAR_Error::getMode()</refname>
+    <refpurpose>get error mode</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>integer <function>PEAR_Error::getMode</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.getmode.desc">
+    &title.desc;
+    <para>
+     Returns the error mode used for throwing the error object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.getmode.return">
+    &title.returns;
+    <para>
+     <parameter>integer</parameter> - 
+     error mode
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear-error.getmode.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

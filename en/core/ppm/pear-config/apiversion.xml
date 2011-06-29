@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.apiversion">
+   <refnamediv>
+    <refname><function>PEAR_Config::apiVersion</function></refname>
+    <refpurpose>return API version (1.1 as of PEAR 1.4.0)</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Config::apiVersion</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.apiversion.desc">
+     &title.desc;
+     <para>
+      Returns API version (1.1 as of PEAR 1.4.0).
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.apiversion.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.apiversion.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

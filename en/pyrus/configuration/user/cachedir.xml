@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.cachedir">
+ <info><title>cache_dir</title></info>
+
+ <section xml:id="pyrus.configuration.user.cachedir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   <literal>cache_dir</literal> is the location where HTTP caching of
+   PEAR channel <link linkend="core.rest">REST</link> files is cached.
+  </para>
+ </section>
+</section>

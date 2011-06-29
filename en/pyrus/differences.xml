@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.differences">
+  <info>
+   <title>Differences from the PEAR Installer</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-25</date>
+  </info>
+
+  <simpara>
+   Differences between Pyrus and the PEAR Installer.  This documentation is a work in progress.
+  </simpara>
+
+  &pyrus.differences.frompear;
+  &pyrus.differences.postinstallscripts;
+  &pyrus.differences.customcommands;
+  &pyrus.differences.customroles;
+  &pyrus.differences.customtasks;
+ </chapter>

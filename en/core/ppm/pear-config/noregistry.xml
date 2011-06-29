@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.noregistry">
+   <refnamediv>
+    <refname><function>PEAR_Config::noRegistry</function></refname>
+    <refpurpose>noRegistry</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Config::noRegistry</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.noregistry.desc">
+     &title.desc;
+     <para>
+      Use this method to disable automatic creation of PEAR_Registry objects when
+      reading from a configuration file or changing php_dir configuration variable.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.noregistry.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.noregistry.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

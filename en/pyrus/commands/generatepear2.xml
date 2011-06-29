@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.generatepear2">
+ <info><title>generate-pear2 - Create the subversion source layout for a PEAR2 package</title></info>
+
+ <section xml:id="pyrus.commands.generatepear2.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>generate-pear2</literal> command is used to create a bare
+   skeleton for a new PEAR2 package. It creates everything needed except the
+   source code.
+  </para>
+  <para>
+   Two arguments are accepted, <literal>package</literal> and optionally
+   <literal>channel</literal>.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.generatepear2.package">
+  <title>package</title>
+  <para>
+   The <literal>package</literal> argument is the name of the package to create
+   a skeleton for. This is used as the directory name and as the package name
+   used within files related to creating a PEAR2 package.
+  </para>
+  <para>
+   If <literal>MyPackage</literal> is passed, a directory will be created in
+   the current working directory titled <literal>MyPackage</literal>. All the
+   required packaging files will be within this directory, and you can place
+   your code within the <literal>MyPackage/src/MyPackage/Main.php</literal>
+   file.
+  </para>
+  <note>
+   <para>
+    If no channel is specified <literal>PEAR2_MyPackage</literal> will be the
+    name of your package if <literal>MyPackage</literal> is passed as the
+    package name.
+   </para>
+  </note>
+ </section>
+ <section xml:id="pyrus.commands.generatepear2.channel">
+  <title>channel</title>
+  <para>
+   The <literal>channel</literal> argument defaults to pear2.php.net.
+  </para>
+ </section>
+</section>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command.getgetoptargs">
+   <refnamediv>
+    <refname><function>PEAR_Command::getGetoptArgs</function></refname>
+    <refpurpose>compiles arguments for getopt</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/command.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable>       <function>PEAR_Command::getGetoptArgs</function></funcdef>
+      <paramdef choice="req">string <parameter>$command</parameter></paramdef>
+      <paramdef choice="req">string <parameter>&amp;$short_args</parameter></paramdef>
+      <paramdef choice="req">array <parameter>&amp;$long_args</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-command.getgetoptargs.desc">
+     &title.desc;
+     <para>Compiles arguments for getopt.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-command.getgetoptargs.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$command</parameter>
+       </term>      
+       <listitem>
+        <para>
+         command to get optstring for
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>&amp;$short_args</parameter>
+       </term>      
+       <listitem>
+        <para>
+         (reference) short getopt format
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>&amp;$long_args</parameter>
+       </term>      
+       <listitem>
+        <para>
+         (reference) long getopt format
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.getgetoptargs.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.getgetoptargs.note">
+    &title.note;
+    &note.shouldstatic;
+   </refsection>
+</refentry>

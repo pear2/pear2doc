@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.setchannels">
+   <refnamediv>
+    <refname><function>PEAR_Config::setChannels</function></refname>
+    <refpurpose>Set the list of channels.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool <function>PEAR_Config::setChannels</function></funcdef>
+      <paramdef choice="req">array <parameter>$channels</parameter></paramdef>
+      <paramdef choice="opt">bool <parameter> $merge</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.setchannels.desc">
+     &title.desc;
+     <para>
+      This should be set via a call to <function>PEAR_Registry::listChannels</function>.
+      A call to this function sets up empty arrays for each channel in configurations.
+     </para>
+
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.setchannels.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>$channels</parameter>
+       </term>
+       <listitem>
+        <para>
+         a simple list of channel names.
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.bool;
+        <parameter>$merge</parameter>
+       </term>
+       <listitem>
+        <para>
+         if true, then the list of channel is merged with the existing list, otherwise
+         it replaces the existing list.
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.setchannels.returns">
+    &title.returns;
+        <para>
+      <emphasis>returns</emphasis> success of operation
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.setchannels.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.setchannels.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

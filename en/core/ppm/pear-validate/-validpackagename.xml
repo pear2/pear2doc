@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.-validpackagename">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::_validPackageName</function>
+  </refname>
+  <refpurpose>Override this method to handle validation of normal package names</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_Validate::_validPackageName</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.-validpackagename.desc">
+  &title.desc;
+  <para>
+   This protected method can be used to change the normal package validation scheme.
+   By default, all packages must begin with a letter and contain only letters, numbers
+   and underscores.  Using this method, it is possible to change this entirely to enforce
+   another scheme.
+  </para>
+  <para>
+   For instance, enforcing java-style com.blah.package package names can be done simply by this code:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+require_once 'PEAR/Validate.php';
+class MyChannel_Validate extends PEAR_Validate
+{
+    function _validPackageName($name)
+    {
+        return preg_match('/[a-zA-Z][a-zA-Z0-9_]*(\.[a-zA-Z0-9_]+)*/', $name);
+    }
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Then, by using a <link linkend="core.ppm.pear-channelfile.setvalidationpackage">customized channel validation package</link>,
+   the installer will enforce java-style package names for your channel.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.-validpackagename.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>
+       package name string to test for validity.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.-validpackagename.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.-validpackagename.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

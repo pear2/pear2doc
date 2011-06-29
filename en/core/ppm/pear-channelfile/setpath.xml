@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setpath">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setPath</function>
+  </refname>
+  <refpurpose>Set the file path for xmlrpc or soap</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_ChannelFile::setPath</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$protocol</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string|false
+     <parameter>$path</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setpath.desc">
+  &title.desc;
+  <para>
+   Set the relative location to the channel that should be used to connect to the
+   selected protocol.  Defaults are <literal>xmlrpc.php</literal> for xml-rpc and
+   <literal>soap.php</literal> for SOAP.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setpath.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$protocol</parameter>
+     </term>
+     <listitem>
+      <para>
+       <literal>xmlrpc</literal> or <literal>soap</literal>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$path</parameter>
+     </term>
+     <listitem>
+      <para>name of the mirror server, or &false; for the primary</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror name or false for primary server.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setpath.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setpath.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

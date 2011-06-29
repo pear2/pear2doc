@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.c-category-packagesxml"><info><title>packages.xml (category)</title></info>
+ 
+ <synopsis>List of all packages in category</synopsis>
+
+ <para>
+  The file simply contains a list of names and links to each
+  package in the category.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.c-category-packagesxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>c/${categoryname}/packages.xml</filename>
+  </para>
+  <note>
+   <para>
+    Category names may contain spaces and other special characters,
+    so (x)links need to be url-encoded.
+   </para>
+  </note>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.c-category-packagesxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<l xmlns="http://pear.php.net/dtd/rest.categorypackages"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.categorypackages
+                       http://pear.php.net/dtd/rest.categorypackages.xsd"
+>
+ <p xlink:href="/rest/p/earth">Earth</p>
+ <p xlink:href="/rest/p/worlddominator">WorldDominator</p>
+</l>]]></programlisting>
+ </section>
+
+</section>

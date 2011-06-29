@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.differences.customcommands">
+ <info><title>Pyrus Custom Commands: differences from PEAR</title></info>
+
+ <section xml:id="pyrus.differences.customcommands.overview">
+  <info><title>Overview</title></info>
+  <para>
+   Custom commands
+   have changed substantially in Pyrus.  PEAR commands draw their information
+   from Xml files located in the directory <literal>PEAR/Command</literal> and
+   require all commands to be implemented in a single file.  Pyrus is much
+   more flexible on this account, and extends the custom XML format used to
+   define commands.  Because of this difference, it is theoretically possible
+   to create custom commands that will work in both the PEAR Installer and in
+   Pyrus, although the internal implementation of these commands will necessarily
+   be quite different.
+  </para>
+  <para>
+   The biggest difference between how a custom command is implemented in Pyrus has
+   to do with the new plugin system (documented <link linkend="pyrus.plugins">here</link>).
+   Before reading any further, it may be a good idea to familiarize yourself with
+   the way that plugins work in Pyrus by reading the documentation on plugins,
+   then return back to finish reading about custom commands.
+  </para>
+  <para>
+   Here is PEAR's version of the xml for the <literal>install</literal> command:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<commands version="1.0">
+ <install>
+  <summary>Install Package</summary>
+  <function>doInstall</function>
+  <shortcut>i</shortcut>
+  <options>
+   <force>
+    <shortopt>f</shortopt>
+    <doc>will overwrite newer installed packages</doc>
+   </force>
+   <loose>
+    <shortopt>l</shortopt>
+    <doc>do not check for recommended dependency version</doc>
+   </loose>
+   <nodeps>
+    <shortopt>n</shortopt>
+    <doc>ignore dependencies, install anyway</doc>
+   </nodeps>
+   <register-only>
+    <shortopt>r</shortopt>
+    <doc>do not install files, only register the package as installed</doc>
+   </register-only>
+   <soft>
+    <shortopt>s</shortopt>
+    <doc>soft install, fail silently, or upgrade if already installed</doc>
+   </soft>
+   <nobuild>
+    <shortopt>B</shortopt>
+    <doc>don&#039;t build C extensions</doc>
+   </nobuild>
+   <nocompress>
+    <shortopt>Z</shortopt>
+    <doc>request uncompressed files when downloading</doc>
+   </nocompress>
+   <installroot>
+    <shortopt>R</shortopt>
+    <doc>root directory used when installing files (ala PHP&#039;s INSTALL_ROOT), use packagingroot for RPM</doc>
+    <arg>DIR</arg>
+   </installroot>
+   <packagingroot>
+    <shortopt>P</shortopt>
+    <doc>root directory used when packaging files, like RPM packaging</doc>
+    <arg>DIR</arg>
+   </packagingroot>
+   <ignore-errors>
+    <shortopt></shortopt>
+    <doc>force install even if there were errors</doc>
+   </ignore-errors>
+   <alldeps>
+    <shortopt>a</shortopt>
+    <doc>install all required and optional dependencies</doc>
+   </alldeps>
+   <onlyreqdeps>
+    <shortopt>o</shortopt>
+    <doc>install all required dependencies</doc>
+   </onlyreqdeps>
+   <offline>
+    <shortopt>O</shortopt>
+    <doc>do not attempt to download any urls or contact channels</doc>
+   </offline>
+   <pretend>
+    <shortopt>p</shortopt>
+    <doc>Only list the packages that would be downloaded</doc>
+   </pretend>
+  </options>
+  <doc>[channel/]&lt;package&gt; ...
+Installs one or more PEAR packages.  You can specify a package to
+install in four ways:
+
+&quot;Package-1.0.tgz&quot; : installs from a local file
+
+&quot;http://example.com/Package-1.0.tgz&quot; : installs from
+anywhere on the net.
+
+&quot;package.xml&quot; : installs the package described in
+package.xml.  Useful for testing, or for wrapping a PEAR package in
+another package manager such as RPM.
+
+&quot;Package[-version/state][.tar]&quot; : queries your default channel&#039;s server
+({config master_server}) and downloads the newest package with
+the preferred quality/state ({config preferred_state}).
+
+To retrieve Package version 1.1, use &quot;Package-1.1,&quot; to retrieve
+Package state beta, use &quot;Package-beta.&quot;  To retrieve an uncompressed
+file, append .tar (make sure there is no file by the same name first)
+
+To download a package from another channel, prefix with the channel name like
+&quot;channel/Package&quot;
+
+More than one package may be specified at once.  It is ok to mix these
+four ways of specifying packages.
+</doc>
+ </install>
+  </commands>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   And the same command as implemented in Pyrus:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<commands version="2.0" xmlns="http://pear2.php.net/dtd/customcommand-2.0">
+ <command>
+  <name>install</name>
+  <class>PEAR2\Pyrus\ScriptFrontend\Commands</class>
+  <function>install</function>
+  <summary>Install a package.  Use install --plugin to install plugins</summary>
+  <shortcut>i</shortcut>
+  <options>
+   <option>
+    <name>plugin</name>
+    <shortopt>p</shortopt>
+    <type><bool/></type>
+    <doc>Manage plugin installation only</doc>
+   </option>
+   <option>
+    <name>packagingroot</name>
+    <shortopt>r</shortopt>
+    <type><string/></type>
+    <doc>Install the package in a directory in preparation for packaging with tools like RPM</doc>
+   </option>
+   <option>
+    <name>optionaldeps</name>
+    <shortopt>o</shortopt>
+    <type><bool/></type>
+    <doc>Automatically download and install all optional dependencies</doc>
+   </option>
+   <option>
+    <name>force</name>
+    <shortopt>f</shortopt>
+    <type><bool/></type>
+    <doc>Force the installation to proceed independent of errors.  USE SPARINGLY.</doc>
+   </option>
+  </options>
+  <arguments>
+   <argument>
+    <name>package</name>
+    <multiple>1</multiple>
+    <optional>0</optional>
+    <doc>package.xml, local package archive, remove package archive, or abstract package.</doc>
+   </argument>
+  </arguments>
+  <doc>Installs listed packages.
+
+local package.xml example:
+php pyrus.phar install package.xml
+
+local package archive example:
+php pyrus.phar install PackageName-1.2.0.tar
+
+remote package archive example:
+php pyrus.phar install http://www.example.com/PackageName-1.2.0.tgz
+
+Examples of an abstract package:
+php pyrus.phar install PackageName
+ installs PackageName from the default channel with stability preferred_state
+php pyrus.phar pear/PackageName
+ installs PackageName from the pear.php.net channel with stability preferred_state
+php pyrus.phar install channel://doc.php.net/PackageName
+ installs PackageName from the doc.php.net channel with stability preferred_state
+php pyrus.phar install PackageName-beta
+ installs PackageName from the default channel, beta or stable stability
+php pyrus.phar install PackageName-1.2.0
+ installs PackageName from the default channel, version 1.2.0</doc>
+ </command>
+</commands>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The format for commands in Pyrus is much more fine-grained, and provides both
+   better validation and better presentation of options and arguments as passed
+   in from the user.  In addition, Pyrus allows fine-grained specification of
+   where a command is located, and automatically registers an autoloader to
+   load the class implementing the command, and any dependent classes in the
+   same location.
+  </para>
+  <para>
+   The details of new tags like &lt;classprefix&gt; and &lt;autoloadpath&gt; are
+   documented in the full documentation of custom roles
+   <link linkend="pyrus.plugins.command">here</link>.
+  </para>
+  <para>
+   This XML metadata file is identified by Pyrus through the use of the file role
+   <literal>customcommand</literal>, which is used in the custom command's package.xml.
+   Here is an example from the &lt;contents&gt; of a package.xml:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+...
+  <contents>
+   <dir name="data">
+    <file name="commands.xml" role="customcommand"/>
+    <file name="someotherdata.csv" role="data"/>
+   </dir>
+  </contents>
+...
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+</section>

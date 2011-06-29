@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.r-package-package012xml"><info><title>package.0.1.2.xml</title></info>
+ 
+ <synopsis>Full package.xml</synopsis>
+
+ <para>
+  Full <filename>package.xml</filename> for the release. May be version 1
+  or version 2 of the <filename>package.xml</filename> format.
+  The highest version should be made available if the package contains
+  both.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.r-package-package012xml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/package.0.1.2.xml</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+ </section>
+
+
+</section>

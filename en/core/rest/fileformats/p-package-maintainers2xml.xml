@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.p-package-maintainers2xml"><info><title>maintainers2.xml</title></info>
+ 
+ <synopsis>Lists package developers</synopsis>
+
+ <para>
+  Same as
+  <link linkend="core.rest.fileformats.p-package-maintainersxml"><filename>maintainers.xml</filename></link>,
+  except that the developer's role is written down, too.
+ </para>
+ <para>
+  Valid
+  <link linkend="guide.developers.package2.developers">role names</link>
+  are <literal>lead</literal>, <literal>developer</literal>,
+  <literal>contributor</literal> and <literal>helper</literal>.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.p-package-maintainers2xml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/maintainers2.xml</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.p-package-maintainers2xml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<m xmlns="http://pear.php.net/dtd/rest.packagemaintainers"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.packagemaintainers
+                       http://pear.php.net/dtd/rest.packagemaintainers.xsd"
+>
+ <p>WorldDominator</p>
+ <c>pear.example.org</c>
+ <m>
+  <h>pinky</h>
+  <a>1</a>
+  <r>developer</r>
+ </m>
+ <m>
+  <h>thebrain</h>
+  <a>1</a>
+  <r>lead</r>
+ </m>
+ <m>
+  <h>deadcow</h>
+  <a>0</a>
+  <r>helper</r>
+ </m>
+</m>]]></programlisting>
+ </section>
+
+</section>

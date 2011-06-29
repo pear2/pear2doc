@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.info">
+ <info><title>info - get information on a package</title></info>
+
+ <section xml:id="pyrus.commands.info.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This command is used to display a list of information on a package,
+   such as the maintainers, the stability and version or versions available
+   for installation (for remote packages).
+  </para>
+  <para>
+   If passed <literal>description</literal> or <literal>notes</literal>,
+   it displays the complete text of these fields.  If passed <literal>files</literal>,
+   it lists the files in the package and their on-disk location for installed
+   packages.  For example:
+  </para>
+  <para>
+   <screen>php pyrus.phar info PackageName description</screen>
+  </para>
+  <para>
+   The command will accept any concrete or
+   <link linkend="guide.users.concepts.abstractpackage">abstract</link> package
+   names as its argument.  Note that if there is an ambiguity between an installed
+   package and the remote package, Pyrus will assume that information is being
+   requested on the installed package.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.info.forceremote">
+  <title>--forceremote</title>
+  <para>
+   The <literal>--forceremote</literal> or <literal>-r</literal> option is used
+   to instruct Pyrus to resolve any ambiguity between an installed package and
+   a remote package to assume that information is requested on the remote package.
+  </para>
+ </section>
+</section>

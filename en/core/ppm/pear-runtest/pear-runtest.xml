@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-runtest.pear-runtest">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>PEAR_RunTest::PEAR_RunTest</function>
+  </refname>
+  <refpurpose>Instantiate a PEAR_RunTest object.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/RunTest.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void      constructor
+     <function>PEAR_RunTest::PEAR_RunTest</function>
+    </funcdef>
+    <paramdef choice="opt">
+     PEAR_Common|null
+     <parameter>$logger</parameter>
+     <initializer>null</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     array
+     <parameter>
+      $options = array()
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-runtest.pear-runtest.desc">
+  &title.desc;
+  <para>
+   If no logger is specified, a new PEAR_Common object will be instantiated and used to
+   print output to the screen.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-runtest.pear-runtest.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <link linkend="core.ppm.pear-common"><classname>PEAR_Common</classname></link>|&null;
+      <parameter>$logger</parameter>
+     </term>
+     <listitem>
+      <para>
+       A class that contains a <function>log</function> method matching the signature of
+       <classname>PEAR_Common</classname>.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$options</parameter>
+     </term>
+     <listitem>
+      <para>
+       Currently supported options are <literal>simple</literal> and <literal>quiet</literal>.
+       The <literal>simple</literal> option causes tests to simply print the title of the
+       test and not the full path to the test file.  The <literal>quiet</literal> option
+       causes output of only failed tests.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-runtest.pear-runtest.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-runtest.pear-runtest.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

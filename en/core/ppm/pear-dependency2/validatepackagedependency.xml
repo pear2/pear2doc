@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.validatepackagedependency">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Dependency2::validatePackageDependency</function>
+  </refname>
+  <refpurpose>validatePackageDependency</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array|true|PEAR_Error
+     <function>PEAR_Dependency2::validatePackageDependency</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$dep</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     boolean
+     <parameter>$required</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array
+     <parameter>$params</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     bool
+     <parameter>$depv1</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackagedependency.desc">
+  &title.desc;
+  <para>
+   Validate a package-style dependency.  Validation is performed in this sequence:
+  </para>
+  <para>
+   <orderedlist>
+    <listitem>
+     <para>
+      If the dependency package provides an extension through the &lt;providesextension&gt;
+      tag, then see if it passes the extension validation test first and return if so.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      If the list of packages to be installed contains a match for the dependency, use that
+      to validate the dependency and return.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      If the dependency package is already installed, make sure the installed version
+      passes the conditions.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      At this point, the dependency has failed.  If the dependency is required,
+      return a PEAR_Error containing the failure error message, otherwise return
+      an array containing the error message.
+     </para>
+    </listitem>
+   </orderedlist>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackagedependency.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$dep</parameter>
+     </term>
+     <listitem>
+      <para>
+       dependency array as defined by package.xml 2.0
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$required</parameter>
+     </term>
+     <listitem>
+      <para>
+       whether this is a required or optional dependency
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>
+       array of PEAR_Downloader_Package objects representing packages to be
+       downloaded that can be used to validate dependencies
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$depv1</parameter>
+     </term>
+     <listitem>
+      <para>
+       if &true;, then deps on pear.php.net that fail will also check
+       against pecl.php.net packages to accommodate extensions that have
+       moved to pecl.php.net from pear.php.net
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackagedependency.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatepackagedependency.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

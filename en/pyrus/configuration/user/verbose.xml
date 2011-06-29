@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.verbose">
+ <info><title>verbose</title></info>
+
+ <section xml:id="pyrus.configuration.user.verbose.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>verbose</literal> setting controls how much information Pyrus
+   echoes as it performs its task.  The higher the setting, the more information
+   Pyrus will spew.  By default, it is set to <literal>1</literal>.
+  </para>
+ </section>
+</section>

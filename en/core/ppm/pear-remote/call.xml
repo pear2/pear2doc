@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-remote.call">
+   <refnamediv>
+    <refname><function>PEAR_Remote::call</function></refname>
+    <refpurpose>Execute a server function</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Remote.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed <function>PEAR_Remote::call</function></funcdef>
+      <paramdef choice="req">string <parameter>$method</parameter></paramdef>
+      <paramdef choice="opt">mixed <parameter>$args,...</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-remote.call.desc">
+     &title.desc;
+     <para>
+      Sends a remote procedure call to a package server
+      and returns the result.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-remote.call.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$method</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Name of the server method
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+        <parameter>$args,...</parameter>
+       </term>      
+       <listitem>
+        <para>
+         server method specific parameters
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-remote.call.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> -
+     result of the executed server method
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-remote.call.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>                
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-remote.call.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

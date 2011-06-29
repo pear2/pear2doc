@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-frontend"><info><title>PEAR_Frontend</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-frontend-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_Frontend</classname>
+   </refname>
+   <refpurpose>Singleton-based frontend for PEAR user input/output</refpurpose>
+  </refnamediv>
+  <refsection><info><title>Singleton-based frontend for PEAR user input/output (since PEAR 1.4.0)</title></info>
+   
+   <para>
+    This is also the base class for all frontends.
+   </para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_Frontend</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       PEAR
+       <itemizedlist>
+        <listitem>
+         <para>PEAR_Frontend</para>
+        </listitem>
+       </itemizedlist>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-frontend.addtempfile;
+ &core.ppm.pear-frontend.isincludeable;
+ &core.ppm.pear-frontend.log;
+ &core.ppm.pear-frontend.setconfig;
+ &core.ppm.pear-frontend.setfrontendclass;
+ &core.ppm.pear-frontend.singleton;
+</section>

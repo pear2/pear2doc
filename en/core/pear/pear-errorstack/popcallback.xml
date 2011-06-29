@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.popcallback">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::popCallback</function></refname>
+    <refpurpose>Remove a callback from the error callback stack</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>array|string|false</replaceable>      <function>PEAR_ErrorStack::popCallback</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.popcallback.desc">
+     &title.desc;
+     <para>Remove a callback from the error callback stack</para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.popcallback.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.popcallback.see">
+    &title.see;
+        <para>
+      <emphasis>see</emphasis> <link linkend="core.pear.pear-errorstack.pushcallback"><function>PEAR_ErrorStack::pushCallback</function></link>
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.popcallback.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

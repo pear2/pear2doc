@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.gettype">
+   <refnamediv>
+    <refname>PEAR_Error::getType()</refname>
+    <refpurpose>get error type</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>integer <function>PEAR_Error::getType</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.gettype.desc">
+    &title.desc;
+    <para>
+     Returns the name of the error class of the object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.gettype.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     error class name 
+    </para>
+   </refsection> 
+   <refsection xml:id="core.pear.pear-error.gettype.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

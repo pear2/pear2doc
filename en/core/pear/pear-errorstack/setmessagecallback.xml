@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.setmessagecallback">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::setMessageCallback</function>
+  </refname>
+  <refpurpose>
+   Set an error code =&gt; error message mapping callback
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.void;
+     <function>PEAR_ErrorStack::setMessageCallback</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.mixed; 
+     <parameter>$msgCallback</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.pear.pear-errorstack.setmessagecallback.desc">
+  &title.desc;
+  <para>
+   This method sets the callback that 
+   can be used to generate error 
+   messages for any PEAR_ErrorStack instance
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setmessagecallback.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$msgCallback</parameter>
+     </term>
+     <listitem>
+      <para>
+       
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setmessagecallback.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setmessagecallback.note">
+  &title.note;
+  &note.notstatic;
+ </refsection>
+</refentry>

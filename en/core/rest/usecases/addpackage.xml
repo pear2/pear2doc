@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.usecases.addpackage"><info><title>Adding a new package</title></info>
+ 
+
+ <para>
+  A new package shall be published on the server, and here are the steps
+  you need to do:
+ </para>
+
+ <orderedlist>
+  <listitem>
+   <para>
+     Check if the package category already exists, or
+     a <link linkend="core.rest.usecases.addcategory">new category</link>
+     needs to be created.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Create the package directory <filename>p/${packagename}/</filename>.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Create those files:
+    <itemizedlist>
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.p-package-infoxml">
+        <filename>r/${packagename}/info.xml</filename>
+       </link>
+      </para>
+     </listitem>
+
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.p-package-maintainersxml">
+        <filename>r/${packagename}/maintainers.xml</filename>
+       </link>
+      </para>
+     </listitem>
+
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.p-package-maintainers2xml">
+        <filename>r/${packagename}/maintainers2.xml</filename>
+       </link>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Update the category files:
+    <itemizedlist>
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.c-category-packagesxml">
+        <filename>c/${CategoryName}/packages.xml</filename>
+       </link>
+      </para>
+     </listitem>
+
+     <listitem>
+      <para>
+       <link linkend="core.rest.fileformats.c-category-packagesinfoxml">
+        <filename>c/${CategoryName}/packagesinfo.xml</filename>
+       </link>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </listitem>
+ </orderedlist>
+
+
+</section>

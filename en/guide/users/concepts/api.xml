@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+ xml:id="guide.users.concepts.api">
+ <info><title>API (Application Program Interface)</title></info>
+
+ <para>
+  A package's API is the publicly documented entry points to the library or
+  program within the package.  For example, the classes or methods that are
+  to be used with a PEAR package, or the commands for a command-line program
+  are all elements of an API.  Another example might be the templating language.
+ </para>
+ <para>
+  Any element of the program that is not intended to be used by the outside
+  world, or is not documented, is not considered part of the API, and thus
+  should not be relied upon in your programs as it may change in any
+  future release.
+ </para>
+</section>

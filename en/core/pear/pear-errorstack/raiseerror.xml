@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.raiseerror">
+ <refnamediv>
+  <refname><function>PEAR_ErrorStack::raiseError</function></refname>
+  <refpurpose>emulate <function>PEAR::raiseError</function></refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     PEAR_Error 
+     <function>PEAR_ErrorStack::raiseError</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.raiseerror.desc">
+  &title.desc;
+  <para>
+   See 
+   <link linkend="core.pear.pear.raiseerror">
+    <function>PEAR::raiseError</function>
+   </link>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.raiseerror.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.raiseerror.note">
+  &title.note;
+  &note.canstatic;
+ </refsection>
+</refentry>

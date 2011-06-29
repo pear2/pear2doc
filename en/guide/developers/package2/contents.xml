@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.contents">
+ <refnamediv>
+  <refname>&lt;contents&gt;</refname>
+  <refpurpose>specifying the contents of a release</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.contents.purpose"><info><title>Documenting release contents</title></info>
+  
+  <para>
+   In package.xml 1.0, the contents tag was &lt;filelist&gt;.  The purpose of the
+   tag changed dramatically in package.xml 2.0, warranting a name change.  Now, &lt;filelist&gt;
+   can be found in the <link linkend="guide.developers.package2.release">release</link> section
+   of the package.xml.
+  </para>
+  <para>
+   &lt;contents&gt; is used to describe the contents of a tarball.  Nothing further.  All
+   files in the contents tag will be placed into the tarball regardless of whether they
+   eventually get installed by the PEAR installer.  This fact can be used to create a very
+   versatile tarball, one that can be directly unzipped and work out of the box as well as
+   be installed by the PEAR installer and work out of the box.
+  </para>
+  <para>
+   For most release types, contents contains a single &lt;dir&gt; tag that then either
+   contains nested dir tags and/or &lt;file&gt; tags.
+  </para>
+ </refsection>
+ </refentry>

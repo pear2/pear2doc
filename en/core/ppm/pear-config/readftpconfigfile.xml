@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.readftpconfigfile">
+   <refnamediv>
+    <refname><function>PEAR_Config::readFTPConfigFile</function></refname>
+    <refpurpose>readFTPConfigFile</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>true|PEAR_Error</replaceable> <function>PEAR_Config::readFTPConfigFile</function></funcdef>
+      <paramdef choice="req">string <parameter>$path</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.readftpconfigfile.desc">
+     &title.desc;
+     <para>
+      Process a ftp configuration file by connecting to the server, retrieving the
+      configuration file and parsing it normally.  This function uses Net_FTP through
+      the PEAR_FTP class.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.readftpconfigfile.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$path</parameter>
+       </term>
+       <listitem>
+        <para>
+         url to the remote config file, like ftp://www.example.com/pear/config.ini
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.readftpconfigfile.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.readftpconfigfile.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

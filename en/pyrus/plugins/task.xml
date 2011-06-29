@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="pyrus.plugins.task">
+ <info><title>Pyrus plugins: custom file tasks</title></info>
+
+ <section xml:id="pyrus.plugins.task.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   If you are not familiar with how file tasks work, read the
+   <link linkend="guide.users.concepts.filetasks">introduction to file tasks</link>
+   first.
+  </para>
+  <para>
+   Custom file tasks can implement a single task, and are defined by
+   an xml file that is noted in package.xml with the <literal>customtask</literal>
+   file role.  The XML format is defined and validated by pyrus with the
+   <link xlink:href="https://github.com/pear2/PEAR2_Pyrus/blob/master/data/customtask-2.0.xsd">customtask-2.0.xsd</link>
+   XSchema file.
+  </para>
+  <para>
+   Here is a human-readable custom file task xml file definition.
+   Optional elements are enclosed in [brackets].
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<task version="2.0" xmlns="http://pear2.php.net/dtd/customtask-2.0">
+ <name>taskname</name>
+ <class>MyPlugin_Taskname</class>
+[<autoloadpath>relative/path/to/MyPlugin</autoloadpath>]
+</task>
+   ]]>
+  </programlisting>
+ </section>
+ <section xml:id="pyrus.plugins.task.autoload">
+  <title>Telling Pyrus how to load your task: &lt;class&gt; and &lt;autoloadpath&gt;</title>
+  <para>
+   This is the same method used for all plugins, and is documented
+   <link linkend="pyrus.plugins.autoload">here</link>.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.task.taskclass">
+  <title>Defining the task: the task class</title>
+  <para>
+   A custom file task must extend the <literal>\PEAR2\Pyrus\Task\Common</literal>
+   class, and must implement a few methods:
+   <itemizedlist>
+    <listitem><simpara><function>validateXml</function></simpara></listitem>
+    <listitem><simpara><function>startSession</function></simpara></listitem>
+   </itemizedlist>
+  </para>
+  <para>
+   Optionally, <function>__construct</function> may be used to do special
+   pre-processing, storing of information or other setup tasks.
+  </para>
+  <para>
+   A task must also define two class constants, <constant>TYPE</constant>
+   and <constant>PHASE</constant>.  <constant>TYPE</constant> should be one of
+   <literal>'simple'</literal> or
+   <literal>'script'</literal>.  <literal>'script'</literal> tasks are
+   post-install scripts, and are executed by the
+   <link linkend="pyrus.commands.runscripts">run-scripts</link> command.
+   <literal>'simple'</literal> tasks are executed while installation is
+   in progress.
+  </para>
+  <para>
+   <constant>PHASE</constant> should be one of:
+   <itemizedlist>
+    <listitem><simpara><constant>\PEAR2\Pyrus\Task\Common::PACKAGE</constant></simpara></listitem>
+    <listitem><simpara><constant>\PEAR2\Pyrus\Task\Common::INSTALL</constant></simpara></listitem>
+    <listitem><simpara><constant>\PEAR2\Pyrus\Task\Common::PACKAGEANDINSTALL</constant></simpara></listitem>
+    <listitem><simpara><constant>\PEAR2\Pyrus\Task\Common::POSTINSTALL</constant></simpara></listitem>
+   </itemizedlist>
+   <constant>\PEAR2\Pyrus\Task\Common::POSTINSTALL</constant> is only used by
+   post-install scripts, the other 3 are used to determine at what time the
+   task should be called.  If your custom task only works at installation-time,
+   use <constant>\PEAR2\Pyrus\Task\Common::INSTALL</constant>.  If the task can
+   perform only at package time (this is exceedingly rare), use
+   <constant>\PEAR2\Pyrus\Task\Common::PACKAGE</constant>.  Most tasks should use
+   <constant>\PEAR2\Pyrus\Task\Common::PACKAGEANDINSTALL</constant>.  If your task
+   can perform its task at packaging time, then you should override the
+   <function>isPreProcessed</function> method and return true.  Some tasks, such
+   as the <literal>replace</literal> task, perform some of their actions at
+   package time, and the rest at install time.  The <function>isPreProcessed</function>
+   method should only return true if the XML of the specific task could be
+   processed at package time.
+  </para>
+  <para>
+   The <function>startSession</function> method is used to actually execute the
+   task, and is passed a read/write file resource that is set to the beginning
+   of the file being installed.  The full path of the file's final installation
+   location is also passed in, and can be used for throwing exceptions.  All
+   errors should be handled by throwing a <literal>PEAR2\Pyrus\Task\Exception</literal>
+   or one of its descendants.
+  </para>
+  <para>
+   The <function>validateXml</function> method should validate the XML as
+   represented in an array format.  The array uses associative arrays for tags,
+   the <literal>attribs</literal> index for attributes, and for a tag with both
+   attributes and content, the <literal>_content</literal> index contains the
+   content.  If present, the <literal>tasks:</literal> namespace is removed
+   from the tags prior to passing to <function>validateXml</function>.  On
+   encountering validation errors, the method should throw one of the four
+   exceptions in the example below.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.task.example">
+  <title>Example Custom Task</title>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+class MyPlugin_Taskname extends \PEAR2\Pyrus\Task\Common
+{
+    const TYPE = 'simple';
+    const PHASE = \PEAR2\Pyrus\Task\Common::PACKAGEANDINSTALL;
+
+    /**
+     * Initialize a task instance with the parameters
+     * @param array raw, parsed xml
+     * @param array attributes from the <file> tag containing this task
+     * @param string|null last installed version of this package
+     */
+    function __construct($pkg, $phase, $xml, $attribs, $lastversion)
+    {
+        parent::__construct($pkg, $phase, $xml, $attribs, $lastversion);
+        // do any special parsing of attributes/contents here
+        // phase is one of \PEAR2\Pyrus\Task\Common::PACKAGE,
+        // \PEAR2\Pyrus\Task\Common::INSTALL, or
+        // \PEAR2\Pyrus\Task\Common::POSTINSTALL
+    }
+
+    /**
+     * Validate the basic contents of a <taskname> tag
+     * @param PEAR_Pyrus_IPackageFile
+     * @param array
+     * @param array the entire parsed <file> tag
+     * @param string the filename of the package.xml
+     * @throws \PEAR2\Pyrus\Task\Exception\InvalidTask
+     * @throws \PEAR2\Pyrus\Task\Exception\NoAttributes
+     * @throws \PEAR2\Pyrus\Task\Exception\MissingAttribute
+     * @throws \PEAR2\Pyrus\Task\Exception\WrongAttributeValue
+     */
+    static function validateXml(PEAR2\Pyrus\IPackage $pkg, $xml, $fileXml, $file)
+    {
+        if (!isset($xml['attribs'])) {
+            throw new \PEAR2\Pyrus\Task\Exception\NoAttributes('taskname', $file);
+        }
+        if (!isset($xml['attribs']['attributename'])) {
+            throw new \PEAR2\Pyrus\Task\Exception\MissingAttribute('taskname',
+                                                                  $attrib, $file);
+        }
+        if ($xml['attribs']['attributename'] != 'hi'
+            && $xml['attribs']['attributename'] != 'bye') {
+            throw new \PEAR2\Pyrus\Task\Exception\WrongAttributeValue('taskname',
+                                                                     'attributename',
+                                                                     $xml['attribs']['attributename'],
+                                                                     $file,
+                                                                     array('hi', 'bye'));
+            }
+        }
+        if (MyPlugin_Other_Class::somecondition()) {
+            throw new \PEAR2\Pyrus\Task\Exception\InvalidTask(
+                'general validation errors should use this exception');
+        }
+        return true;
+    }
+
+    /**
+     * Perform the taskname task
+     * @param \PEAR2\Pyrus\IPackage
+     * @param resource open file pointer, set to the beginning of the file
+     * @param string the eventual final file location (informational only)
+     * @return string|false
+     */
+    function startSession($fp, $dest)
+    {
+        // use \PEAR2\Pyrus\Logger::log() to send messages to the user
+        \PEAR2\Pyrus\Logger::log(3, 'doing stuff');
+        \PEAR2\Pyrus\Logger::log(0, 'doing more important stuff');
+        // operate directly on the file pointer
+        $contents = stream_get_contents($fp);
+        $contents .= 'hi';
+        rewind($fp);
+        ftruncate($fp, 0);
+        fwrite($fp, $contents);
+        return true;
+    }
+
+    /**
+     * This is used to tell the installer to skip a task that has already been
+     * executed.
+     *
+     * For example, package-info replacement tasks are performed at packaging
+     * time, and do not need to be re-applied on installation
+     * @return bool true if task has already been executed on the file at
+     *              packaging time
+     */
+    function isPreProcessed()
+    {
+        // do not implement this method unless your task does its processing
+        // at package-time!
+        return true;
+    }
+}
+?>
+   ]]>
+  </programlisting>
+ </section>
+</section>

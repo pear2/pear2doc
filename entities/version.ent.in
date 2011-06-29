@@ -1,0 +1,2 @@
+<!ENTITY peardoc.build-date "@PEARDOC_BUILD_DATE@">
+<!ENTITY peardoc.copyright-year "@PEARDOC_COPYRIGHT_YEAR@">

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.removelayer">
+   <refnamediv>
+    <refname><function>PEAR_Config::removeLayer</function></refname>
+    <refpurpose>Temporarily remove an entire config layer</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::removeLayer</function></funcdef>
+      <paramdef choice="req">string <parameter>$layer</parameter></paramdef>
+     
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.removelayer.desc">
+     &title.desc;
+     <para>Temporarily remove an entire config layer.  USE WITH CARE!</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.removelayer.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.removelayer.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> -
+     &return.success;     
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.removelayer.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

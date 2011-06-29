@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.developers">
+  <info>
+   <title>Developer Tools for Pyrus</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-16</date>
+  </info>
+
+  <simpara>
+   How to use Pyrus to develop packages for installation by Pyrus.  This documentation is a work in progress.
+  </simpara>
+
+  &pyrus.developers.pear2;
+  &pyrus.developers.pear;
+  &pyrus.developers.pecl;
+ </chapter>

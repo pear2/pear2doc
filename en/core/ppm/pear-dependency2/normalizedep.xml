@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.normalizedep">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Dependency2::normalizeDep</function>
+  </refname>
+  <refpurpose>Convert a 1.0 dep into a 2.0 dep</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_Dependency2::normalizeDep</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$dep</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.normalizedep.desc">
+  &title.desc;
+  <para>
+   This converts an old-style package.xml 1.0 &lt;dep&gt; tag into the format used
+   by package.xml 2.0.  package.xml 2.0 can represent every kind of &lt;dep&gt; tag
+   in its new syntax.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.normalizedep.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$dep</parameter>
+     </term>
+     <listitem>
+      <para>
+       The package.xml 1.0 &lt;dep&gt; as parsed from xml.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.normalizedep.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.normalizedep.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

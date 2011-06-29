@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.r-package-allreleasesxml"><info><title>allreleases.xml</title></info>
+ 
+ <synopsis>List of all package versions</synopsis>
+
+ <para>
+  This file lists all known versions of a package, together with
+  its stability.
+ </para>
+
+ <para>
+  Releases in this file are ordered, the latest version has to be first.
+ </para>
+
+ <section xml:id="core.rest.fileformats.r-package-allreleasesxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/allreleases.xml</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.r-package-allreleasesxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<a xmlns="http://pear.php.net/dtd/rest.allreleases"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.allreleases
+                       http://pear.php.net/dtd/rest.allreleases.xsd"
+>
+ <p>WorldDominator</p>
+ <c>pear.example.org</c>
+ <r><v>0.8.1</v><s>beta</s></r>
+ <r><v>0.0.2</v><s>alpha</s></r>
+</a>]]></programlisting>
+ </section>
+
+</section>

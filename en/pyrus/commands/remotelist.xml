@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.remotelist">
+ <info><title>remote-list - list remote packages on a channel</title></info>
+
+ <section xml:id="pyrus.commands.remotelist.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The remote-list command lists all remote packages in a channel, organized by
+   category.  This command present an alphabetized list of all packages with the
+   latest release and package summary. Installed packages are marked with an
+   asterisk (<literal>*</literal>).
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.remotelist.basic">
+  <title>--basic</title>
+  <para>
+   If the <literal>--basic</literal> or <literal>-b</literal> option is specified,
+   only package name, latest release, and latest stable release are listed.
+  </para>
+ </section>
+</section>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command"><info><title>PEAR_Command</title></info>
+        
+
+<para>PEAR command class, a simple factory class for administrative commands.</para>
+
+&core.ppm.pear-command.factory;
+&core.ppm.pear-command.getcommands;
+&core.ppm.pear-command.getdescription;
+&core.ppm.pear-command.getgetoptargs;
+&core.ppm.pear-command.gethelp;
+&core.ppm.pear-command.getshortcuts;
+&core.ppm.pear-command.registercommands;
+
+
+
+</section>

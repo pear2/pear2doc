@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.validatedependency1">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Dependency2::validateDependency1</function>
+  </refname>
+  <refpurpose>validate a package.xml 1.0 dependency</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     true|PEAR_Error|array
+     <function>PEAR_Dependency2::validateDependency1</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$dep</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     array
+     <parameter>
+      $params = array()
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.validatedependency1.desc">
+  &title.desc;
+  <para>
+   Validate a package.xml version 1.0 &lt;dep&gt; dependency.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatedependency1.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$dep</parameter>
+     </term>
+     <listitem>
+      <para>
+       The contents of the &lt;dep&gt; tag as parsed from xml
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$params</parameter>
+     </term>
+     <listitem>
+      <para>
+       The list of PEAR_Downloader_Package objects that will be installed.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatedependency1.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatedependency1.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

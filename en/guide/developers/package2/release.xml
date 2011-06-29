@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.release">
+ <refnamediv>
+  <refname>&lt;phprelease&gt;, &lt;extbinrelease&gt;, &lt;extsrcrelease&gt;, &lt;bundle&gt;</refname>
+  <refpurpose>specifying the content type of a release</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.release.purpose"><info><title>Documenting release type</title></info>
+  
+  <para>
+   In package.xml 1.0, there was one release type.  package.xml 2.0 provides much finer
+   control over the kind of release in order to provide three new release types: extension
+   binary release, extension source release, and package bundle release.
+  </para>
+  <para>
+   All of the normal release tags (phprelease, extsrcrelease, extbinrelease) may contain
+   two optional sections, &lt;installconditions&gt; and &lt;filelist&gt;.  The purpose of these
+   sections is to allow specification of different file install groups based on the target OS
+   for installation, or other common install conditions.
+  </para>
+  <para>
+   To be clear: in package.xml, there was 1 &lt;release&gt; tag.  package.xml 2.0 allows
+   several adjacent release tags, each specifying a different install set.  This actually
+   simplifies complex installation filesets by separating the contents listing of the tarball
+   from how the installer should manipulate this listing.  Debugging installation file sets
+   should be much simpler with this change.
+  </para>
+  <para>
+   The &lt;filelist&gt; tag can contain only two possible tags, &lt;install&gt; and &lt;ignore&gt;.
+   install has two required attributes, &quot;name&quot; and &quot;as&quot;.  The install tag is used
+   in the same manner as package.xml's install-as attribute for the &lt;file&gt;, to specify a new
+   installation location for a file in the contents list.  The ignore tag is used to completely
+   ignore a file.
+  </para>
+  <para>
+   The &lt;installconditions&gt; tag can contain 4 tags whose format can be found in the
+   &lt;dependencies&gt; section: &lt;php&gt;, &lt;extension&gt;, &lt;os&gt;, and &lt;arch&gt;.
+   Each tag can appear exactly once except for the extension tag, which can appear limitless times.
+  </para>
+  <para>
+   The php tag is used to specify a php version or range of versions that an install set should
+   be valid with.
+  </para>
+  <para>
+   The extension tag is used to specify extensions that must be present for an install set to
+   be valid.
+  </para>
+  <para>
+   The os tag is used to specify an OS that must be present for an install set to be valid.  Note
+   that unix can be used to match all flavors, and linux can be used to match all linux-based OSes.
+   Darwin should be used for Mac OS X, and * can be used to match all operating systems.
+  </para>
+  <para>
+   The arch tag is used to specify a uname string or portion of a uname string that must match
+   in order for the install set to be valid.
+  </para>
+  <refsection xml:id="guide.developers.package2.release.phprelease"><info><title>&lt;phprelease&gt;</title></info>
+   
+   <para>
+    The phprelease release type is designed for PEAR-style PHP script package releases.
+    It causes a few specific validation changes.  First of all,
+    the <link linkend="guide.developers.package2.contents">&lt;contents&gt;</link> tag must
+    contain &lt;file&gt; and &lt;dir&gt; tags.  The only valid roles for files are role=&quot;php&quot;,
+    role=&quot;data&quot;, role=&quot;doc&quot;, and role=&quot;test&quot; plus any custom roles
+    that the user has installed for use in php releases.
+   </para>
+  </refsection>
+  <refsection xml:id="guide.developers.package2.release.extsrcrelease"><info><title>&lt;extsrcrelease&gt;</title></info>
+   
+   <para>
+    The extsrcrelease release type is for PECL-style PHP extension releases that must be compiled
+    in order to be useable.  It causes a few specific validation changes.  First of all,
+    the <link linkend="guide.developers.package2.contents">&lt;contents&gt;</link> tag must
+    contain &lt;file&gt; and &lt;dir&gt; tags.  The only valid roles for files are role=&quot;src&quot;,
+    role=&quot;data&quot;, role=&quot;doc&quot;, and role=&quot;test&quot; plus any custom roles
+    that the user has installed for use in extension source releases.
+   </para>
+   <para>
+    In addition, the &lt;providesextension&gt; tag must be present in order to document the name of
+    the extension this package provides must be in the package.xml as well.
+   </para>
+  </refsection>
+  <refsection xml:id="guide.developers.package2.release.extbinrelease"><info><title>&lt;extbinrelease&gt;</title></info>
+   
+   <para>
+    The extbinrelease release type is for PECL-style PHP Extension binary releases that are pre-compiled.
+    It causes a few specific validation changes.  First of all,
+    the <link linkend="guide.developers.package2.contents">&lt;contents&gt;</link> tag must
+    contain &lt;file&gt; and &lt;dir&gt; tags.  The only valid roles for files are role=&quot;ext&quot;,
+    role=&quot;data&quot;, role=&quot;doc&quot;, and role=&quot;test&quot; plus any custom roles
+    that the user has installed for use in extension binary releases.
+   </para>
+   <para>
+    In addition, the &lt;srcpackage&gt; or &lt;srcuri&gt; and the &lt;providesextension&gt; tags
+    must be present in order to document the package that provides extension source for this
+    binary release, and the name of the extension this package provides must be in the package.xml as
+    well.
+   </para>
+  </refsection>
+  <refsection xml:id="guide.developers.package2.release.bundle"><info><title>&lt;bundle&gt;</title></info>
+   
+   <para>
+    The bundle release type is designed to allow packaging several other package releases into a
+    single bundle of packages that will all be installed at the same time.  This can be used to
+    distribute a complete application as one tarball, or to distribute a library of packages in a
+    single tarball.
+   </para>
+   <para>
+    Unlike the other release types, a bundle release's
+    <link linkend="guide.developers.package2.contents">&lt;contents&gt;</link> tag must contain
+    only the &lt;bundledpackage&gt; tag.  The contents of the bundledpackage should be release names
+    like &quot;Foo-1.2.3.tgz&quot;
+   </para>
+   <para>
+    In addition, the &lt;bundle/&gt; tag must be empty.
+   </para>
+  </refsection>
+ </refsection>
+ </refentry>

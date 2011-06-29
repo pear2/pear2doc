@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getremote">
+   <refnamediv>
+    <refname><function>PEAR_Config::getRemote</function></refname>
+    <refpurpose>getRemote</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>PEAR_Remote&amp; <function>PEAR_Config::getRemote</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.getremote.desc">
+     &title.desc;
+     <para>
+      This returns a PEAR_Remote based on the current PEAR_Config object.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getremote.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.getremote.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

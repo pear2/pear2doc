@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.r-package-alphatxt"><info><title>alpha.txt</title></info>
+ 
+ <synopsis>The latest alpha version</synopsis>
+
+ <para>
+  The only content of this file is the version number of the latest
+  alpha version in pure plain text.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.r-package-alphatxt.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/alpha.txt</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+  <para>
+   This file does not exist when no alpha release exists.
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.r-package-alphatxt.example"><info><title>Example</title></info>
+  
+  <programlisting role="text"><![CDATA[0.1.2]]></programlisting>
+ </section>
+
+</section>

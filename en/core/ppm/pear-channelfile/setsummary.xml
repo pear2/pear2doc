@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setsummary">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setSummary</function>
+  </refname>
+  <refpurpose>set the summary of a channel's purpose</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>PEAR_ChannelFile::setSummary</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$summary</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setsummary.desc">
+  &title.desc;
+  <para>
+   This sets a human-readable description of a channel's purpose.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setsummary.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$summary</parameter>
+     </term>
+     <listitem>
+      <para>
+       The channel summary
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setsummary.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   success
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setsummary.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setsummary.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

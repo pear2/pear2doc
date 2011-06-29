@@ -1,0 +1,309 @@
+<!-- -*- SGML -*-
+
+ $Id: global.ent 309385 2011-03-18 14:40:26Z saltybeagle $
+
+ Contains global "macros" for all the XML documents.
+
+ -->
+<!ENTITY url.amazon 'http://www.amazon.com/'>
+<!ENTITY url.astyle 'http://astyle.sourceforge.net/'>
+<!ENTITY url.cacert 'http://www.cacert.org/'>
+<!ENTITY url.cacert.mozilla 'http://www.cacert.org/index.php?id=3'>
+<!ENTITY url.cacert.ie 'http://www.cacert.org/index.php?id=17'>
+<!ENTITY url.chiara 'http://pear.chiaraquartet.net'>
+<!ENTITY url.corba.universe 'http://universe-phpext.sourceforge.net/'>
+<!ENTITY url.cvs.book 'http://cvsbook.red-bean.com/'>
+<!ENTITY url.debian.apt 'http://www.debian.org/doc/manuals/apt-howto/'>
+<!ENTITY url.delicious 'http://delicious.com/'>
+<!ENTITY url.docbook.book "http://www.docbook.org/">
+<!ENTITY url.docbook.book.read "http://www.docbook.org/tdg5/">
+<!ENTITY url.docbook.book.reference "http://www.docbook.org/tdg5/en/html/ref-elements.html">
+<!ENTITY url.docbook.xml "http://www.oasis-open.org/docbook/xml/">
+<!ENTITY url.docbook.schema "http://www.docbook.org/rng/4.3/">
+<!ENTITY url.doc.test.build.1 'http://ucommbieber.unl.edu/peardoc/build/en/pear_manual_en/'>
+<!ENTITY url.doc.test.build.1.log 'http://ucommbieber.unl.edu/peardoc/build/build.log'>
+<!ENTITY url.doc.test.build.2 'http://peardoc.m-takagi.org/'>
+<!ENTITY url.doc.test.build.3 'http://beni.hallinger.org/peardoc/en/html/'>
+<!ENTITY url.doc.test.build.3.log 'http://beni.hallinger.org/peardoc/build.log'>
+<!ENTITY url.dsssl "http://wiki.docbook.org/topic/DocBookDssslStylesheets">
+<!ENTITY url.ebay 'http://www.ebay.com/'>
+<!ENTITY url.ebay.developer 'http://developer.ebay.com/'>
+<!ENTITY url.ebay.developer.join 'http://developer.ebay.com/join/'>
+<!ENTITY url.ebay.developer.singleusertool 'http://developer.ebay.com/tokentool/Credentials.aspx'>
+<!ENTITY url.ebay.sandbox 'http://sandbox.ebay.com/'>
+<!ENTITY url.ebay.sandbox.register 'https://scgi.sandbox.ebay.com/ws/eBayISAPI.dll?RegisterEnterInfo&amp;siteid=0&amp;co_partnerid=2&amp;usage=0&amp;ru=default'>
+<!ENTITY url.efnet "http://www.efnet.org/">
+<!ENTITY url.example 'www.example.com'>
+<!ENTITY url.example.http 'http://www.example.com/'>
+<!ENTITY url.faq.licenses.rasmus 'http://news.php.net/php.pear.dev/45245'>
+<!ENTITY url.faq.licenses.apache1 'http://www.apache.org/licenses/LICENSE-1.1'>
+<!ENTITY url.faq.licenses.fsf 'http://www.fsf.org/licensing/licenses/gpl-faq.html#MereAggregation'>
+<!ENTITY url.geonames.home 'http://www.geonames.org/'>
+<!ENTITY url.geonames.apidocs 'http://www.geonames.org/export/ws-overview.html'>
+<!ENTITY url.google.code 'http://code.google.com/'>
+<!ENTITY url.google.soapsearch 'http://code.google.com/apis/soapsearch/'>
+<!ENTITY url.gtk2-filedrop.urilist 'http://gtk.php.net/manual1/en/tutorials.filednd.urilist.php'>
+<!ENTITY url.jade "http://www.jclark.com/jade/">
+<!ENTITY url.jclark "http://www.jclark.com/bio.htm">
+<!ENTITY url.dbstyle "http://wiki.docbook.org/topic/DocBookDssslStylesheets">
+<!ENTITY url.nwalsh "http://nwalsh.com/">
+<!ENTITY url.imagemagick 'http://www.imagemagick.org/'>
+<!ENTITY url.java 'http://java.sun.com/'>
+<!ENTITY url.java.oo 'http://java.sun.com/docs/books/tutorial/java/concepts/'>
+<!ENTITY url.javadoc 'http://java.sun.com/j2se/javadoc/'>
+<!ENTITY url.junit 'http://www.junit.org/'>
+<!ENTITY url.kde 'http://www.kde.org/'>
+<!ENTITY url.kerberos.info 'http://web.mit.edu/kerberos/www/'>
+<!ENTITY url.kerberos.docs 'http://web.mit.edu/kerberos/www/krb5-1.2/krb5-1.2.8/doc/admin_toc.html'>
+<!ENTITY url.libxml 'http://www.xmlsoft.org/'>
+<!ENTITY url.libxml.xmllint 'http://www.xmlsoft.org/xmllint.html'>
+<!ENTITY url.license.apache 'http://www.opensource.org/licenses/apache2.0.php'>
+<!ENTITY url.license.bsd 'http://www.opensource.org/licenses/bsd-license.html'>
+<!ENTITY url.license.cc 'http://creativecommons.org/licenses/'>
+<!ENTITY url.license.gnu 'http://www.gnu.org/licenses/license-list.html'>
+<!ENTITY url.license.lgpl 'http://www.fsf.org/licensing/licenses/lgpl.txt'>
+<!ENTITY url.license.mit 'http://www.opensource.org/licenses/mit-license.php'>
+<!ENTITY url.license.opensource 'http://www.opensource.org/licenses/'>
+<!ENTITY url.license.php 'http://www.php.net/license/'>
+<!ENTITY url.linelength.paulmjones 'http://paul-m-jones.com/?p=276'>
+<!ENTITY url.macports 'http://www.macports.org/'>
+<!ENTITY url.mysql 'http://www.mysql.com/'>
+<!ENTITY url.mysql.world.download 'http://dev.mysql.com/get/Downloads/Manual/world.sql.gz/from/pick'>
+<!ENTITY url.mysql.world.setup 'http://dev.mysql.com/doc/world-setup/en/world-setup.html'>
+<!ENTITY url.opensource 'http://www.opensource.org/'>
+<!ENTITY url.opl 'http://www.opencontent.org/openpub/'>
+<!ENTITY url.oreilly 'http://oreilly.com/'>
+<!ENTITY url.mac.entropy "http://www.entropy.ch/software/macosx/php/">
+<!ENTITY url.man.index 'http://unixhelp.ed.ac.uk/alphabetical/index.html'>
+<!ENTITY url.man.freebsd.index 'http://www.freebsd.org/cgi/man.cgi'>
+<!ENTITY url.maxmind 'http://www.maxmind.com/'>
+<!ENTITY url.maxmind.db.free 'http://www.maxmind.com/app/geoip_country'>
+<!ENTITY url.maxmind.db.nonfree 'http://www.maxmind.com/app/products'>
+
+<!ENTITY url.pear 'http://pear.php.net/'>
+<!ENTITY url.pear.account 'http://pear.php.net/accounts.php'>
+<!ENTITY url.pear.account.new 'http://pear.php.net/account-request.php'>
+<!ENTITY url.pear.bug 'http://pear.php.net/bugs/bug.php?id='>
+<!ENTITY url.pear.bugs 'http://pear.php.net/bugs/'>
+<!ENTITY url.pear.channels 'http://pear.php.net/channels/'>
+<!ENTITY url.pear.constitution.results 'http://pear.php.net/election/info.php?election=6&amp;results=1'>
+<!ENTITY url.pear.cvs.peardoc 'http://svn.php.net/viewvc/pear/peardoc/trunk/'>
+<!ENTITY url.pear.developer 'http://pear.php.net/user/'>
+<!ENTITY url.pear.docs.cachelite 'http://svn.php.net/viewvc/pear/packages/Cache_Lite/trunk/docs/technical?view=markup'>
+<!ENTITY url.pear.dtd 'http://pear.php.net/dtd/'>
+<!ENTITY url.pear.dtd.package1 'http://pear.php.net/dtd/package-1.0'>
+<!ENTITY url.pear.dtd.package1.xsd 'http://pear.php.net/dtd/package-1.0.xsd'>
+<!ENTITY url.pear.dtd.package2 'http://pear.php.net/dtd/package-2.0'>
+<!ENTITY url.pear.dtd.package2.xsd 'http://pear.php.net/dtd/package-2.0.xsd'>
+<!ENTITY url.pear.dtd.tasks1 'http://pear.php.net/dtd/tasks-1.0'>
+<!ENTITY url.pear.go 'http://pear.php.net/go-pear.phar'>
+<!ENTITY url.pear.group 'http://pear.php.net/group/'>
+<!ENTITY url.pear.group.licenses 'http://pear.php.net/group/docs/20040402-la.php'>
+<!ENTITY url.pear.group.doc.proposals 'http://pear.php.net/group/docs/20040402-la.php'>
+<!ENTITY url.pear.group.doc.vulnerability 'http://pear.php.net/group/docs/20051104-sa.php'>
+<!ENTITY url.pear.manual 'http://pear.php.net/manual/'>
+<!ENTITY url.pear.manual.installation 'http://pear.php.net/manual/en/installation.php'>
+<!ENTITY url.pear.package 'http://pear.php.net/package/'>
+<!ENTITY url.pear.package.browse 'http://pear.php.net/packages.php'>
+<!ENTITY url.pear.package.new 'http://pear.php.net/package-new.php'>
+<!ENTITY url.pear.package.upload 'http://pear.php.net/release-upload.php'>
+<!ENTITY url.pear.pepr 'http://pear.php.net/pepr/'>
+<!ENTITY url.pear.pepr.edit 'http://pear.php.net/pepr/pepr-proposal-edit.php'>
+<!ENTITY url.pear.pepr.proposal 'http://pear.php.net/pepr/pepr-proposal-show.php?id='>
+<!ENTITY url.pear.support 'http://pear.php.net/support/'>
+<!ENTITY url.pear.support.lists 'http://pear.php.net/support/lists.php'>
+<!ENTITY url.pear.tasks.xsd 'http://pear.php.net/dtd/tasks-1.0.xsd'>
+<!ENTITY url.pear2.autoload 'https://github.com/pear2/PEAR2_Autoload/blob/master/src/PEAR2/Autoload.php'>
+
+<!ENTITY url.pecl 'http://pecl.php.net/'>
+<!ENTITY url.phing 'http://phing.info/'>
+<!ENTITY url.phd 'http://doc.php.net/phd/'>
+<!ENTITY url.phd.pearapi 'http://doc.php.net/phd/docs/#ext-phd-pearapi'>
+<!ENTITY url.phpdoc 'http://www.phpdoc.de/'>
+<!ENTITY url.phpdocumentor 'http://www.phpdoc.org/'>
+<!ENTITY url.phplib 'http://sourceforge.net/projects/phplib/'>
+<!ENTITY url.php 'http://www.php.net/'>
+<!ENTITY url.php.anoncvs 'http://www.php.net/anoncvs.php'>
+<!ENTITY url.php.anonsvn 'http://www.php.net/svn.php'>
+<!ENTITY url.php.callback 'http://www.php.net/manual/language.pseudo-types.php'>
+<!ENTITY url.php.manual 'http://www.php.net/manual/'>
+<!ENTITY url.php.manual.about 'http://www.php.net/manual/about.php'>
+<!ENTITY url.php.manual.auto 'http://www.php.net/'>
+<!ENTITY url.php.manual.howto 'http://www.php.net/dochowto'>
+<!ENTITY url.php.manual.peclinstall 'http://www.php.net/manual/en/install.pecl.php'>
+<!ENTITY url.php.mailinglists 'http://www.php.net/mailing-lists.php'>
+<!ENTITY url.php.cvs 'http://cvs.php.net/'>
+<!ENTITY url.php.cvs.pear 'http://svn.php.net/viewvc/pear/'>
+<!ENTITY url.php.cvs.peardoc.authoring 'http://svn.php.net/viewvc/pear/peardoc/trunk/en/authoring/'>
+<!ENTITY url.php.cvs.new 'http://www.php.net/cvs-php.php'>
+<!ENTITY url.php.svn 'http://svn.php.net/'>
+<!ENTITY url.php.gtk 'http://gtk.php.net/'>
+<!ENTITY url.php.bugs 'http://bugs.php.net/'>
+<!ENTITY url.php.bugs.howto 'http://bugs.php.net/how-to-report.php'>
+<!ENTITY url.phpform 'http://sourceforge.net/projects/phpform-ext/'>
+<!ENTITY url.phpunit 'http://www.phpunit.de/'>
+<!ENTITY url.phpunit.get 'http://pear.phpunit.de/get/'>
+<!ENTITY url.publicsuffix 'http://publicsuffix.org/'>
+<!ENTITY url.python.doc.modindex.optparse 'http://docs.python.org/library/module-optparse.html'>
+<!ENTITY url.recaptcha.recaptcha 'http://recaptcha.net/apidocs/captcha/'>
+<!ENTITY url.recaptcha.recaptcha.getapikey 'http://recaptcha.net/api/getkey'>
+<!ENTITY url.recaptcha.recaptcha.options 'http://recaptcha.net/apidocs/captcha/client.html'>
+<!ENTITY url.recaptcha.mailhide 'http://recaptcha.net/apidocs/mailhide/'>
+<!ENTITY url.recaptcha.mailhide.getapikey 'http://mailhide.recaptcha.net/apikey'>
+<!ENTITY url.rest.chanservongooglecode 'http://docs.google.com/present/view?id=dgstxrxv_6f48xbz'>
+<!ENTITY url.rss.info 'http://tech.groups.yahoo.com/group/rss-dev/files/specification.html'>
+<!ENTITY url.simplechannelserver 'https://github.com/pear2/PEAR2_SimpleChannelServer'>
+<!ENTITY url.simplechannelserver.phar 'https://github.com/pear2/PEAR2_SimpleChannelServer/blob/master/pearscs.phar?raw=true'>
+<!ENTITY url.sourceforge 'http://sourceforge.net/'>
+<!ENTITY url.subversion 'http://subversion.tigris.org/'>
+<!ENTITY url.subversion.book 'http://svnbook.red-bean.com/'>
+<!ENTITY url.tabs.vs.spaces 'http://www.jwz.org/doc/tabs-vs-spaces.html'>
+<!ENTITY url.tutorial.config 'http://www.devshed.com/c/a/PHP/Configuration-Manipulation-With-PHP-Config/'>
+<!ENTITY url.usefulinc 'http://usefulinc.com/'>
+<!ENTITY url.usefulinc.xmlrpc.doc 'http://phpxmlrpc.sourceforge.net/#interest'>
+<!ENTITY url.userland 'http://www.userland.com/'>
+<!ENTITY url.xml.parser.tutorial 'http://www.schst.net/articles/XML_Parser'>
+<!ENTITY url.xml.entities.common 'http://www.evolt.org/article/A_Simple_Character_Entity_Chart/17/21234/'>
+<!ENTITY url.xml.entities.all 'http://www.oasis-open.org/docbook/xmlcharent/0.1/index.shtml'>
+<!ENTITY url.xmlrpc 'http://www.xmlrpc.com/'>
+<!ENTITY url.xmlrpc.discuss 'http://www.xmlrpc.com/discuss/'>
+<!ENTITY url.xmlrpc.list 'http://tech.groups.yahoo.com/group/xml-rpc/'>
+<!ENTITY url.xmlrpc.book 'http://oreilly.com/catalog/progxmlrpc/'>
+<!ENTITY url.xmlrpc.spec 'http://www.xmlrpc.com/stories/storyReader$7'>
+<!ENTITY url.yellowpages 'http://www.yellowpages.com'>
+<!ENTITY url.extreme.prog 'http://xprogramming.com/'>
+<!ENTITY url.w3 'http://www.w3.org/'>
+<!ENTITY url.w3.xml.rec 'http://www.w3.org/TR/REC-xml/#syntax'>
+
+<!-- These are special reference/search urls
+     ex. <ulink url="&url.rfc;4242">RFC 4242</ulink>
+         <ulink url="&url.php.lookup;ini-set">ini_set</ulink>
+         <ulink url="&url.pear.package.get;imagick">Download Imagick</ulink>
+-->
+<!ENTITY url.man 'http://unixhelp.ed.ac.uk/CGI/man-cgi?'>
+<!ENTITY url.man.freebsd 'http://www.freebsd.org/cgi/man.cgi?query='>
+<!ENTITY url.pear.package.get 'http://pear.php.net/get/'>
+<!ENTITY url.php.lookup 'http://www.php.net/manual-lookup.php?pattern='>
+<!ENTITY url.rfc  'http://www.faqs.org/rfcs/rfc'>
+
+<!-- The three special language constants -->
+<!ENTITY true  '<constant xmlns="http://docbook.org/ns/docbook">TRUE</constant>'>
+<!ENTITY false '<constant xmlns="http://docbook.org/ns/docbook">FALSE</constant>'>
+<!ENTITY null  '<constant xmlns="http://docbook.org/ns/docbook">NULL</constant>'>
+
+<!-- Some commonly used file entities -->
+<!ENTITY php.ini    '<filename xmlns="http://docbook.org/ns/docbook">php.ini</filename>'>
+<!ENTITY htaccess   '<filename xmlns="http://docbook.org/ns/docbook">.htaccess</filename>'>
+<!ENTITY httpd.conf '<filename xmlns="http://docbook.org/ns/docbook">httpd.conf</filename>'>
+
+<!ENTITY email.martin   'mj@php.net'>
+<!ENTITY email.stig     'stig@php.net'>
+<!ENTITY email.hburbach 'holger.burbach@gonicus.de'>
+
+<!ENTITY email.pear.general           'pear-general@lists.php.net'>
+<!ENTITY email.pear.general-subscribe 'pear-general-subscribe@lists.php.net'>
+<!ENTITY email.pear.webmaster         'pear-webmaster@lists.php.net'>
+
+<!ENTITY email.pear.core           'pear-core@lists.php.net'>
+
+<!ENTITY email.pear.dev           'pear-dev@lists.php.net'>
+<!ENTITY email.pear.dev-subscribe 'pear-dev-subscribe@lists.php.net'>
+
+<!ENTITY email.pear.doc           'pear-doc@lists.php.net'>
+<!ENTITY email.pear.doc-subscribe 'pear-doc-subscribe@lists.php.net'>
+
+<!ENTITY email.pear.qa            'pear-qa@lists.php.net'>
+<!ENTITY email.pear.qa-subscribe  'pear-qa-subscribe@lists.php.net'>
+
+<!ENTITY email.pear.core           'pear-core@lists.php.net'>
+
+<!ENTITY email.pear.group          'pear-group@php.net'>
+
+<!ENTITY email.apd  'apd@mail.communityconnect.com'>
+<!ENTITY email.php.soap 'soap@lists.php.net'>
+<!ENTITY email.php.general 'php-general@lists.php.net'>
+
+<!ENTITY link.martin   '<ulink url="mailto:&email.martin;" xmlns="http://docbook.org/ns/docbook">Martin Jansen</ulink>'>
+
+<!-- for the developers guide -->
+
+<!-- For tools setup section -->
+<!ENTITY url.nwalsh         "http://wiki.docbook.org/topic/DocBookDssslStylesheets">
+<!ENTITY url.nwalsh.xsl     "http://wiki.docbook.org/topic/DocBookXslStylesheets">
+<!ENTITY url.jade           "http://www.jclark.com/jade/">
+<!ENTITY url.autoconf       "http://www.gnu.org/software/autoconf/">
+<!ENTITY url.autoconf.ftp   "ftp://ftp.gnu.org/gnu/autoconf/">
+<!ENTITY url.rpm            "http://www.rpm.org/">
+<!ENTITY url.docbookmirror1 "ftp://ftp.freesoftware.com/pub/sourceware/docbook-tools/docware/SRPMS/">
+<!ENTITY url.docbookmirror2 "ftp://sourceware.cygnus.com/pub/docbook-tools/docware/SRPMS/">
+<!ENTITY url.win.cygwin     "http://www.cygwin.com/">
+<!ENTITY url.iso.entities   "http://jeroen.a-eskwadraat.nl/iso-entities.zip">
+<!ENTITY url.docbook.appa   "http://www.oasis-open.org/docbook/documentation/reference/html/appa.html">
+
+<!-- For CVS section -->
+<!ENTITY url.cvs "http://ximbiot.com/cvs/wiki/">
+
+<!-- Auth_RADIUS -->
+<!ENTITY url.auth_radius.pecl "http://pecl.php.net/package/radius">
+
+<!-- LiveUser -->
+<!ENTITY url.liveuser.wiki                      "http://wiki.pooteeweet.org/LiveUser/">
+<!ENTITY url.liveuser.wiki.references           "http://wiki.pooteeweet.org/LiveUser/References">
+<!ENTITY url.liveuser.wiki.roadmap.client       "http://wiki.pooteeweet.org/LiveUser/Client">
+<!ENTITY url.liveuser.wiki.roadmap.admin        "http://wiki.pooteeweet.org/LiveUser/Admin">
+<!ENTITY url.liveuser.phpmag.article1           "http://web.archive.org/web/20071218224817/http://www.php-mag.net/magphpde/magphpde_article/psecom,id,595,nodeid,21.html">
+<!ENTITY url.liveuser.wiki.admin.api            "http://wiki.pooteeweet.org/LiveUser/AdminFilters">
+<!ENTITY url.liveuser.backendmedia.dbschema     "http://www.backendmedia.com/LiveUser/liveuser_db_schema.png">
+<!ENTITY url.liveuser.jystewart.config          "http://jystewart.net/process/archives/2005/07/configuring-liveuser/">
+<!ENTITY url.liveuser.jystewart.start           "http://jystewart.net/process/archives/2005/08/getting-started-with-liveuser-permissions/">
+<!ENTITY url.liveuser.wiki.observer             "http://wiki.pooteeweet.org/LiveUser/Observers">
+<!ENTITY url.liveuser.gvngroup.be.intro         "http://www.gvngroup.be/doc/LiveUser/index.php">
+<!ENTITY url.liveuser.gvngroup.be.admin.intro   "http://www.gvngroup.be/doc/LiveUser_Admin/index.php">
+
+<!-- MDB2 -->
+<!ENTITY url.mdb2.searchDrivers "http://pear.php.net/search.php?q=mdb2_Driver&amp;in=packages">
+
+<!-- HTML_CSS -->
+<!ENTITY url.maxdesign  "http://css.maxdesign.com.au/index.htm">
+
+<!-- HTML_QuickForm -->
+<!ENTITY url.html_quickform.tutorial1 "http://www.midnighthax.com/quickform.php">
+
+<!-- HTML_QuickForm_Renderer_Tableless -->
+<!ENTITY url.html_quickform_renderer_tableless.tutorial1 "http://www.markwiesemann.eu/2006/12/27/howto-adding-explainations-next-to-form-fields-with-tableless-quickform-renderer/">
+<!ENTITY url.html_quickform_renderer_tableless.tutorial2 "http://www.markwiesemann.eu/2007/12/23/using-the-tableless-renderer-together-with-html_quickform_controller/">
+
+<!-- HTML_Table -->
+<!ENTITY url.html_table.javascript.sorting "http://www.kryogenix.org/code/browser/sorttable/">
+<!ENTITY url.html_table.javascript.sorting2 "http://www.workingwith.me.uk/articles/scripting/standardista_table_sorting">
+<!ENTITY url.html_table.api.html_common "http://pear.php.net/package/HTML_Common/docs/latest/HTML_Common/HTML_Common.html">
+
+<!-- Log -->
+<!ENTITY url.log.home "http://www.indelible.org/php/Log/">
+
+<!-- Net_SMTP -->
+<!ENTITY url.net_smtp.home "http://www.indelible.org/php/Net_SMTP/">
+
+<!-- Text_Wiki -->
+<!ENTITY url.text_wiki.wiki "http://pear.reversefold.com/dokuwiki/text_wiki">
+
+<!ENTITY url.qa.cweiske.overview "http://pear.cweiske.de/overview.htm">
+<!ENTITY url.qa.coverage         "http://pear.cweiske.de/coverage/">
+<!ENTITY url.qa.packagestatus    "http://pear.cweiske.de/packagestatus/">
+
+<!-- For links to the API documentation generated by phpdocumentor -->
+<!ENTITY phpdocbase.html-page2 "http://pear.php.net/package/HTML_Page2/docs/latest/HTML_Page2/HTML_Page2.html#method">
+<!ENTITY phpdocbase.console-color "http://pear.php.net/package/Console_Color/docs/latest/Console_Color/Console_Color.html#method">
+<!ENTITY phpdocbase.console-progressbar "http://pear.php.net/package/Console_ProgressBar/docs/latest/Console_ProgressBar/Console_ProgressBar.html#method">
+<!ENTITY phpdocbase.datetime-date "http://pear.php.net/package/Date/docs/latest/Date/Date.html">
+<!ENTITY phpdocbase.datetime-date.method "http://pear.php.net/package/Date/docs/latest/Date/Date.html#class_methods">
+<!ENTITY phpdocbase.datetime-date_span.method "http://pear.php.net/package/Date/docs/latest/Date/Date_Span.html#class_methods">
+<!ENTITY phpdocbase.datetime-date_timezone.method "http://pear.php.net/package/Date/docs/latest/Date/Date_TimeZone.html#class_methods">
+<!ENTITY phpdocbase.games-chess "http://pear.php.net/package/Games_Chess/docs/latest/Games_Chess/">
+<!ENTITY phpdocbase.image-image_transform "http://pear.php.net/package/Image_Transform/docs/latest/Image_Transform/Image_Transform.html#method">
+<!ENTITY phpdocbase.crypt-gpg.method "http://pear.php.net/package/Crypt_GPG/docs/latest/Crypt_GPG/Crypt_GPG.html#method">
+<!ENTITY phpdocbase.crypt-gpg_signature.method "http://pear.php.net/package/Crypt_GPG/docs/latest/Crypt_GPG/Crypt_GPG_Signature.html#method">
+<!ENTITY phpdocbase.services-akismet2.method "http://pear.php.net/package/Services_Akismet2/docs/latest/Services_Akismet2/Services_Akismet2.html#method">
+<!ENTITY phpdocbase.services-akismet2_invalidapikeyexception "http://pear.php.net/package/Services_Akismet2/docs/latest/Services_Akismet2/Services_Akismet2_InvalidApiKeyException.html">
+<!ENTITY phpdocbase.services-akismet2_comment "http://pear.php.net/package/Services_Akismet2/docs/latest/Services_Akismet2/Services_Akismet2_Comment.html">
+<!ENTITY phpdocbase.services-akismet2_comment.method "http://pear.php.net/package/Services_Akismet2/docs/latest/Services_Akismet2/Services_Akismet2_Comment.html#method">

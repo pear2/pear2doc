@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.compatible">
+ <refnamediv>
+  <refname>&lt;compatible&gt;</refname>
+  <refpurpose>Alleviating strict versioning with &lt;compatible&gt;</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.compatible.intro"><info><title>Working with &lt;recommended&gt; dependency versions and &lt;compatible&gt;</title></info> 
+  
+  <para>
+   The &lt;compatible&gt; tag is designed to be used with a &lt;package&gt; dependency that
+   contains a &lt;recommended&gt; version tag from package pear.example.com/Bar version 1.3.0 like so:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<package>
+ <name>Foo</name>
+ <channel>pear.example.com</channel>
+ <min>1.0.0</min>
+ <recommended>1.5.2</recommended>
+</package>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The above dependency can be translated into English as follows: &quot;Use the package
+   pear.example.com/Foo, but only versions 1.0.0 or newer.  If pear.example.com/Foo is not
+   installed, install version 1.5.2.  If pear.example.com/Foo is installed and is not version
+   1.5.2, fail unless --force is specified, or pear.example.com/Foo is compatible with me.&quot;
+  </para>
+  <para>
+   That last clause &quot;...or pear.example.com/Foo is compatible with me.&quot; is controlled by the
+   &lt;compatible&gt; tag.  If package Foo version 1.5.3's package.xml has a &lt;compatible&gt; like so:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<compatible>
+ <name>Bar</name>
+ <channel>pear.example.com</channel>
+ <min>1.2.0</min>
+ <max>1.3.0</max>
+ <exclude>1.2.9</exclude>
+</compatible>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   This will instruct the installer that pear.example.com/Foo version 1.5.3 is compatible with
+   pear.example.com/Bar versions 1.2.0 to 1.3.0 inclusive, but is not compatible with 1.2.9.
+  </para>
+  <para>
+   It is very important to note that only <emphasis>existing</emphasis> versions that have been
+   tested with the package should be mentioned in the &lt;compatible&gt; tag.  Future versions
+   of pear.example.com/Bar should simply upgrade the &lt;recommended&gt; tag.
+  </para>
+  <para>
+   &lt;compatible&gt; may contain three versioning tags.  The required &lt;min&gt; and &lt;max&gt;
+   are used to define the range of tested and compatible versions, and &lt;exclude&gt; is used to
+   exclude any versions within the range.  In the example above, 1.3.0 and 1.2.0 are the highest and
+   lowest versions that may be excluded.  There can be an unlimited number of &lt;compatible&gt; tags
+   inside a package.xml.
+  </para>
+  <refsection><info><title>See also:</title></info>
+   
+   <para>
+    <link linkend="guide.developers.package2.dependencies.package">&lt;package&gt; dependencies</link>
+   </para>
+  </refsection>
+ </refsection>
+ </refentry>

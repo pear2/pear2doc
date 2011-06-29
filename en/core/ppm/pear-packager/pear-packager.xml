@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packager.pear-packager">
+   <refnamediv>
+    <refname><function>PEAR_Packager::PEAR_Packager</function></refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Packager.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void       <function>PEAR_Packager:: PEAR_Packager</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-packager.pear-packager.desc">
+     &title.desc;
+     <para>
+      constructor
+     </para>
+    </refsection>
+
+   <refsection xml:id="core.ppm.pear-packager.pear-packager.note">
+    &title.note;
+    &note.canstatic;
+   </refsection>
+</refentry>

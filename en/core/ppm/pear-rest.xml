@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest"><info><title>PEAR_REST</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-rest.pear-rest-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_REST</classname>
+   </refname>
+   <refpurpose>
+    Intelligently retrieve data, following hyperlinks if necessary, and
+    re-directing
+   </refpurpose>
+  </refnamediv>
+  <refsection><info><title>
+    Intelligently retrieve data, following hyperlinks if necessary, and
+    re-directing (since PEAR 1.4.0)
+   </title></info>
+   
+   <para>as well</para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_REST</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_REST</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-rest.pear-rest;
+ &core.ppm.pear-rest.downloadhttp;
+ &core.ppm.pear-rest.getcache;
+ &core.ppm.pear-rest.getcacheid;
+ &core.ppm.pear-rest.retrievecachefirst;
+ &core.ppm.pear-rest.retrievedata;
+ &core.ppm.pear-rest.savecache;
+ &core.ppm.pear-rest.uselocalcache;
+</section>

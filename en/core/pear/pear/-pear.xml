@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.-pear">
+   <refnamediv>
+    <refname>PEAR::_PEAR()</refname>
+    <refpurpose>Deconstructor &pdevrel;</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR::_PEAR</function></funcdef>
+      <paramdef choice="req">
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.-pear.desc">
+    &title.desc;
+    <para>
+     Does nothing right now,
+     but is included for forward compatibility, so subclass
+     destructors should always call it.      
+    </para>
+   </refsection>   
+  </refentry>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getkeys">
+   <refnamediv>
+    <refname><function>PEAR_Config::getKeys</function></refname>
+    <refpurpose>Get all the current config keys</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Config::getKeys</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.getkeys.desc">
+     &title.desc;
+     <para>Get all the current config keys</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getkeys.return">
+    &title.returns;
+    <para>
+      <parameter>array</parameter> - simple array of config keys
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.getkeys.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

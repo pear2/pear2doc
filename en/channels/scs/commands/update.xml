@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs.commands.update">
+ <info><title>update - updates the xml files for the local channel</title></info>
+ <para>
+    The <literal>update</literal> command re-generates the xml files for all 
+    releases.
+ </para>
+ <para>
+   <screen>
+   pearscs update [./channel.xml]
+   </screen>
+ </para>
+ <para>
+  This command updates the associated xml files for all releases present in the
+  get directory.
+ </para>
+</section>

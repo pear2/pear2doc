@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.configshow">
+ <info><title>config-show - show all configuration values</title></info>
+
+ <section xml:id="pyrus.commands.configshow.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>config-show</literal> command lists all system and user
+   configuration variables.  Documentation on currently supported
+   configuration variables and how Pyrus organizes configuration can be found
+   <link linkend="pyrus.configuration">here</link>.
+  </para>
+ </section>
+</section>

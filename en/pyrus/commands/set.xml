@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.set">
+ <info><title>set - set a configuration value</title></info>
+
+ <section xml:id="pyrus.commands.set.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Set a configuration value.  Documentation on how Pyrus organizes configuration
+   values can be found <link linkend="pyrus.configuration">here</link>.  Also
+   note that <link linkend="pyrus.commands.mypear">mypear</link> can be used
+   as a simpler method of setting the <literal>my_pear_path</literal>
+   configuration value.
+  </para>
+  <para>
+   For example:
+  </para>
+  <para>
+   <screen>php pyrus.phar set download_dir /home/blah/downloads</screen>
+  </para>
+ </section>
+</section>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.umask">
+ <info><title>umask</title></info>
+
+ <section xml:id="pyrus.configuration.user.umask.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>umask</literal> configuration value is used to control the
+   default file mask used when setting file permissions.  By default it is
+   octal value <literal>0022</literal>.  The value is a bitmask that is used
+   to clear any bits.  Thus, a <literal>umask</literal> of <literal>0000</literal>
+   will cause files to be installed with <literal>0666</literal> permissions.  A
+   <literal>umask</literal> of <literal>0022</literal> causes files to be installed
+   with <literal>0644</literal> permissions.
+  </para>
+ </section>
+</section>

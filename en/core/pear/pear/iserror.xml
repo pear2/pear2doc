@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.iserror">
+   <refnamediv>
+    <refname>PEAR::isError()</refname>
+    <refpurpose>checks for a <classname>PEAR_Error</classname> object</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>boolean <function>PEAR::isError</function></funcdef>
+      <paramdef choice="req">
+       mixed <parameter>$data</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       mixed <parameter>$msgcode</parameter>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.iserror.desc">
+    &title.desc;
+    <para>
+     <function>isError</function> examines whether a variable is a
+     <classname>PEAR_Error</classname> object and - optional - 
+     contains a specific error message or code.       
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.iserror.parameter">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.mixed;
+        <parameter>$data</parameter>
+       </term>
+       <listitem>
+        <para>
+         variable to check
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+        <parameter>$msgcode</parameter>
+       </term>
+       <listitem>
+        <para>
+         additional error message or error code to check
+        </para>
+       </listitem>
+      </varlistentry>      
+     </variablelist>
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.iserror.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> - returns &true;, if the variable was a
+     <classname>PEAR_Error</classname> and, if given, contains 
+     <parameter>$msgcode</parameter> 
+    </para>
+   </refsection>      
+  </refentry>

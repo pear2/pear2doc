@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getserver">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getServer</function>
+  </refname>
+  <refpurpose>Retrieve the channel server</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>string|false</replaceable>
+     <function>PEAR_ChannelFile::getServer</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getserver.desc">
+  &title.desc;
+  <para>
+   This is an alias for <link linkend="core.ppm.pear-channelfile.getname"><function>getName</function></link>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getserver.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getserver.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

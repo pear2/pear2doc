@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs.commands.addmaintainer">
+ <info><title>add-maintainer - adds a maintainer</title></info>
+ <para>
+    The <literal>add-maintainer</literal> command adds a maintainer's handle
+    to the list of channel maintainers.
+ </para>
+ <para>
+   <screen>
+   pearscs add-maintainer handle
+   </screen>
+ </para>
+ <para>
+  This command adds the handle of a maintainer to the local channel. It is not
+  necessary to add maintainers before releasing a package, as they will
+  automatically be added or updated.
+ </para>
+</section>

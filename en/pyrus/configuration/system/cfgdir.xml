@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.cfgdir">
+ <info><title>cfg_dir</title></info>
+
+ <section xml:id="pyrus.configuration.system.cfgdir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Customizable configuration files (files with <literal>cfg</literal> role) are
+   installed into this directory.  These files are intended to be manipulated
+   by the user, and Pyrus will not overwrite them if any changes have been made.
+  </para>
+ </section>
+</section>

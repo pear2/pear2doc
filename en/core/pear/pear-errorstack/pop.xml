@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.pop">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::pop</function></refname>
+    <refpurpose>Pop an error off of the error stack</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>false|array</replaceable>      <function>PEAR_ErrorStack::pop</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.pop.desc">
+     &title.desc;
+     <para>Pop an error off of the error stack</para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pop.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pop.since">
+    &title.note;
+        <para>
+      <emphasis>since</emphasis> 0.4alpha it is no longer possible to specify a specific error
+      level to return - the last error pushed will be returned instead.
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pop.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

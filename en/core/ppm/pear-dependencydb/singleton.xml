@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependencydb.singleton">
+ <refnamediv>
+  <refname>
+   <function>PEAR_DependencyDB::singleton</function>
+  </refname>
+  <refpurpose>Get a raw dependency database.  Calls setConfig() and assertDepsDB()</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/DependencyDB.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="core.ppm.pear-dependencydb-summary">
+       <classname>PEAR_DependencyDB</classname>
+      </link>
+      |PEAR_Error
+     </replaceable>
+     &amp;
+     <function>PEAR_DependencyDB::singleton</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Config
+     <parameter>&amp;$config</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$depdb</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependencydb.singleton.desc">
+  &title.desc;
+  <para>
+   Return a single dependency database based on the location of the database on disk.
+   In other words, 1 dependency database is created for each registry location.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.singleton.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <link linkend="core.ppm.pear-config"><classname>PEAR_Config</classname></link>
+      <parameter>&amp;$config</parameter>
+     </term>
+     <listitem>
+      <para>
+       PEAR_Config object
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|$false;
+      <parameter>$depdb</parameter>
+     </term>
+     <listitem>
+      <para>full path to the dependency database, or &false; to use default</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.singleton.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.singleton.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

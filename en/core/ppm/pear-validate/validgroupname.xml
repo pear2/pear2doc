@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validgroupname">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validGroupName</function>
+  </refname>
+  <refpurpose>
+   This validates a dependency group name, and dependency group names must conform  to the PEAR
+   naming convention, so the method is final and static.
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::validGroupName</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validgroupname.desc">
+  &title.desc;
+  <para>
+   Dependency groups are documented <link linkend="guide.developers.package2.dependencies">here</link>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.validgroupname.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>
+       Dependency group name to validate
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validgroupname.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validgroupname.final"><info><title>Final</title></info>
+  
+  <para>
+   <emphasis>final</emphasis> - this method should not be overridden.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validgroupname.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

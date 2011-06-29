@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.readconfigfile">
+   <refnamediv>
+    <refname><function>PEAR_Config::readConfigFile</function></refname>
+    <refpurpose>Reads configuration data from a file</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::readConfigFile</function></funcdef>
+      <paramdef choice="opt">string <parameter>$file</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">string <parameter>$layer = 'user'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.readconfigfile.desc">
+     &title.desc;
+     <para>
+      Reads configuration data from a file. 
+      All existing values in the config layer 
+      are discarded and replaced with data from the file.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.readconfigfile.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file to read from, if &null; or not specified, 
+         the last-used file for the same layer (second param) is used
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config layer to insert data into (<parameter>'user'</parameter> or <parameter>'system'</parameter>)
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.readconfigfile.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> -
+     &return.success-pearerror;
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.readconfigfile.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.readconfigfile.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

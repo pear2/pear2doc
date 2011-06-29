@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet" xml:id="guide.users.concepts.channel">
+ <info><title>PEAR Channels</title></info>
+
+ <para>
+  A PEAR Channel is a web site that distributes
+  <link linkend="guide.users.concepts.package">package</link> archives for remote
+  installation by users of Pyrus or the PEAR Installer.  In addition to providing
+  the package archives for download, a PEAR Channel must also provide some
+  meta-information that the installer can use to locate the package releases and
+  determine which is the best release to download.
+ </para>
+ <para>
+  Channels have a file that defines the capabilities of the channel named channel.xml located in its
+  document root (for instance,
+  <link xlink:href="http://pear.php.net/channel.xml">pear.php.net's channel.xml</link>)
+  and some meta-information in <link linkend="core.rest">REST</link> format.
+ </para>
+ <para>
+  A channel can also provide a public frontend for users to browse the contents
+  of the channel online, such as
+  <link xlink:href="http://pear.php.net/packages.php">PEAR's public frontend</link>.
+ </para>
+</section>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.httpproxy">
+ <info><title>http_proxy</title></info>
+
+ <section xml:id="pyrus.configuration.user.httpproxy.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>http_proxy</literal> configuration variable should be set to the
+   full URI of your local HTTP proxy, or left blank for none.
+  </para>
+ </section>
+</section>

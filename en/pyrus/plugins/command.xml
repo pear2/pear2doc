@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet" xml:id="pyrus.plugins.command">
+ <info><title>Pyrus plugins: custom commands</title></info>
+
+ <section xml:id="pyrus.plugins.command.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Custom commands add new functionality to pyrus.phar.  An example of a
+   plugin that implements custom commands is the
+   <literal>PEAR2_Pyrus_Developer</literal> package, which implements the
+   <link linkend="pyrus.commands.make">make</link>,
+   <link linkend="pyrus.commands.package">package</link>,
+   <link linkend="pyrus.commands.pickle">pickle</link>, and
+   <link linkend="pyrus.commands.runphpt">run-phpt</link> commands.
+  </para>
+  <para>
+   Custom command plugins can implement multiple commands, and are defined by
+   an xml file that is noted in package.xml with the <literal>customcommand</literal>
+   file role.  The XML format is defined and validated by pyrus with the
+   <link xlink:href="https://github.com/pear2/PEAR2_Pyrus/blob/master/data/customcommand-2.0.xsd">customcommand.xsd</link>
+   XSchema file.
+  </para>
+  <section xml:id="pyrus.plugins.command.intro.args">
+   <title>Command Arguments and Options: a brief primer</title>
+   <para>
+    Commands can have arguments and options.  Here is an example of a command with
+    a single argument:
+   </para>
+   <screen>php pyrus.phar install PackageName</screen>
+   <para>
+    The command is <literal>install</literal>, and the argument is
+    <literal>PackageName</literal>.
+   </para>
+   <para>
+    Here is an example of a command with multiple arguments:
+   </para>
+   <screen>php pyrus.phar install PackageName package.xml http://example.com/Foo.tgz</screen>
+   <para>
+    The command is <literal>install</literal>, and the arguments are
+    <literal>PackageName</literal>, <literal>package.xml</literal> and
+    <literal>http://example.com/Foo.tgz</literal>.
+   </para>
+   <para>
+    An option is a special argument that is preceded by 1-2 dashes (<literal>-</literal> or
+    <literal>--</literal>).  Short arguments are single letters preceded by a dash,
+    and long arguments are words preceded by two dashes.  Here is an example
+    of a command with both a short and a long option
+   </para>
+   <screen>php pyrus.phar package -p --tar</screen>
+   <para>
+    The command is <literal>package</literal>, the short option is
+    <literal>-p</literal> and the long option is <literal>--tar</literal>.  Short
+    options are aliases for long options.  For the <literal>package</literal> command,
+    the <literal>-p</literal> short
+    option is an alias to the <literal>--phar</literal> long option.
+   </para>
+   <para>
+    Options can also accept arguments in 2 formats.  If an option accepts
+    an argument, there are two ways of passing that argument.  Short options
+    consider the next argument to be their argument:
+   </para>
+   <screen>php pyrus.phar install -r /path/to/packagingroot PackageName</screen>
+   <para>
+    <literal>/path/to/packagingroot</literal> is the argument to the short
+    option <literal>-r</literal>, <literal>PackageName</literal> is the argument
+    to the <literal>install</literal> command.
+   </para>
+   <para>
+    Long options require an <literal>=</literal> sign in between the option and
+    the argument as in:
+   </para>
+   <screen>php pyrus.phar install --packagingroot=/path/to/packagingroot PackageName</screen>
+   <para>
+    <literal>/path/to/packagingroot</literal> is the argument to the long
+    option <literal>--packagingroot</literal>, <literal>PackageName</literal> is the argument
+    to the <literal>install</literal> command.
+   </para>
+  </section>
+ </section>
+ <section xml:id="pyrus.plugins.command.xmloverview">
+  <title>Overview of the Custom Command XML Format</title>
+  <para>
+   Here is a human-readable overview of a custom command's XML definition file.
+   Optional tags are enclosed in [brackets].  If there is a choice of
+   tags, they are separated by a vertical line <literal>|</literal> and
+   enclosed in parentheses like <literal>(&lt;this&gt;|&lt;example&gt;)</literal>.
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<commands version="2.0" xmlns="http://pear2.php.net/dtd/customcommand-2.0">
+ <command>
+  <name>commandname</name>
+  <class>CommandClass\Name</class>
+  <function>makePackageXml</function>
+[ <webfunction>webCommand</webfunction>]
+[ <gtkfunction>gtkCommand</gtkfunction>]
+[ <autoloadpath>CommandClass</autoloadpath>]
+  <summary>Short description of command purpose</summary>
+  <shortcut>CN</shortcut>
+  <options>
+  [<option>
+    <name>optionname</name>
+    <shortopt>O</shortopt>
+    <type>(<bool/>|<string/>|<int/>|<float/>|<counter/>|
+           <callback>optionProcessorCallback</callback>|
+           <set><value>value1</value><value>value2</value>...</set>)</type>
+   [<default>defaultvalue</default>]
+    <doc>Short description of option purpose</doc>
+   </option>]
+  </options>
+  <arguments>
+  [<argument>
+    <name>argname</name>
+    <multiple>0</multiple>
+    <optional>1</optional>
+    <doc>Short argument description</doc>
+   </argument>]
+  </arguments>
+  <doc>
+Long description of command usage for help output
+  </doc>
+ </command>
+</commands>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   A command need not require or accept any arguments or options, and can
+   accept multiple arguments and multiple options.  In addition, a custom command
+   definition XML file may declare multiple commands.
+  </para>
+  <para>
+   Commands can also implement a shortcut, which is a shorter alias.  The
+   <literal>upgrade</literal> command, for instance, has a shortcut of
+   <literal>up</literal>.
+  </para>
+  <para>
+   By convention, all command names of external projects should be prefixed with
+   the vendor name.  For instance, if the vendor is Zend Framework, commands should be
+   prefixed with something like <literal>zf-</literal> or with <literal>zend-</literal>.
+   An install command would be <literal>zf-install</literal>.
+  </para>
+  <para>
+   In addition, all shortcuts from external vendors should be upper-cased and
+   consist of the first letter of the vendor, and the first two letters
+   of the command.  <literal>zf-install</literal> would have a shortcut of
+   <literal>Zin</literal>.  This helps to avoid name collisions between
+   vendors.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.command.autoload">
+  <title>Telling Pyrus how to load your command: &lt;class&gt; and &lt;autoloadpath&gt;</title>
+  <para>
+   This is the same method used for all plugins, and is documented
+   <link linkend="pyrus.plugins.autoload">here</link>.
+  </para>
+  <para>
+   The three frontend command handlers are discussed in the
+   <link linkend="pyrus.plugins.command.cli">CLI</link> section,
+   <link linkend="pyrus.plugins.command.web">Web</link> section, and the
+   <link linkend="pyrus.plugins.command.gtk">Gtk</link> section.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.command.arguments">
+  <title>Defining arguments</title>
+  <para>
+   Pyrus recognizes both optional and required arguments, as well as the ability
+   to specify repeating arguments.  The logic is very similar to function
+   signatures in PHP.  Each argument is placed by name into an associative
+   array and passed to the function.  Note that invalid input is not passed
+   to custom commands, so a command can assume valid input if it is called.
+  </para>
+  <para>
+   Here is a sample argument definition and the way that Pyrus will handle
+   different valid inputs for the hypothetical foo command:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+ <arguments>
+  <argument>
+   <name>argname</name>
+   <multiple>0</multiple>
+   <optional>0</optional>
+   <doc>required arg</doc>
+  </argument>
+  <argument>
+   <name>argname2</name>
+   <multiple>0</multiple>
+   <optional>1</optional>
+   <doc>optional arg</doc>
+  </argument>
+  <argument>
+   <name>argname3</name>
+   <multiple>1</multiple>
+   <optional>1</optional>
+   <doc>optional arg, multiple</doc>
+  </argument>
+ </arguments>
+   ]]>
+  </programlisting>
+  <screen>php pyrus.phar foo arg1</screen>
+  <programlisting role="php">
+   <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $args = array('argname' => 'arg1')
+    }
+   ]]>
+  </programlisting>
+  <screen>php pyrus.phar foo arg1 arg2</screen>
+  <programlisting role="php">
+   <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $args = array('argname' => 'arg1', 'argname2' => 'arg2')
+    }
+   ]]>
+  </programlisting>
+  <screen>php pyrus.phar foo arg1 arg2 arg3</screen>
+  <programlisting role="php">
+   <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $args = array('argname' => 'arg1', 'argname2' => 'arg2', 'argname3' => array('arg3'))
+    }
+   ]]>
+  </programlisting>
+  <screen>php pyrus.phar foo arg1 arg2 arg3 arg4</screen>
+  <programlisting role="php">
+   <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $args = array('argname' => 'arg1', 'argname2' => 'arg2', 'argname3' => array('arg3', 'arg4'))
+    }
+   ]]>
+  </programlisting>
+ </section>
+ <section xml:id="pyrus.plugins.command.options">
+  <title>Defining options</title>
+  <para>
+   Options must define a short and a long option, a type for the option, and
+   a short description of the option for help text.
+  </para>
+  <para>
+   Options fall into two categories, those that accept arguments, and those that don't.
+   Options that don't accept arguments are of type <literal>&lt;bool/&gt;</literal>
+   and <literal>&lt;counter/&gt;</literal>.
+  </para>
+  <para>
+   The types recognized are:
+   <itemizedlist>
+    <listitem><simpara><literal>&lt;bool/&gt;</literal></simpara></listitem>
+    <listitem><simpara><literal>&lt;counter/&gt;</literal></simpara></listitem>
+    <listitem><simpara><literal>&lt;string/&gt;</literal></simpara></listitem>
+    <listitem><simpara><literal>&lt;int/&gt;</literal></simpara></listitem>
+    <listitem><simpara><literal>&lt;float/&gt;</literal></simpara></listitem>
+    <listitem><simpara><literal>&lt;callback&gt;&lt;/callback&gt;</literal></simpara></listitem>
+    <listitem><simpara><literal>&lt;set&gt;&lt;/set&gt;</literal></simpara></listitem>
+   </itemizedlist>
+  </para>
+  <section xml:id="pyrus.plugins.command.options.bool">
+   <title>&lt;bool/&gt;</title>
+   <para>
+    A <literal>&lt;bool/&gt;</literal> option sets its value to &true; if
+    present, and &false; if not.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>nocompatible</name>
+    <shortopt>n</shortopt>
+    <type><bool/></type>
+    <doc>Do not generate package_compatible.xml</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('nocompatible' => false)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -n</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('nocompatible' => true)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --nocompatible</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('nocompatible' => true)
+    }
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.plugins.command.options.counter">
+   <title>&lt;counter/&gt;</title>
+   <para>
+    A <literal>&lt;counter/&gt;</literal> option sets its value to <literal>0</literal>
+    if not present, and to the number of times the option is present if it is.
+    This is the only option type for which multiple occurrences of the option
+    are allowed.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>verbose</name>
+    <shortopt>v</shortopt>
+    <type><counter/></type>
+    <doc>How verbose to be with output</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('verbose' => 0)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -v</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('verbose' => 1)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --verbose -vv --verbose</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('verbose' => 4)
+    }
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.plugins.command.options.string">
+   <title>&lt;string/&gt;</title>
+   <para>
+    A <literal>&lt;string/&gt;</literal> option sets its value to the
+    argument passed in if present, or to &null; if not present.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>name</name>
+    <shortopt>n</shortopt>
+    <type><string/></type>
+    <doc>Name of foo</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('name' => null)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -n myname</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('name' => 'myname')
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --name=myname</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('name' => 'myname')
+    }
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.plugins.command.options.int">
+   <title>&lt;int/&gt;</title>
+   <para>
+    An <literal>&lt;int/&gt;</literal> option sets its value to the
+    integer argument passed in if present, or to &null; if not present.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>namecount</name>
+    <shortopt>n</shortopt>
+    <type><int/></type>
+    <doc>Number of foo names</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('namecount' => null)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -n 3</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('namecount' => 3)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --namecount=3</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('namecount' => 3)
+    }
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.plugins.command.options.float">
+   <title>&lt;float/&gt;</title>
+   <para>
+    A <literal>&lt;float/&gt;</literal> option sets its value to the
+    float argument passed in if present, or to &null; if not present.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>foopercent</name>
+    <shortopt>f</shortopt>
+    <type><float/></type>
+    <doc>Foo percent in decimal notation</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('foopercent' => null)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -f .2</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('foopercent' => 0.2)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --foopercent=0.3</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('foopercent' => 0.3)
+    }
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.plugins.command.options.callback">
+   <title>&lt;callback&gt;&lt;/callback&gt;</title>
+   <para>
+    A <literal>&lt;callback/&gt;</literal> option calls the specified
+    callback with the value passed in by the user as a string.
+    The callback must be a static method in the same class that
+    implements the command.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>foocallback</name>
+    <shortopt>f</shortopt>
+    <type><callback>processfoo</callback></type>
+    <doc>Foo date</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('foocallback' => null)
+    }
+
+    static function processfoo($value)
+    {
+        // $value = null
+        return null;
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -f 2009-12-31</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('foocallback' => new DateTime('2009-12-31', new DateTimeZone('UTC')))
+    }
+
+    static function processfoo($value)
+    {
+        // $value = '2009-12-31';
+        $date = new DateTime($value, new DateTimeZone('UTC'));
+        return $date;
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --foocallback=2009-12-31</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('foocallback' => new DateTime('2009-12-31', new DateTimeZone('UTC')))
+    }
+
+    static function processfoo($value)
+    {
+        // $value = '2009-12-31';
+        $date = new DateTime($value, new DateTimeZone('UTC'));
+        return $date;
+    }
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.plugins.command.options.set">
+   <title>&lt;set&gt;&lt;/set&gt;</title>
+   <para>
+    A <literal>&lt;set/&gt;</literal> option sets its value to &null; if not
+    present.  Otherwise it ensures that the value passed in by the user is within
+    a pre-defined acceptable list of values.
+   </para>
+   <programlisting role="xml">
+    <![CDATA[
+  <options>
+   <option>
+    <name>numbah</name>
+    <shortopt>n</shortopt>
+    <type>
+     <set>
+      <value>one</value>
+      <value>two</value>
+      <value>three</value>
+      <value>four</value>
+     </set>
+    </type>
+    <doc>Numbers less than five</doc>
+   </option>
+  </options>
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('numbah' => null)
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo -n four</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('numbah' => 'four')
+    }
+    ]]>
+   </programlisting>
+   <screen>php pyrus.phar foo --numbah=one</screen>
+   <programlisting role="php">
+    <![CDATA[
+    function foo($frontend, $args, $options)
+    {
+        // $options = array('numbah' => 'one')
+    }
+    ]]>
+   </programlisting>
+  </section>
+ </section>
+ <section xml:id="pyrus.plugins.command.cli">
+  <title>Declaring CLI command method</title>
+  <para>
+   A class must implement a command-line handler, which should have this method
+   signature:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+    function commandhandler($frontend, $args, $options)
+    {
+        // perform command here
+    }
+   ]]>
+  </programlisting>
+  <para>
+   The first argument is the CLI frontend, and can be used for asking the user
+   a question with the <function>ask</function> method, or passing control
+   to a built-in command.  <literal>$args</literal> is an associative array of
+   arguments.  Only required arguments are guaranteed to be present, all optional
+   arguments must be verified as present before using.  <literal>$options</literal>
+   is an associative array of options.  All options will be present, those not present
+   will be initialized to &null;.
+  </para>
+  <para>
+   Options should be accessed using their long names, and arguments using their
+   names (see examples in the documentation sections for arguments and options
+   above).
+  </para>
+  <para>
+   The <function>ask</function> method accepts 3 arguments:
+   <orderedlist>
+    <listitem>
+     <para>
+      string <literal>$question</literal> the question to ask the user.  It should end in a question mark
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      (optional) array <literal>$choices</literal> an array of possible answers
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      (optional) string <literal>$default</literal> the default answer
+     </para>
+    </listitem>
+   </orderedlist>
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.command.web">
+  <title>Declaring Web command method</title>
+  <para>
+   Although a Web frontend has not yet been written for Pyrus, the XML command
+   format supports the eventual addition of a Web frontend.  A separate method
+   should be used for the Web handling, and is named via the
+   <literal>&lt;webfunction&gt;</literal> tag.
+  </para>
+ </section>
+ <section xml:id="pyrus.plugins.command.gtk">
+  <title>Declaring GTK command method</title>
+  <para>
+   Although a GTK frontend has not yet been written for Pyrus, the XML command
+   format supports the eventual addition of a GTK frontend.  A separate method
+   should be used for the GTK handling, and is named via the
+   <literal>&lt;gtkfunction&gt;</literal> tag.
+  </para>
+ </section>
+</section>

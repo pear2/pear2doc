@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-builder.log"> 
+   <refnamediv> 
+    <refname><function>PEAR_Builder::log</function></refname> 
+    <refpurpose/> 
+   </refnamediv> 
+   <refsynopsisdiv> 
+    <funcsynopsis> 
+     <funcsynopsisinfo> 
+             require_once 'PEAR/builder.php'; 
+     </funcsynopsisinfo> 
+     <funcprototype> 
+      <funcdef>void       <function>PEAR_Builder::log</function></funcdef> 
+      <paramdef choice="req">mixed <parameter>$level</parameter></paramdef> 
+      <paramdef choice="req">mixed <parameter>$msg</parameter></paramdef> 
+     </funcprototype> 
+    </funcsynopsis> 
+    </refsynopsisdiv> 
+    <refsection xml:id="core.ppm.pear-builder.log.desc"> 
+     &title.desc; 
+     &notdocumented; 
+    </refsection> 
+   <refsection xml:id="core.ppm.pear-builder.log.param"> 
+    &title.param; 
+    <para> 
+     <variablelist> 
+      <varlistentry> 
+       <term> 
+        &type.mixed; 
+         <parameter>$level</parameter> 
+       </term>       
+       <listitem> 
+        <para> 
+          
+        </para> 
+       </listitem> 
+      </varlistentry> 
+      <varlistentry> 
+       <term> 
+        &type.mixed; 
+         <parameter>$msg</parameter> 
+       </term>       
+       <listitem> 
+        <para> 
+          
+        </para> 
+       </listitem> 
+      </varlistentry> 
+     </variablelist> 
+    </para> 
+   </refsection> 
+ 
+   <refsection xml:id="core.ppm.pear-builder.log.note"> 
+    &title.note; 
+    &note.notstatic; 
+   </refsection> 
+</refentry>

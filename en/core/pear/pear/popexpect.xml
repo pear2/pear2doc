@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.popexpect">
+   <refnamediv>
+    <refname>PEAR::popExpect()</refname>
+    <refpurpose>
+    removes the last error code for non-disabling temporary error handling
+    </refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>           
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>     
+     <funcprototype>
+      <funcdef>mixed <function>PEAR::popExpect</function></funcdef>
+      <paramdef choice="req">
+      </paramdef>
+     </funcprototype>        
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.popexpect.desc">
+    &title.desc;
+    <para>
+     This method pops one element off the expected error codes
+     stack.
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear.popexpect.return">
+    &title.returns;    
+    <para>
+     <parameter>mixed</parameter> -
+     the removed error code or array of error
+     codes
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.popexpect.note">
+    &title.note;   
+    &note.notstatic;
+   </refsection>
+   <refsection xml:id="core.pear.pear.popexpect.see">
+    &title.see;        
+    <para>
+     <link linkend="core.pear.pear.expecterror">
+      <function>expectError</function>
+     </link>
+    </para>
+   </refsection>   
+  </refentry>

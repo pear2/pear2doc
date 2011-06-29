@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getregistry">
+   <refnamediv>
+    <refname><function>PEAR_Config::getRegistry</function></refname>
+    <refpurpose>getRegistry</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>PEAR_Registry|false&amp; <function>PEAR_Config::getRegistry</function></funcdef>
+      <paramdef choice="opt">string <parameter> $use</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.getregistry.desc">
+     &title.desc;
+     &notdocumented;
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getregistry.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$use</parameter>
+       </term>
+       <listitem>
+        <para>
+         This parameter determines which layer will be used to retrieve a registry based
+         on the <literal>php_dir</literal> configuration variable for that layer.  The
+         default value of null will use the first layer that contains a valid php_dir,
+         whereas if specified as <literal>user</literal>, <literal>system</literal> or
+         <literal>ftp</literal>, it will attempt to return the registry for that layer.
+        </para>
+        <para>
+         On failure to retrieve a registry, it returns false
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getregistry.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.getregistry.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

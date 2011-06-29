@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.setlogger">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::setLogger</function>
+  </refname>
+  <refpurpose>setLogger</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_PackageFile::setLogger</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Common
+     <parameter>&amp;$l</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.setlogger.desc">
+  &title.desc;
+  <para>
+   set a logging class that matches the signature of <classname>PEAR_Common</classname>'s
+   <link linkend="core.ppm.pear-common.log"><function>log</function></link> method.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.setlogger.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <link linkend="core.ppm.pear-common"><classname>PEAR_Common</classname></link>
+      <parameter>&amp;$l</parameter>
+     </term>
+     <listitem>
+      <para>
+       The PEAR_Common object.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.setlogger.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.setlogger.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

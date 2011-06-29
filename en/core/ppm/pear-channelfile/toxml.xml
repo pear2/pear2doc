@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.toxml">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::toXml</function>
+  </refname>
+  <refpurpose>Return an XML document based on the internal representation of this channel</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>PEAR_ChannelFile::toXml</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.toxml.desc">
+  &title.desc;
+  <para>
+   This should be used to generate a <filename>channel.xml</filename> based on the data
+   stored in the <classname>PEAR_ChannelFile</classname> class.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.toxml.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   XML data
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.toxml.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.toxml.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

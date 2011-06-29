@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs.commands.create">
+ <info><title>create - creates a PEAR channel</title></info>
+ <para>
+    The <literal>create</literal> command creates a PEAR channel on the
+    local filesystem, including the channel.xml file and the get and rest
+    directories. This command assumes you are currently at the web root
+    for the channel you wish to create, unless you pass the path to where the
+    channel.xml file will be created. The local root can be a subdirectory
+    off of your webserver, but you should be in that subdirectory when
+    executing this command.
+ </para>
+ <para>
+   <screen>
+    pearscs create pear.example.com summary [alias] [./channel.xml]
+   </screen>
+ </para>
+ <para>
+   Required arguments are the channel name and channel summary.
+   
+   For example pear.example.com or can also be a subdirectory such as
+   www.example.com/pear.
+ </para>
+ <para>
+   The alias is a short name which can be used to refer to your PEAR channel.
+   
+   If one is not specified, SimpleChannelServer will attempt to create one for
+   you.
+   
+ </para>
+ <para>
+  If the path to a channel.xml file is specified, the directory given will be
+  used to create the channel.xml, get, and rest directories for the channel.
+  If no path is specified, SimpleChannelServer will use the current directory.
+ </para>
+</section>

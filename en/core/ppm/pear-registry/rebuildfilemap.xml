@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.rebuildfilemap">
+   <refnamediv>
+    <refname><function>PEAR_Registry::rebuildFileMap</function></refname>
+    <refpurpose>Rebuild file map</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Registry::rebuildFileMap</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.rebuildfilemap.desc">
+     &title.desc;
+     <para>
+      Rebuilds the registry filemap. Use this
+      function if had trouble while installing Packages or a 
+      damaged registry. 
+     </para>
+    </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.rebuildfilemap.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.rebuildfilemap.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

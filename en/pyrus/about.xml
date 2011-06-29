@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.about">
+  <info>
+   <title>About Pyrus</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-16</date>
+  </info>
+
+  <para>
+   This documentation is organized with progressive complexity in mind.  If
+   you are new to PEAR, you should read the
+   <link linkend="guide.users.concepts">PEAR Concepts</link> section of the
+   manual first, and then return to learn more about Pyrus.
+  </para>
+  <para>
+   If you are migrating from using the PEAR installer, it will be helpful to
+   read the section on <link linkend="pyrus.differences.frompear">differences
+   from PEAR</link>.
+  </para>
+  <para>
+   To get started with information on the features available in Pyrus,
+   start with the <link linkend="pyrus.commands">Pyrus commands</link> section
+   to familiarize yourself with the commands available for users of Pyrus,
+   then read about the <link linkend="pyrus.configuration">configuration options</link>
+   available in Pyrus.
+  </para>
+  <para>
+   If you wish to extend Pyrus's functionality, read the section on <link
+   linkend="pyrus.plugins">plugins</link>.  <!-- Finally, if you are inspired to
+   distribute your own software using Pyrus, you can either apply for a PEAR
+   developer account (<link linkend="developers-newmaint">information here</link>)
+   or read the section on releasing packages through your own channel
+   <link linkend="channels.scs">here</link>. -->
+  </para>
+  <para>
+   PEAR, PEAR2 and PECL developers should read the documentation on how to use
+   Pyrus to manage your existing or new packages
+   <link linkend="pyrus.developers">here</link>.
+  </para>
+
+ &pyrus.about.whatis;
+ </chapter>

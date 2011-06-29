@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.constants">
+ <refnamediv>
+  <refname>Package PEAR_ErrorStack Constants</refname>
+  <refpurpose>Constants defined in and used by PEAR_ErrorStack</refpurpose>
+ </refnamediv>
+ <refsection xml:id="core.pear.pear-errorstack.constants.details"><info><title>All Constants</title></info>
+  
+  <refsection xml:id="core.pear.pear-errorstack.constants.details.errorstack---php"><info><title>Constants defined in ErrorStack.php</title></info>
+   
+   <para>
+    <table><title>Constants defined in ErrorStack.php</title>
+     
+     <tgroup cols="3">
+      <thead>
+       <row>
+        <entry>Name</entry>
+        <entry>Value</entry>
+        <entry>Line Number</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>PEAR_ERRORSTACK_ERR_NONCLASS</entry>
+        <entry>1</entry>
+        <entry>110</entry>
+       </row>
+       <row>
+        <entry>PEAR_ERRORSTACK_ERR_OBJTOSTRING</entry>
+        <entry>2</entry>
+        <entry>116</entry>
+       </row>
+       <row>
+        <entry>PEAR_ERRORSTACK_IGNORE</entry>
+        <entry>4</entry>
+        <entry>103</entry>
+       </row>
+       <row>
+        <entry>PEAR_ERRORSTACK_LOG</entry>
+        <entry>3</entry>
+        <entry>99</entry>
+       </row>
+       <row>
+        <entry>PEAR_ERRORSTACK_PUSH</entry>
+        <entry>2</entry>
+        <entry>94</entry>
+       </row>
+       <row>
+        <entry>PEAR_ERRORSTACK_PUSHANDLOG</entry>
+        <entry>1</entry>
+        <entry>89</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsection>
+ </refsection>
+</refentry>

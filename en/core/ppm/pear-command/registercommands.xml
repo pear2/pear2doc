@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command.registercommands">
+   <refnamediv>
+    <refname><function>PEAR_Command::registerCommands</function></refname>
+    <refpurpose>scan the command directory</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/command.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Command::registerCommands</function></funcdef>
+      <paramdef choice="opt">bool <parameter> $merge</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+      <paramdef choice="opt">string <parameter> $dir</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-command.registercommands.desc">
+     &title.desc;
+     <para>Scan through the Command directory looking for classes and see what commands they implement.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-command.registercommands.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.bool;
+         <parameter>$merge</parameter>
+       </term>      
+       <listitem>
+        <para>
+         if &false; (default), the new list of
+         commands should replace the current one. 
+         If &true;,
+         new entries will be merged with old.
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$dir</parameter>
+       </term>      
+       <listitem>
+        <para>
+         where (what directory) to look for
+         classes, defaults to the Command subdirectory 
+         of the directory from where this file 
+         (<constant>__FILE__</constant>) is
+         included.
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-command.registercommands.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> &true; on success
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.registercommands.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.registercommands.note">
+    &title.note;
+    &note.shouldstatic;
+   </refsection>
+</refentry>

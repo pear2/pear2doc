@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.fromtgzfile">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::fromTgzFile</function>
+  </refname>
+  <refpurpose>fromTgzFile</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     PEAR_PackageFile_v1|PEAR_PackageFile_v2|PEAR_Error&amp;
+     <function>PEAR_PackageFile::fromTgzFile</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$file</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     int
+     <parameter>$state</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.fromtgzfile.desc">
+  &title.desc;
+  <para>
+   parse and return a package.xml object from a packaged archive, or a
+   <link linkend="core.pear.pear-error"><classname>PEAR_Error</classname></link> object
+   upon error.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromtgzfile.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$file</parameter>
+     </term>
+     <listitem>
+      <para>name of packaged .tgz or .tar to extract and parse package.xml from</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$state</parameter>
+     </term>
+     <listitem>
+      <para>
+       package state (one of
+       <link linkend="core.ppm.pear-validate.constants"><literal>PEAR_VALIDATE_*</literal></link>
+       constants)
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromtgzfile.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   success of parsing
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromtgzfile.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromtgzfile.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

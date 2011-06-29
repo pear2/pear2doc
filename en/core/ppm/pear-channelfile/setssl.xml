@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setssl">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setSSL</function>
+  </refname>
+  <refpurpose>Sets whether SSL is used to connect to this channel</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_ChannelFile::setSSL</function>
+    </funcdef>
+    <paramdef choice="opt">
+     bool
+     <parameter>$ssl</parameter>
+     <initializer>true</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setssl.desc">
+  &title.desc;
+  <para>
+   This function is used to inform the PEAR installer to use SSL when connecting
+   to this channel server.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setssl.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$ssl</parameter>
+     </term>
+     <listitem>
+      <para>Determines whether to turn on SSL support or turn it off</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>name of the mirror server, or &false; for the primary server</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setssl.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setssl.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

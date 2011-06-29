@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs.commands.release">
+ <info><title>release - releases a PEAR package to the channel</title></info>
+ <para>
+    The <literal>release</literal> command releases a package to your PEAR
+    channel.
+ </para>
+ <para>
+   <screen>
+    pearscs release MyPackage-1.0.0.tgz handle
+   </screen>
+ </para>
+ <para>
+   The file must be a valid PEAR package, and can be either the package.xml
+   file, or a compressed and optionally signed .tgz file.
+ </para>
+ <para>
+   The <literal>handle</literal> attribute should be a lead maintainer for the
+   package, as who released this version will be stored within the channel's
+   xml files.
+ </para>
+</section>

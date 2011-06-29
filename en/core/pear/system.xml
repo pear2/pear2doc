@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system"><info><title>System</title></info>
+ 
+
+ <para>
+  Commandline functions
+ </para>
+ <para>
+  <classname>System</classname> provides an API for
+  cross platform compatible commandline programs.
+ </para>
+
+ &core.pear.system.intro;
+ 
+ &core.pear.system.rm;
+ 
+ &core.pear.system.mkdir;
+ 
+ &core.pear.system.cat;
+
+ &core.pear.system.mktemp;
+ 
+ &core.pear.system.tmpdir;
+ 
+ &core.pear.system.which;
+ 
+ 
+ </section>

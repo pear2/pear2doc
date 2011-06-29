@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.geterrormessage">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::getErrorMessage</function></refname>
+    <refpurpose>Standard error message generation callback</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string      <function>PEAR_ErrorStack::getErrorMessage</function></funcdef>
+      <paramdef choice="req">PEAR_ErrorStack <parameter>&amp;$stack</parameter></paramdef>
+      <paramdef choice="req">array <parameter>$err</parameter></paramdef>
+      <paramdef choice="opt">string|false<parameter> $template</parameter>
+       <initializer>false</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.geterrormessage.desc">
+     &title.desc;
+     <para>This method may also be called by a custom error message generator 
+      to fill in template values from the params array, simply  set the third
+      parameter to the error message template string to use
+     </para>
+     <para>
+      The special variable %__msg% is reserved: use it only to specify  where a message passed
+      in by the user should be placed in the template,  like so:
+     </para>
+     <para>Error message: %msg% - internal error</para>
+     <para>If the message passed like so:</para>
+     <para>
+      <programlisting role="php-highlighted">
+&lt;?php
+$stack-&gt;<link linkend="core.pear.pear-errorstack.push">push</link>(ERROR_CODE, &apos;error&apos;, array(), &apos;server error 500&apos;);
+?&gt;
+      </programlisting>
+     </para>
+     <para>The returned error message will be &quot;Error message: server error 500 -  internal error&quot;</para>
+
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrormessage.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>PEAR_ErrorStack</type>
+        <parameter>&amp;$stack</parameter>
+       </term>
+       <listitem>
+        <para>
+         
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>$err</parameter>
+       </term>
+       <listitem>
+        <para>
+         
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>string|false</type>
+        <parameter>$template</parameter>
+       </term>
+       <listitem>
+        <para>
+         Pre-generated error message template
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrormessage.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+
+   <refsection xml:id="core.pear.pear-errorstack.geterrormessage.note">
+    &title.note;
+    &note.shouldstatic;    
+   </refsection>
+</refentry>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-installer"><info><title>PEAR_Installer</title></info>
+ 
+
+ <para>
+  Administration class used to install PEAR packages
+  and maintain the installed package database.
+ </para>
+ <para>
+  Class Trees for <function>PEAR_Installer</function>
+ </para>
+ <para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     PEAR_Common
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        PEAR_Installer
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </para>
+
+&core.ppm.pear-installer.pear-installer;
+&core.ppm.pear-installer.install;
+
+</section>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet"
+xml:id="pyrus.configuration">
+  <info>
+   <title>Pyrus configuration</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-26</date>
+  </info>
+
+  <para>
+   Pyrus has two kinds of configuration files, system configuration files, which
+   are stored directly in the installation location, and user configuration files,
+   which are stored in the home directory of the user, or in the Windows
+   equivalent, <literal>My Documents</literal>.
+  </para>
+  <para>
+   Each installation is tightly bound to the configuration that defines where
+   files should be installed, which PHP executable to use, and which php.ini
+   is used to manage that installation.
+  </para>
+  <para>
+   On the other hand, user-specific preferences are tightly bound to each
+   user, by placing them in the user's home directory.  These values are
+   universal to all installations and include things like the amount of
+   information to display, the preferred mirror to use for a channel, the
+   openssl certificate to use for package signing, and so on.
+  </para>
+  <para>
+   This way, multiple PEAR installations can be managed very safely without
+   ambiguity over what configuration values should be used.
+  </para>
+
+  &pyrus.configuration.user;
+  &pyrus.configuration.system;
+  
+ </chapter>

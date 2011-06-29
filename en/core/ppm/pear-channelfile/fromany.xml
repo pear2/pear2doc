@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.fromany">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::fromAny</function>
+  </refname>
+  <refpurpose>Returns channel information from different sources</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_ChannelFile::fromAny</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$info</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.fromany.desc">
+  &title.desc;
+  <para>
+   Parse data from either a string or a channel.xml file.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromany.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$info</parameter>
+     </term>
+     <listitem>
+      <para>
+       Filename of the source, or the source itself
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromany.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromany.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

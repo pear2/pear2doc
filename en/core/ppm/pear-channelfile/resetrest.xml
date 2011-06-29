@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.resetrest">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::resetREST</function>
+  </refname>
+  <refpurpose>Since REST does not implement RPC, provide this as a logical wrapper around resetFunctions for REST</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_ChannelFile::resetREST</function>
+    </funcdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.resetrest.desc">
+  &title.desc;
+  <para>
+   Similar to <link linkend="core.ppm.pear-channelfile.resetfunctions"><function>resetFunctions</function></link>,
+   <function>resetREST</function> removes all REST base URLs in order to start adding new
+   REST functions to a channel.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.resetrest.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>mirror name, if any</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.resetrest.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.resetrest.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

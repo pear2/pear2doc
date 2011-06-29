@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.retrievedata">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::retrieveData</function>
+  </refname>
+  <refpurpose>Retrieve a remote REST resource</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string|array
+     <function>PEAR_REST::retrieveData</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     array|false
+     <parameter>
+      $accept = false
+     </parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     bool
+     <parameter>
+      $forcestring = false
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.retrievedata.desc">
+  &title.desc;
+  <para>
+   retrieve the contents of a remote resource.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-rest.retrievedata.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>full URL to this resource</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>array|false</type>
+      <parameter>$accept</parameter>
+     </term>
+     <listitem>
+      <para>contents of the accept-encoding header</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$forcestring</parameter>
+     </term>
+     <listitem>
+      <para>
+       if &true;, xml will be returned as a string, otherwise, xml will be
+       parsed using PEAR_XMLParser
+</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.retrievedata.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   <classname>PEAR_Error</classname> objects are returned on error.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.retrievedata.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-runtest"><info><title>PEAR</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-runtest-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_RunTest</classname>
+   </refname>
+   <refpurpose>Simplified version of PHP&apos;s test suite</refpurpose>
+  </refnamediv>
+  <refsection><info><title>Simplified version of PHP&apos;s test suite</title></info>
+   
+   <para>Try it with:</para>
+   <para>
+    <screen>
+     <![CDATA[
+$ php -r 'include "../PEAR/RunTest.php"; $t=new PEAR_RunTest; \
+  $o=$t->run("./pear_system.phpt");print_r($o);'
+     ]]>
+    </screen>
+   </para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_RunTest</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_RunTest</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-runtest.pear-runtest;
+&core.ppm.pear-runtest.generate-diff;
+&core.ppm.pear-runtest.run;
+</section>

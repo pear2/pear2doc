@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="guide.users.concepts.stability">
+ <info><title>Package stability</title></info>
+
+ <para>
+  Versioning and stability are separate entities for
+  <link linkend="guide.users.concepts.package">packages</link>.
+  The stability of a package determines how likely the package is to contain bugs
+  or to have changes to its <link linkend="guide.users.concepts.api">API</link>.
+  A distinction is made between the version/stability of the API and the
+  version/stability of the code.
+ </para>
+ <para>
+  This simple chart shows the meaning of a package's stability:
+  <table>
+   <title>What a package's stability means</title>
+   <tgroup cols="3">
+    <thead>
+     <row>
+      <entry>Stability type</entry>
+      <entry>Stability</entry>
+      <entry>Description</entry>
+     </row>
+    </thead>
+
+    <tbody>
+     <row>
+      <entry>Release</entry>
+      <entry><literal>devel</literal></entry>
+      <entry>
+       The package is under development and will change dramatically, both
+       adding new features, changing the design, and fixing many bugs.  It may
+       not function at all and be more of a proof-of-concept.  There may be
+       little to no documentation or unit tests.  Use at your own risk.
+      </entry>
+     </row>
+     <row>
+      <entry>Release</entry>
+      <entry><literal>alpha</literal></entry>
+      <entry>
+       The package is ready for testing by hard core users.  Features are
+       still being developed, but the program should work.  Subsequent releases
+       may have major changes.
+      </entry>
+     </row>
+     <row>
+      <entry>Release</entry>
+      <entry><literal>beta</literal></entry>
+      <entry>
+       The package is nearly ready for public release and usage in production.
+       Documentation is complete, unit tests are complete, and the API is
+       frozen (will not change) unless major problems are found.
+      </entry>
+     </row>
+     <row>
+      <entry>Release</entry>
+      <entry><literal>stable</literal></entry>
+      <entry>
+       The package is ready for use in production.
+       Documentation is complete, unit tests are complete, and the API is
+       frozen completely and will not change.
+      </entry>
+     </row>
+     <row>
+      <entry>API</entry>
+      <entry><literal>devel</literal></entry>
+      <entry>
+       The API will change dramatically between releases, and cannot be relied upon.
+      </entry>
+     </row>
+     <row>
+      <entry>API</entry>
+      <entry><literal>alpha</literal></entry>
+      <entry>
+       The API is starting to stabilize, but may still have major changes.
+      </entry>
+     </row>
+     <row>
+      <entry>API</entry>
+      <entry><literal>beta</literal></entry>
+      <entry>
+       The API will only have changes if major bugs are found.
+      </entry>
+     </row>
+     <row>
+      <entry>API</entry>
+      <entry><literal>stable</literal></entry>
+      <entry>
+       The API will not change and can be relied upon.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </table>
+ </para>
+ <section xml:id="guide.users.concepts.stability.conventions">
+  <para>
+   There are a few conventions that should be followed when deciding which
+   stability to use for your package.  In general, the API stability should be
+   equal to or better than the release stability.
+  </para>
+  <para>
+   Here is a helpful chart of stabilities:
+   <table>
+    <title>Which stability to use</title>
+    <tgroup cols="3">
+     <thead>
+      <row>
+       <entry>Release Stability</entry>
+       <entry>API Stability</entry>
+       <entry>Scenario</entry>
+      </row>
+     </thead>
+ 
+     <tbody>
+      <row>
+       <entry><literal>devel</literal></entry>
+       <entry><literal>devel</literal></entry>
+       <entry>
+        This package is brand new, no documentation, no tests, more of
+        a proof-of-concept.  It may not work at all.
+       </entry>
+      </row>
+      <row>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>alpha</literal></entry>
+       <entry>
+        This package has been developed extensively, and is ready for testing
+        by the outside world, has some documentation or full documentation
+        and tests, but the API or design is subject to dramatic change if
+        necessary.  Bugs are likely
+       </entry>
+      </row>
+      <row>
+       <entry><literal>alpha</literal></entry>
+       <entry><literal>beta</literal></entry>
+       <entry>
+        This package has a relatively certain API, but may contain bugs, and
+        the API may change, but most changes will be small.
+       </entry>
+      </row>
+      <row>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>beta</literal></entry>
+       <entry>
+        This package is approaching release, the code is stabilizing as well as
+        the API
+       </entry>
+      </row>
+      <row>
+       <entry><literal>beta</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry>
+        This package is in the release candidate stage, has full documentation
+        and tests, as well as a frozen API.  Bugs may still be present in the
+        code.
+       </entry>
+      </row>
+      <row>
+       <entry><literal>stable</literal></entry>
+       <entry><literal>stable</literal></entry>
+       <entry>
+        This package is ready for use in production, has full documentation
+        and tests, and the API can be relied upon as frozen.
+       </entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </para>
+ </section>
+</section>

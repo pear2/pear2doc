@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.validatepackageinfo">
+   <refnamediv>
+    <refname><function>PEAR_Common::validatePackageInfo</function></refname>
+    <refpurpose>Validate XML package definition file</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>boolean       <function>PEAR_Common::validatePackageInfo</function></funcdef>
+      <paramdef choice="req">string <parameter>$info</parameter></paramdef>
+      <paramdef choice="req">array <parameter>&amp;$errors</parameter></paramdef>
+      <paramdef choice="req">array <parameter>&amp;$warnings</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$dir_prefix = ''</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.validatepackageinfo.desc">
+     &title.desc;
+     <para>Validate XML package definition file.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.validatepackageinfo.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$info</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Filename of the package archive or of the
+         package definition file
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$errors</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Array that will contain the errors
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$warnings</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Array that will contain the warnings
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$dir_prefix</parameter>
+       </term>      
+       <listitem>
+        <para>
+         directory where source files
+         may be found, or empty if they are not available
+        </para>
+       </listitem>
+      </varlistentry>      
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.validatepackageinfo.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> -
+     &true; if valid
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.validatepackageinfo.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

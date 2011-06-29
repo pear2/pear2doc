@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="channels.scs">
+  <info>
+   <title>Creating your own channel with Pyrus and PEAR2_SimpleChannelServer</title>
+   <author><personname><firstname>Brett</firstname><surname>Bieber</surname></personname></author>
+   <date>2009-07-01</date>
+  </info>
+
+  <para>
+   Documentation is a work in progress.
+  </para>
+
+ &channels.scs.intro;
+ &channels.scs.commands;
+ </chapter>

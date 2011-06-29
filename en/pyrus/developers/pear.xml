@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.developers.pear">
+ <info><title>Using Pyrus to create PEAR packages</title></info>
+
+ <section xml:id="pyrus.developers.pear.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Using Pyrus to manage your existing PEAR package is simple, although not
+   as easy as managing a PEAR2 package or PECL extension.  Generally speaking,
+   the command you will take advantage of the most is the
+   <link linkend="pyrus.commands.package">package</link>
+   command, which can be used to create the release needed.
+  </para>
+ </section>
+</section>

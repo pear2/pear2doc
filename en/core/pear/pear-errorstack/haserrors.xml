@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.haserrors">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::hasErrors</function></refname>
+    <refpurpose>Determine whether there are any errors on the stack</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>boolean <function>PEAR_ErrorStack::hasErrors</function></funcdef>
+      <paramdef choice="opt">string <parameter> $level = false</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.haserrors.desc">
+     &title.desc;
+     <para>Determine whether there are any errors on the stack</para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.haserrors.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$level</parameter>
+       </term>
+       <listitem>
+        <para>
+         Level name to check for a particular severity. Use this to determine whether only a particular
+         class of errors has occurred, such as whether any warnings have occurred (errors will be ignored)
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.haserrors.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.haserrors.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.addfunction">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::addFunction</function>
+  </refname>
+  <refpurpose>Add a protocol to the provides section</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_ChannelFile::addFunction</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$version</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>
+      $name = ''
+     </parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>
+      $mirror = false
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.addfunction.desc">
+  &title.desc;
+  <para>
+   Adds a supported xml-rpc or SOAP function to a channel definition file.
+   The type should be <literal>xmlrpc</literal> or <literal>soap</literal> in
+   lower-cased letters.  No validation is performed on insert.  For example:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+require_once 'PEAR/ChannelFile.php';
+$chan = new PEAR_ChannelFile;
+$chan->setName('foo.example.com');
+$chan->setSummary('demonstrate addFunction');
+$chan->addFunction('xmlrpc', '1.0', 'people.list');
+$chan->addFunction('oops', '1.0', 'bad.type');
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The <literal>oops</literal> protocol will be successfully created, but
+   will fail upon validation.   
+  </para>
+  <para>
+   Adding a function to a mirror simply validated to ensure that the mirror already exists.
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+require_once 'PEAR/ChannelFile.php';
+$chan = new PEAR_ChannelFile;
+$chan->setName('foo.example.com');
+$chan->setSummary('demonstrate addFunction');
+// fails: mirror not found
+$chan->addFunction('soap', '1.0', 'people.list', 'mirror.example.com');
+$chan->addMirror('mirror.example.com');
+// succeeds
+$chan->addFunction('soap', '1.0', 'people.list', 'mirror.example.com');
+?>
+    ]]>
+   </programlisting>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addfunction.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>protocol type</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para>protocol version</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>protocol name, if any</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>mirror name, if this is a mirror&apos;s protocol</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addfunction.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addfunction.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

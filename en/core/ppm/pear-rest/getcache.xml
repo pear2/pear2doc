@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.getcache">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::getCache</function>
+  </refname>
+  <refpurpose>getCache</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed|false
+     <function>PEAR_REST::getCache</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.getcache.desc">
+  &title.desc;
+  <para>
+   Retrieve the cache contents for a remote resource, or a PEAR_Error if the resource
+   was not cached.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-rest.getcache.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>
+       REST resource URL
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.getcache.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   PEAR_Error object returned on error.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.getcache.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.differences.customtasks">
+ <info><title>Pyrus Custom File Tasks: differences from PEAR</title></info>
+
+ <section xml:id="pyrus.differences.customtasks.overview">
+  <info><title>Overview</title></info>
+  <para>
+   Custom file tasks
+   have changed substantially in Pyrus.  Fortunately, the XML format of tasks
+   used in package.xml remains the
+   same, and Pyrus's expectation of custom task implementation does not conflict
+   or overlap with PEAR's at all, so custom task packages can easily be designed
+   to work with both PEAR and Pyrus.
+  </para>
+  <para>
+   The biggest difference between how a custom task is implemented in Pyrus has
+   to do with the new plugin system (documented <link linkend="pyrus.plugins">here</link>).
+   Before reading any further, it may be a good idea to familiarize yourself with
+   the way that plugins work in Pyrus by reading the documentation on plugins,
+   then return back to finish reading about custom tasks.
+  </para>
+  <para>
+   In PEAR, custom tasks are detected simply by scanning the
+   <literal>PEAR/Tasks</literal> directory, and no differentiation is made between
+   tasks built into PEAR, and external custom tasks.
+  </para>
+  <para>
+   Pyrus custom tasks are detected through the use a new XML metadata format.
+   The format is simple, and looks like this:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<task xmlns="http://pear2.php.net/dtd/customtask-2.0" version="2.0">
+ <name>mytask</name>
+ <classprefix>vendor_PackageName</classprefix>
+ <autoloadpath/>
+</task>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The details of what &lt;classprefix&gt; and &lt;autoloadpath&gt; mean are
+   revealed in the full documentation of custom tasks
+   <link linkend="pyrus.plugins.task">here</link>.
+  </para>
+  <para>
+   This XML metadata file is identified by Pyrus through the use of the file role
+   <literal>customtask</literal>, which is used in the custom task's package.xml.
+   Here is an example from the &lt;contents&gt; of a package.xml:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+...
+  <contents>
+   <dir name="data">
+    <file name="mytask.xml" role="customtask"/>
+    <file name="someotherdata.csv" role="data"/>
+   </dir>
+  </contents>
+...
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+</section>

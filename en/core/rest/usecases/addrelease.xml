@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.usecases.addrelease"><info><title>Adding a release</title></info>
+ 
+
+ <para>
+  The time has come to release a new version of an existing package.
+  Those are the steps to do:
+ </para>
+
+ <orderedlist>
+  <listitem>
+   <para>
+    Publish the release's <filename>package.xml</filename> as
+    <link linkend="core.rest.fileformats.r-package-package012xml">
+     <filename>r/${packagename}/package.0.1.2.xml</filename>
+    </link>.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Create the version specific
+    <link linkend="core.rest.fileformats.r-package-012xml">
+     <filename>r/${packagename}/0.1.2.xml</filename>
+    </link>.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Update state files if appropriate:
+    <link linkend="core.rest.fileformats.r-package-latesttxt">
+     <filename>r/${packagename}/latest.txt</filename>
+    </link>,
+    <link linkend="core.rest.fileformats.r-package-stabletxt">
+     <filename>stable.txt</filename>
+    </link>,
+    <link linkend="core.rest.fileformats.r-package-betatxt">
+     <filename>beta.txt</filename>
+    </link>,
+    <link linkend="core.rest.fileformats.r-package-alphatxt">
+     <filename>alpha.txt</filename>
+    </link>,
+    <link linkend="core.rest.fileformats.r-package-develtxt">
+     <filename>devel.txt</filename>
+    </link>.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Generate
+    <link linkend="core.rest.fileformats.r-package-deps012txt">
+     <filename>r/${packagename}/deps.0.1.2.xml</filename>
+    </link>.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Update
+    <link linkend="core.rest.fileformats.r-package-allreleasesxml">
+     <filename>r/${packagename}/allreleases.xml</filename>
+    </link>
+    and
+    <link linkend="core.rest.fileformats.r-package-allreleases2xml">
+     <filename>r/${packagename}/allreleases2.xml</filename>
+    </link>.
+   </para>
+  </listitem>
+
+  <listitem>
+   <para>
+    Place package archives (<literal>tar</literal> and <literal>tgz</literal>)
+    at the place specified in
+    <link linkend="core.rest.fileformats.r-package-012xml">
+     <filename>r/${packagename}/0.1.2.xml</filename>
+    </link>.
+   </para>
+  </listitem>
+
+ </orderedlist>
+
+</section>

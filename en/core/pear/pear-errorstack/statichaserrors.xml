@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.statichaserrors">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::staticHasErrors</function>
+  </refname>
+  <refpurpose>
+   Determine whether there are any errors on any error stack
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.bool;
+     <function>PEAR_ErrorStack::staticHasErrors</function>
+    </funcdef>
+    <paramdef choice="opt">
+     &type.string;|false
+     <parameter> $package = false</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string; 
+     <parameter> $level = false</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.statichaserrors.desc">
+  &title.desc;
+  <para>
+   Static version of <link linkend="core.pear.pear-errorstack.haserrors">
+   <function>PEAR_ErrorStack::hasErrors</function></link>.  
+    
+   Returns &true; if any singleton stack has any errors pending.  
+    
+   Since PEAR 1.3.2, If <varname>$package</varname> 
+   is specified, it will call PEAR_ErrorStack::hasErrors
+   for the singleton error stack of that package.  
+    
+   If level is specified, hasErrors will ignore
+   any errors not conforming to the error level specified.  
+    
+   Use this to simulate error_reporting(E_NOTICE), for example
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.statichaserrors.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$package</parameter>
+     </term>
+     <listitem>
+      <para>
+       Package name to retrieve error information from, 
+       or false to retrieve error information 
+       from all singleton stacks
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$level</parameter>
+     </term>
+     <listitem>
+      <para>
+       Level name to check for a particular severity. 
+       
+       Use this to determine whether only a particular
+       class of errors has occurred, 
+       such as whether any warnings have occurred 
+       
+       (errors will be ignored)
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.statichaserrors.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.statichaserrors.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

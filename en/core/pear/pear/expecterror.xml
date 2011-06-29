@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.expecterror">
+   <refnamediv>
+    <refname>PEAR::expectError()</refname>
+    <refpurpose>
+     add an error code for non-disabling temporary error handling
+    </refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>           
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>     
+     <funcprototype>
+      <funcdef>integer <function>PEAR::expectError</function></funcdef>
+      <paramdef choice="opt">
+       mixed <parameter>$errorCode = '*'</parameter>
+      </paramdef>
+     </funcprototype>        
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.expecterror.desc">
+    &title.desc;
+    <para>
+     This method is used to tell which errors you expect to get.
+     Expected errors are always returned with error mode
+     <constant>PEAR_ERROR_RETURN</constant>.  
+     Expected error codes are stored in a stack,
+     and this method pushes a new element onto it.  The list of
+     expected errors are in effect until they are popped off the
+     stack with the <function>popExpect</function> method.    
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear.expecterror.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>mixed $errorCode</parameter> -
+        the expected 
+        <classname>PEAR_Error</classname> error code or
+        an array of error codes. If set to <parameter>'*'</parameter>
+        every error is expected.
+       </para>
+      </listitem>
+     </itemizedlist>    
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear.expecterror.return">
+    &title.returns;    
+    <para>
+     <parameter>integer</parameter> - the size of the error code stack.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.expecterror.note">
+    &title.note;   
+    &note.notstatic;
+   </refsection>
+   <refsection xml:id="core.pear.pear.expecterror.see">
+    &title.see;        
+    <para>
+     <link linkend="core.pear.pear.popexpect">
+      <function>popExpect</function>
+     </link>
+    </para>
+   </refsection>   
+  </refentry>

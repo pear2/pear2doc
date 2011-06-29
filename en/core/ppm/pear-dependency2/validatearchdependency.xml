@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2.validatearchdependency">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Dependency2::validateArchDependency</function>
+  </refname>
+  <refpurpose>
+   Specify a complex dependency on an OS/processor/kernel version,  Use OS for
+   simple operating system dependency.
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Dependency2.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     true|PEAR_Error|array
+     <function>PEAR_Dependency2::validateArchDependency</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$dep</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependency2.validatearchdependency.desc">
+  &title.desc;
+  <para>
+   This is the only dependency that accepts an <function>ereg</function>able pattern.  The pattern 
+   will be matched against the <function>php_uname</function> output parsed by <classname>OS_Guess</classname>
+   As with all dependency validation, true is returned on success, PEAR_Error on failure
+   for required dependencies (and the arch dependency is required).  If the
+   <literal>soft</literal>, <literal>force</literal> or <literal>ignore-errors</literal>
+   options are specified, an array containing the error message will be returned instead.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatearchdependency.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$dep</parameter>
+     </term>
+     <listitem>
+      <para>
+       Contents of the dependency, as parsed from xml.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatearchdependency.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependency2.validatearchdependency.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet" xml:id="pyrus.configuration.user.opensslcert">
+ <info><title>openssl_cert</title></info>
+
+ <section xml:id="pyrus.configuration.user.opensslcert.intro">
+  <info><title>Introduction</title></info>
+  <note><simpara>This is a channel-specific configuration value</simpara></note>
+  <para>
+   The <literal>openssl_cert</literal> configuration variable should be set to
+   the full path to your personal PKCS#12 certificate, as signed by a recognized
+   certificate authority such as <link xlink:href="http://www.cacert.org">CACert</link>.
+   Pyrus uses this certificate along with your
+   <link linkend="pyrus.configuration.user.handle">handle</link> to implement
+   package signing.
+  </para>
+  <para>
+   Your certificate must have the email address you use in package.xml as its
+   alternate name, otherwise Pyrus will refuse to use it.  Pyrus uses the
+   email address as stated in package.xml of the releasing maintainer of a
+   package to verify that the package was actually created by the maintainer.
+   This makes a man-in-the-middle attack far more difficult to execute, as well
+   as verifying package integrity.
+  </para>
+ </section>
+</section>

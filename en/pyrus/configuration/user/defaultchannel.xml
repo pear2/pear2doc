@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.defaultchannel">
+ <info><title>default_channel</title></info>
+
+ <section xml:id="pyrus.configuration.user.defaultchannel.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The default channel is the channel that should be implied when an
+   <link linkend="guide.users.concepts.abstractpackage">Abstract Package</link>
+   is ambiguous.  By default, it is <literal>pear2.php.net</literal>.
+  </para>
+  <para>
+   As an example, when executing:
+  </para>
+  <screen>php pyrus.phar install PEAR2_HTTP_Request</screen>
+  <para>
+   The abstract package <literal>PEAR2_HTTP_Request</literal> is ambiguous - it
+   does not specify a channel.  Pyrus assumes, therefore, that the requested
+   package is from the default channel, and acts as if the user had in fact
+   typed:
+  </para>
+  <screen>php pyrus.phar install pear2.php.net/PEAR2_HTTP_Request</screen>
+  <para>
+   The <literal>default_channel</literal> value is also used for all
+   channel-specific configuration values.
+  </para>
+ </section>
+</section>

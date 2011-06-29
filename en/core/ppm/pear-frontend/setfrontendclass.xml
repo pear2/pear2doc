@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="package.pear.pear.pear-frontend.setfrontendclass">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Frontend::setFrontendClass</function>
+  </refname>
+  <refpurpose>setFrontendClass</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Frontend.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void&amp;
+     <function>PEAR_Frontend::setFrontendClass</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$uiclass</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="package.pear.pear.pear-frontend.setfrontendclass.desc">
+  &title.desc;
+  <para>
+   Set the kind of frontend that should be retrieved from the <function>singleton</function>
+   method.  If the class does not exist, the method changes all underscores (<literal>_</literal>) into directory
+   separators (like PEAR_Frontend_CLI to <literal>PEAR/Frontend/CLI</literal>) and appends
+   <literal>.php</literal> and then checks to see if the file can be included.  If the
+   class does exist after all of this, a simple check is made to see if the
+   <function>userConfirm</function> method exists, and then a new frontend object is
+   returned.  Any failure causes a PEAR_Error to be returned.
+  </para>
+</refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.setfrontendclass.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$uiclass</parameter>
+     </term>
+     <listitem>
+      <para>
+       the full classname (like <literal>PEAR_Frontend_Web</literal>)
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.setfrontendclass.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   PEAR_Error on any problem
+  </para>
+ </refsection>
+ <refsection xml:id="package.pear.pear.pear-frontend.setfrontendclass.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

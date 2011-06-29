@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="guide.users.concepts.filetasks">
+ <info><title>File tasks</title></info>
+
+ <para>
+  Pyrus allows special handling of files through tasks.  File tasks can perform
+  any action necessary both when installing a package and when creating a
+  package.  Both Pyrus and the PEAR Installer ship with 4 built-in tasks,
+  <literal>replace</literal>, <literal>windowseol</literal>,
+  <literal>unixeol</literal>, and <literal>postinstallscript</literal>.
+ </para>
+ <para>
+  The built-in tasks are documented <link linkend="guide.developers.package2.tasks">here</link>.
+  The documentation also describes how to create custom tasks for the
+  PEAR Installer.  Custom tasks for Pyrus are documented
+  <link linkend="pyrus.plugins.task">here</link>.
+ </para>
+ <para>
+  Tasks are specifically designed to allow customization of an installation, and
+  particularly modification of a specific file's contents.  The
+  <literal>unixeol</literal> task, for instance, transforms line endings to
+  UNIX <literal>\n</literal> and is useful for shell scripts that must have
+  the proper line endings.  The <literal>replace</literal> task can be used
+  to update the version of a package directly in the source code, or to
+  automatically set up the path to a PEAR Installation in a shell script.
+ </para>
+ <para>
+  Tasks are defined using the XML namespace
+  <literal>http://pear.php.net/dtd/tasks-1.0</literal>.  Most often, this
+  is declared using <literal>tasks</literal> as the namespace prefix, as in
+  <literal><![CDATA[xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"]]></literal>.
+  More than one task can be used for a single file, as shown by this example from
+  the PEAR package:
+ </para>
+ <programlisting role="xml">
+  <![CDATA[
+    <file name="pearcmd.php" role="php">
+     <tasks:replace from="@php_bin@" to="php_bin" type="pear-config" />
+     <tasks:replace from="@php_dir@" to="php_dir" type="pear-config" />
+     <tasks:replace from="@pear_version@" to="version" type="package-info" />
+     <tasks:replace from="@include_path@" to="php_dir" type="pear-config" />
+    </file>
+  ]]>
+ </programlisting>
+</section>

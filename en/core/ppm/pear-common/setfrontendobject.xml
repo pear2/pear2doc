@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.setfrontendobject">
+   <refnamediv>
+    <refname><function>PEAR_Common::setFrontendObject</function></refname>
+    <refpurpose>Set object representing frontend to use.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable>
+       <function>PEAR_Common::setFrontendObject</function></funcdef>
+      <paramdef choice="req">object <parameter>&amp;$ui</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.setfrontendobject.desc">
+     &title.desc;
+     <para>Set object that represents the frontend to be used.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.setfrontendobject.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.object;
+        <parameter>$ui</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Reference of the frontend object
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.setfrontendobject.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

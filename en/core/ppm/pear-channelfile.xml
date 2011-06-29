@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile"><info><title>PEAR_ChannelFile</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-channelfile-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_ChannelFile</classname>
+   </refname>
+   <refpurpose>The Channel handling class</refpurpose>
+  </refnamediv>
+  <refsection><info><title>The Channel handling class</title></info>
+   
+   <para>
+    Represents channel.xml
+   </para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_ChannelFile</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_ChannelFile</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-channelfile.pear-channelfile;
+ &core.ppm.pear-channelfile.addfunction;
+ &core.ppm.pear-channelfile.addmirror;
+ &core.ppm.pear-channelfile.addmirrorfunction;
+ &core.ppm.pear-channelfile.fromany;
+ &core.ppm.pear-channelfile.fromarray;
+ &core.ppm.pear-channelfile.fromxmlfile;
+ &core.ppm.pear-channelfile.fromxmlstring;
+ &core.ppm.pear-channelfile.getalias;
+ &core.ppm.pear-channelfile.getbaseurl;
+ &core.ppm.pear-channelfile.geterrors;
+ &core.ppm.pear-channelfile.getfunction;
+ &core.ppm.pear-channelfile.getfunctions;
+ &core.ppm.pear-channelfile.getmirror;
+ &core.ppm.pear-channelfile.getmirrors;
+ &core.ppm.pear-channelfile.getname;
+ &core.ppm.pear-channelfile.getpath;
+ &core.ppm.pear-channelfile.getport;
+ &core.ppm.pear-channelfile.getserver;
+ &core.ppm.pear-channelfile.getssl;
+ &core.ppm.pear-channelfile.getsummary;
+ &core.ppm.pear-channelfile.getvalidationobject;
+ &core.ppm.pear-channelfile.getvalidationpackage;
+ &core.ppm.pear-channelfile.isincludeable;
+ &core.ppm.pear-channelfile.lastmodified;
+ &core.ppm.pear-channelfile.resetfunctions;
+ &core.ppm.pear-channelfile.resetrest;
+ &core.ppm.pear-channelfile.setalias;
+ &core.ppm.pear-channelfile.setbaseurl;
+ &core.ppm.pear-channelfile.setdefaultpearprotocols;
+ &core.ppm.pear-channelfile.setname;
+ &core.ppm.pear-channelfile.setpath;
+ &core.ppm.pear-channelfile.setport;
+ &core.ppm.pear-channelfile.setserver;
+ &core.ppm.pear-channelfile.setssl;
+ &core.ppm.pear-channelfile.setsummary;
+ &core.ppm.pear-channelfile.setvalidationpackage;
+ &core.ppm.pear-channelfile.supports;
+ &core.ppm.pear-channelfile.supportsrest;
+ &core.ppm.pear-channelfile.toarray;
+ &core.ppm.pear-channelfile.toxml;
+ &core.ppm.pear-channelfile.validate;
+ &core.ppm.pear-channelfile.validchannelserver;
+ &core.ppm.pear-channelfile.constants;
+</section>

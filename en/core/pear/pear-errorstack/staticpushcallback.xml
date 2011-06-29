@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.staticpushcallback">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::staticPushCallback</function>
+  </refname>
+  <refpurpose>
+   Set an error Callback for every package&apos;s error stack
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.void;
+     <function>PEAR_ErrorStack::staticPushCallback</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.string;|&type.array; 
+     <parameter>$cb</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticpushcallback.desc">
+  &title.desc;
+  <para>
+   Set an error callback for every 
+   package&apos;s singleton error stack.
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpushcallback.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&type.array;
+      <parameter>$cb</parameter>
+     </term>
+     <listitem>
+      <para>
+       
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpushcallback.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpushcallback.see">
+  &title.see;
+  <para>
+   <emphasis>see</emphasis> 
+   <link linkend="core.pear.pear-errorstack.staticpopcallback">
+    <function>PEAR_ErrorStack::staticPopCallback</function>
+   </link>, 
+   <link linkend="core.pear.pear-errorstack.pushcallback">
+    <function>PEAR_ErrorStack::pushCallback</function>
+   </link>
+  </para>
+  <para>
+   <emphasis>see</emphasis> 
+   <link linkend="core.pear.pear-errorstack.constants.details.errorstack---php">
+    <constant>PEAR_ERRORSTACK_PUSHANDLOG</constant>
+   </link>, 
+   <link linkend="core.pear.pear-errorstack.constants.details.errorstack---php">
+    <constant>PEAR_ERRORSTACK_PUSH</constant>
+   </link>, 
+   <link linkend="core.pear.pear-errorstack.constants.details.errorstack---php">
+    <constant>PEAR_ERRORSTACK_LOG</constant>
+   </link>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpushcallback.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

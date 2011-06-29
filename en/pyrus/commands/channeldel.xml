@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.channeldel">
+ <info><title>channel-del - remove a channel</title></info>
+
+ <section xml:id="pyrus.commands.channeldel.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Remote a channel from the registry.  Note that the default channels cannot
+   be removed from the registry.
+  </para>
+  <para>
+   Default channels in Pyrus:
+   <itemizedlist>
+    <listitem><simpara><literal>__uri</literal></simpara></listitem>
+    <listitem><simpara><literal>pear.php.net</literal></simpara></listitem>
+    <listitem><simpara><literal>pear2.php.net</literal></simpara></listitem>
+    <listitem><simpara><literal>pecl.php.net</literal></simpara></listitem>
+    <listitem><simpara><literal>doc.php.net</literal></simpara></listitem>
+   </itemizedlist>
+  </para>
+ </section>
+</section>

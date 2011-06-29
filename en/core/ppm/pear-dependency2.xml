@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency2"><info><title>PEAR_Dependency2</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-dependency2-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_Dependency2</classname>
+   </refname>
+   <refpurpose>Dependency check for PEAR packages</refpurpose>
+  </refnamediv>
+  <refsection><info><title>Dependency check for PEAR packages</title></info>
+   
+   <para>
+    This class handles both version 1.0 and 2.0 
+    dependencies and supersedes
+    PEAR_Dependency since PEAR 1.4.0
+   </para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_Dependency2</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_Dependency2</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-dependency2.pear-dependency2;
+ &core.ppm.pear-dependency2.normalizedep;
+ &core.ppm.pear-dependency2.validatearchdependency;
+ &core.ppm.pear-dependency2.validatedependency1;
+ &core.ppm.pear-dependency2.validateextensiondependency;
+ &core.ppm.pear-dependency2.validateosdependency;
+ &core.ppm.pear-dependency2.validatepackage;
+ &core.ppm.pear-dependency2.validatepackagedependency;
+ &core.ppm.pear-dependency2.validatepackageuninstall;
+ &core.ppm.pear-dependency2.validatepearinstallerdependency;
+ &core.ppm.pear-dependency2.validatephpdependency;
+ &core.ppm.pear-dependency2.validatesubpackagedependency;
+</section>

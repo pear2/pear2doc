@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.cachettl">
+ <info><title>cache_ttl</title></info>
+
+ <section xml:id="pyrus.configuration.user.cachettl.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   the <literal>cache_ttl</literal> configuration variable is used to determine
+   when to consider the PEAR Channel <link linkend="core.rest">REST</link>
+   cache to have been invalidated.  It is measured in seconds, and by default
+   is <literal>3600</literal>, or 1 hour.
+  </para>
+ </section>
+</section>

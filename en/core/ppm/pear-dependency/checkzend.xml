@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency.checkzend">
+   <refnamediv>
+    <refname><function>PEAR_Dependency::checkZend</function></refname>
+    <refpurpose>Check Zend version</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Dependency.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed       <function>PEAR_Dependency::checkZend</function></funcdef>
+      <paramdef choice="req">mixed <parameter>&amp;$errmsg</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$req</parameter></paramdef>
+      <paramdef choice="opt">string <parameter> ''}$relation = 'ge'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-dependency.checkzend.desc">
+     &title.desc;
+     <para>Zend version check method</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkzend.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>&amp;$errmsg</parameter>
+       </term>      
+       <listitem>
+        <para>
+         this variable will contains an error message, if
+         check fail           
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$req</parameter>
+       </term>      
+       <listitem>
+        <para>
+         which version to compare
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$relation</parameter>
+       </term>      
+       <listitem>
+        <para>
+         how to compare the version
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkzend.return">
+    &title.returns;
+    
+    <para>
+   <parameter>mixed</parameter> - 
+     &false; if dependency could be resolved
+     <emphasis>successfully(!)</emphasis>; or an
+     <constant>PEAR_DEPENDENCY_*</constant> constant
+     in case of unresolved dependency.
+
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkzend.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-runtest.generate-diff">
+ <refnamediv>
+  <refname>
+   <function>PEAR_RunTest::generate_diff</function>
+  </refname>
+  <refpurpose>generate_diff</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/RunTest.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_RunTest::generate_diff</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$wanted</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$output</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array|false
+     <parameter>$return_value</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-runtest.generate-diff.desc">
+  &title.desc;
+  <para>
+   Returns differences by line between the expected output (<parameter>$wanted</parameter>)
+   and the actual output (<parameter>$output</parameter>).  In addition, the value
+   returned from the script can also be tested.  The test should be performed outside
+   <function>generate_diff</function>.  If the return value is as expected, pass in
+   &false;, otherwise pass in an array where the first element is the expected return
+   value and the second is the actual return value.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-runtest.generate-diff.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$wanted</parameter>
+     </term>
+     <listitem>
+      <para>
+       Expected output
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$output</parameter>
+     </term>
+     <listitem>
+      <para>
+       Actual output
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;|&false;
+      <parameter>$return_value</parameter>
+     </term>
+     <listitem>
+      <para>
+       False if return value was correct, otherwise an array of format:
+      </para>
+      <para>
+       <programlisting role="php">
+        <![CDATA[
+<?php
+array(
+    1, // expected return
+    2, // actual return value
+);
+?>
+        ]]>
+       </programlisting>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-runtest.generate-diff.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-runtest.generate-diff.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

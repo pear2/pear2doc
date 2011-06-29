@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.download">
+ <info><title>download - download a package</title></info>
+
+ <section xml:id="pyrus.commands.download.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This command downloads a remote package to the current directory.  It
+   will accept any package name,
+   <link linkend="guide.users.concepts.abstractpackage">abstract</link> or
+   concrete, and save the resulting file in the current directory.
+  </para>
+ </section>
+</section>

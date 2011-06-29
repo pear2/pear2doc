@@ -1,0 +1,6 @@
+<!-- $Revision: 289284 $ -->
+
+<!ENTITY class.pear '<link linkend="core.pear.pear" xmlns="http://docbook.org/ns/docbook"><classname>PEAR</classname></link>'>
+<!ENTITY class.pear-error '<link linkend="core.pear.pear-error" xmlns="http://docbook.org/ns/docbook"><classname>PEAR_Error</classname></link>'>
+<!ENTITY class.pear-exception '<link linkend="core.pear.pear-exception" xmlns="http://docbook.org/ns/docbook"><classname>PEAR_Exception</classname></link>'>
+<!ENTITY blankpagehack ''><!--<chapter><title/><simpara/></chapter>'>-->

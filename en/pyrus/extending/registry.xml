@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="pyrus.extending.registry">
+ <info><title>Working with installed packages and channels: The Registry API</title></info>
+
+ <section xml:id="pyrus.extending.registry.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Pyrus provides a very simple API for accessing its registry.  Pyrus stores
+   meta-information on installed packages in redundant registries.  There are
+   three kinds of registries that Pyrus recognizes, <literal>Sqlite3</literal>,
+   <literal>Xml</literal> and the legacy <literal>Pear1</literal> registry.  A
+   pyrus-based installation can have up to all three kinds of registries
+   redundantly storing the installed packages and the known channels.  By default
+   the <literal>Sqlite3</literal> registry is the primary registry used for
+   querying information, with the <literal>Xml</literal> registry as a backup.
+  </para>
+  <para>
+   When Pyrus is used to manage an installation, it checks to see which
+   registries are already present, if any, and will use the existing registries.
+   This fact can be used to provide more flexible installation options.  For
+   instance, Pyrus can be used to manage an existing legacy PEAR installation
+   without any special configuration, it will simply detect that the legacy
+   registry is present and use it.  If a package is extracted into a bundled
+   location, Pyrus will detect its extracted package.xml as belonging to the
+   Xml registry, and will use only that registry for installation purposes,
+   which allows upgrading the extracted package and avoids placing any
+   absolute paths into the installation.
+  </para>
+  <para>
+   Pyrus provides full atomic installation transactions for all of its
+   registry types, including the legacy Pear1 registry, unlike the PEAR
+   installer.  In addition, each registry provides a single method which
+   can be used to remove it from disk, and there is also a single method which
+   can be used for converting from one registry type to another.  Another method
+   is available for repairing a corrupted registry from one of its redundant
+   registries.
+  </para>
+  <para>
+   Pyrus provides a separate logical registry for storing channels from the registry
+   that stores packages.  Each registry handles this slightly differently.  The
+   Sqlite3 registry, for instance, stores all information in a single database.
+   The Xml registry stores information in separate files, like the legacy Pear1
+   registry.
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.registry.basic">
+  <info><title>Basic Registry principles</title></info>
+  <para>
+   All registry classes implement the <literal>PEAR2\Pyrus\IChannel</literal>
+   interface, and all channelregistry classes implement the
+   <literal>PEAR2\Pyrus\ChannelRegistry</literal> interface.  The
+   <literal>PEAR2\Pyrus\Registry</literal> class acts as an aggregator of
+   underlying registries, and implements the ability to cascade to parent
+   registries, as does the <literal>PEAR2\Pyrus\ChannelRegistry</literal>
+   class.
+  </para>
+  <para>
+   The simplest way to retrieve a registry object is to use the one strongly
+   tied to the <link linkend="pyrus.extending.configuration">PEAR2\Pyrus\Config</link>
+   object:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+$reg = PEAR2\Pyrus\Config::current()->registry;
+$creg = PEAR2\Pyrus\Config::current()->channelregistry;
+?>
+   ]]>
+  </programlisting>
+  <para>
+   Accessing a specific installed package retrieves an object that is
+   API-identical to a <link linkend="pyrus.extending.packagefile">PackageFile</link>
+   object.  The registry is implemented logically as an associative array.
+   By requesting a package's logical name, which is <literal>channel/packagename</literal>,
+   we get an object that can be manipulated just as if it were the package prior
+   to installation
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+$package = PEAR2\Pyrus\Config::current()->registry->package['pear2.php.net/PEAR2_Pyrus_Developer'];
+$remotepackage = new PEAR2\Pyrus\Package('pear2.php.net/PEAR2_Pyrus_Developer');
+// both packages can be queried with the same API
+?>
+   ]]>
+  </programlisting>
+  <para>
+   The same principle applies to channels:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+$channel = PEAR2\Pyrus\Config::current()->channelregistry['pear2.php.net'];
+$localchannel = new PEAR2\Pyrus\ChannelFile('channel.xml');
+// both channels can be queried with the same API
+?>
+   ]]>
+  </programlisting>
+  <para>
+   Iteration also works with both just as it would for an array:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+foreach (PEAR2\Pyrus\Config::current()->registry->package as $name => $package) {
+    // $name is channel/package
+    // $package is a packagefile object
+}
+foreach (PEAR2\Pyrus\Config::current()->channelregistry as $name => $channel) {
+    // $name is the channel name
+    // $channel is a channelfile object
+}
+?>
+   ]]>
+  </programlisting>
+ </section>
+ <section xml:id="pyrus.extending.registry.installation">
+  <info><title>Installation-related API tasks</title></info>
+  <para>
+   There are 4 installation-related methods, as well as 3 transaction methods.
+   These methods are:
+   <itemizedlist>
+    <listitem>
+     <simpara>
+      <function>install</function> and <function>replace</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>uninstall</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>exists</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>begin</function>, <function>commit</function> and
+      <function>rollback</function>.
+     </simpara>
+    </listitem>
+   </itemizedlist>
+   The <function>install</function> method registers a package as installed,
+   and sets its date/time to the current time so that the installation time
+   can be tracked.  The <function>replace</function> method registers a package
+   as installed, but does not modify its date/time.  This is useful for
+   repairing a corrupted entry, or simply storing a package as it is.  Both
+   methods accept a <literal>PEAR2\Pyrus\IPackageFile</literal> object.  A
+   packagefile object can be retrieved from a <literal>PEAR2\Pyrus\Package</literal>
+   object by calling its <function>getPackageFileObject</function> method.
+   A <literal>PEAR2\Pyrus\Registry\Exception</literal> is thrown on any errors.
+  </para>
+  <para>
+   The <function>uninstall</function> method accepts two parameters, the
+   name of the package, and the package's channel.  A
+   <literal>PEAR2\Pyrus\Registry\Exception</literal> is thrown on any errors.
+  </para>
+  <para>
+   The <function>exists</function> method also accepts two parameters, and
+   returns &true; or &false; depending on whether the package exists.  If
+   severe errors occur such as registry corruption, a
+   <literal>PEAR2\Pyrus\Registry\Exception</literal> object is thrown.
+  </para>
+  <para>
+   Note that array access can also be used to handle installation-related tasks:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+$reg = PEAR2\Pyrus\Config::current()->registry;
+
+$package = new PEAR2\Pyrus\Package('/path/to/package.xml');
+
+// equivalent to $reg->install($package)
+$reg->package[] = $package;
+
+// equivalent to $reg->uninstall('Foo', 'pear2.php.net')
+unset($reg->package['pear2.php.net/Foo']);
+
+// equivalent to $reg->exists('Foo', 'pear2.php.net');
+isset($reg->package['pear2.php.net/Foo']);
+?>
+   ]]>
+  </programlisting>
+  <para>
+   When performing any installation or uninstallation task, it is recommended
+   to use the registry's built-in transaction support.  The
+   <literal>Sqlite3</literal> registry uses the database's native transaction
+   support.  Both the <literal>Xml</literal> and <literal>Pear1</literal>
+   registries use Pyrus's <literal>PEAR2\Pyrus\AtomicFileTransaction</literal>
+   for its transaction support.  Thus, it is always best to do a transaction
+   by first enabling the registry transaction, and then the atomic file transaction
+   within this registry transaction:
+  </para>
+  <programlisting role="php">
+   <![CDATA[
+<?php
+$reg = PEAR2\Pyrus\Config::current()->registry;
+$package = new PEAR2\Pyrus\Package('Whatever');
+try {
+    $reg->begin();
+    PEAR2\Pyrus\AtomicFileTransaction::begin();
+    $reg->install($package);
+    PEAR2\Pyrus\AtomicFileTransaction::commit();
+    $reg->commit();
+} catch (Exception $e) {
+    $reg->rollback();
+    PEAR2\Pyrus\AtomicFileTransaction::rollback();
+    throw $e;
+}
+?>
+   ]]>
+  </programlisting>
+  <para>
+   If using the <link linkend="pyrus.extending.installation">Installer API</link>,
+   the transactions and installation to registry is all automatic, this code is
+   only needed for customizing installation.
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.registry.querying">
+  <info><title>Specialized querying of the registry</title></info>
+  <para>
+   Other methods for querying the registry include:
+   <itemizedlist>
+    <listitem>
+     <simpara>
+      <function>info</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>listPackages</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>getDependentPackages</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>detectFileConflicts</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>detectRegistries</function>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <function>removeRegistry</function>
+     </simpara>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <section xml:id="pyrus.extending.registry.querying.info">
+   <title><function>info</function></title>
+   <para>
+    The <function>info</function> method provides a way of peeking at
+    a single attribute of a package.  When used with the <literal>Sqlite3</literal>
+    registry, it is extremely efficient both in terms of memory use and speed.
+    Both the <literal>Xml</literal> and <literal>Pear1</literal> registries are
+    far slower because they must load the complete packagefile into memory for
+    every query.  For these registries, it is better to simply retrieve a
+    packagefile and query it using the
+    <link linkend="pyrus.extending.packagefile">PackageFile API</link>.
+   </para>
+   <para>
+    Parameters to <function>info</function> are the package name, package channel,
+    and the field name to retrieve.
+   </para>
+   <para>
+    All of the
+    <link linkend="pyrus.extending.packagefile.basic">Basic package.xml properties</link>
+    can be directly accessed using <function>info</function>.  In addition, two
+    special properties, <literal>installedfiles</literal> and <literal>dirtree</literal>
+    are available.
+   </para>
+   <para>
+    <literal>installedfiles</literal> returns a list of files and their properties
+    as they have been installed.  Here is a sample return value:
+   </para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+array(
+      '/full/path/todocs/PEAR2_SimpleChannelServer/pear2.php.net/examples/update_channel.php' =>
+      array(
+        'role' => 'doc',
+        'name' => 'examples/update_channel.php',
+        'installed_as' => '/full/path/to/docs/PEAR2_SimpleChannelServer/pear2.php.net/examples/update_channel.php',
+        'relativepath' => 'PEAR2_SimpleChannelServer/pear2.php.net/examples/update_channel.php',
+        'configpath' => '/full/path/to/docs',
+           ),
+      // ... and so on
+     );
+?>
+    ]]>
+   </programlisting>
+   <para>
+    <literal>dirtree</literal> returns a list of every directory that would have
+    been created if installing the package in a new installation.  This can
+    be used to prune empty directories after uninstalling.  Here is a sample
+    return value:
+   </para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+array (
+      '/full/path/to/php/PEAR2/SimpleChannelServer/REST',
+      '/full/path/to/php/PEAR2/SimpleChannelServer/Categories',
+      '/full/path/to/php/PEAR2/SimpleChannelServer',
+      '/full/path/to/php/PEAR2',
+      '/full/path/to/php',
+      '/full/path/to/docs/PEAR2_SimpleChannelServer/pear2.php.net/examples',
+      '/full/path/to/docs/PEAR2_SimpleChannelServer/pear2.php.net',
+      '/full/path/to/docs/PEAR2_SimpleChannelServer',
+      '/full/path/to/docs',
+      '/full/path/to/bin',
+    );
+?>
+    ]]>
+   </programlisting>
+  </section>
+  <section xml:id="pyrus.extending.registry.querying.listpackages">
+   <title><function>listPackages</function></title>
+   <para>
+    This method accepts a channel name as an argument, and returns an array
+    of the names of installed packages from that channel.
+   </para>
+  </section>
+  <section xml:id="pyrus.extending.registry.querying.getdependentpackages">
+   <title><function>getDependentPackages</function></title>
+   <para>
+    <function>getDependentPackages</function> requires a single argument,
+    a <literal>PEAR2\Pyrus\IPackageFile</literal> object.
+    This method returns an array of <literal>PEAR2\Pyrus\Package</literal>
+    objects representing installed packages that depend upon the package
+    passed in.  If the optional second boolean parameter is set to true
+    (which it is by default), performance is improved when querying an
+    <literal>Sqlite3</literal> database by returning packages containing only
+    the name of the package and its dependencies.
+   </para>
+  </section>
+  <section xml:id="pyrus.extending.registry.querying.detectfileconflicts">
+   <title><function>detectFileConflicts</function></title>
+   <para>
+    This method is used to implement file conflict detection to prevent
+    overwriting installed files with those from another package.  It accepts a
+    single argument, a <literal>PEAR2\Pyrus\IPackageFile</literal> object.
+    The <literal>Pear1</literal> registry is the most efficient at this
+    operation (at the expense of drastically decreased efficiency at installation or
+    uninstallation), the <literal>Sqlite3</literal> is the next most
+    efficient, and the <literal>Xml</literal> registry is the least efficient,
+    and in fact is so inefficient, this method should only be called
+    on an Xml registry that is for a very small installation.
+   </para>
+  </section>
+  <section xml:id="pyrus.extending.registry.querying.detectregistries">
+   <title><function>detectRegistries</function></title>
+   <para>
+    This static method accepts a string containing the path to check for registries,
+    and returns an array containing the names of registries
+    found.  The possible return values include <literal>Sqlite3</literal>,
+    <literal>Xml</literal> and <literal>Pear1</literal>.  Note that only a call
+    to <function>PEAR2\Pyrus\Registry::detectRegistries</function> will return
+    a list of all registries found.  A call to
+    <function>PEAR2\Pyrus\Registry\Sqlite3::detectRegistries</function> will
+    only return either <literal>array()</literal> or
+    <literal>array('Sqlite3')</literal> depending on whether the registry exists.
+   </para>
+  </section>
+  <section xml:id="pyrus.extending.registry.querying.removeregistry">
+   <title><function>removeRegistry</function></title>
+   <para>
+    This static method accepts a string containing the path to remove a registry
+    from.  A call to <function>PEAR2\Pyrus\Registry::removeRegistry</function>
+    will completely remove all traces of a PEAR installation.  A call to
+    an individual registry's removeRegistry, such as a call to
+    <function>PEAR2\Pyrus\Registry\Pear1::removeRegistry</function> will only
+    remove that registry from the installation path.
+   </para>
+  </section>
+ </section>
+ <section xml:id="pyrus.extending.registry.channelregistry">
+  <info><title>Channel registry</title></info>
+  <para>
+   
+  </para>
+ </section>
+</section>

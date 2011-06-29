@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.gettype">
+   <refnamediv>
+    <refname><function>PEAR_Config::getType</function></refname>
+    <refpurpose>Get the type of a config value</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string       <function>PEAR_Config::getType</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.gettype.desc">
+     &title.desc;
+     <para>Get the type of a config value.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.gettype.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.gettype.return">
+    &title.returns;
+    
+    <para>
+     <parameter>string</parameter> - 
+     type, one of <quote>string</quote>, 
+     <quote>integer</quote>, 
+     <quote>file</quote>, 
+     <quote>directory</quote>,
+     <quote>set</quote> or
+     <quote>password</quote>.
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.gettype.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

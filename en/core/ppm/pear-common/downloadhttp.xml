@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.downloadhttp">
+   <refnamediv>
+    <refname><function>PEAR_Common::downloadHttp</function></refname>
+    <refpurpose>Download a file through HTTP</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string  <function>PEAR_Common::downloadHttp</function></funcdef>
+      <paramdef choice="req">string <parameter>$url</parameter></paramdef>
+      <paramdef choice="req">object <parameter>&amp;$ui</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$save_dir = '.'</parameter></paramdef>
+      <paramdef choice="opt">mixed <parameter>$callback</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.downloadhttp.desc">
+     &title.desc;
+     <para>
+      Download a file through HTTP.  
+      Considers suggested file name in Content-disposition: header 
+      and can run a callback function for different events.  
+      The callback will be called with two parameters: 
+      the callback type, and parameters.  
+      The implemented callback types are:
+      <itemizedlist>
+       <listitem>
+        <para>
+         <parameter>'setup'</parameter> - 
+         called at the very beginning, parameter is a 
+         UI object that should be used for all output
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'message'</parameter> -
+         the parameter is a string with an informational message
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'saveas'</parameter> - 
+         may be used to save with a different file name, the
+         parameter is the filename that is about to be used. 
+         If a <parameter>'saveas'</parameter> callback 
+         returns a non-empty string, that file name will be 
+         used as the filename instead.
+         Note that <parameter>$save_dir</parameter> will not 
+         be affected by this, only the basename of the file.
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'start'</parameter> -
+         download is starting, parameter is number of bytes
+         that are expected, or -1 if unknown  
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'bytesread'</parameter> -
+         parameter is the number of bytes read so far
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'done'</parameter> - download is 
+         complete, parameter is the total number 
+         of bytes read 
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'connfailed'</parameter> -
+         if the TCP connection fails, this callback is called
+         with <programlisting role="php">array(host,port,errno,errmsg)</programlisting>
+        </para>
+       </listitem>
+       <listitem>
+        <para>
+         <parameter>'writefailed'</parameter> -
+         if writing to disk fails, this callback is called         
+         with <programlisting role="php">array(destfile,errmsg)</programlisting>
+        </para>
+       </listitem>
+      </itemizedlist>
+      If an HTTP proxy has been configured 
+      (<parameter>http_proxy</parameter> PEAR_Config setting), 
+      the proxy will be used.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.downloadhttp.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$url</parameter>
+       </term>      
+       <listitem>
+        <para>
+         the URL to download
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.object;
+         <parameter>&amp;$ui</parameter>
+       </term>      
+       <listitem>
+        <para>
+         <classname>PEAR_Frontend_*</classname> instance   
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$save_dir</parameter>
+       </term>      
+       <listitem>
+        <para>
+         directory to save file in
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>$callback</parameter>
+       </term>      
+       <listitem>
+        <para>
+         function/method to call for status      
+         updates
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.object;
+         <parameter>$config</parameter>
+       </term>      
+       <listitem>
+        <para>
+         <classname>PEAR_Config</classname> instance
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-common.downloadhttp.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     Returns the full path of the downloaded file or a 
+     PEAR error on failure.  If the error is caused by
+     socket-related errors, the error object will   
+     have the fsockopen error code available through
+     <function>getCode</function>.
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.downloadhttp.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.downloadhttp.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

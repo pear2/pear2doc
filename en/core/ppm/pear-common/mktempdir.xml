@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.mktempdir">
+   <refnamediv>
+    <refname><function>PEAR_Common::mkTempDir</function></refname>
+    <refpurpose>Create and register a temporary directory.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string 
+       <function>PEAR_Common::mkTempDir</function></funcdef>
+      <paramdef choice="opt">string <parameter>$tmpdir = ''
+      </parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.mktempdir.desc">
+     &title.desc;
+     <para>Create and register a temporary directory.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.mktempdir.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$tmpdir</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Directory to use as tmpdir.
+         Will use system defaults (for example
+         <parameter>/tmp</parameter> or 
+         <parameter>c:\windows\temp</parameter>)
+         if not specified.
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.mktempdir.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> name of created directory
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.mktempdir.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

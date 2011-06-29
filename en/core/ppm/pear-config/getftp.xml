@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getftp">
+   <refnamediv>
+    <refname><function>PEAR_Config::getFTP</function></refname>
+    <refpurpose>The ftp server is set in <link linkend="core.ppm.pear-config.readftpconfigfile"><function>readFTPConfigFile</function></link>.
+     It exists only if a remote configuration file has been specified
+    </refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>PEAR_FTP|false</replaceable>&amp; <function>PEAR_Config::getFTP</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.getftp.desc">
+     &title.desc;
+     <para>returns the object that can be used for accessing the remote FTP server, or false
+     if none should be used.</para>
+
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getftp.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.getftp.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

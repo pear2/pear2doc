@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.extends">
+ <refnamediv>
+  <refname>&lt;extends&gt;</refname>
+  <refpurpose>Superseding a package</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.extends.intro"><info><title>Saying goodbye to an old package</title></info>
+  
+  <para>
+   By adding an &lt;extends&gt; tag to your <filename>package.xml</filename>,
+   you tell the world that your new package extends an old package in some way.
+   The new package could supersede the old one, or give new functionality to
+   it.
+  </para>
+  <example><info><title>Using extends</title></info>
+   
+   <programlisting role="xml">
+...
+ &lt;name&gt;Package_Name2&lt;/name&gt;
+ &lt;channel&gt;pear.php.net&lt;/channel&gt;
+ &lt;extends&gt;Package_Name&lt;/extends&gt;
+ &lt;summary&gt;Any one-line summary&lt;/summary&gt;
+...
+   </programlisting>
+  </example>
+
+  <example><info><title>Examples for &lt;extends&gt; usage in PEAR</title></info>
+   
+   <itemizedlist>
+    <listitem>
+     <simpara>HTML_Common2 extends HTML_Common</simpara>
+    </listitem>
+    <listitem>
+     <simpara>HTML_Progress2 extends HTML_Progress</simpara>
+    </listitem>
+    <listitem>
+     <simpara>MDB2 extends MDB</simpara>
+    </listitem>
+    <listitem>
+     <simpara>MDB2_Schema extends MDB2</simpara>
+    </listitem>
+   </itemizedlist>
+  </example>
+
+ </refsection>
+ </refentry>

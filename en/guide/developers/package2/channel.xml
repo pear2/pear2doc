@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.channel">
+ <refnamediv>
+  <refname>&lt;channel&gt;</refname>
+  <refpurpose>What is a channel?</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.channel.intro"><info><title>Quick introduction to channels</title></info> 
+  
+  <para>
+   Channels are new in PEAR 1.4.0.  Channels are a systemized way of differentiating between
+   different download sources.  One such download source is pear.php.net, another is pecl.php.net,
+   and there are several third party channels slowly springing up around the net.
+  </para>
+  <para>
+   The &lt;channel&gt; tag should contain the full channel name, not any alias (don't use
+   &quot;pear&quot;, use &quot;pear.php.net&quot;.
+  </para>
+  <para>
+   A good rule of thumb to use when determining what channel name to use is &quot;where do
+   I upload my releases to?&quot;  If the answer is pear.php.net, that is your package's channel.
+   If the answer is pecl.php.net, then that is your channel.
+  </para>
+  <para>
+   If you aren't running a channel server and wish to serve your packages as well as allow
+   other packages to remotely depend on your package, the new uri-based package distribution
+   method is the best choice, see the &lt;uri&gt; tag documentation link below.
+  </para>
+  <refsection><info><title>See also:</title></info>
+   
+   <para>
+    <link linkend="guide.developers.package2.uri">&lt;uri&gt;</link>
+   </para>
+  </refsection>
+ </refsection>
+ </refentry>

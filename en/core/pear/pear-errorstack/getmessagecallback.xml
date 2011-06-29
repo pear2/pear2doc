@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.getmessagecallback">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::getMessageCallback</function></refname>
+    <refpurpose>Get an error code =&gt; error message mapping callback</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>array|string|false</replaceable> <function>PEAR_ErrorStack::getMessageCallback</function></funcdef>
+<paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.getmessagecallback.desc">
+     &title.desc;
+     <para>This method returns the current callback that can be used to generate error messages</para>
+
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.getmessagecallback.returns">
+    &title.returns;
+        <para>
+      <emphasis>returns</emphasis> Callback function/method or false if none
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.getmessagecallback.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.getmessagecallback.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

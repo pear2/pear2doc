@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.addtempfile">
+   <refnamediv>
+    <refname><function>PEAR_Common::addTempFile</function></refname>
+    <refpurpose>register a temporary file or directory</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable> 
+       <function>PEAR_Common::addTempFile</function></funcdef>
+      <paramdef choice="req">string <parameter>$file</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.addtempfile.desc">
+     &title.desc;
+     <para>Register a temporary file or directory. When the destructor 
+      is executed, all registered temporary files and 
+      directories are removed.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-common.addtempfile.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         name of file or directory
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-common.addtempfile.note">
+    &title.note;
+    &note.canstatic;
+   </refsection>
+</refentry>

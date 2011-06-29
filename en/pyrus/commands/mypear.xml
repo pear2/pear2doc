@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.mypear">
+ <info><title>mypear - set the pear path: location of PEAR installations to manage by default</title></info>
+
+ <section xml:id="pyrus.commands.mypear.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>mypear</literal> command sets up the path or paths in which Pyrus
+   will look for installed packages.  If multiple paths are specified, they
+   should be separated by <constant>PATH_SEPARATOR</constant>, which is
+   <literal>:</literal> on unix systems, and <literal>;</literal> on Windows-based
+   systems.  If multiple paths are specified, only the first path will be
+   used for installing packages.  The other paths are only used to validate
+   package dependencies.
+  </para>
+  <para>
+   <literal>mypear</literal> is a convenient alternative to using the
+   <link linkend="pyrus.commands.set"><literal>set</literal></link> command to
+   set the <literal>my_pear_path</literal> configuration variable.
+  </para>
+ </section>
+</section>

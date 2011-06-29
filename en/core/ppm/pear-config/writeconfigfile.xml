@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.writeconfigfile">
+   <refnamediv>
+    <refname><function>PEAR_Config::writeConfigFile</function></refname>
+    <refpurpose>Write data into config layer from file</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Config::writeConfigFile</function></funcdef>
+      <paramdef choice="opt">string <parameter>$file</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">bool <parameter>$layer = 'user'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.writeconfigfile.desc">
+     &title.desc;
+     <para>
+      Writes data into a config layer from a file.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.writeconfigfile.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file to read from
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.bool;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         whether to overwrite existing data
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.writeconfigfile.return">
+    &title.returns;
+
+    <para>
+     <parameter>bool</parameter> - 
+     &return.success-pearerror;
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.writeconfigfile.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.writeconfigfile.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.mypearpath">
+ <info><title>my_pear_path</title></info>
+
+ <section xml:id="pyrus.configuration.user.mypearpath.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>my_pear_path</literal> configuration value controls the order
+   in which Pyrus cascades PEAR installations.  The path should have the same
+   syntax as <literal>include_path</literal>, a
+   <constant>PATH_SEPARATOR</constant>-separated list of full paths to PEAR
+   installations.  The <literal>my_pear_path</literal> configuration variable
+   can be easily set with the <link linkend="pyrus.commands.mypear">mypear</link>
+   command.
+  </para>
+  <para>
+   Only the first path is considered to be read/write, the others are only used
+   to validate package dependencies on download.
+  </para>
+  <para>
+   For instance, the <literal>my_pear_path</literal>
+   <literal>/home/user/testpear:/usr/local/lib/php</literal> instructs Pyrus
+   to install all packages into the PEAR installation at
+   <literal>/home/user/testpear</literal>, and to also use the PEAR installation
+   in <literal>/usr/local/lib/php</literal> to validate dependencies.
+  </para>
+  <para>
+   On Windows, an example <literal>my_pear_path</literal> is
+   <literal>D:\customPear;C:\php5</literal>.
+  </para>
+ </section>
+</section>

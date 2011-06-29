@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.users.concepts.abstractpackage">
+ <info><title>Abstract Package Name (for install/uninstall command)</title></info>
+
+ <para>
+  There are several different ways of referring to a package that Pyrus and the
+  PEAR Installer understand.  Three ways are concrete, in that they refer to
+  deterministic entities such as a package.xml file on disk, or a <acronym>URI</acronym>
+  (Uniform Resource Identifier) such as <literal>http://pear.php.ne/get/PEAR-1.8.1.tgz</literal>
+  that refers to a file on a remote server.
+ </para>
+ <para>
+  <table>
+   <title>Ways of specifying a package for installation</title>
+   <tgroup cols="3">
+    <thead>
+     <row>
+      <entry>Package type</entry>
+      <entry>Local/Remote</entry>
+      <entry>Example</entry>
+     </row>
+    </thead>
+
+    <tbody>
+     <row>
+      <entry><literal>package.xml</literal> file</entry>
+      <entry>Local</entry>
+      <entry><userinput>php pyrus.phar install /path/to/package.xml</userinput></entry>
+     </row>
+     <row>
+      <entry>Package release archive</entry>
+      <entry>Local</entry>
+      <entry><userinput>php pyrus.phar install /path/to/PackageName-1.2.3.tgz</userinput></entry>
+     </row>
+     <row>
+      <entry>Static url</entry>
+      <entry>Remote</entry>
+      <entry><userinput>php pyrus.phar install http://example.com/PackageName-1.2.3.tgz</userinput></entry>
+     </row>
+     <row>
+      <entry>Abstract package</entry>
+      <entry>Remote</entry>
+      <entry><userinput>php pyrus.phar install PackageName</userinput></entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </table>
+ </para>
+ <para>
+  The first three ways of specifying a package are concrete: the package name
+  always refers to one and only one package.  Abstract packages are more
+  flexible, and there are several ways of requesting a package.  Note that
+  if the channel is not explicitly requested (as it is in the last example),
+  Pyrus or the PEAR Installer prepends the default channel.  The default channel
+  is set by the <literal>default_channel</literal> configuration variable, and is
+  set to one of <literal>pear.php.net</literal> (pear command), <literal>pecl.php.net</literal>
+  (pecl command), or <literal>pear2.php.net</literal> (Pyrus) unless explicitly changed
+  by a call to the config-set
+  (pear/pecl command) or <link linkend="pyrus.commands.set">set</link> (pyrus)
+  command.  A request for
+  <literal>PackageName</literal> will be interpreted by the PEAR Installer or Pyrus
+  to be a request for package PackageName from the default channel, as if the user had
+  requested <literal>pear.php.net/PackageName</literal> (pear command),
+  <literal>pecl.php.net/PackageName</literal> (pecl command) or
+  <literal>pear2.php.net/PackageName</literal> (pyrus).
+  <table>
+   <title>Ways of specifying an abstract package</title>
+   <tgroup cols="2">
+    <thead>
+     <row>
+      <entry>Example</entry>
+      <entry>Description</entry>
+     </row>
+    </thead>
+
+    <tbody>
+     <row>
+      <entry><literal>PackageName-1.2.3</literal></entry>
+      <entry>
+       This forces Pyrus to download version <literal>1.2.3</literal> of
+       package <literal>PackageName</literal>, but will will attempt to download
+       a release in one of the following file formats, in this order:
+       <orderedlist>
+        <listitem><simpara>phar</simpara></listitem>
+        <listitem><simpara>tgz (only if zlib extension is enabled)</simpara></listitem>
+        <listitem><simpara>tar</simpara></listitem>
+        <listitem><simpara>zip</simpara></listitem>
+       </orderedlist>
+      </entry>
+     </row>
+     <row>
+      <entry><literal>PackageName-alpha</literal></entry>
+      <entry>
+       This causes Pyrus to download the latest version of
+       package <literal>PackageName</literal> that is <literal>alpha</literal>
+       stability or better (the hierarchy of stabilities is <literal>devel</literal>,
+       <literal>alpha</literal>, <literal>beta</literal>, <literal>stable</literal>).
+       After finding a matching version, it will attempt to download a release
+       in one of the following file formats, in this order:
+       <orderedlist>
+        <listitem><simpara>phar</simpara></listitem>
+        <listitem><simpara>tgz (only if zlib extension is enabled)</simpara></listitem>
+        <listitem><simpara>tar</simpara></listitem>
+        <listitem><simpara>zip</simpara></listitem>
+       </orderedlist>
+      </entry>
+     </row>
+     <row>
+      <entry><literal>PackageName</literal></entry>
+      <entry>
+       This causes Pyrus to download the latest version of
+       package <literal>PackageName</literal> that is <literal>preferred_state</literal>
+       (configuration variable)
+       stability or better (the hierarchy of stabilities is <literal>devel</literal>,
+       <literal>alpha</literal>, <literal>beta</literal>, <literal>stable</literal>).
+       After finding a matching version, it will attempt to download a release
+       in one of the following file formats, in this order:
+       <orderedlist>
+        <listitem><simpara>phar</simpara></listitem>
+        <listitem><simpara>tgz (only if zlib extension is enabled)</simpara></listitem>
+        <listitem><simpara>tar</simpara></listitem>
+        <listitem><simpara>zip</simpara></listitem>
+       </orderedlist>
+       The <literal>preferred_state</literal> configuration variable can be seen
+       with the <link linkend="pyrus.commands.configshow">config-show</link>
+       command.
+      </entry>
+     </row>
+     <row>
+      <entry><literal>PackageName#groupname</literal></entry>
+      <entry>
+       This causes Pyrus to download and install a release of Pyrus as specified
+       above, and it also causes Pyrus to download and install the contents
+       of the <literal>groupname</literal> dependency group (dependency groups
+       are documented <link linkend="guide.developers.package2.dependencies.groups">here</link>).
+       Note that <literal>PackageName</literal> in <literal>PackageName#groupname</literal>
+       can be any of the above examples, such as <literal>PackageName-1.2.3#groupname</literal>.
+      </entry>
+     </row>
+     <row>
+      <entry><literal>channelname/PackageName</literal></entry>
+      <entry>
+       This causes Pyrus to download and install a release of
+       <literal>PackageName</literal> from the channel <literal>channelname</literal>.
+       Another syntax that can be used is <literal>channel://channelname/PackageName</literal>
+       which is useful if there is a sub-directory of the current working
+       directory named <literal>channelname</literal> and a file or directory
+       within it named <literal>PackageName</literal>.  Note that
+       in the example above, <literal>PackageName</literal> can be any of the
+       previous syntaces such as <literal>channelname/PackageName-1.2.3#groupname</literal>.
+      </entry>
+     </row>
+    </tbody>
+   </tgroup>
+  </table>
+ </para>
+ <section xml:id="guide.users.concepts.abstractpackages.uninstall">
+  <title>Abstract Package for installed packages</title>
+  <para>
+   Note that the <literal>uninstall</literal>, <literal>run-scripts</literal>,
+   and other commands that operate on installed packages
+   only support a simple
+   package name as in <literal>PackageName</literal> or
+   <literal>channelname/PackageName</literal>.  Any fancy stuff like
+   <literal>pear2.php.net/PackageName-1.2.3#group</literal> is ignored.
+  </para>
+ </section>
+</section>

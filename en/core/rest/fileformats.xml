@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section
+ xmlns="http://docbook.org/ns/docbook"
+ xmlns:phd="http://www.php.net/ns/phd"
+ version="lillet"
+ xml:id="core.rest.fileformats"
+ phd:chunk="true"
+>
+ <info>
+  <title>File formats</title>
+  <titleabbrev>How the files look like</titleabbrev>
+ </info>
+ 
+ 
+
+ <para>
+  Here you will find detailled description of the file formats used
+  for the REST interface.
+ </para>
+
+ <note>
+  <para>
+   In file names that contain version numbers, we use <literal>0.1.2</literal>
+   as example.
+  </para>
+ </note>
+
+ <para>
+  In general, the files try to be as small as possible so that only little
+  bandwidth is required to fetch them. That's why all of the xml files
+  (except the original <filename>package.xml</filename> have only tag names
+  of one or two characters.
+  Remember that operations like <command>pear list-all</command> download a
+  large number of files, so every saved bit helps.
+ </para>
+
+&core.rest.fileformats.channelxml;
+&core.rest.fileformats.c-categoriesxml;
+&core.rest.fileformats.c-category-infoxml;
+&core.rest.fileformats.c-category-packagesxml;
+&core.rest.fileformats.c-category-packagesinfoxml;
+&core.rest.fileformats.m-allmaintainersxml;
+&core.rest.fileformats.m-maintainer-infoxml;
+&core.rest.fileformats.p-packagesxml;
+&core.rest.fileformats.p-package-infoxml;
+&core.rest.fileformats.p-package-maintainersxml;
+&core.rest.fileformats.p-package-maintainers2xml;
+&core.rest.fileformats.r-package-allreleasesxml;
+&core.rest.fileformats.r-package-allreleases2xml;
+&core.rest.fileformats.r-package-latesttxt;
+&core.rest.fileformats.r-package-stabletxt;
+&core.rest.fileformats.r-package-betatxt;
+&core.rest.fileformats.r-package-alphatxt;
+&core.rest.fileformats.r-package-develtxt;
+&core.rest.fileformats.r-package-012xml;
+&core.rest.fileformats.r-package-v2012xml;
+&core.rest.fileformats.r-package-package012xml;
+&core.rest.fileformats.r-package-deps012txt;
+
+
+</section>

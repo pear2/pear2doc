@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="installationpyrus.introduction">
+    <info><title>Introduction: it's simple</title></info>
+
+   <para>
+    Installing Pyrus is much simpler than installing PEAR.  Installing PEAR
+    requires downloading a separate installation and installing PEAR before you
+    can use it to install any packages.
+   </para>
+   <para>
+    To install pyrus, you must follow two simple steps:
+    <orderedlist>
+     <listitem>
+      <simpara>
+       Install PHP 5.3.1 or newer.  Pyrus needs the phar, simplexml, libxml2,
+       spl and pcre extensions in order to work.  Fortunately, these are all
+       enabled by default in PHP 5.3.
+      </simpara>
+     </listitem>
+     <listitem>
+      <simpara>
+       download pyrus.phar from the pear2.php.net website front page
+      </simpara>
+     </listitem>
+    </orderedlist>
+    That's it, pyrus has no external dependencies.  Using Pyrus is also simple,
+    one simply passes it to the command-line interface (CLI) like so:
+   </para>
+   <para>
+    <screen>
+     <![CDATA[
+php pyrus.phar install packagename
+     ]]>
+    </screen>
+   </para>
+   <para>
+    The first time pyrus is run on your system, it will ask where you would like
+    to install packages.  After this, one can simply use it.
+   </para>
+   <para>
+    To match PEAR, it is also possible to create a convenience script for
+    accessing pyrus.  Here is a sample script for unix systems:
+   </para>
+   <para>
+    <programlisting role="script">
+     <![CDATA[
+#!/bin/bash
+/usr/local/bin/php -dphar.readonly=0 /home/username/pyrus.phar $*
+     ]]>
+    </programlisting>
+   </para>
+   <para>
+    If your system has open_basedir enabled, the script should instead look like:
+   </para>
+   <para>
+    <programlisting role="script">
+     <![CDATA[
+#!/bin/bash
+/usr/local/bin/php -dphar.readonly=0 -dopen_basedir= -dsafe_mode= /home/username/pyrus.phar $*
+     ]]>
+    </programlisting>
+   </para>
+   <para>
+    Windows users can create a batch file similar to the unix script named pyrus.bat:
+   </para>
+   <para>
+    <programlisting role="script">
+     <![CDATA[
+@ECHO OFF
+C:\php5\php -dphar.readonly=0 -dopen_basedir= -dsafe_mode= C:\php5\pyrus.phar %*
+     ]]>
+    </programlisting>
+   </para>
+   <para>
+    Place the shell script (on unix) or batch file (on windows) in your path,
+    and then you can run commands like so:
+   </para>
+   <para>
+    <screen>
+     <![CDATA[
+pyrus install packagename
+     ]]>
+    </screen>
+   </para>
+  </section>

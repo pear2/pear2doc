@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="package.categorie.mypackage"><info><title>MyPackage</title></info>
+ 
+
+ <para>
+  Package description
+ </para>
+
+ &package.categorie.mypackage.intro;
+ &package.categorie.mypackage.constants;
+ &package.categorie.mypackage.example;
+ &package.categorie.mypackage.myclass.myfunction;
+</section>

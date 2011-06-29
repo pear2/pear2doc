@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.tasks">
+ <refnamediv>
+  <refname>tasks for &lt;file&gt;s</refname>
+  <refpurpose>specialized file installation and manipulation</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.tasks.overview"><info><title>Using tasks to customize file installation</title></info>
+  
+  <para>
+   Tasks provide a flexible and customizable way to manipulate file contents or to perform
+   complex installation tasks (hence the name &quot;tasks&quot;).  By default, PEAR comes
+   with 4 tasks, but customized tasks can be added simply by adding a file into the
+   PEAR/Tasks directory that follows the conventions of existing tasks.  This page does
+   not describe how to create a custom task, only how to use them in package.xml.
+  </para>
+  <para>
+   There are 3 basic tasks and 1 complex task distributed with PEAR.  The basic tasks are
+   &quot;tasks:replace&quot;, &quot;tasks:windowseol&quot;, and &quot;tasks:unixeol&quot;.  The complex task
+   is &quot;tasks:postinstallscript&quot;.  &quot;tasks:replace&quot; is nearly identical to the old
+   &lt;replace&gt; tag from package.xml 1.0, and does a text search-and-replace of a file's
+   contents.  &quot;tasks:windowseol&quot; and &quot;tasks:unixeol&quot; manipulate the line endings of
+   a file to ensure that the correct line endings are in place for critical files like DOS
+   .bat batch files and unix shell scripts.  &quot;tasks:postinstallscript&quot; allows users to
+   choose to run a script to perform further installation functions.
+  </para>
+  <refsection xml:id="guide.developers.package2.tasks.replace"><info><title>&lt;tasks:replace&gt; - customizing file contents</title></info>
+   
+   <para>
+    The replace task has 3 required attributes:
+   </para>
+   <para>
+    <orderedlist>
+     <listitem>
+      <para>
+       <emphasis>type</emphasis> - This must be either package-info or pear-config.  package-info
+       replacements extract information from package.xml itself to use as the replacement text.
+       pear-config replacements use the value of a configuration variable (as displayed by 
+       <screen>pear config-show</screen>) as the text for replacement.
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <emphasis>from</emphasis> - Text to search for in a file.  Traditionally, this text
+       is enclosed in &quot;@&quot; to differentiate it from normal text, as in from=&quot;@version@&quot;
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       <emphasis>to</emphasis> - Abstract item to use as a replacement for all occurrences of
+       &quot;from&quot;.  package-info replacements can be one of api-state, api-version, channel,
+       date, description, license, license-uri, name, notes, release_date, release-license, release_notes,
+       state, summary, time, version, and for some packages extends, providesextension, srcpackage, and srcuri.
+      </para>
+     </listitem>
+    </orderedlist>
+   </para>
+   <para>
+    Note that package-info replacements are performed at packaging time, so files contain
+    package-info replacements inside a .tgz/.tar release.  pear-config replacements can only
+    occur on the installation system, and are performed at install-time.
+   </para>
+  </refsection>
+  <refsection xml:id="guide.developers.package2.tasks.windowseol"><info><title>&lt;tasks:windowseol&gt; - converting line endings to \r\n</title></info>
+   
+   <para>
+    This task can be used to enable packaging of windows-specific files (like DOS batch files)
+    on a non-windows system, such as unix systems that convert line endings to \n.  Note that this task
+    is performed at package-time, as well as at install-time, so files will contain the correct line
+    endings inside a .tgz/.tar release.
+   </para>
+  </refsection>
+  <refsection xml:id="guide.developers.package2.tasks.unixeol"><info><title>&lt;tasks:unixeol&gt; - converting line endings to \n</title></info>
+   
+   <para>
+    This task can be used to enable packaging of unix-specific files (like sh shell scripts)
+    on a non-unix system, such as windows systems that convert line endings to \r\n.  Note that this task
+    is performed at package-time, as well as at install-time, so files will contain the correct line
+    endings inside a .tgz/.tar release.
+   </para>
+  </refsection>
+  <refsection xml:id="guide.developers.package2.tasks.postinstallscript"><info><title>&lt;tasks:postinstallscript&gt; - extreme customization</title></info>
+   
+   <para>
+    The postinstallscript task informs the installer that the file it references is a post-installation
+    script.
+   </para>
+   <para>
+    For security reasons, post-install scripts must be manually executed by the users, and as such
+    the installer has special code that is separate from other tasks.
+   </para>
+   <para>
+    The &lt;postinstallscript&gt; tag may define parameters that are used by the installer to
+    retrieve user input.  In order to support both the web installer and the command-line installer,
+    all processing of input is performed by PEAR and passed to the post-install script in a
+    strict format.  All you need to do is define the parameters using xml inside the
+    &lt;postinstallscript&gt; tag.
+   </para>
+   <para>
+    Here is the xml representing a simple post-install script with parameters:
+   </para>
+   <para>
+    <programlisting role="xml">
+    <![CDATA[
+<tasks:postinstallscript>
+ <tasks:paramgroup>
+  <tasks:id>first</tasks:id>
+  <tasks:param>
+   <tasks:name>test</tasks:name>
+   <tasks:prompt>Testing Thingy</tasks:prompt>
+   <tasks:type>string</tasks:type>
+  </tasks:param>
+ </tasks:paramgroup>
+</tasks:postinstallscript>
+    ]]>
+    </programlisting>
+   </para>
+   <para>
+    Note that the only type recognized at this stage is &quot;string&quot; but others will follow.
+    A more complex example follows:
+   </para>
+   <para>
+    <programlisting role="xml">
+    <![CDATA[
+<tasks:postinstallscript>
+ <tasks:paramgroup>
+  <tasks:id>first</tasks:id>
+  <tasks:instructions>The first group of questions relates
+   primarily to your favorite color.  Answer wisely.
+  </tasks:instructions>
+  <tasks:param>
+   <tasks:name>test</tasks:name>
+   <tasks:prompt>Testing Thingy</tasks:prompt>
+   <tasks:type>string</tasks:type>
+   <tasks:default>hi</tasks:default>
+  </tasks:param>
+  <tasks:param>
+   <tasks:name>test2</tasks:name>
+   <tasks:prompt>Testing Thingy 2</tasks:prompt>
+   <tasks:type>string</tasks:type>
+  </tasks:param>
+ </tasks:paramgroup>
+ <tasks:paramgroup>
+  <tasks:id>second</tasks:id>
+  <tasks:name>first::test</tasks:name>
+  <tasks:conditiontype>preg_match</tasks:conditiontype>
+  <tasks:value>g+</tasks:value>
+  <tasks:param>
+   <tasks:name>test</tasks:name>
+   <tasks:prompt>Testing Thingy a</tasks:prompt>
+   <tasks:type>string</tasks:type>
+   <tasks:default>hi</tasks:default>
+  </tasks:param>
+  <tasks:param>
+   <tasks:name>test2</tasks:name>
+   <tasks:prompt>Testing Thingy b</tasks:prompt>
+   <tasks:type>string</tasks:type>
+  </tasks:param>
+ </tasks:paramgroup>
+</tasks:postinstallscript>
+    ]]>
+    </programlisting>
+   </para>
+   <para>
+    This post-installation script has two parameter groups.  The first parameter group
+    has special instructions that are displayed to the user to assist in answering the
+    required prompts.  After the first group is processed,
+    the second group is processed (naturally). However, in this case, the second group is a
+    conditional parameter group. A conditional parameter group examines the user input from
+    previous parameter groups and only displays its parameter prompts if a single parameter
+    fits a test. The condition is defined by three tags, &lt;tasks:name&gt;, &lt;tasks:conditiontype&gt;,
+    and &lt;tasks:value&gt;.  Note that all three tags are required or xml validation will fail.
+   </para>
+   <para>
+    &lt;tasks:name&gt; is the parameter name from a previous parameter group. The format of name is
+    groupID::parameterName, so as you see above, &quot;first::test&quot; refers to the
+    &lt;tasks:param&gt; test from the &lt;tasks:paramgroup&gt; first.
+   </para>
+   <para>
+    &lt;tasks:conditiontype&gt; determines how the parameter input function will process the value of
+    the parameter specified in &lt;tasks:name&gt;, and can be one of three values, &quot;=&quot; &quot;!=&quot;
+    or &quot;preg_match&quot;.
+   </para>
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>
+       =: This (obviously) tests whether the parameters value is equal to the &lt;tasks:value&gt; tag
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       !=: This (obviously) tests whether the parameters value is not equal to the &lt;tasks:value&gt; tag
+      </para>
+     </listitem>
+     <listitem>
+      <para>
+       preg_match: This uses the content of the &lt;tasks:value&gt; tag as if it were the stuff between
+       / and / in a <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php;preg_match"><function>preg_match</function></link>
+       function call. Do NOT include // brackets in
+       the regular expression.  In the &lt;tasks:paramgroup&gt; second, the value &quot;g+&quot; will become:
+       <programlisting role="php">
+       <![CDATA[
+<?php
+preg_match('/g+/', first::test value)
+?>
+      ]]>
+       </programlisting>
+      </para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refsection>
+ </refentry>

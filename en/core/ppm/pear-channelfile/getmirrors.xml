@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getmirrors">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getMirrors</function>
+  </refname>
+  <refpurpose>Retrieve a list of all mirrors and their contents</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     array
+     <function>PEAR_ChannelFile::getMirrors</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirrors.desc">
+  &title.desc;
+  <para>
+   This returns an array of mirror information in the format defined by <link linkend="core.ppm.pear-channelfile.getmirror"><function>getMirror</function></link>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirrors.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getmirrors.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.usestask">
+ <refnamediv>
+  <refname>&lt;usestask&gt;</refname>
+  <refpurpose>documenting custom tasks used in &lt;contents&gt;</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.usestask.purpose"><info><title>Documenting custom file tasks</title></info>
+  
+  <para>
+   Standard file tasks provided by default with PEAR are documented in
+   <link linkend="guide.developers.package2.tasks">this location</link>.
+  </para>
+  <para>
+   If your package chooses to use a task provided by a third party, all you need to do
+   is specify the task as part of the xml for the &lt;file&gt; tag that contains it like so:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<file role="php">
+ <tasks:foo/>
+</file>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   However, if a user does not have the package installed that provides the custom task
+   &quot;foo&quot;, then the error message on installation will simply say &quot;unknown
+   task 'foo'&quot;, which is not very helpful.
+  </para>
+  <para>
+   The &lt;usestask&gt; tag instead prompts the installer to tell the user &quot;this package
+   uses the custom task 'foo', install package pear.example.com/Foo to use&quot;
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<usestask>
+ <task>foo</task>
+ <package>Foo</package>
+ <channel>pear.example.com</channel>
+</usestask>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Note that static URI packages (channel-less packages) are also supported:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<usestask>
+ <task>foo</task>
+ <uri>http://pear.example.com/Foo-1.2.0</uri>
+</usesrole>
+    ]]>
+   </programlisting>
+  </para>
+ </refsection>
+ </refentry>

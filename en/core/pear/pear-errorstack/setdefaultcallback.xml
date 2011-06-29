@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.setdefaultcallback">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::setDefaultCallback</function>
+  </refname>
+  <refpurpose>
+   Sets a default callback to be used by all error stacks
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.void;      
+     <function>PEAR_ErrorStack::setDefaultCallback</function>
+    </funcdef>
+    <paramdef choice="opt">
+     &type.array;|&type.string; 
+     <parameter>$callback</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultcallback.desc">
+  &title.desc;
+  <para>
+   This method sets the callback 
+   that can be used to generate error  
+   messages for a singleton
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultcallback.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;|&type.string;
+      <parameter>$callback</parameter>
+     </term>
+     <listitem>
+      <para>
+       Callback function/method
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultcallback.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.setdefaultcallback.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.fromarray">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::fromArray</function>
+  </refname>
+  <refpurpose>fromArray</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>
+      <link linkend="core.ppm.pear-channelfile-summary">
+       <classname>PEAR_ChannelFile</classname>
+      </link>
+      |false
+     </replaceable>
+     <function>PEAR_ChannelFile::fromArray</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$data</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     mixed
+     <parameter>
+      $compatibility</parameter>
+      <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     mixed
+     <parameter>
+      $stackClass = 'PEAR_ErrorStack'
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.fromarray.desc">
+  &title.desc;
+  <para>
+   Use this method with caution.  This is intended to allow easy import of
+   a pre-parsed channel.xml from another PEAR_ChannelFile class.  It also makes
+   possible the registry storage of channel.xml.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromarray.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$data</parameter>
+     </term>
+     <listitem>
+      <para>
+       The pre-parsed channel data
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$compatibility</parameter>
+     </term>
+     <listitem>
+      <para>
+       
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$stackClass</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromarray.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   false if invalid
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromarray.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromarray.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

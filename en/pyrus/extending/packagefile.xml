@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="pyrus.extending.packagefile">
+ <info><title>Accessing package.xml properties with Pyrus</title></info>
+
+ <section xml:id="pyrus.extending.packagefile.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   If you are not familiar with the package.xml format, you will need to read
+   <link linkend="guide.developers.package2">The description of the file</link>.
+  </para>
+  <para>
+   This guide is divided into several segments.
+   <itemizedlist>
+    <listitem>
+     <para>
+      If you want to access basic properties such as the name of the package,
+      the channel, summary, description, license, version, stability, date,
+      time, or notes, read the section on
+      <link linkend="pyrus.extending.packagefile.basic">Accessing basic properties</link>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To learn about how to manage maintainers of the package, read the section on
+      <link linkend="pyrus.extending.packagefile.maintainers">Accessing package maintainers</link>.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To learn about how to manage and iterate over dependencies, read the section on
+      <link linkend="pyrus.extending.packagefile.deps">Accessing dependencies</link>.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To understand how to iterate over and add files to both the contents
+      and release sections of package.xml, read the section on
+      <link linkend="pyrus.extending.packagefile.files">Accessing files</link>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To learn about managing custom tasks, roles, and compatible packages, read the section on
+      <link linkend="pyrus.extending.packagefile.custom">usesrole, usestask and compatible</link>.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      To learn about accessing PECL-specific properties such as configureoption,
+      srcpackage, srcuri and providesextension, read the section on
+      <link linkend="pyrus.extending.packagefile.pecl">Accessing PECL properties</link>
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <para>
+   The package.xml file is represented using a <literal>PEAR2\Pyrus\PackageFile\v2</literal>
+   object, but most of the time you will access it using the most packagefile
+   version-agnostic <literal>PEAR2\Pyrus\Package</literal> class, which supports
+   the same API seamlessly for accessing any kind of package as well as a few
+   higher level options such as directly accessing the source of a file in a package.
+   This documentation assumes you are working with a <literal>PEAR2\Pyrus\Package</literal>
+   object named <literal>$package</literal>.
+  </para>
+  <para>
+   To instantiate a <literal>PEAR2\Pyrus\Package</literal>, simply pass in the
+   path to a local package, a URI of a remote package, or an abstract remote package
+   name to the constructor.
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$package = new PEAR2\Pyrus\Package('package.xml');
+$package = new PEAR2\Pyrus\Package('Release-1.2.3.tgz');
+$package = new PEAR2\Pyrus\Package('http://example.com/Release-1.2.3.tgz');
+$package = new PEAR2\Pyrus\Package('pear2/Release-1.2.3');
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.packagefile.basic">
+  <info><title>Accessing basic properties</title></info>
+  <para>
+   Basic properties can be accessed as if they were object properties:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+echo "Package name is ", $package->name, "\n";
+echo "Package channel is ", $package->channel, "\n";
+echo "Package summary is ", $package->summary, "\n";
+echo "Package description is ", $package->description, "\n";
+echo "Package license name is ", $package->license['name'], "\n";
+if ($package->license['uri']) {
+    echo "Package license URI is ", $package->license['uri'], "\n";
+}
+if ($package->license['filesource']) {
+    echo "Package license path within the package.xml is ", $package->license['filesource'], "\n";
+}
+echo "Package release version is ", $package->version['release'], "\n";
+echo "Package API version is ", $package->version['api'], "\n";
+echo "Package release stability is ", $package->stability['release'], "\n";
+echo "Package API stability is ", $package->stability['api'], "\n";
+echo "Package release date in YYYY-MM-DD format is ", $package->date, "\n";
+if ($package->time) {
+    echo "Package release time in HH:MM:SS format is ", $package->time, "\n";
+}
+echo "Package release notes is ", $package->notes, "\n";
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   By the same token, changing these properties is as simple as setting an object
+   property:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$package->name = 'MyPackage';
+// this must be full channel, not a shortcut like "pear2"
+$package->channel = 'pear2.php.net';
+$package->summary = "My package's short description";
+$package->description = "My package's multi-line description
+of how things are done with it.";
+
+$package->license = 'BSD License';
+// or
+$package->license['name'] = 'BSD License';
+$package->license['uri'] = 'http://www.opensource.org/licenses/bsd-license.php';
+$package->license['filesource'] = 'LICENSE';
+
+$package->version['release'] = '1.2.3';
+$package->version['api'] = '1.0.0';
+
+$package->stability['release'] = 'stable';
+$package->version['api'] = 'stable';
+
+$package->date = '2009-12-25';
+$package->time = '00:00:01';
+
+$package->notes = "This version of MyPackage has the blessing of the pope, so
+it's way better than the last one.";
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.packagefile.maintainers">
+  <info><title>Accessing package maintainers</title></info>
+  <para>
+   Maintainers are accessed through the <literal>maintainer</literal>
+   property.  An of maintainers organized by maintainer role can be obtained via
+   the <literal>allmaintainers</literal> property, but it is also possible to
+   iterate over the <literal>maintainer</literal> property to iterate over all
+   maintainers.
+  </para>
+  <para>
+   The <literal>maintainer</literal> property acts as an array organized by
+   developer handle.  To learn more about maintainers in package.xml, see
+   the <link linkend="guide.users.concepts.maintainer">concepts section on maintainers</link>
+   in the user guide.
+  </para>
+  <para>
+   An individual maintainer's properties are set via a fluent method call.  The
+   order of method call is not important, but a call to the <function>role</function>
+   method is required in order to properly save the data.
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+// setting a maintainer's properties
+$package->maintainer['cellog']
+    ->role('lead')
+    ->name('Gregory Beaver')
+    ->email('cellog@php.net')
+    ->active('yes');
+
+// access a maintainer's properties
+echo "Maintainer cellog's name is ",
+     $package->maintainer['cellog']->name, "\n"; // Gregory Beaver
+echo "Maintainer cellog's role is ",
+     $package->maintainer['cellog']->role, "\n"; // lead
+echo "Maintainer cellog's handle is ",
+     $package->maintainer['cellog']->user, "\n"; // cellog
+echo "Maintainer cellog's email is ",
+     $package->maintainer['cellog']->email, "\n"; // cellog@php.net
+echo "Is maintainer cellog active? ",
+     $package->maintainer['cellog']->active, "\n"; // yes
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The maintainers can be iterated over as well, and even modified:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+foreach ($package->maintainer as $handle => $maintainer) {
+    echo "Maintainer $handle's name is ",
+         $maintainer->name, "\n";
+    echo "Maintainer $handle's role is ",
+         $maintainer->role, "\n";
+    echo "Maintainer $handle's handle is ",
+         $maintainer->user, "\n";
+    echo "Maintainer $handle's email is ",
+         $maintainer->email, "\n";
+    echo "Is maintainer $handle active? ",
+         $maintainer->active, "\n";
+    $maintainer->active('no'); // shows modifying a setting in iteration
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The <literal>allmaintainers</literal> property returns an associative
+   array of arrays of maintainer objects indexed by maintainer role.
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.packagefile.deps">
+  <info><title>Accessing dependencies</title></info>
+  <para>
+   Before it is possible to understand how Pyrus provides access to dependencies,
+   it is necessary to understand their format in package.xml, which is
+   documented <link linkend="guide.developers.package2.dependencies">here</link>.
+  </para>
+  <para>
+   Pyrus provides access to dependencies through the <literal>dependencies</literal>
+   property.  In addition to supporting access to and creation of individual
+   dependencies, it is possible to iterate over all dependencies, or over just
+   required dependencies, or just a particular dependency type.
+  </para>
+  <para>
+   Each of the dependency types (<literal>package</literal>, <literal>subpackage</literal>,
+   <literal>pearinstaller</literal>, <literal>extension</literal>, <literal>php</literal>,
+   <literal>arch</literal>, and <literal>os</literal>) is accessed slightly
+   differently based on how they are used in package.xml.
+  </para>
+  <para>
+   Perhaps the best introduction is 3 examples highlighting the different
+   methods of accessing dependency properties.  First, an example highlighting
+   the methods for reading existing dependency properties:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+echo "First, required/optional dependencies:\n";
+
+// these same principles apply to all properties for dependencies.
+// isset() is used to test presence, ->get to retrieve.
+
+echo "Minimum PHP version supported: ",
+     $package->dependencies['required']->php->min, "\n";
+
+echo "Minimum PEAR Installer/Pyrus version required: ",
+     $package->dependencies['required']->pearinstaller->min, "\n";
+if (isset($package->dependencies['required']->pearinstaller->max)) {
+    echo "Maximum PEAR Installer/Pyrus version supported: ",
+         $package->dependencies['required']->pearinstaller->max, "\n";
+}
+
+echo "PHP extension ext is required? "
+     isset($package->dependencies['required']->extension['ext'])
+         ? "Yes\n" : "No\n";
+
+if (isset($package->dependencies['required']->os['windows'])) {
+    echo "Conflicts with Windows operating system? "
+         $package->dependencies['required']->os['windows']->conflicts
+             ? "Yes\n" : "No\n";
+}
+
+if (isset($package->dependencies['required']->arch['*386*'])) {
+    echo "Requires i386 processor? "
+         $package->dependencies['required']->arch['*386*']->conflicts
+             ? "No\n" : "Yes\n";
+}
+
+echo "Now for package and subpackage dependencies:\n";
+
+echo "Is package foo from channel gronk.example.com required? ",
+     isset($package->dependencies['required']->package['gronk.example.com/foo'])
+         ? "Yes\n" : "No\n";
+
+echo "Does this package conflict with our package? ",
+     $package->dependencies['required']->package['gronk.example.com/foo']->conflicts
+         ? "Yes\n" : "No\n";
+
+echo "gronk.example.com/foo2 minimum version required is ",
+     $package->dependencies['required']->subpackage['gronk.example.com/foo2']->min, "\n";
+
+echo "gronk.example.com/foo2 incompatible versions:";
+foreach ($package->dependencies['required']->subpackage['gronk.example.com/foo2']->exclude
+         as $version) {
+    echo "\n ", $version;
+}
+
+echo "\n";
+
+echo "Optional dependencies are accessed the same way with optional index\n";
+
+echo "Optional dependency gronk.example.com/foo3 minimum version allowed is ",
+     $package->dependencies['optional']->subpackage['gronk.example.com/foo3']->min, "\n";
+
+echo "Dependency groups are accessed with the group index\n";
+
+echo "Dependency group foo hint is ",
+     $package->dependencies['group']->foo->hint, "\n";
+
+echo "channel pear2.php.net package Foo package dependency in dependency group",
+     " foo minimum version is ",
+     $package->dependecies['group']->foo->package['pear2.php.net/Foo']->min, "\n";
+
+// and so on...
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Iteration is similar to the access, in that each dependency object is the
+   same object as that when accessed using the full access syntax:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+// display all required and optional package and subpackage dependencies
+foreach (array('required', 'optional') as $required) {
+    foreach (array('package', 'subpackage') as $packagedep) {
+        foreach ($package->dependencies[$required]->$packagedep as $dep) {
+            echo $required, ' ', $packagedep, ' ', dependency,
+                 $dep->channel, '/', $dep->name;
+            if (isset($dep->uri)) {
+                // the channel is "__uri" for all URI dependencies
+                echo "\nPackage URI: ", $dep->uri;
+            }
+            if (isset($dep->min)) {
+                echo "\nMinimum version: ", $dep->min;
+            }
+            if (isset($dep->recommended)) {
+                echo "\nRecommended installation version: ", $dep->recommended;
+            }
+            echo "\n";
+        }
+    }
+}
+
+// iterating over dependency groups and their contents
+foreach ($package->dependencies['group'] as $group) {
+    echo "Optional dependency group ", $group->name,
+         " (", $group->hint, ")\n";
+    foreach ($group->extension as $ext) {
+        echo "Extension ", $ext->name;
+    }
+    foreach (array('package', 'subpackage') as $type) {
+        foreach ($group->$type as $dep) {
+            echo ucfirst($type), ' ', $dep->channel, '/', $dep->name;
+        }
+    }
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   Finally, setting dependencies can be accomplished in several ways.
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+// setting minimum PHP version required:
+$package->dependencies['required']->php = '5.3.0';
+$package->dependencies['required']->php->min = '5.3.0';
+$package->dependencies['required']->php->min('5.3.0');
+
+// setting minimum PEAR Installer/Pyrus version required:
+$package->dependencies['required']->pearinstaller = '2.0.0a1';
+$package->dependencies['required']->pearinstaller->min = '2.0.0a1';
+$package->dependencies['required']->pearinstaller->min('2.0.0a1');
+
+// setting excluded versions (all deps supporting the <exclude> tag use this syntax):
+$package->dependencies['required']->php->exclude = '5.2.0';
+$package->dependencies['required']->php->exclude('5.2.0')->exclude('5.2.10');
+$package->dependencies['required']->php->exclude('5.2.0', '5.2.10');
+
+// setting OS/architecture requirements:
+$package->dependencies['required']->os['windows'] = true;  // Windows required
+$package->dependencies['required']->arch['386'] = false; // Conflicts with 386 architecture
+
+// saying "this package must be installed" to the installer
+$package->dependencies['required']->package['pear2.php.net/Packagename']->save();
+
+// saying "this package must not be installed"
+$package->dependencies['required']->package['pear2.php.net/Packagename']->conflicts();
+
+// setting up complex versioning requirements
+$package->dependencies['optional']->package['pear2.php.net/Packagename']
+    ->min('1.2.0')
+    ->max('1.3.0')
+    ->recommended('1.2.3')
+    ->exclude('1.3.0', '1.2.2');
+
+// depending on a PECL package
+$package->dependencies['required']->package['pecl.php.net/lua']
+    ->providesextension('lua');
+
+// optionally depending on a core PHP extension
+$package->dependencies['optional']->extension['PDO']->save();
+
+// setting up a dependency group "remotefeatures"
+$package->dependencies['group']->remotefeatures->hint('Remote management capabilities');
+// add dependencies to the group
+$package->dependencies['group']->remotefeatures
+    ->package['pear2.php.net/Foo']->save();
+$package->dependencies['group']->remotefeatures
+    ->extension['curl']->save();
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.packagefile.files">
+  <info><title>Accessing files</title></info>
+  <para>
+   There are two reasons to access the files within a package.xml
+   <orderedlist>
+    <listitem>
+     <para>
+      <link linkend="pyrus.extending.packagefile.files.iterate">iterating over contents</link>
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <link linkend="pyrus.extending.packagefile.files.setting">adding new files/setting properties</link>
+     </para>
+    </listitem>
+   </orderedlist>
+  </para>
+  <section xml:id="pyrus.extending.packagefile.files.iterate">
+   <info><title>Iterating over package.xml contents</title></info>
+   <para>
+    Pyrus supports several use cases for iterating over package.xml:
+    <itemizedlist>
+     <listitem><simpara>Iterating for installation purposes</simpara></listitem>
+     <listitem><simpara>Iterating for packaging purposes</simpara></listitem>
+     <listitem><simpara>Iterating for traversing a deep package.xml tree</simpara></listitem>
+     <listitem><simpara>General-purpose iteration</simpara></listitem>
+    </itemizedlist>
+    All of these use cases are illustrated in the following example:
+   </para>
+   <para>
+    <programlisting role="php">
+     <![CDATA[
+<?php
+// *************** installation iteration ***************
+foreach ($package->installcontents as $file) {
+    // retrieve actual file path to be used with fopen
+    $path = $package->getFilePath($file->packagedname);
+    // retrieve open file pointer
+    $fp = $package->getFileContents($file->packagedname, true);
+    // retrieve file contents as string
+    $contents = $package->getFileContents($file->packagedname);
+
+    // get file properties (XML attributes of the <file> tag)
+    $role = $file->role;
+    if ($file->md5sum) {
+        $md5sum = $file->md5sum;
+    }
+    // get relative path of file after applying all modifications such
+    // as <install name="" as=""/>
+    $relativepath = $file->name;
+    // get the path as specified in the <contents> <file> tag
+    // This is the same as $file->name if no <install as> tags exist
+    $originalpath = $file->packagedname;
+
+    // get the tasks associated with this file
+    $tasks = file->tasks;
+    // iterate over the tasks
+    $lastversion = '1.0.0'; // last version of $package that was installed, or null
+    foreach (new \PEAR2\Pyrus\Package\Creator\TaskIterator($tasks, $package,
+                                                          \PEAR2\Pyrus\Task\Common::INSTALL, $lastversion)
+              as $name => $task) {
+        // $name is the task name, $task is the actual task object, which can be
+        // processed with $task->startSession(resource $fp, '/full/final/install/path');
+    }
+}
+
+// *************** packaging iteration ***************
+$packagingloc = '/tmp/example';
+foreach ($package->packagingcontents as $packageat => $info) {
+    // $packageat is the location in which the file will reside in package.xml,
+    // which is often the same relative path it will end up being installed into
+    // $info is an array representing the actual file XML
+    $name = $info['attribs']['name'];
+    // this retrieves an open file pointer to the file in order to process it
+    $contents = $package->getFileContents($info['attribs']['name'], true);
+    if (!file_exists(dirname($packagingloc . DIRECTORY_SEPARATOR . $packageat))) {
+        mkdir(dirname($packagingloc . DIRECTORY_SEPARATOR . $packageat), 0777, true);
+    }
+    $fp = fopen($packagingloc . DIRECTORY_SEPARATOR . $packageat, 'wb+');
+    ftruncate($fp, 0);
+    // copy from the source directory to the packaging location
+    stream_copy_to_stream($contents, $fp);
+    fclose($contents);
+    rewind($fp);
+    $lastversion = '1.0.0'; // last version of $package that was installed, or null
+    foreach (new \PEAR2\Pyrus\Package\Creator\TaskIterator($info, $package,
+                                                          \PEAR2\Pyrus\Task\Common::PACKAGE,
+                                                          $lastversion) as $task) {
+        // do pre-processing of file contents
+        try {
+            $task->startSession($fp, $packageat);
+        } catch (\Exception $e) {
+            // handle task processing problems here
+        }
+    }
+    fclose($fp);
+}
+
+// *************** traversing deep tree iteration ***************
+foreach ($package->contents as $file) {
+    // retrieve actual file path to be used with fopen
+    $path = $package->getFilePath($file->name);
+    // retrieve open file pointer
+    $fp = $package->getFileContents($file->name, true);
+    // retrieve file contents as string
+    $contents = $package->getFileContents($file->name);
+
+    // get file properties (XML attributes of the <file> tag)
+    $role = $file->role;
+    if ($file->md5sum) {
+        $md5sum = $file->md5sum;
+    }
+
+    // unlike installcontents, <install as> tags are not applied, so
+    // $file->name == $file->packagedname
+    $relativepath = $file->name;
+}
+
+// *************** general purpose iteration ***************
+foreach ($package->files as $relativepath => $infoarray) {
+    // $relativepath is the same as $file->name in the other examples
+    // $infoarray is the same array returned by the packagingcontents
+    // iterator
+}
+
+// *************** retrieving post-install scripts ***************
+foreach ($package->scriptfiles as $file) {
+    // $file is the same object returned by the installcontents iterator
+}
+?>
+     ]]>
+    </programlisting>
+   </para>
+  </section>
+  <section xml:id="pyrus.extending.packagefile.files.setting">
+   <info><title>Adding new files, changing file properties</title></info>
+   <para>
+    Finally, adding files to package.xml is done by directly setting an
+    index in the <literal>files</literal> property.  Properties are
+    manipulated with the <function>setFileAttribute</function> method.
+   </para>
+   <para>
+    <programlisting role="php">
+     <![CDATA[
+<?php
+$package->files['path/to/file.php'] = array(
+    'role' => 'php'
+);
+$package->setFileAttribute('path/to/file.php', 'md5sum', md5('hi'));
+
+// adding a task to a file
+$replace = $package->getTask('path/to/file.php', 'replace');
+$replace->setReplacement('package-info', '@API-VER@', 'api-version');
+$package->setFileAttribute('path/to/file.php', 'tasks:replace', $replace);
+?>
+     ]]>
+    </programlisting>
+   </para>
+  </section>
+  <section xml:id="pyrus.extending.packagefile.files.release">
+   <info><title>Working with &lt;release&gt; sections</title></info>
+   <para>
+    Releases are documented <link linkend="guide.developers.package2.release">here</link>,
+    you should familiarize yourself with this before continuing.
+   </para>
+   <para>
+    Release properties can be accessed with the following syntax:
+   </para>
+   <para>
+    <programlisting role="php">
+     <![CDATA[
+<?php
+// setting release type
+$package->type = 'php';
+$package->type = 'extsrc';
+$package->type = 'zendextsrc';
+$package->type = 'bin';
+$package->type = 'zendextbin';
+$package->type = 'bundle';
+
+// for types other than bundle
+$package->release[0]->installconditions['php']->min('5.2.0');
+// defaults to "min"
+$package->release[0]->installconditions['php'] = '5.2.0';
+
+// defaults to "pattern"
+$package->release[0]->installconditions['arch'] = 'i386';
+$package->release[0]->installconditions['arch']->pattern('i386')->conflicts();
+
+// defaults to "name"
+$package->release[0]->installconditions['os'] = 'windows';
+
+// defaults to existing
+$package->release[0]->installconditions['extension'][0]->name('PDO');
+$package->release[0]->installconditions['extension'][0]->name('PDO')->min('1.0');
+$package->release[0]->ignore('path/to/file.ext');
+$package->release[0]->installAs('path/to/anotherfile.ext', 'new/name.php');
+
+// add another release
+$i = count($package->release);
+$package->release[$i]->ignore('path/to/anotherfile.ext');
+$package->release[$i]->installAs('path/to/file.ext', 'new/name.php');
+
+// remove release
+unset($package->release[1]);
+
+// remove all releases
+$package->release = null;
+
+// retrieve the release that will be used on this system
+$release = $package->installrelease;
+?>
+     ]]>
+    </programlisting>
+   </para>
+  </section>
+ </section>
+ <section xml:id="pyrus.extending.packagefile.pecl">
+  <info><title>Accessing PECL properties</title></info>
+  <para>
+   Accessing PECL properties is relatively simple, here is an example
+   illustrating them:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$package->type = 'extsrc'; // extension source release
+$package->configureoption['foothing']->prompt = 'Value for thing';
+$package->configureoption['with-zlib']->prompt('Support zlib compression?')->default('yes');
+
+$package->providesextension = 'foo';
+
+$package->type = 'extbin'; // extension binary package release
+$package->srcpackage = 'pecl.php.net/foo';
+// for packages that are binary releases of URI-based packages
+$package->srcuri = 'http://example.com/foo-1.2.3';
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.packagefile.custom">
+  <info><title>Accessing usesrole, usestask and compatible tags</title></info>
+  <para>
+   When declaring that a package.xml uses a custom role or task, this code should
+   be used:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$package->files['example/file.php'] = array(
+    'role' => 'myrole',
+    'tasks:mytask' => '',
+);
+
+$package->usesrole['myrole']->package('MyRole')->channel('mypear.example.com');
+$package->usestask['mytask']->package('MyTask')->channel('mypear.example.com');
+
+// for uri-based packages:
+$package->usesrole['myrole']->uri('http://my.example.com/MyRole-1.2.3');
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   If you are unfamiliar with the <literal>&lt;compatible&gt;</literal> tag,
+   you should first read the documentation on its use
+   <link linkend="guide.developers.package2.compatible">here</link>.  Creating
+   and accessing compatible tags in Pyrus is as easy as:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$package->compatible['pear.php.net/Archive_Tar']
+        ->min('1.2')
+        ->max('1.3.0')
+        ->exclude('1.2.1', '1.2.2');
+
+// remove a compatibility declaration
+unset($package->compatible['pear.php.net/Archive_Tar']);
+
+// test for existence of compatible declaration
+isset($package->compatible['pear.php.net/Archive_Tar']);
+
+// display info:
+echo $package->compatible['pear.php.net/Archive_Tar']->min;
+
+// iterating over compatible packages
+foreach ($package->compatible as $package => $info) {
+    echo "Package :", $package, "\n";
+    echo "min: ", $info->min, "\n";
+    echo "max: ", $info->max, "\n";
+    if (isset($info->exclude)) {
+        echo "Excludes versions ",
+        foreach ($info->exclude as $version) {
+            echo ' ', $version, "\n";
+        }
+    }
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+</section>

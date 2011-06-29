@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user">
+ <info><title>Pyrus user configuration variables</title></info>
+
+ <section xml:id="pyrus.configuration.user.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The user configuration file is always stored in the user's personal directory,
+   the home directory on unix, and <literal>My Documents</literal> on Windows.
+   For a unix user with username <literal>user</literal>, the user configuration
+   file is stored in <literal>/home/user/.pear/pearconfig.xml</literal>.  For
+   a Windows user, the configuration is stored in
+   <literal>My Documents\pear\pearconfig.xml</literal>.  The file is saved in
+   XML format and can be hand-edited if necessary.
+  </para>
+  <para>
+   Unlike the system configuration file, the user configuration file is always
+   saved when an operation that writes to disk is called, such as installing
+   a package.  On startup, Pyrus uses the configuration file's existence to
+   determine whether it is being executed for the first time, and if so, prompts
+   the user to initialize a few default settings such as the PEAR path.
+  </para>
+  <para>
+   There are two kinds of user configuration variables, installation-wide variables
+   such as <literal>verbose</literal>, and channel-specific variables such as
+   <literal>openssl_cert</literal>.  Channel-specific variables can have different
+   values for different channels.  This allows setting a different certificate
+   for each channel, for instance.  The channel name is used as a tag, with
+   non-XML friendly characters translated into simple mnemonics (such as
+   <literal>.</literal> becoming <literal>DOT</literal>).
+  </para>
+  <para>
+   Here is a sample user configuration file (with line breaks added for readability):
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<?xml version="1.0"?>
+<pearconfig version="1.0">
+ <default_channel>pear2.php.net</default_channel>
+ <auto_discover>0</auto_discover>
+ <http_proxy></http_proxy>
+ <cache_dir>/home/user/testpear/cache</cache_dir>
+ <temp_dir>/home/user/testpear/temp</temp_dir>
+ <verbose>1</verbose>
+ <paranoia>2</paranoia>
+ <preferred_state>stable</preferred_state>
+ <umask>0022</umask>
+ <cache_ttl>3600</cache_ttl>
+ <my_pear_path>/home/user/testpear:/usr/local/lib/php</my_pear_path>
+ <plugins_dir>/home/user/.pear</plugins_dir>
+ <openssl_cert>
+  <pear2DOTphpDOTnet>/home/user/mykey.p12</pear2DOTphpDOTnet>
+ </openssl_cert>
+ <handle>
+  <pear2DOTphpDOTnet>cellog</pear2DOTphpDOTnet>
+ </handle>
+</pearconfig>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ 
+ &pyrus.configuration.user.autodiscover;
+ &pyrus.configuration.user.cachedir;
+ &pyrus.configuration.user.cachettl;
+ &pyrus.configuration.user.defaultchannel;
+ &pyrus.configuration.user.downloaddir;
+ &pyrus.configuration.user.handle;
+ &pyrus.configuration.user.httpproxy;
+ &pyrus.configuration.user.mypearpath;
+ &pyrus.configuration.user.opensslcert;
+ &pyrus.configuration.user.password;
+ &pyrus.configuration.user.pluginsdir;
+ &pyrus.configuration.user.preferredmirror;
+ &pyrus.configuration.user.preferredstate;
+ &pyrus.configuration.user.tempdir;
+ &pyrus.configuration.user.umask;
+ &pyrus.configuration.user.username;
+ &pyrus.configuration.user.verbose;
+ &pyrus.configuration.user.paranoia;
+</section>

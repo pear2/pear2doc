@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.m-maintainer-infoxml"><info><title>info.xml (maintainer)</title></info>
+ 
+ <synopsis>Information about a maintainer</synopsis>
+
+ <para>
+  Contains maintainer information like handle
+  (nickname, <literal>&lt;h&gt;</literal>),
+  full name (<literal>&lt;n&gt;</literal>)
+  and URL (<literal>&lt;u&gt;</literal>) to the developer's homepage.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.m-maintainer-infoxml.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>m/${maintainernick}/info.xml</filename>
+  </para>
+  <para>
+   FIXME: lowercasednick?
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.m-maintainer-infoxml.example"><info><title>Example</title></info>
+  
+  <programlisting role="xml"><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<m xmlns="http://pear.php.net/dtd/rest.maintainer"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://pear.php.net/dtd/rest.maintainer
+                       http://pear.php.net/dtd/rest.maintainer.xsd"
+>
+ <h>thebrain</h>
+ <n>The Brain</n>
+ <u>http://pinkyandthebrain.example.org</u>
+</m>]]></programlisting>
+ </section>
+
+</section>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system.mkdir">
+   <refnamediv>
+    <refname>System::mkDir</refname>
+    <refpurpose>create directories</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once "System.php";
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool <function>System::mkDir</function></funcdef>
+      
+      <paramdef choice="req">
+       string <parameter>$args</parameter>
+      </paramdef>
+      
+                  
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.system.mkdir.desc">
+    &title.desc;
+    <para>
+     Creates directories.
+    </para>
+   </refsection>   
+   
+   <refsection xml:id="core.pear.system.mkdir.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      
+      <listitem>
+       <para>
+        <parameter>string $args</parameter> -
+        the name of the directory/-ies to create
+       </para>
+      </listitem>      
+            
+     </itemizedlist>
+    </para>
+   </refsection>   
+      
+         
+   <refsection xml:id="core.pear.system.mkdir.return">
+    &title.returns;
+    <para>
+     <parameter>bool</parameter> - &true; for success
+    </para>
+   </refsection>      
+            
+               
+                
+   <refsection xml:id="core.pear.system.mkdir.note">
+    &title.note;  
+                 
+    &note.canstatic;
+    
+                         
+                             
+  <simpara/>
+   </refsection>    
+   <refsection xml:id="core.pear.system.mkdir.see">
+    &title.see;
+    <para>
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.man;mkdir"><command>mkdir</command> man page</link>
+    </para>
+   </refsection>         
+                   
+  </refentry>

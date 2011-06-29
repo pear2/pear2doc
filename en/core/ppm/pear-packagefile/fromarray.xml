@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.fromarray">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::fromArray</function>
+  </refname>
+  <refpurpose>Return a packagefile object from its toArray() method</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     PEAR_PackageFile_v1|PEAR_PackageFile_v2&amp;
+     <function>PEAR_PackageFile::fromArray</function>
+    </funcdef>
+    <paramdef choice="req">
+     array
+     <parameter>$arr</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.fromarray.desc">
+  &title.desc;
+  <warning>
+   <para>
+    WARNING: no validation is performed, the array is assumed to be valid,  always parse from xml if you want validation.
+   </para>
+  </warning>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromarray.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$arr</parameter>
+     </term>
+     <listitem>
+      <para>
+       Contents of a previously parsed package.xml object.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromarray.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromarray.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

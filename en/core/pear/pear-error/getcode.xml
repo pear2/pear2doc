@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.getcode">
+   <refnamediv>
+    <refname>PEAR_Error::getCode()</refname>
+    <refpurpose>get error code</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>integer <function>PEAR_Error::getCode</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.getcode.desc">
+    &title.desc;
+    <para>
+     Returns the error code coming with the error object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.getcode.return">
+    &title.returns;
+    <para>
+     <parameter>integer</parameter> - 
+     error number
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear-error.getcode.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

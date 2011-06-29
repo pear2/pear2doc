@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.pear">
+   <refnamediv>
+    <refname>PEAR::PEAR()</refname>
+    <refpurpose>constructor &pdevrel;</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR::PEAR</function></funcdef>
+      <paramdef choice="opt">
+       string <parameter>
+        $errorClass = PEAR_Error</parameter>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.pear.desc">
+    &title.desc;
+    <para>
+     If you want to use the deconstructor functionality provide by PEAR,
+     you have to call <function>$this-&gt;PEAR</function> in the 
+     constructor of <emphasis>your</emphasis> class.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.pear.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>string $errorClass</parameter> - the name of the error class
+        to use.
+       </para>
+      </listitem>      
+     </itemizedlist>
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.pear.note">
+    &title.note;
+    &note.canstatic;    
+   </refsection>      
+  </refentry>

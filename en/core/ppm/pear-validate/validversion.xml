@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validversion">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validVersion</function>
+  </refname>
+  <refpurpose>
+   Determine whether a version is a properly formatted version number that can
+   be used by <function>version_compare</function>
+</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_Validate::validVersion</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$ver</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validversion.desc">
+  &title.desc;
+  <para>
+   Use this method to test the validity of a version number string.  All
+   versions must be testable with PHP's <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.manual.auto;version_compare"><function>version_compare</function></link>.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validversion.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$ver</parameter>
+     </term>
+     <listitem>
+      <para>
+       Version string
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validversion.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validversion.final"><info><title>Final</title></info>
+  
+  <para>
+   <emphasis>final</emphasis> - this method should not be overridden.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validversion.note">
+  &title.note;
+  &note.shouldstatic;
+</refsection>
+</refentry>

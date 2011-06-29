@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.license">
+ <refnamediv>
+  <refname>&lt;license&gt;</refname>
+  <refpurpose>specifying software license and optional reference to license text</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.license.purpose"><info><title>Documenting release license</title></info>
+  
+  <para>
+   In package.xml 1.0, the license tag only contained the name of the license.  In
+   package.xml 2.0, there are two optional attributes, &quot;uri&quot; and &quot;filesource&quot;.
+   &quot;uri&quot; contains a uri that identifies the text of a license, such as
+   &quot;&url.license.php;&quot; for the PHP License.  &quot;filesource&quot;
+   can be used to specify a LICENSE file within an actual package that contains the text of
+   the license.
+  </para>
+  <para>
+  </para>
+ </refsection>
+ </refentry>

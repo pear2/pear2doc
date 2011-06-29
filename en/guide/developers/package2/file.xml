@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook"
+  version="lillet" xml:id="guide.developers.package2.file"
+>
+  <refnamediv>
+    <refname>&lt;file&gt;</refname>
+
+    <refpurpose>documenting a file in the &lt;contents&gt; tag</refpurpose>
+  </refnamediv>
+
+  <refsection xml:id="guide.developers.package2.file.purpose">
+    <info>
+      <title>Describing files</title>
+    </info>
+
+    <para>
+     The <tag class="starttag">file</tag> tag describes a file in a
+     directory in the package sources.
+     File tags may only occur as children of
+     <tag class="starttag"><link linkend="guide.developers.package2.dir">dir</link></tag>
+     tags.
+    </para>
+
+    <para>
+     <link linkend="guide.developers.package2.tasks">File Tasks</link>
+     can be used to modify files at package time or at installation.
+    </para>
+
+    <refsection xml:id="guide.developers.package2.file.attributes">
+      <info>
+        <title>Attributes</title>
+      </info>
+
+      <table xml:id="guide.developers.package2.file.attributes.required">
+        <title>Required attributes</title>
+
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry>Attribute name</entry>
+
+              <entry>Description</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><literal>name</literal></entry>
+
+              <entry>Name of the file in the sources</entry>
+            </row>
+
+            <row>
+              <entry><literal>role</literal></entry>
+
+              <entry>
+               Type of the file.
+               See <link linkend="guide.developers.package2.file.roles">roles</link>.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <table xml:id="guide.developers.package2.file.attributes.optional">
+        <title>Optional attributes</title>
+
+        <tgroup cols="2">
+          <thead>
+            <row>
+              <entry>Attribute name</entry>
+
+              <entry>Description</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><literal>baseinstalldir</literal></entry>
+
+              <entry>Relative location where all files and subdirectories will
+              be installed</entry>
+            </row>
+
+            <row>
+              <entry><literal>md5sum</literal></entry>
+
+              <entry>
+               MD5 hash about file contents.This is automatically
+               generated when executing <command>pear package</command>, so you
+               should never set it manually.
+              </entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <note>
+        <para>
+         Previous optional attributes (<filename>package.xml</filename> v1)
+         <tag class="attribute">platform</tag> and
+         <tag class="attribute">install-as</tag> have been replaced by the
+         <link linkend="guide.developers.package2.release.purpose">release tags</link>.
+        </para>
+
+        <para>
+         Specifically, <tag class="starttag">install</tag> is used to
+         specify <tag class="attribute">install-as</tag>, and the
+         <tag class="starttag">ignore</tag> tag can be used in conjunction
+         with <tag class="starttag">installconditions</tag> to exclude packages from
+         being installed on particular platforms.
+        </para>
+      </note>
+    </refsection>
+
+    <refsection xml:id="guide.developers.package2.file.roles">
+      <info>
+        <title>Roles</title>
+      </info>
+
+      <para>
+       The <tag class="attribute">role</tag> attribute in the
+       <tag class="starttag">file</tag> tag defines what type the file has and in
+       which location it should be installed.
+      </para>
+
+      <table>
+        <title>Possible values</title>
+
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry>Role value</entry>
+
+              <entry>Description</entry>
+
+              <entry>Destination dir</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><tag class="attvalue">php</tag></entry>
+
+              <entry>PHP source file</entry>
+
+              <entry><varname>$php_dir</varname> (your include path)</entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">doc</tag></entry>
+
+              <entry>Documentation or example file</entry>
+
+              <entry><filename>$doc_dir/Package_Name/</filename></entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">data</tag></entry>
+
+              <entry>Package related data files (graphics, data tables, CSS
+              etc.)</entry>
+
+              <entry><varname>$data_dir</varname><filename>/Package_Name/</filename></entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">www</tag></entry>
+
+              <entry>Files for the HTTPd document root</entry>
+
+              <entry><varname>$www_dir</varname><filename>/</filename></entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">test</tag></entry>
+
+              <entry>Package related test files (unit-tests etc)</entry>
+
+              <entry><varname>$test_dir</varname><filename>/Package_Name/</filename></entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">script</tag></entry>
+
+              <entry>Package related shell scripts</entry>
+
+              <entry>the PHP binary directory (<varname>$bin_dir</varname>) or
+              <constant>PHP_PEAR_BIN_DIR</constant> if defined</entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">ext</tag></entry>
+
+              <entry>Extension, dynamically loadable library</entry>
+
+              <entry>the PHP extension directory (<varname>$ext_dir</varname>)
+              or <constant>PHP_PEAR_EXTENSION_DIR</constant> if
+              defined</entry>
+            </row>
+
+            <row>
+              <entry><tag class="attvalue">src</tag> / <tag class="attvalue">extsrc</tag></entry>
+
+              <entry>C or C++ source code</entry>
+
+              <entry>not copied directly - used to build a extension</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <para>
+       Directory locations like <varname>$php_dir</varname> are
+       configurable in PEAR. <!--You can use
+       <command>pear <link linkend="guide.users.commandline.config">config-show</link></command>
+       or
+       <command>pear <link linkend="guide.users.commandline.config">config-get</link> php_dir</command>
+       to retrieve their values.-->
+      </para>
+    </refsection>
+
+    <refsection xml:id="guide.developers.package2.file.examples">
+      <info>
+        <title>Examples</title>
+      </info>
+
+      <programlisting><![CDATA[ <contents>
+  <dir name="/">
+   <dir name="examples">
+    <!-- gets installed as $doc_dir/Package_Name/examples/authors.php -->
+    <file name="authors.php" role="doc" />
+    <file name="authors.tpl" role="doc" />
+    <file name="README"      role="doc" />
+   </dir>
+
+   <dir name="HTML">
+    <dir name="Template">
+     <!-- gets installed as $php_dir/HTML/Template/PHPLIB.php -->
+     <file name="PHPLIB.php"     role="php" />
+     <dir  name="PHPLIB">
+      <file name="Generator.php" role="php" />
+      <file name="Helper.php"    role="php" />
+      <file name="Tool.php"      role="php" />
+      <file name="Validator.php" role="php" />
+     </dir>
+    </dir>
+   </dir>
+   <dir name="tests">
+    <file name="AllTests.php"      role="test" />
+    <file name="GeneratorTest.php" role="test" />
+    <file name="HelperTest.php"    role="test" />
+    <file name="ValidatorTest.php" role="test" />
+   </dir>
+  </dir>
+ </contents>]]></programlisting>
+    </refsection>
+  </refsection>
+</refentry>

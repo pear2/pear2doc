@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-builder.pear-builder">
+   <refnamediv>
+    <refname><function>PEAR_Builder::PEAR_Builder</function></refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+             require_once 'PEAR/builder.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void       <function>PEAR_Builder::PEAR_Builder</function></funcdef>
+      <paramdef choice="req">object <parameter>&amp;$ui</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-builder.pear-builder.desc">
+     &title.desc;
+     <para>PEAR_Builder constructor</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-builder.pear-builder.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.object;
+         <parameter>&amp;$ui</parameter>
+       </term>      
+       <listitem>
+        <para>
+                user interface object (instance of <classname>PEAR_Frontend_*</classname>)
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-builder.pear-builder.note">
+    &title.note;
+    &note.canstatic;
+   </refsection>
+</refentry>

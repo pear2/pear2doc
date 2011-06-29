@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.staticgeterrors">
+ <refnamediv>
+  <refname><function>PEAR_ErrorStack::staticGetErrors</function></refname>
+  <refpurpose>
+   Get a list of all errors since last purge, 
+   organized by package
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>&type.array; 
+     <function>PEAR_ErrorStack::staticGetErrors</function>
+    </funcdef>
+    <paramdef choice="opt">
+     &type.bool;
+     <parameter> $purge</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.string;|false
+     <parameter> $level</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.bool;
+     <parameter> $merge</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     &type.array;
+     <parameter> 
+      
+       $sortfunc = array('PEAR_ErrorStack', '_sortErrors')
+      
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticgeterrors.bcwarning"><info><title>Backwards Compatibility Warning</title></info>
+  
+   <warning>
+    <para>
+     As of PEAR 1.3.2, 
+     the second parameter is a new parameter <varname>$level</varname>.  
+     
+     Any code that relies on $merge being the second parameter will break.
+    </para>
+   </warning>
+  </refsection>
+  <refsection xml:id="core.pear.pear-errorstack.staticgeterrors.desc">
+   &title.desc;
+   <para>
+    Static version of 
+    <link linkend="core.pear.pear-errorstack.geterrors">
+     <function>PEAR_ErrorStack::getErrors</function>
+    </link>, 
+    returns all errors from all singleton stacks.
+   </para>
+  </refsection>
+  <refsection xml:id="core.pear.pear-errorstack.staticgeterrors.param">
+   &title.param;
+   <para>
+    <variablelist>
+     <varlistentry>
+      <term>
+       &type.bool;
+       <parameter>$purge</parameter>
+      </term>
+      <listitem>
+       <para>
+         Set to purge the error stack of existing errors
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$level</parameter>
+       </term>
+       <listitem>
+      <para>
+       Level name to check for a particular severity. 
+       
+       Use this to determine whether only a particular
+       class of errors has occurred, 
+       such as whether any warnings have occurred 
+       
+       (errors will be ignored)
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$merge</parameter>
+     </term>
+     <listitem>
+      <para>
+       Set to return a flat array, not organized by package
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$sortfunc</parameter>
+     </term>
+     <listitem>
+      <para>
+       Function used to sort a merged array 
+       - default sorts by time, and should be good for most cases
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticgeterrors.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticgeterrors.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

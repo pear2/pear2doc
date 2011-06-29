@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.validate">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::validate</function>
+  </refname>
+  <refpurpose>Validate channel information.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>PEAR_ChannelFile::validate</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.validate.desc">
+  &title.desc;
+  <para>
+   Specific errors can be retrieved post-validation with the
+   <link linkend="core.ppm.pear-channelfile.geterrors"><function>getErrors</function></link>
+   method.  Errors are stored by the <link linkend="core.pear.pear-errorstack"><classname>PEAR_ErrorStack</classname></link> class, more
+   information on the format of the array can be found in the documentation for PEAR_ErrorStack.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.validate.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.validate.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

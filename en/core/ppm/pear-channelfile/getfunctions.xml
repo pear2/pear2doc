@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getfunctions">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getFunctions</function>
+  </refname>
+  <refpurpose>Retrieve a list of all xmlrpc/soap functions</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>array|false</replaceable>
+     <function>PEAR_ChannelFile::getFunctions</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$protocol</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunctions.desc">
+  &title.desc;
+  <para>
+   This retrieves an array of all defined <literal>xmlrpc</literal> and <literal>soap</literal>
+   functions.  Use <link linkend="core.ppm.pear-channelfile.getbaseurl"><function>getBaseURL</function></link>
+   to access <literal>rest</literal> base URLs.
+  </para>
+  <para>
+   The format of each function is the same as is returned by <link linkend="core.ppm.pear-channelfile.getfunction"><function>getFunction</function></link>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunctions.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$protocol</parameter>
+     </term>
+     <listitem>
+      <para>protocol type (xmlrpc, soap)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>Mirror name</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunctions.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getfunctions.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

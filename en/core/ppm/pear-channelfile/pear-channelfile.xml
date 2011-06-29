@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.pear-channelfile">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>PEAR_ChannelFile::PEAR_ChannelFile</function>
+  </refname>
+  <refpurpose>PEAR_ChannelFile</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void constructor
+     <function>PEAR_ChannelFile::PEAR_ChannelFile</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.pear-channelfile.desc">
+  &title.desc;
+  <para>
+   Simply creates the local error stack for the PEAR_ChannelFile object.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.pear-channelfile.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.pear-channelfile.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

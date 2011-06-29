@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-exception"><info><title>PEAR_Exception - PHP 5 and versions above</title><titleabbrev>PEAR_Exception</titleabbrev></info>
+ 
+ 
+ <para>
+  <classname>PEAR_Exception</classname> is the recommended error handling solution for PHP 5-based
+  packages in PEAR.  PEAR_Exception is a lightweight wrapper above the
+  built-in <classname>Exception</classname> class in PHP 5 that provides the
+  ability to specify causes for errors, register observers, and many more
+  features.
+ </para>
+<!-- Examples should always show recommended practice
+ <para>Example usage (demonstration only, not recommended practice):
+  <programlisting role="php">
+<![CDATA[
+<?php
+require_once 'PEAR/Exception.php';
+class MyPackage_Exception extends PEAR_Exception {}
+try {
+    throw new PEAR_Exception('exception 1');
+} catch (MyPackage_Exception $e) {
+	echo 'this is not executed';
+} catch (PEAR_Exception $e) {
+	echo 'this is executed';
+}
+try {
+    throw new MyPackage_Exception('exception 2');
+} catch (MyPackage_Exception $e) {
+	echo 'this is executed';
+} catch (PEAR_Exception $e) {
+	echo 'this is not executed';
+}
+?>
+]]>
+  </programlisting>
+ </para>
+ -->
+ <para>
+  Exceptions in general should be used only for exceptional circumstances - for
+  error conditions that require termination of execution.  PEAR_Exception should
+  mainly be used for transmitting error information outside the existing package,
+  and not for normal flow control.  Use <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.manual.auto;Control+Structures">
+  Control Structures</link> in favor of exceptions wherever possible.
+ </para>
+
+&core.pear.pear-exception.intro;
+</section>

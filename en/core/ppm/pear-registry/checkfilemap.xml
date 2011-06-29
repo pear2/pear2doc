@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.checkfilemap">
+   <refnamediv>
+    <refname><function>PEAR_Registry::checkFileMap</function></refname>
+    <refpurpose>Test whether a file belongs to a package</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Registry::checkFileMap</function></funcdef>
+      <paramdef choice="req">string <parameter>$path</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.checkfilemap.desc">
+     &title.desc;
+     <para>Test whether a file belongs to a package.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.checkfilemap.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$path</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file path, absolute or relative to the pear install dir
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.checkfilemap.return">
+    &title.returns;
+
+    <para>
+     <parameter>string</parameter> - 
+     name of the package the file belongs to, or an empty 
+     string if the file does not belong to an installed package
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.checkfilemap.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.checkfilemap.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

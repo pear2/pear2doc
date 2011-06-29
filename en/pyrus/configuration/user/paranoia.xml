@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.paranoia">
+ <info><title>verbose</title></info>
+
+ <section xml:id="pyrus.configuration.user.paranoia.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>paranoia</literal> setting controls how Pyrus handles automatic upgrades
+   to new versions of packages.  The <link linkend="guide.users.concepts.api">API</link>
+   version of the installed package is compared against the API version of remote
+   packages, and chooses a release that is compatible with the current version
+   based on the paranoia level.  This setting does not affect upgrades of
+   local packages, only those retrieved from a remote PEAR channel server.
+  </para>
+  <para>
+   The paranoia setting is a numeric setting with levels <literal>1</literal>
+   to <literal>4</literal> supported, anything above <literal>4</literal> is
+   automatically converted to <literal>4</literal>.  The levels work as follows:
+  </para>
+  <para>
+   <orderedlist>
+    <listitem> <!-- 1 -->
+     <para>
+      API version is ignored, only package stability and PHP version compatibility
+      is used to determine which package to download for installation.
+     </para>
+    </listitem>
+    <listitem> <!-- 2 -->
+     <para>
+      This is the default setting, and specifies that backwards compatibility
+      must be maintained.
+     </para>
+     <para>
+      This is performed by checking that the
+      API version first digit does not change.  Thus a package with
+      API version of <literal>1.2.3</literal> cannot upgrade to a new package
+      with API version <literal>2.0.0</literal>.  Upgrades are allowed
+      to versions such as <literal>1.2.4</literal> or <literal>1.3.0</literal>.
+     </para>
+    </listitem>
+    <listitem> <!-- 3 -->
+     <para>
+      This is a strict setting, only allowing security and other API bugfixes.
+     </para>
+     <para>
+      This is performed by checking that the API version's first and second
+      digits do not change.  Thus a package with
+      API version of <literal>1.2.3</literal> cannot upgrade to a new package
+      with API version <literal>2.0.0</literal>.  Upgrades are allowed
+      to versions such as <literal>1.2.4</literal>, but not to
+      <literal>1.3.0</literal>.
+     </para>
+    </listitem>
+    <listitem> <!-- 4 -->
+     <para>
+      Do not allow any API changes
+     </para>
+     <para>
+      This is the most paranoid setting, and prevents upgrading to any package
+      that changes API version whatsoever.
+     </para>
+    </listitem>
+   </orderedlist>
+  </para>
+  <para>
+   If using pyrus.phar, the setting can also be changed with the <literal>-p</literal>
+   command-line option.  This example sets paranoia temporarily to 1:
+   <screen>php pyrus.phar -p install PackageName</screen>
+   This example sets paranoia temporarily to 4:
+   <screen>php pyrus.phar -pppp install PackageName</screen>
+  </para>
+ </section>
+</section>

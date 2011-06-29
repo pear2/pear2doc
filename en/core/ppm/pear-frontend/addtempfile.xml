@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-frontend.addtempfile">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Frontend::addTempFile</function>
+  </refname>
+  <refpurpose>This can be overridden to allow session-based temporary file management</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Frontend.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Frontend::addTempFile</function>
+    </funcdef>
+    <paramdef choice="req">
+     mixed
+     <parameter>$file</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-frontend.addtempfile.desc">
+  &title.desc;
+  <para>By default, all files are deleted at the end of a session.  The web installer  needs to be able to sustain a list over many sessions in order to support  user interaction with install scripts</para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.addtempfile.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$file</parameter>
+     </term>
+     <listitem>
+      <para/>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.addtempfile.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-frontend.addtempfile.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

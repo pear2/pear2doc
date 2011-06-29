@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency.checkpackage">
+   <refnamediv>
+    <refname><function>PEAR_Dependency::checkPackage</function></refname>
+    <refpurpose>check Package dependency</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Dependency.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed       <function>PEAR_Dependency::checkPackage</function></funcdef>
+      <paramdef choice="req">mixed <parameter>&amp;$errmsg</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$name</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$req</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">string <parameter>$relation = 'has'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-dependency.checkpackage.desc">
+     &title.desc;
+     <para>Package dependencies check method</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkpackage.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>&amp;$errmsg</parameter>
+       </term>      
+       <listitem>
+        <para>
+         this variable will contains an error message, if
+         check fail           
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$name</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Name of the package to test
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$req</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Required package version to compare with        
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$relation</parameter>
+       </term>      
+       <listitem>
+        <para>
+         How to compare versions with eachother
+        </para>
+       </listitem>
+      </varlistentry>
+
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkpackage.return">
+    &title.returns;
+
+    <para>
+   <parameter>mixed</parameter> - 
+     &false; if dependency could be resolved
+     <emphasis>successfully(!)</emphasis>; or an
+     <constant>PEAR_DEPENDENCY_*</constant> constant
+     in case of unresolved dependency.
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-dependency.checkpackage.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

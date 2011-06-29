@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.setlogger">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::setLogger</function>
+  </refname>
+  <refpurpose>
+   Set up a PEAR::Log object for this error stack
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.void;
+     <function>PEAR_ErrorStack::setLogger</function>
+    </funcdef>
+    <paramdef choice="req">
+     Log 
+     <parameter>&amp;$log</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.setlogger.desc">
+  &title.desc;
+  <para>
+   Set a PEAR::Log object to use 
+   for a specific error stack instance
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setlogger.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>Log</type>
+      <parameter>&amp;$log</parameter>
+     </term>
+     <listitem>
+      <para>
+        
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setlogger.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setlogger.note">
+  &title.note;
+  &note.notstatic;
+ </refsection>
+</refentry>

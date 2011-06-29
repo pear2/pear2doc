@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-xmlparser.parse">
+ <refnamediv>
+  <refname>
+   <function>PEAR_XMLParser::parse</function>
+  </refname>
+  <refpurpose>parse</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/XMLParser.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>true|PEAR_Error</replaceable>
+     <function>PEAR_XMLParser::parse</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$data</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-xmlparser.parse.desc">
+  &title.desc;
+  <para>
+   Return an array that matches the XML parsed.  This code is lifted from
+   Stephan Schmidt's <classname>XML_Unserializer</classname>
+   class in the XML_Serializer package.  As such, tags are represented by an associative
+   array.  Multiple tags are represented with a 0-based array of tag contents, and
+   attributes are represented by an array index named <literal>attribs</literal>.
+   If attributes are present, the array index <literal>_contents</literal> is used to
+   hold the contents of the xml tag.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-xmlparser.parse.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$data</parameter>
+     </term>
+     <listitem>
+      <para>xml content</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-xmlparser.parse.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-xmlparser.parse.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

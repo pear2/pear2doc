@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-remote"><info><title>PEAR_Remote</title></info>
+ 
+
+ <para>
+  This is a class for doing remote operations against a
+  PEAR Package Server.
+ </para>
+ <para>
+  Class Trees for <function>PEAR_Remote</function>
+ </para>
+ <para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     PEAR  
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        PEAR_Remote
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </para>
+
+&core.ppm.pear-remote.pear-remote;
+&core.ppm.pear-remote.call;
+
+
+</section>

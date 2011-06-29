@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.pluginsdir">
+ <info><title>plugins_dir</title></info>
+
+ <section xml:id="pyrus.configuration.user.pluginsdir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>plugins_dir</literal> directory is where all Pyrus plugins are
+   installed.  By default, it is the directory in which the user configuration
+   file is stored.
+  </para>
+ </section>
+</section>

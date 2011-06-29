@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getbaseurl">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getBaseURL</function>
+  </refname>
+  <refpurpose>Get the URL to access a base resource.</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>PEAR_ChannelFile::getBaseURL</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$resourceType</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getbaseurl.desc">
+  &title.desc;
+  <para>Hyperlinks in the returned xml will be used to retrieve the proper information  needed.  This allows extreme extensibility and flexibility in implementation</para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getbaseurl.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$resourceType</parameter>
+     </term>
+     <listitem>
+      <para>Resource Type to retrieve</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror name, or false for primary server.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getbaseurl.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getbaseurl.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

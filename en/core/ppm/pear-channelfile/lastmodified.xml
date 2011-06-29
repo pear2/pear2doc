@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.lastmodified">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::lastModified</function>
+  </refname>
+  <refpurpose>This function is used by the channel updater and retrieves a value set by the registry, or the current time if it has not been set</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     string
+     <function>PEAR_ChannelFile::lastModified</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.lastmodified.desc">
+  &title.desc;
+  <para>\
+   This method is used by the <literal>channel-update</literal> command in order to
+   determine whether the local copy of channel.xml is up-to-date.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.lastmodified.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.lastmodified.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

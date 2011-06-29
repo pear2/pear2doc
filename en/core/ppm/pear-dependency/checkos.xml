@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency.checkos">
+   <refnamediv>
+    <refname><function>PEAR_Dependency::checkOS</function></refname>
+    <refpurpose>Check Operating system dependency</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Dependency.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed       <function>PEAR_Dependency::checkOS</function></funcdef>
+      <paramdef choice="req">string <parameter>&amp;$errmsg</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$os</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-dependency.checkos.desc">
+     &title.desc;
+     <para>Operating system  dependencies check method</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkos.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>&amp;$errmsg</parameter>
+       </term>      
+       <listitem>
+        <para>
+         this variable will contains an error message, if
+         check fail         
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$os</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Name of the operating system
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkos.return">
+    &title.returns;
+    <para>
+   <parameter>mixed</parameter> - 
+     &false; if dependency could be resolved
+     <emphasis>successfully(!)</emphasis>; or an
+     <constant>PEAR_DEPENDENCY_*</constant> constant
+     in case of unresolved dependency.
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.checkos.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

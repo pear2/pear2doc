@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.pear-error">
+   <refnamediv>
+    <refname>PEAR_Error::PEAR_Error()</refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Error::PEAR_Error</function></funcdef>
+      <paramdef choice="opt">
+       string <parameter>
+        $message = 'unknown error'</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       integer <parameter>
+        $code</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">
+       integer <parameter>
+       $mode</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">
+       mixed <parameter>
+       $options</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+      <paramdef choice="opt">
+       string <parameter>
+       $userinfo</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.pear-error.desc">
+    &title.desc;
+    <para>
+     Constructor
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-error.pear-error.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>string $message</parameter> -
+        the error message. A brief description of the occured
+        failure or problem.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>string $code</parameter> -
+        the error code. An error specific number.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>integer $mode</parameter> -
+        the error mode
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>mixed $options</parameter> -
+        error mode specific options
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>string $userinfo</parameter> -
+        a string for additional user or debug info
+       </para>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-error.pear-error.note">
+    &title.note;
+    &note.canstatic;
+   </refsection>
+  </refentry>

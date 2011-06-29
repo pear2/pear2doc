@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.r-package-betatxt"><info><title>beta.txt</title></info>
+ 
+ <synopsis>The latest beta version</synopsis>
+
+ <para>
+  The only content of this file is the version number of the latest
+  beta version in pure plain text.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.r-package-betatxt.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/beta.txt</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+  <para>
+   This file does not exist when the package has no beta version.
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.r-package-betatxt.example"><info><title>Example</title></info>
+  
+  <programlisting role="text"><![CDATA[0.1.2]]></programlisting>
+ </section>
+
+</section>

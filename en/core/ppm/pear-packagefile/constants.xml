@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.constants">
+ <refnamediv>
+  <refname>Package PEAR Constants</refname>
+  <refpurpose>Constants defined in and used by PEAR</refpurpose>
+ </refnamediv>
+ <refsection xml:id="core.ppm.pear-packagefile.constants.details"><info><title>All Constants</title></info>
+  
+  <refsection xml:id="core.ppm.pear-packagefile.constants.details.packagefile---php"><info><title>Constants defined in PackageFile.php</title></info>
+   
+   <para>
+    <table><title>Constants defined in PackageFile.php</title>
+     
+     <tgroup cols="3">
+      <thead>
+       <row>
+        <entry>Name</entry>
+        <entry>Value</entry>
+        <entry>Line Number</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>PEAR_PACKAGEFILE_ERROR_INVALID_PACKAGEVERSION</entry>
+        <entry>2</entry>
+        <entry>35</entry>
+       </row>
+       <row>
+        <entry>PEAR_PACKAGEFILE_ERROR_NO_PACKAGEVERSION</entry>
+        <entry>1</entry>
+        <entry>30</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsection>
+ </refsection>
+</refentry>

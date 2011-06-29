@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.setpackagedep">
+   <refnamediv>
+    <refname><function>PEAR_Registry::setPackageDep</function></refname>
+    <refpurpose>Update or insert dependencies of a Package</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed       <function>PEAR_Registry::setPackageDep</function></funcdef>
+      <paramdef choice="req">string <parameter>$package</parameter></paramdef>
+      <paramdef choice="req">string <parameter>$new_version</parameter></paramdef>
+      <paramdef choice="opt">array <parameter>$rel_deps = array()</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.setpackagedep.desc">
+     &title.desc;
+     <para>
+      Update or insert a the dependencies of a package, 
+      prechecking that the package won't break any 
+      dependency in the process. (Dependencies of 
+      type <parameter>'pkg'</parameter> only.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.setpackagedep.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$package</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Package name        
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$new_version</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Version of the Package
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$rel_deps</parameter>
+       </term>      
+       <listitem>
+        <para>
+         Package dependencies        
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.setpackagedep.return">
+    &title.returns;
+
+    <para>
+     <parameter>mixed</parameter> -
+     &true; if no dependencies found; or 
+     array with names of missing or outdated Packages
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.setpackagedep.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.setpackagedep.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

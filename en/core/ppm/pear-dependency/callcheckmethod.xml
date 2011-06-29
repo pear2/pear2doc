@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependency.callcheckmethod">
+   <refnamediv>
+    <refname><function>PEAR_Dependency::callCheckMethod</function></refname>
+    <refpurpose>Maps the xml dependency definition</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Dependency.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void       <function>PEAR_Dependency::callCheckMethod</function></funcdef>
+      <paramdef choice="req">mixed <parameter>&amp;$errmsg</parameter></paramdef>
+      <paramdef choice="req">array <parameter>$opts</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-dependency.callcheckmethod.desc">
+     &title.desc;
+     <para>
+      This method maps the xml dependency definition 
+      to the <classname>PEAR_Dependency</classname>
+      one. 
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-dependency.callcheckmethod.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>&amp;$errmsg</parameter>
+       </term>      
+       <listitem>
+        <para>
+         this variable will contains an error message, if
+         check fail
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.array;
+         <parameter>$opts</parameter>
+       </term>      
+       <listitem>
+        <para>
+         An Array with all Dependency entries from the
+         parsed XML package definition, ie:
+         <programlisting role="php">
+          <![CDATA[
+$opts => Array
+   (
+       ['type'] => 'pkg',
+       ['rel'] => 'ge',
+       ['version'] => '3.4',
+       ['name'] => 'HTML_Common'
+    );
+          ]]>
+         </programlisting>
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-dependency.callcheckmethod.return">
+    &title.returns;
+    <para>
+     <parameter>mixed</parameter> - 
+     &false; if all dependencies could be resolved
+     <emphasis>successfully(!)</emphasis>; or an
+     <constant>PEAR_DEPENDENCY_*</constant> constant
+     in case of unresolved dependencies.
+    </para>
+   </refsection>
+   
+   <refsection xml:id="core.ppm.pear-dependency.callcheckmethod.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

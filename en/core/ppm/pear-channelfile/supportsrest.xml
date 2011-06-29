@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.supportsrest">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::supportsREST</function>
+  </refname>
+  <refpurpose>
+   Determines whether a channel supports any Representational State Transfer
+   (REST) resources
+ </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_ChannelFile::supportsREST</function>
+    </funcdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.supportsrest.desc">
+  &title.desc;
+  <para>
+   This does not check to see which REST resources are supported, use
+   <link linkend="core.ppm.pear-channelfile.getbaseurl"><function>getBaseURL</function></link>
+   to check specific REST resource or resource group support.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.supportsrest.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror server name or &false; for the primary server.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.supportsrest.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.supportsrest.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

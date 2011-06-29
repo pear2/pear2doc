@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.channeladd">
+ <info><title>channel-add - add a channel by its channel.xml</title></info>
+
+ <section xml:id="pyrus.commands.channeladd.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Add a channel to the registry by its local <literal>channel.xml</literal> file.
+   Use <link linkend="pyrus.commands.channeldiscover">channel-discover</link> to
+   add a channel by its name.
+  </para>
+ </section>
+</section>

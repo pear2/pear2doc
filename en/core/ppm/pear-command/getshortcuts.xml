@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command.getshortcuts">
+   <refnamediv>
+    <refname><function>PEAR_Command::getShortcuts</function></refname>
+    <refpurpose>get list of command shortcuts.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/command.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Command::getShortcuts</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-command.getshortcuts.desc">
+     &title.desc;
+     <para>Get the list of command shortcuts.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-command.getshortcuts.return">
+    &title.returns;
+    <para>
+     <parameter>array</parameter> shortcut =&gt; command
+    </para>
+   </refsection>
+ 
+   <refsection xml:id="core.ppm.pear-command.getshortcuts.note">
+    &title.note;
+    &note.shouldstatic;
+   </refsection>
+</refentry>

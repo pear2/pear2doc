@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.phpbin">
+ <info><title>php_bin</title></info>
+
+ <section xml:id="pyrus.configuration.system.phpbin.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   the <literal>php_bin</literal> configuration variable refers to the location
+   of PHP that should be used for installed executable scripts.
+  </para>
+ </section>
+</section>

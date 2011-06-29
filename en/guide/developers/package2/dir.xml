@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook"
+  version="lillet" xml:id="guide.developers.package2.dir"
+>
+  <refnamediv>
+    <refname>&lt;dir&gt;</refname>
+
+    <refpurpose>documenting a directory in the &lt;contents&gt;
+    tag</refpurpose>
+  </refnamediv>
+
+  <refsection xml:id="guide.developers.package2.dir.purpose">
+    <info>
+      <title>Documenting directories</title>
+    </info>
+
+    <para>
+     The <literal>&lt;dir&gt;</literal> tag describes a directory in the
+     package sources.
+     A <literal>&lt;dir&gt;</literal> tag may contain other
+     <literal>&lt;dir&gt;</literal> tags as well as
+     <link linkend="guide.developers.package2.file"><literal>&lt;file&gt;</literal></link>
+     tags.
+    </para>
+
+    <note>
+      <para>All files must be contained in a single top-level &lt;dir&gt; tag.
+      For simple packages, simply use &lt;dir name="/"&gt; as the directory
+      name.</para>
+    </note>
+  </refsection>
+
+  <refsection xml:id="guide.developers.package2.dir.attributes">
+    <info>
+      <title>Attributes</title>
+    </info>
+
+    <table xml:id="guide.developers.package2.dir.attributes.required">
+      <title>Required attributes</title>
+
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry>Attribute name</entry>
+
+            <entry>Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry><literal>name</literal></entry>
+
+            <entry>Name of the directory in the sources</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+    <table xml:id="guide.developers.package2.dir.attributes.optional">
+      <title>Optional attributes</title>
+
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry>Attribute name</entry>
+
+            <entry>Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry><literal>baseinstalldir</literal></entry>
+
+            <entry>Relative location where all files and subdirectories will
+            be installed</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </refsection>
+
+  <refsection xml:id="guide.developers.package2.dir.examples">
+    <info>
+      <title>Examples</title>
+    </info>
+
+    <para>An excerpt of the <literal>&lt;contents&gt;</literal> tag of a real
+    package.xml:</para>
+
+    <programlisting role="xml"><![CDATA[ <contents>
+  <dir name="/">
+   <dir name="examples">
+    <file name="authors.php" role="doc" />
+   </dir>
+   <dir name="HTML">
+    <dir name="Template">
+     <file name="PHPLIB.php" role="php" />
+     <dir name="PHPLIB">
+      <!-- more files -->
+     </dir>
+    </dir>
+  </dir>
+ </contents>]]></programlisting>
+
+    <para>
+     The <literal>baseinstalldir</literal> attribute is mostly used when
+     the directory structure in the package source tree does not match the
+     layout when installed (e.g. when the <filename>QuickForm/</filename>
+     directory needs to be installed as
+     <filename>HTML/QuickForm/</filename>:
+    </para>
+
+    <programlisting role="xml"><![CDATA[ <contents>
+  <dir name="/" baseinstalldir="HTML">
+   <dir name="QuickForm">
+    <file name="Element.php" role="php" />
+    <!-- would be installed as HTML/QuickForm/Element.php -->
+   </dir>
+  </dir>
+</contents>]]></programlisting>
+  </refsection>
+</refentry>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getrest">
+   <refnamediv>
+    <refname><function>PEAR_Config::getREST</function></refname>
+    <refpurpose>getREST</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>PEAR_REST&amp;      <function>PEAR_Config::getREST</function></funcdef>
+      <paramdef choice="req">string <parameter>$version</parameter></paramdef>
+      <paramdef choice="opt">array <parameter> $options = array()</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.getrest.desc">
+     &title.desc;
+     &notdocumented;
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getrest.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$version</parameter>
+       </term>
+       <listitem>
+        <para>
+         This should be <literal>1.0</literal> in PEAR 1.4.0.
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.array;
+        <parameter>$options</parameter>
+       </term>
+       <listitem>
+        <para>
+         options for the <link linkend="core.ppm.pear-rest"><classname>PEAR_REST</classname></link> constructor
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getrest.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.getrest.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

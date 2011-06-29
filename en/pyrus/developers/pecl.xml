@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.developers.pecl">
+ <info><title>Using Pyrus to create PECL packages</title></info>
+
+ <section xml:id="pyrus.developers.pecl.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   As a PECL developer, managing your extensions could not be simpler with
+   Pyrus.  The new <link linkend="pyrus.commands.pickle">pickle</link>
+   command makes creating a package.xml as simple as creating a few text files
+   and then running the command.  In addition, the PECL packages created
+   with the <literal>pickle</literal> command are installable by the most
+   widely installed version of PEAR as well as by the newest versions of PEAR
+   and by Pyrus.
+  </para>
+  <para>
+   Pyrus's <literal>pickle</literal> command fully eliminates the need to ever
+   even look at package.xml, greatly simplifying the lives of PECL extension
+   developers.
+  </para>
+  <para>
+   In addition, the <link linkend="pyrus.commands.runphpt">run-phpt</link>
+   command can be used to run all the extension's phpt test files.
+  </para>
+ </section>
+ <section xml:id="pyrus.developers.pecl.newpackage">
+  <title>Creating a new PECL package with Pyrus</title>
+  <para>
+   If you are creating a brand new extension, you should use the
+   <link linkend="pyrus.commands.generateext">generate-ext</link>
+   command to create the basic structure of your extension.
+  </para>
+  <para>
+   After creating your extension, edit the newly-created <literal>CREDITS</literal>
+   file to have the correct information:
+  </para>
+<screen>
+ <![CDATA[
+;; extensionname
+My Name (myhandle) <myemail@php.net> (lead)
+ ]]>
+</screen>
+  <para>
+   Add any additional maintainers using the same format.
+  </para>
+  <para>
+   Next, edit the <literal>README</literal> file that describes your package.
+   The first line should be a brief summary of what the extension does, and the
+   rest of the file should be a detailed description of information the user
+   should know about the origin of the extension, and perhaps a simple example
+   of its usage.
+  </para>
+  <para>
+   Finally, edit the file named <literal>RELEASE-0.1.0</literal>.  Put any
+   release notes in here.  Generally <literal>initial release</literal> is
+   enough information for the first release.
+  </para>
+  <para>
+   Last, you can optionally create a file named <literal>API-0.1.0</literal>.
+   Pyrus and the PEAR Installer differentiate between API version and
+   release version, to allow clearly defining an API change or backwards
+   compatibility break.  Put information on any API changes into
+   <literal>API-0.1.0</literal>.
+  </para>
+  <para>
+   After creating these files, simply run:
+   <screen>php pyrus.phar pickle extensionname</screen>
+   where <literal>extensionname</literal> is the name of your extension.  If
+   you have not yet installed the developer tools, Pyrus will ask if you would
+   like to download and install them.  Choose <literal>yes</literal> and then
+   re-run the command.
+  </para>
+  <para>
+   Pyrus will create a package.xml and a release called
+   <literal>extensionname-0.1.0.tgz</literal>, or
+   <literal>extensionname-0.1.0.tar</literal> if the <literal>zlib</literal>
+   extension is not enabled.  This release can be uploaded to pecl.php.net
+   for immediate distribution.
+  </para>
+  <para>
+   Note that the directory structure described in
+   <link linkend="pyrus.commands.pickle">pickle command documentation</link> is
+   required for pickle to detect documentation, tests, or data files.
+  </para>
+ </section>
+ <section xml:id="pyrus.developers.pecl.existingpackage">
+  <title>Readying an existing PECL package for Pyrus</title>
+  <para>
+   To prepare an existing PECL package for Pyrus, you should create all of the
+   information files described in the section
+   <link linkend="pyrus.developers.pecl.newpackage">Creating a new PECL Package with Pyrus</link>,
+   but instead of creating <literal>RELEASE-0.1.0</literal> and
+   <literal>API-0.1.0</literal>, you would create a file named
+   <literal>RELEASE-X.Y.Z</literal> where <literal>X.Y.Z</literal> is the
+   version of the extension.  So if your extension's version is <literal>1.2.3</literal>
+   you would create a file named <literal>RELEASE-1.2.3</literal>.  For each
+   of the files above, rather than putting new content, you can copy/paste the
+   existing description, summary and release notes from your existing package.xml.
+   Note that any entities such as <literal>&amp;lt;</literal> should be
+   converted to their values <literal>&lt;</literal>, as Pyrus escapes automatically
+   from the text files.
+  </para>
+  <para>
+   Note that the directory structure described in
+   <link linkend="pyrus.commands.pickle">pickle command documentation</link> is
+   required for pickle to detect documentation, tests, or data files.
+  </para>
+ </section>
+ <section xml:id="pyrus.developers.pecl.future">
+  <title>Future releases</title>
+  <para>
+   When the time rolls around for the next release, readying for this is also
+   simple.  If you are about to release version <literal>0.2.0</literal>, create
+   a file named <literal>RELEASE-0.2.0</literal> and put the release notes
+   into the file.  Pyrus will automatically detect that <literal>0.2.0</literal>
+   is newer than <literal>0.1.0</literal> and create a new release with those notes.
+  </para>
+ </section> 
+</section>

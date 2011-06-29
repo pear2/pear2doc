@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.listchannels">
+ <info><title>list-channels - list known channels</title></info>
+
+ <section xml:id="pyrus.commands.listchannels.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   List all known channels alphabetically.
+  </para>
+ </section>
+</section>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.constants">
+ <refnamediv>
+  <refname>Package PEAR Constants</refname>
+  <refpurpose>Constants defined in and used by PEAR</refpurpose>
+ </refnamediv>
+ <refsection xml:id="core.ppm.pear-validate.constants.details"><info><title>All Constants</title></info>
+  
+  <refsection xml:id="core.ppm.pear-validate.constants.details.validate---php"><info><title>Constants defined in Validate.php</title></info>
+   
+   <para>
+    <table><title>Constants defined in Validate.php</title>
+     
+     <tgroup cols="3">
+      <thead>
+       <row>
+        <entry>Name</entry>
+        <entry>Value</entry>
+        <entry>Line Number</entry>
+       </row>
+      </thead>
+      <tbody>
+       <row>
+        <entry>PEAR_VALIDATE_DOWNLOADING</entry>
+        <entry>4</entry>
+        <entry>28</entry>
+       </row>
+       <row>
+        <entry>PEAR_VALIDATE_INSTALLING</entry>
+        <entry>1</entry>
+        <entry>25</entry>
+       </row>
+       <row>
+        <entry>PEAR_VALIDATE_NORMAL</entry>
+        <entry>3</entry>
+        <entry>27</entry>
+       </row>
+       <row>
+        <entry>PEAR_VALIDATE_PACKAGING</entry>
+        <entry>7</entry>
+        <entry>29</entry>
+       </row>
+       <row>
+        <entry>PEAR_VALIDATE_UNINSTALLING</entry>
+        <entry>2</entry>
+        <entry>26</entry>
+       </row>
+      </tbody>
+     </tgroup>
+    </table>
+   </para>
+  </refsection>
+ </refsection>
+</refentry>

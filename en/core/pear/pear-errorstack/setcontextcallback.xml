@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.setcontextcallback">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::setContextCallback</function>
+  </refname>
+  <refpurpose>
+   Set a callback that generates context 
+   information (location of error) for an error stack
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     &type.void; 
+     <function>PEAR_ErrorStack::setContextCallback</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.array;|&type.string;|null 
+     <parameter>$contextCallback</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.setcontextcallback.desc">
+  &title.desc;
+  <para>
+   This method sets the callback that can be used to generate context
+   information for an error.  
+   
+   Passing in &null; will disable context generation
+   and remove the expensive call to 
+   <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.lookup;debug_backtrace">
+   <function>debug_backtrace</function></link>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setcontextcallback.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.mixed;
+      <parameter>$contextCallback</parameter>
+     </term>
+     <listitem>
+      <para>
+       A valid callback as defined by 
+       <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.php.lookup;is_callable">
+        <function>is_callable</function>
+       </link>
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setcontextcallback.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.setcontextcallback.note">
+  &title.note;
+  &note.notstatic;
+ </refsection>
+</refentry>

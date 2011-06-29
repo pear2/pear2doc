@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-autoloader.removeautoload">
+   <refnamediv>
+    <refname><function>PEAR_Autoloader::removeAutoload</function></refname>
+    <refpurpose>Remove an autoload entry</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'autoloader.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Autoloader::removeAutoload</function></funcdef>
+      <paramdef choice="req">string <parameter>$method</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-autoloader.removeautoload.desc">
+     &title.desc;
+     <para>
+      Remove an autoload entry.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.removeautoload.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$method</parameter>
+       </term>      
+       <listitem>
+        <para>
+         which method to remove the autoload entry for
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.removeautoload.return">
+           &title.returns;
+        <para>
+                <parameter>bool</parameter> &return.success;
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.removeautoload.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.staticpop">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ErrorStack::staticPop</function>
+  </refname>
+  <refpurpose>
+   Static version of 
+   <link linkend="core.pear.pear-errorstack.pop">
+    <function>pop</function>
+   </link>
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once &apos;PEAR/ErrorStack.php&apos;;
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     <replaceable>false|array</replaceable>
+     <function>PEAR_ErrorStack::staticPop</function>
+    </funcdef>
+    <paramdef choice="req">
+     &type.string; 
+     <parameter>$package</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticpop.desc">
+  &title.desc;
+  <para>Pop an error off of the error stack, static method</para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpop.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$package</parameter>
+     </term>
+     <listitem>
+      <para>
+       Package name to retrieve error message from
+      </para>
+     </listitem>
+    </varlistentry>     
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpop.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis> 
+   if compatibility mode is on, 
+   a PEAR_Error is also thrown.
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpop.since">
+  &title.note;
+  <para>
+   <emphasis>since</emphasis> PEAR 1.5.0a1
+  </para>
+ </refsection>
+ <refsection xml:id="core.pear.pear-errorstack.staticpop.throws">
+  &title.throws;
+  &noexceptions;
+ </refsection>
+
+ <refsection xml:id="core.pear.pear-errorstack.staticpop.note">
+  &title.note;
+  &note.shouldstatic;    
+ </refsection>
+</refentry>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.getcallback">
+   <refnamediv>
+    <refname>PEAR_Error::getCallback()</refname>
+    <refpurpose>get callback function name</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Error::getCallback</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.getcallback.desc">
+    &title.desc;
+    <para>
+     Returns the name of the function called in case of throwing a 
+     <classname>PEAR_Error</classname> object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.getcallback.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     function name
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear-error.getcall.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

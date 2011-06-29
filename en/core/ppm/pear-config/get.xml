@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.get">
+   <refnamediv>
+    <refname><function>PEAR_Config::get</function></refname>
+    <refpurpose>Returns a configuration value</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed       <function>PEAR_Config::get</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+      <paramdef choice="opt">mixed <parameter>$layer</parameter>
+       <initializer>null</initializer>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.get.desc">
+     &title.desc;
+     <para>Returns a configuration value, prioritizing layers as per the layers property.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.get.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.mixed;
+         <parameter>$layer</parameter>
+       </term>      
+       <listitem>
+        <para>
+         layer key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.get.return">
+    &title.returns;
+    <para>
+    <parameter>mixed</parameter> the config value, or NULL if not found
+    </para>
+   </refsection>
+
+
+   <refsection xml:id="core.ppm.pear-config.get.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.getdocs">
+   <refnamediv>
+    <refname><function>PEAR_Config::getDocs</function></refname>
+    <refpurpose>Get the documentation for a config value</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string       <function>PEAR_Config::getDocs</function></funcdef>
+      <paramdef choice="req">string <parameter>$key</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.getdocs.desc">
+     &title.desc;
+     <para>Get the documentation for a config value.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.getdocs.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$key</parameter>
+       </term>      
+       <listitem>
+        <para>
+         config key
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getdocs.return">
+    &title.returns;
+
+    <para>
+     <parameter>string</parameter> - documentation string
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.getdocs.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

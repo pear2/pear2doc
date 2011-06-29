@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.upgraderegistry">
+ <info><title>upgrade-registry - convert a registry from PEAR format to Pyrus format</title></info>
+
+ <section xml:id="pyrus.commands.upgraderegistry.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The upgrade-registry command is used to convert a registry from the old
+   PEAR Installer format into the new Pyrus format, and then optionally
+   remove the old registry.
+  </para>
+  <para>
+   The command creates registries in Sqlite3 and XML formats in the path passed
+   as the argument to <literal>upgrade-registry</literal>.  Note that Pyrus
+   registries are stored in the parent directory as the installed PHP files,
+   whereas PEAR registries are stored in the same directory as the installed
+   PHP files, so it is necessary for Pyrus to have write access to the parent
+   directory.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.upgraderegistry.removeold">
+  <title>--removeold</title>
+  <para>
+   The <literal>--removeold</literal> or <literal>-r</literal> option instructs
+   Pyrus to remove the old PEAR registry when finished upgrading.
+  </para>
+ </section>
+</section>

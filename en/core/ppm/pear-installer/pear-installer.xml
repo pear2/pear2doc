@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-installer.pear-installer">
+   <refnamediv>
+    <refname><function>PEAR_Installer::PEAR_Installer</function></refname>
+    <refpurpose>constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Installer.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void       <function>constructor PEAR_Installer::constructor PEAR_Installer</function></funcdef>
+      <paramdef choice="req">object <parameter>&amp;$ui</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-installer.pear-installer.desc">
+     &title.desc;
+     <para>PEAR_Installer constructor.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-installer.pear-installer.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.object;
+         <parameter>&amp;$ui</parameter>
+       </term>      
+       <listitem>
+        <para>
+         user interface object (instance of
+         <classname>PEAR_Frontend_*</classname>)
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-installer.pear-installer.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

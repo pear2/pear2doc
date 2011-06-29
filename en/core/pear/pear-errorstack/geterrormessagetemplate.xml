@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.geterrormessagetemplate">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::getErrorMessageTemplate</function></refname>
+    <refpurpose>Standard Error Message Template generator from error code</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_ErrorStack::getErrorMessageTemplate</function></funcdef>
+      <paramdef choice="req">mixed <parameter>$code</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.geterrormessagetemplate.desc">
+     &title.desc;
+     <para>Standard Error Message Template generator from error code</para>
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrormessagetemplate.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.mixed;
+        <parameter>$code</parameter>
+       </term>
+       <listitem>
+        <para>
+         
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrormessagetemplate.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.geterrormessagetemplate.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

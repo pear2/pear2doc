@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.rawreturn">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::rawReturn</function>
+  </refname>
+  <refpurpose>Turn off validation - return a parsed package.xml without checking it for errors</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_PackageFile::rawReturn</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.rawreturn.desc">
+  &title.desc;
+  <para>This is used by the package-validate command</para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.rawreturn.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.rawreturn.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

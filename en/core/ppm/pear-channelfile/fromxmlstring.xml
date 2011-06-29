@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.fromxmlstring">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::fromXmlString</function>
+  </refname>
+  <refpurpose>fromXmlString</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_ChannelFile::fromXmlString</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$data</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.fromxmlstring.desc">
+  &title.desc;
+  <para>
+   Parse the contents of a channel.xml and store in the current PEAR_ChannelFile object.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromxmlstring.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$data</parameter>
+     </term>
+     <listitem>
+      <para>contents of package.xml file</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromxmlstring.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   success of parsing
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromxmlstring.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.fromxmlstring.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

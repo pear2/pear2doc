@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependencydb.dependson">
+ <refnamediv>
+  <refname>
+   <function>PEAR_DependencyDB::dependsOn</function>
+  </refname>
+  <refpurpose>Determine whether $parent depends on $child, near or deep</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/DependencyDB.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_DependencyDB::dependsOn</function>
+    </funcdef>
+    <paramdef choice="req">
+     array|PEAR_PackageFile_v2|PEAR_PackageFile_v2
+     <parameter>$parent</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     array|PEAR_PackageFile_v2|PEAR_PackageFile_v2
+     <parameter>$child</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependencydb.dependson.desc">
+  &title.desc;
+  <para>
+   This method is the central method of DependencyDB.  Through the dependency
+   database, it is possible to determine whether any two packages share a dependency
+   relationship independent of how tightly bound the two packages are.  In other words,
+   if package A depends on package B depends on package C, this method can be used to
+   determine that package A indirectly depends on package C.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.dependson.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>array|PEAR_PackageFile_v2|PEAR_PackageFile_v2</type>
+      <parameter>$parent</parameter>
+     </term>
+     <listitem>
+      <para>
+       The parent package (as in package A in the example above)
+      </para>
+      <para>
+       This parameter, if an array, should be in format:
+      </para>
+      <para>
+       <programlisting>
+        <![CDATA[
+<?php
+array(
+  'package' => 'packagename',
+  'channel' => 'channelname'
+);
+?>
+        ]]>
+       </programlisting>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <type>array|PEAR_PackageFile_v2|PEAR_PackageFile_v2</type>
+      <parameter>$child</parameter>
+     </term>
+     <listitem>
+      <para>
+       The child package (as in package B or package C in the example above)
+      </para>
+      <para>
+       This parameter, if an array, should be in format:
+      </para>
+      <para>
+       <programlisting>
+        <![CDATA[
+<?php
+array(
+  'package' => 'packagename',
+  'channel' => 'channelname'
+);
+?>
+        ]]>
+       </programlisting>
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.dependson.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.dependson.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="lillet"
+         xml:id="pyrus.extending.configuration">
+ <info><title>Pyrus's configuration API</title></info>
+
+ <section xml:id="pyrus.extending.configuration.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This documentation describes how to use Pyrus's public class API to access
+   configuration values.  Before reading further, you should be familiar
+   with the documentation on Pyrus's <link linkend="pyrus.configuration">configuration</link>.
+  </para>
+  <para>
+   Pyrus's configuration is controlled by the <literal>PEAR2\Pyrus\Config</literal>
+   class, which is implemented as a multiton mapping Pyrus installation location
+   to a configuration object.  In addition, the current configuration (most
+   recently instantiated) is also accessible to create configuration-agnostic
+   functionality.
+  </para>
+  <para>
+   Configuration variables are accessed by referring to them as class
+   properties.  Here is an example requesting the <literal>doc_dir</literal>
+   configuration variable, and setting the <literal>test_dir</literal>
+   configuration variable:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$docdir = PEAR2\Pyrus\Config::current()->doc_dir;
+PEAR2\Pyrus\Config::current()->test_dir = '/path/to/tests';
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   The user configuration in use is also accessible from each configuration
+   in the same manner as the installation-specific configuration.  Here is
+   an example requesting <literal>preferred_state</literal> and setting
+   <literal>verbose</literal>:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+$pref = PEAR2\Pyrus\Config::current()->preferred_state;
+PEAR2\Pyrus\Config::current()->verbose = 3;
+?>
+    ]]>
+   </programlisting>
+  </para>
+ </section>
+ <section xml:id="pyrus.extending.configuration.special">
+  <title>Special variables available</title>
+  <para>
+   In addition to the configuration variables, Pyrus also defines a few
+   other values that are available, and cannot be used as the names
+   of custom configuration variables:
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>path</literal> - the complete <constant>PATH_SEPARATOR</constant>
+      separated list of cascading directories this configuration represents.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>location</literal> - the writable pyrus installation this configuration
+      represents
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>registry</literal> - the registry corresponding to the configuration
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>pluginregistry</literal> - the registry corresponding to the
+      location that <link linkend="pyrus.plugins">plugins</link> are installed
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>channelregistry</literal> - the channel registry corresponding to
+      the configuration
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>systemvars</literal> - an array of names of system configuration
+      variables, built-in and custom
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>uservars</literal> - an array of names of user configuration
+      variables, built-in and custom
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>channelvars</literal> - an array of channel-specific configuration
+      variables, built-in and custom
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>mainsystemvars</literal> - an array of names of built-in
+      system variables
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>mainuservars</literal> - an array of names of built-in user
+      variables
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>mainchannelvars</literal> - an array of names of built-in
+      channel-specific variables
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>userfile</literal> - path to the user configuration file in use
+      by this configuration.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>customsystemvars</literal> - an array of names of custom
+      system variables
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>customuservars</literal> - an array of names of custom user
+      variables
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>customchannelvars</literal> - an array of names of custom
+      channel-specific variables
+     </para>
+    </listitem>
+   </itemizedlist>
+  </para>
+ </section>
+</section>

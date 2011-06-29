@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.addmirror">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::addMirror</function>
+  </refname>
+  <refpurpose>addMirror</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>PEAR_ChannelFile::addMirror</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$server</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     int
+     <parameter>
+      $port = null
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirror.desc">
+  &title.desc;
+  <para>
+   Add a mirror server.  Note that mirrors must be added to a channel.xml in order
+   for users to use them.  Unofficial mirrors are not allowed without user intervention.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirror.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$server</parameter>
+     </term>
+     <listitem>
+      <para>mirror server</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$port</parameter>
+     </term>
+     <listitem>
+      <para>mirror http port</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirror.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirror.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

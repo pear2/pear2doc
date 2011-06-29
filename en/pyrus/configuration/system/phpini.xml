@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.phpini">
+ <info><title>php_ini</title></info>
+
+ <section xml:id="pyrus.configuration.system.phpini.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   the <literal>php_ini</literal> variable should be set to the location of
+   <literal>php.ini</literal> that is used by this installation, and is used
+   to automatically enable extensions on installation.
+  </para>
+ </section>
+</section>

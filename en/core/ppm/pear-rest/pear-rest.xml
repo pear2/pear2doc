@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.pear-rest">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>PEAR_REST::PEAR_REST</function>
+  </refname>
+  <refpurpose>PEAR_REST</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void constructor
+     <function>PEAR_REST::PEAR_REST</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Config
+     <parameter>&amp;$config</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     array
+     <parameter>
+      $options = array()
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.pear-rest.desc">
+  &title.desc;
+  &notdocumented;
+</refsection>
+ <refsection xml:id="core.ppm.pear-rest.pear-rest.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      PEAR_Config
+      <parameter>&amp;$config</parameter>
+     </term>
+     <listitem>
+      <para>
+       Configuration object
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.array;
+      <parameter>$options</parameter>
+     </term>
+     <listitem>
+      <para>
+       options passed to commands like install/download.  The only option that affects
+       PEAR_REST is <literal>offline</literal>, which causes all retrievals to look in
+       the local cache without trying to retrieve a remote resource.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.pear-rest.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

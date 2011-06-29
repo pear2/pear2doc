@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-command.getcommands">
+   <refnamediv>
+    <refname><function>PEAR_Command::getCommands</function></refname>
+    <refpurpose>get list of currently supported commands</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/command.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array       <function>PEAR_Command::getCommands</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-command.getcommands.desc">
+     &title.desc;
+     <para>Get the list of currently supported commands, and what classes implement them.</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-command.getcommands.return">
+    &title.returns;
+    <para>
+      <parameter>array</parameter> command =&gt; implementing class
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-command.getcommands.note">
+    &title.note;
+   &note.shouldstatic;
+   </refsection>
+</refentry>

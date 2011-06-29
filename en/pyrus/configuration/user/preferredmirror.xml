@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.user.preferredmirror">
+ <info><title>preferred_mirror</title></info>
+
+ <section xml:id="pyrus.configuration.user.preferredmirror.intro">
+  <info><title>Introduction</title></info>
+  <note><simpara>This is a channel-specific configuration value</simpara></note>
+  <para>
+   This variable controls which mirror of a channel should be used
+   to retrieve package releases and PEAR Channel
+   <link linkend="core.rest">REST</link> information.  By default, it is
+   set to the main channel path.
+  </para>
+ </section>
+</section>

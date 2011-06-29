@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Revision: 1.21 $ -->
+<info xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="bookinfo">
+
+  <pubdate>&peardoc.build-date;</pubdate>
+  &frontpage.editors;
+
+  <copyright>
+   <year>2001-&peardoc.copyright-year;</year>
+   <holder>The PEAR Documentation Group</holder>
+  </copyright>
+
+  <!--
+   the legalnotice in here has been moved to preface.xml for rendering and
+   layout reasons. It still covers the whole manual.
+  -->
+ </info>

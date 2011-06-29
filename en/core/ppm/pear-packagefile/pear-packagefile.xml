@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.pear-packagefile">
+ <refnamediv>
+  <refname>
+   constructor
+   <function>PEAR_PackageFile::PEAR_PackageFile</function>
+  </refname>
+  <refpurpose>PEAR_PackageFile</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void      constructor
+     <function>PEAR_PackageFile::PEAR_PackageFile</function>
+    </funcdef>
+    <paramdef choice="req">
+     PEAR_Config
+     <parameter>&amp;$config</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     bool
+     <parameter>$debug</parameter>
+      <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$tmpdir</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.pear-packagefile.desc">
+  &title.desc;
+  <para>
+   Prepare for parsing one or more package.xml files.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.pear-packagefile.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      <link linkend="core.ppm.pear-config"><classname>PEAR_Config</classname></link>
+      <parameter>&amp;$config</parameter>
+     </term>
+     <listitem>
+      <para>
+       The configuration to use for parsing and channel registry (needed for
+       channel-specific validators).
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$debug</parameter>
+     </term>
+     <listitem>
+      <para>
+       The debug logging level (this is usually the value of the <literal>verbose</literal>
+       configuration variable).
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$tmpdir</parameter>
+     </term>
+     <listitem>
+      <para>
+       The temporary directory to extract files in.  By default, a new temporary
+       directory is created using
+       <link linkend="core.pear.system.mktemp"><function>System::mktemp</function></link>.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.pear-packagefile.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.pear-packagefile.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.supports">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::supports</function>
+  </refname>
+  <refpurpose>determines whether a webservices function is supported by a channel</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>PEAR_ChannelFile::supports</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$name</parameter>
+     <initializer>null</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>
+      $version = '1.0'
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.supports.desc">
+  &title.desc;
+  <para>
+   This is used in the installer to determine whether a protocol is supported before
+   attempting to connect to a remote server and invoke the function needed.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.supports.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>protocol type (<literal>xmlrpc</literal> or <literal>soap</literal>)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>function name (like <literal>package.info</literal>)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>Mirror server name or &false; for primary server</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para>function version</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.supports.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.supports.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

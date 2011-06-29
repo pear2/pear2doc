@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.datadir">
+ <info><title>data_dir</title></info>
+
+ <section xml:id="pyrus.configuration.system.datadir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Files with roles <literal>data</literal>, <literal>customcommand</literal>,
+   <literal>customrole</literal> and <literal>customtask</literal> are installed
+   into the <literal>data_dir</literal> configuration variable.
+  </para>
+  <para>
+   In Pyrus, this is a pseudo-configuration variable: its value cannot be changed
+   without creating an entirely new repository.  Data is always stored in the
+   directory <literal>data/</literal> relative to the location of the installation.
+  </para>
+ </section>
+</section>

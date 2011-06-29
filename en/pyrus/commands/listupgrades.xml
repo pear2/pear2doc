@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.listupgrades">
+ <info><title>list-upgrades - list all available upgrades</title></info>
+
+ <section xml:id="pyrus.commands.listupgrades.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This command lists all packages that have upgrades available within the
+   current <literal>preferred_state</literal> or the installed package's stability,
+   whichever is less stable.  This command does not list releases that are
+   incompatible with the current PHP version.
+  </para>
+  <para>
+   If package <literal>X</literal> is installed with version <literal>0.3.0</literal>,
+   stability <literal>alpha</literal>, and <literal>preferred_state</literal>
+   is <literal>stable</literal>, Pyrus will list the newest version available
+   that satisfies stability of <literal>alpha</literal>, <literal>beta</literal>
+   or <literal>stable</literal>.  If package <literal>Y</literal> is also
+   installed, with version <literal>1.2.3</literal>, stability <literal>stable</literal>,
+   only the latest stable release will be listed.  In both cases, if the latest
+   available version that satisfies these requirements is not found, none will
+   be listed.
+  </para>
+  <para>
+   Another example: If package <literal>X</literal> is installed with version
+   <literal>1.0.0</literal>, stability <literal>stable</literal>, and the
+   <literal>preferred_state</literal> is <literal>alpha</literal>, Pyrus
+   will list the newest version available
+   that satisfies stability of <literal>alpha</literal>, <literal>beta</literal>
+   or <literal>stable</literal>.
+  </para>
+ </section>
+</section>

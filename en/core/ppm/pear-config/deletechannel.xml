@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.deletechannel">
+   <refnamediv>
+    <refname><function>PEAR_Config::deleteChannel</function></refname>
+    <refpurpose>deleteChannel</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Config::deleteChannel</function></funcdef>
+      <paramdef choice="req">string <parameter>$channel</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.deletechannel.desc">
+     &title.desc;
+     <para>
+      remove a channel's configuration entirely.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.deletechannel.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$channel</parameter>
+       </term>
+       <listitem>
+        <para>
+         Channel name to delete (channel server).
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.deletechannel.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.deletechannel.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

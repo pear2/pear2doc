@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.adduserinfo">
+   <refnamediv>
+    <refname>PEAR_Error::addUserInfo()</refname>
+    <refpurpose>add user information</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR_Error::addUserInfo</function></funcdef>
+      <paramdef choice="req">
+       string <parameter>$info</parameter>
+      </paramdef>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.adduserinfo.desc">
+    &title.desc;
+    <para>
+     Adds an user information to the error object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.adduserinfo.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>string</parameter> - 
+        user info
+       </para>
+      </listitem>
+    </itemizedlist>
+    </para>
+   </refsection>    
+   <refsection xml:id="core.pear.pear-error.adduserinfo.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

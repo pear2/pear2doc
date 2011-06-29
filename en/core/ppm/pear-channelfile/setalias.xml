@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setalias">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setAlias</function>
+  </refname>
+  <refpurpose>Set the channel alias</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>PEAR_ChannelFile::setAlias</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$alias</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     boolean
+     <parameter>$local</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setalias.desc">
+  &title.desc;
+  <para>
+   Set the suggested alias that users can use on the command-line as a shortcut access to this
+   channel.  For instance, channel <literal>pear.php.net</literal>'s alias is <literal>pear</literal>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setalias.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$alias</parameter>
+     </term>
+     <listitem>
+      <para>
+       The alias
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.bool;
+      <parameter>$local</parameter>
+     </term>
+     <listitem>
+      <para>
+       determines whether the alias is in channel.xml or local.  If local, then
+       this is the result of a <literal>pear channel-alias</literal> command.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setalias.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   success
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setalias.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setalias.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-rest.uselocalcache">
+ <refnamediv>
+  <refname>
+   <function>PEAR_REST::useLocalCache</function>
+  </refname>
+  <refpurpose>useLocalCache</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/REST.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     mixed
+     <function>PEAR_REST::useLocalCache</function>
+    </funcdef>
+    <paramdef choice="req">
+     bool
+     <parameter>$url</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-rest.uselocalcache.desc">
+  &title.desc;
+  <para>
+   Retrieve the contents of the local cached copy of a remote URL.  &false; is returned if
+   there are any problems, under the assumption that REST contents will always be larger
+   than a simple boolean due to HTTP overhead.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-rest.uselocalcache.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>
+       The URL to retrieve data for.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.uselocalcache.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-rest.uselocalcache.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

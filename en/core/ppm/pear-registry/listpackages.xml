@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.listpackages">
+   <refnamediv>
+    <refname><function>PEAR_Registry::listPackages</function></refname>
+    <refpurpose>List all registered Packages</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>array <function>PEAR_Registry::listPackages</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.listpackages.desc">
+     &title.desc;
+     <para>
+      List all Packages registered in the registry.
+     </para>
+    </refsection>
+    
+    <refsection xml:id="core.ppm.pear-registry.listpackages.return">
+     &title.returns;
+    <para>
+     <parameter>array</parameter> -
+     list of package names
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.listpackages.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+            
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>        
+         <entry>Meaning</entry>        
+         <entry>Solution</entry>        
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>       
+       </tbody>
+      </tgroup>
+     </table>
+    </para>    
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.listpackages.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

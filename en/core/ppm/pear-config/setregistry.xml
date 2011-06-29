@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.setregistry">
+   <refnamediv>
+    <refname><function>PEAR_Config::setRegistry</function></refname>
+    <refpurpose>This is to allow customization like the use of installroot</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;/Config.php&apos;; (since PEAR 1.4.0)
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool      <function>PEAR_Config::setRegistry</function></funcdef>
+      <paramdef choice="req">PEAR_Registry|false <parameter>&amp;$reg</parameter></paramdef>
+      <paramdef choice="opt">string <parameter> $layer = 'user'</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.ppm.pear-config.setregistry.desc">
+     &title.desc;
+     <para>
+      Use this to override the automatic registry creation performed whenever the
+      <literal>php_dir</literal> configuration variable is modified.
+     </para>
+     <para>
+      If <link linkend="core.ppm.pear-config.noregistry"><function>noRegistry</function></link>
+      has been called, this call will be ignored and &false; returned.  In addition, it is
+      not possible to set the registry for the <literal>ftp</literal> layer.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.setregistry.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>PEAR_Registry|false</type>
+        <parameter>&amp;$reg</parameter>
+       </term>
+       <listitem>
+        <para>
+         The <classname>PEAR_Registry</classname> that will be used, or false to reset the
+         registry.
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+        <parameter>$layer</parameter>
+       </term>
+       <listitem>
+        <para>
+         This must be either <literal>user</literal> or <literal>system</literal>
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-config.setregistry.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.ppm.pear-config.setregistry.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.factory">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::factory</function>
+  </refname>
+  <refpurpose>factory</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     PEAR_PackageFile_v1|PEAR_PackageFile_v2&amp;
+     <function>PEAR_PackageFile::factory</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$version</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.factory.desc">
+  &title.desc;
+  <para>
+   Retrieve a raw <classname>PEAR_PackageFile_vX</classname> object where X is either
+   1 or 2.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.factory.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para>
+       The package.xml version represented (1 or 2)
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.factory.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.factory.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

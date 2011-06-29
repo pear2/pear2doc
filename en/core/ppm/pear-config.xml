@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config"><info><title>PEAR_Config</title></info>
+ 
+ <para>
+  Class Trees for <function>PEAR_Config</function>
+ </para>
+ <para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     PEAR
+     <itemizedlist>
+      <listitem>
+       <simpara>
+        PEAR_Config
+       </simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </listitem>
+  </itemizedlist>
+ </para>
+
+&core.ppm.pear-config.pear-config;
+&core.ppm.pear-config.apiversion;
+&core.ppm.pear-config.definedby;
+&core.ppm.pear-config.deletechannel;
+&core.ppm.pear-config.get;
+&core.ppm.pear-config.getconffile;
+&core.ppm.pear-config.getdefaultchannel;
+&core.ppm.pear-config.getdocs;
+&core.ppm.pear-config.getftp;
+&core.ppm.pear-config.getgroup;
+&core.ppm.pear-config.getgroupkeys;
+&core.ppm.pear-config.getgroups;
+&core.ppm.pear-config.getkeys;
+&core.ppm.pear-config.getlayers;
+&core.ppm.pear-config.getprompt;
+&core.ppm.pear-config.getregistry;
+&core.ppm.pear-config.getremote;
+&core.ppm.pear-config.getrest;
+&core.ppm.pear-config.getsetvalues;
+&core.ppm.pear-config.gettype;
+&core.ppm.pear-config.isdefined;
+&core.ppm.pear-config.isdefinedlayer;
+&core.ppm.pear-config.mergeconfigfile;
+&core.ppm.pear-config.noregistry;
+&core.ppm.pear-config.readconfigfile;
+&core.ppm.pear-config.readftpconfigfile;
+&core.ppm.pear-config.remove;
+&core.ppm.pear-config.removelayer;
+&core.ppm.pear-config.set;
+&core.ppm.pear-config.setchannels;
+&core.ppm.pear-config.setinstallroot;
+&core.ppm.pear-config.setregistry;
+&core.ppm.pear-config.singleton;
+&core.ppm.pear-config.store;
+&core.ppm.pear-config.todefault;
+&core.ppm.pear-config.validconfiguration;
+&core.ppm.pear-config.writeconfigfile;
+
+
+</section>

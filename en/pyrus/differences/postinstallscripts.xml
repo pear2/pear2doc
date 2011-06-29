@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.differences.postinstallscripts">
+ <info><title>Pyrus Post-install scripts: differences from PEAR</title></info>
+
+ <section xml:id="pyrus.differences.postinstallscripts.overview">
+  <info><title>Overview</title></info>
+  <para>
+   Post-install scripts 
+   are mostly the same in Pyrus with a few important differences.
+  </para>
+  <para>
+   The XML format in package.xml is identical, so no change need be made to
+   the <literal>&lt;paramgroup&gt;</literal> or other tags.  The script itself
+   should still follow the naming conventions of PEAR.  The only real difference
+   is the naming of methods within the script.
+  </para>
+  <para>
+   PEAR requires that all post-install scripts implement <function>init</function>,
+   <function>run</function> and optionally <function>postProcessPrompts</function>.
+   Pyrus requires post-install scripts to implement <function>init2</function>,
+   <function>run2</function>, and optionally <function>postProcessPrompts2</function>.
+   This allows PEAR and Pyrus-based post-install scripts to co-exist in the
+   same package without difficulty.  Note that post-install scripts must be
+   <literal>E_STRICT</literal> and <literal>E_DEPRECATED</literal> compliant,
+   otherwise many PHP warnings will be emitted.  One way of handling this issue
+   is to put PHP4 non-E_STRICT-compatible code into a separate file and include it
+   dynamically at run-time.  The same should be done for any PHP5+ non-PHP4
+   compatible code if the post-install script is expected to be able to run in PHP 4.
+  </para>
+ </section>
+
+ <section xml:id="pyrus.differences.postinstallscripts.init2">
+  <info><title>The init2 method</title></info>
+  <para>
+   The <function>init2</function> method should accept two parameters like so:
+   <programlisting role="php">
+    <![CDATA[
+<?php
+function init2($pkg, $lastversion)
+{
+}
+?>
+    ]]>
+   </programlisting>
+   <literal>$pkg</literal> is an object representing the package, and
+   <literal>$lastversion</literal> is the last installed version of the
+   package.
+  </para>
+ </section>
+
+ <section xml:id="pyrus.differences.postinstallscripts.run2post2">
+  <info><title>The run2 and postProcessPrompts2 methods</title></info>
+  <para>
+   These two methods should accept identical parameters to what the PEAR
+   equivalent accepted.  The only reason these are called is to allow
+   easy differentiation between what kind of installer is calling the post-install
+   script.
+  </para>
+ </section>
+</section>

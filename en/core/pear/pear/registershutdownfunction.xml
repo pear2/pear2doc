@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.registershutdownfunc">
+   <refnamediv>
+    <refname>PEAR::registerShutdownFunc()</refname>
+    <refpurpose>set a shutdown function for static classes &pdevrel;</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void <function>PEAR::registerShutdownFunc</function></funcdef>
+      <paramdef choice="req">
+       array <parameter>$func</parameter>
+      </paramdef>
+      <paramdef choice="opt">
+       array <parameter>$var = array()</parameter>
+      </paramdef>      
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear.registershutdownfunc.desc">
+    &title.desc;
+    <para>
+     The indicated function is called, before the PHP interpreter will
+     be finished.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.registershutdownfunc.parameter">
+    &title.param;
+    <para>
+     <itemizedlist>
+      <listitem>
+       <para>
+        <parameter>array $func</parameter> - the name of the class and of the
+        function to ccore.
+       </para>
+      </listitem>
+      <listitem>
+       <para>
+        <parameter>array $var</parameter> - possible required function
+        parameters. The parameters are handed over to the function in accordance with their
+        succession of the array.
+       </para>
+      </listitem>            
+     </itemizedlist>
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear.registershutdownfunc.example">
+    &title.example;
+    <example><info><title>Using <function>registerShutdownFunc</function></title></info>
+     
+     <programlisting role="php">
+      <![CDATA[
+<?php
+
+require_once 'PEAR.php';
+
+class myClass {
+
+function myClass() 
+{
+ PEAR::registerShutdownFunc(array('myClass', 'shutdown'), 
+                            array('param1', 'param2'));
+}
+
+function shutdown( $param1, $param2)
+{
+ // do something before we will die
+}
+
+}
+
+?>      
+      ]]>
+     </programlisting>
+    </example>
+   </refsection>         
+  </refentry>

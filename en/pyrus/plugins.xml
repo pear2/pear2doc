@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.plugins">
+  <info>
+   <title>Creating plugins for Pyrus</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-16</date>
+  </info>
+
+  <para>
+   Pyrus defines three kinds of plugins: commands, file roles, and file tasks.
+   Commands add new commands to a frontend for Pyrus, file roles and file tasks
+   add new features to package.xml.
+  </para>
+  <para>
+   Pyrus, by necessity, requires a clear separation between its plugins and
+   its core.  This is because Pyrus is distributed as a phar archive, which
+   cannot be modified without jumping through several hoops.  For this reason,
+   plugins are installed in a special directory whose location is specified by
+   the <link linkend="pyrus.configuration.user.pluginsdir">plugins_dir</link>
+   user configuration variable.
+  </para>
+  <para>
+   Pyrus also makes a clear separation between regular packages and plugin
+   packages.  Plugins must be installed separate from any non-plugin packages using the
+   <link linkend="pyrus.commands.install.plugin"><literal>--plugin</literal></link>
+   option of the <link linkend="pyrus.commands.install">install</link>,
+   <link linkend="pyrus.commands.upgrade">upgrade</link>, and
+   <link linkend="pyrus.commands.uninstall">uninstall</link> command.  Here is
+   an example, installing the developer tools plugin:
+  </para>
+  <screen>php pyrus.phar install -p PEAR2_Pyrus_Developer</screen>
+  <para>
+   Pyrus defines a plugin as any package that contains one of the three
+   file roles that identify a plugin: <literal>customcommand</literal>,
+   <literal>customrole</literal>, or <literal>customtask</literal>.  In addition,
+   a plugin package can only contain one plugin.  This helps users by mapping
+   one package to one plugin so that when they list plugin packages, it clearly
+   shows all of the plugins that are installed.
+  </para>
+  <para>
+   A plugin's definition is handled by an XML file, which must be referenced
+   using one of the three plugin file roles in package.xml.  Here is an
+   example identifying a custom command in package.xml:
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+...
+  <dir name="/">
+   <dir name="customcommand" baseinstalldir="/">
+    <file role="customcommand" name="commands.xml"/>
+   </dir>
+...
+    ]]>
+   </programlisting>
+  </para>
+
+ <section xml:id="pyrus.plugins.autoload">
+  <title>Telling Pyrus how to load your plugin: &lt;class&gt; and &lt;autoloadpath&gt;</title>
+  <para>
+   Pyrus relies upon PHP5's autoloading capabilities to automatically load a plugin
+   class.  All plugins should include the <literal>&lt;autoloadpath&gt;</literal>
+   element to specify
+   a path relative to the <link linkend="pyrus.configuration.system.phpdir">php_dir</link>
+   location for the plugin registry.  For plugin classes that conform to PEAR2
+   standards, the autoloadpath should be an empty string:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+<autoloadpath></autoloadpath>
+   ]]>
+  </programlisting>
+  <para>
+   The pyrus autoloader will automatically replace <literal>_</literal> and
+   the namespace separator <literal>\</literal> with <constant>DIRECTORY_SEPARATOR</constant>
+   and append <literal>.php</literal> to determine the class name to load.  To
+   instruct Pyrus to prepend a particular relative path, put this path in the
+   <literal>&lt;autoloadpath&gt;</literal> element.  As an example, the following
+   XML will prompt Pyrus to load the file
+   <literal>/home/user/.pear/MyPackage/customcommands/Command/Line/Obj.php</literal>
+   if the user's <link linkend="pyrus.configuration.user.pluginsdir">plugins_dir</link>
+   is <literal>/home/user/.pear</literal>:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+<autoloadpath>MyPackage/customcommands</autoloadpath>
+<class>Command_Line\Obj</class>
+   ]]>
+  </programlisting>
+  <para>
+   The <literal>&lt;class&gt;</literal> element is used by Pyrus to determine
+   which object to instantiate.  If <literal>&lt;class&gt;</literal> is:
+  </para>
+  <programlisting role="xml">
+   <![CDATA[
+<class>FooBar_Willy\Dilly</class>
+   ]]>
+  </programlisting>
+  <para>
+   Pyrus will instantiate an object of class <literal>FooBar_Willy\Dilly</literal>.
+  </para>
+ </section>
+  &pyrus.plugins.command;
+  &pyrus.plugins.role;
+  &pyrus.plugins.task;
+ </chapter>

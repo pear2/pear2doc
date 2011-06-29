@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.users.concepts">
+  <info>
+   <title>Basic concepts all PEAR users should understand</title>
+   <author><personname><firstname>Gregory</firstname><surname>Beaver</surname></personname></author>
+   <date>2009-06-26</date>
+  </info>
+
+  <simpara>
+   This chapter describes basic concepts that are important for all users of
+   Pyrus, the PEAR Installer, or PEAR packages to understand.
+  </simpara>
+
+  &guide.users.concepts.package;
+  &guide.users.concepts.api;
+  &guide.users.concepts.stability;
+  &guide.users.concepts.version;
+  &guide.users.concepts.maintainer;
+  &guide.users.concepts.abstractpackage;
+  &guide.users.concepts.channel;
+  &guide.users.concepts.filerole;
+  &guide.users.concepts.filetasks;
+ </chapter>

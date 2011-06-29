@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system">
+ <info><title>Pyrus system configuration variables</title></info>
+
+ <section xml:id="pyrus.configuration.system.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The system configuration file is always saved in a file named <literal>.config</literal>
+   in the base of the PEAR installation.  Thus, if php files are installed in
+   <literal>/usr/local/lib/pear/php</literal>, then the configuration for
+   that installation is installed in <literal>/usr/local/lib/pear/.config</literal>.
+   The configuration is stored in XML format, and can be modified by hand if
+   necessary.
+  </para>
+  <para>
+   The configuration will not be saved if no values are modified from the default values
+  </para>
+  <para>
+   Here is a sample system configuration file (with line breaks added for readability):
+  </para>
+  <para>
+   <programlisting role="xml">
+    <![CDATA[
+<?xml version="1.0"?>
+<pearconfig version="1.0">
+ <ext_dir>/usr/local/lib/php/extensions/debug-non-zts-20090115</ext_dir>
+ <cfg_dir>/home/user/testpear/cfg</cfg_dir>
+ <doc_dir>/home/user/testpear/mydata</doc_dir>
+ <bin_dir>/usr/local/bin</bin_dir>
+ <www_dir>/home/user/testpear/www</www_dir>
+ <test_dir>/home/user/testpear/tests</test_dir>
+ <src_dir>/home/user/testpear/src</src_dir>
+ <php_bin>/usr/local/bin/php</php_bin>
+ <php_ini>/usr/local/lib/php.ini</php_ini>
+ <php_prefix></php_prefix>
+ <php_suffix></php_suffix>
+</pearconfig>
+    ]]>
+   </programlisting>
+  </para>
+
+ </section>
+ &pyrus.configuration.system.bindir;
+ &pyrus.configuration.system.cfgdir;
+ &pyrus.configuration.system.datadir;
+ &pyrus.configuration.system.docdir;
+ &pyrus.configuration.system.extdir;
+ &pyrus.configuration.system.phpbin;
+ &pyrus.configuration.system.phpdir;
+ &pyrus.configuration.system.phpini;
+ &pyrus.configuration.system.phpprefix;
+ &pyrus.configuration.system.phpsuffix;
+ &pyrus.configuration.system.srcdir;
+ &pyrus.configuration.system.testdir;
+ &pyrus.configuration.system.wwwdir;
+</section>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="guide.developers.package2.stability">
+ <refnamediv>
+  <refname>&lt;stability&gt;</refname>
+  <refpurpose>specifying release and API stability</refpurpose>
+ </refnamediv>
+ <refsection xml:id="guide.developers.package2.stability.purpose"><info><title>Documenting release stability and API stability</title></info>
+  
+  <para>
+   In package.xml 1.0, stability was known as &quot;state&quot; which is not the most
+   accurate description.  package.xml 2.0 introduces the term stability and like version
+   splits the concept of stability into two components, release and api.
+  </para>
+  <para>
+   The release stability is the same familiar state from package.xml 1.0.  It can be one
+   of:
+  </para>
+  <para>
+   <orderedlist>
+    <listitem>
+     <para>
+      snapshot - a frozen picture of development at a particular moment
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      devel - a very new non-production release.  Devel should be used for extremely new,
+      practically untested code.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      alpha - a new non-production release.  Alpha should be used for new code that
+      has an unstable API or untested code.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      beta - a non-production release.  Beta should be used for code that has a stable API
+      and is nearing a fully stable release.  Regresion tests and documentation should exist
+      or soon follow to qualify as a beta release.  Release candidates should use the beta
+      stability.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      stable - a production release.  Stable releases must have a stable API, and must have
+      regression tests and documentation.
+     </para>
+    </listitem>
+   </orderedlist>
+  </para>
+  <para>
+   The API stability is informational only - the installer does not use it.
+  </para>
+ </refsection>
+ </refentry>

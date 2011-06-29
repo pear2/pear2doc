@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.about.whatis">
+ <info><title>What is a &quot;Pyrus&quot;?</title></info>
+
+ <section xml:id="pyrus.about.whatis.intro">
+  <info><title>Pyrus</title></info>
+  <para>
+   In botany (the science of plants), <literal>Pyrus</literal> is the genus of
+   the pear family, and thus includes all of the pear-producing trees and
+   shrubs under its taxonomical umbrella.
+  </para>
+  <para>
+   In PHP (the hypertext programming language), <literal>Pyrus</literal> is
+   the next-generation PEAR Installer, a revolutionary package management
+   and distribution system that extends the functionality of the PEAR Installer's
+   already advanced functionality.  Pyrus is also friendlier to projects
+   outside of PEAR that wish to take advantage of the strengths of PEAR through
+   <link linkend="channels">channels</link>.
+  </para>
+  <para>
+   Pyrus represents the cumulative effort of years of work, experience with the
+   PEAR Installer since its inception in 1999, and feedback from users like you.
+   We are very proud to present the best installation tool for PHP.
+  </para>
+ </section>
+</section>

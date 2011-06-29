@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.list-packages">
+ <info><title>list-packages - list all installed packages in all channels</title></info>
+
+ <section xml:id="pyrus.commands.listpackages.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   This command lists all installed packages in all channels, organized
+   by the installation location.
+  </para>
+ </section>
+</section>

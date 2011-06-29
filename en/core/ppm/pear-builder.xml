@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-builder"><info><title>PEAR_Builder</title></info>
+
+
+<para>Class to handle building (compiling) extensions.</para>
+<para>
+        Class Trees for <classname>PEAR_Builder</classname>
+</para>
+<para>
+ <itemizedlist>
+  <listitem>
+   <para>PEAR_Common</para>
+    <itemizedlist>
+     <listitem>
+      <simpara>PEAR_Builder</simpara>
+     </listitem>
+    </itemizedlist>
+  </listitem>
+ </itemizedlist>
+</para>
+
+&core.ppm.pear-builder.pear-builder;
+&core.ppm.pear-builder.build;
+&core.ppm.pear-builder.log;
+&core.ppm.pear-builder.phpizecallback;
+
+</section>

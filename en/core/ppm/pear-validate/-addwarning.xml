@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.-addwarning">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::_addWarning</function>
+  </refname>
+  <refpurpose>_addWarning</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::_addWarning</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$field</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$reason</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.-addwarning.desc">
+  &title.desc;
+  <para>
+   add a validation warning from one of the channel validation functions.  Use this
+   for a non-fatal warning of a potential problem situation.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.-addwarning.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$field</parameter>
+     </term>
+     <listitem>
+      <para>
+       The package.xml section being validated (such as <literal>version</literal> or
+       <literal>dependencies</literal>)
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$reason</parameter>
+     </term>
+     <listitem>
+      <para>
+       A human-readable reason that validation failed.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.-addwarning.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.-addwarning.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

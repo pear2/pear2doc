@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.runphpt">
+ <info><title>run-phpt - execute PHPT tests</title></info>
+
+ <section xml:id="pyrus.commands.runphpt.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>run-phpt</literal> command is used to execute tests in the
+   <literal>PHPT</literal> format.  If the <literal>xdebug</literal> extension
+   is present, the command can also be used to generate code coverage.  This
+   coverage can then be used to construct a coverage report and even to
+   intelligently detect both modified tests and tests that are affected by
+   changes to the source code in between test runs.
+  </para>
+  <para>
+   The command takes as arguments a list of paths containing tests to execute,
+   unless the <literal>--modified</literal> option is specified, then it takes
+   as arguments the path to the tests directory and the path to the source
+   directory.  If the <literal>--modified</literal> option is not specified,
+   and no arguments are passed, the command searches for tests in the current
+   working directory.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.runphpt.modified">
+  <title>--modified</title>
+  <para>
+   The <literal>--modified</literal> or <literal>-m</literal> option, if present,
+   implies both the <literal>--recursive</literal> and <literal>--coverage</literal>
+   options, and is used to generate a coverage database and to use that database
+   to detect modifications in the tests and the source.  These modified tests are
+   then executed.
+  </para>
+  <para>
+   The command places a file named <literal>pear2coverage.db</literal> in the
+   tests directory, which is an Sqlite3 database containing the coverage information.
+   The coverage can be viewed as a web-based report by taking the
+   <literal>pear2coverage.phar.php</literal> file installed with the developer
+   tools and placing it in a web server directory, and then browsing to it.
+   The web server must have the <literal>phar</literal> and <literal>sqlite3</literal>
+   extensions enabled in order to function properly.
+  </para>
+  <para>
+   To illustrate how powerful this option is, imagine a hypothetical directory
+   structure as follows:
+  </para>
+  <para>
+   <screen>
+  src/
+      File1.php
+      File2.php
+      File3.php
+  tests/
+      test1.phpt
+      test2.phpt
+      test3.phpt
+      test4.phpt
+   </screen>
+  </para>
+  <para>
+   Here are the source files:
+  </para>
+  <para>
+   File1.php:
+   <programlisting role="php">
+    <![CDATA[
+<?php
+class File1
+{
+    var $a = 1;
+    function __construct($a = 1)
+    {
+        $this->a = $a;
+    }
+
+    function setInternalThing($thing)
+    {
+        $this->internal = $thing;
+        $this->internal->initialize($this);
+    }
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   File2.php:
+   <programlisting role="php">
+    <![CDATA[
+<?php
+class File2
+{
+
+    function initialize(File1 $parent)
+    {
+        $parent->a = 2;
+    }
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   File3.php:
+   <programlisting role="php">
+    <![CDATA[
+<?php
+class File3 extends File2
+{
+
+    function initialize(File1 $parent)
+    {
+        $parent->a = 3;
+    }
+}
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   test1.phpt:
+   <programlisting role="php">
+    <![CDATA[
+--TEST--
+test 1
+--FILE--
+<?php
+function __autoload($class) { include __DIR__ . '/../src/' . $class . '.php'; }
+
+$test = new File1(6);
+if ($test->a != 6) {
+    echo '$a is not 6, it is ' . $test->a, "\n";
+}
+?>
+===DONE===
+--EXPECT--
+===DONE===
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   test2.phpt:
+   <programlisting role="php">
+    <![CDATA[
+--TEST--
+test 2
+--FILE--
+<?php
+function __autoload($class) { include __DIR__ . '/../src/' . $class . '.php'; }
+
+$test2 = new File2;
+
+$test = new File1;
+$test->setInternalThing($test2);
+
+if ($test->a != 2) {
+    echo '$a is not 2, it is ' . $test->a, "\n";
+}
+?>
+===DONE===
+--EXPECT--
+===DONE===
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   test3.phpt:
+   <programlisting role="php">
+    <![CDATA[
+--TEST--
+test 3
+--FILE--
+<?php
+function __autoload($class) { include __DIR__ . '/../src/' . $class . '.php'; }
+
+$test2 = new File2;
+
+$test = new stdClass;
+$test2->initialize($test);
+
+if ($test->a != 2) {
+    echo '$a is not 2, it is ' . $test->a, "\n";
+}
+?>
+===DONE===
+--EXPECT--
+===DONE===
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   test4.phpt:
+   <programlisting role="php">
+    <![CDATA[
+--TEST--
+test 4
+--FILE--
+<?php
+function __autoload($class) { include __DIR__ . '/../src/' . $class . '.php'; }
+
+$test3 = new File3;
+
+$test = new File1;
+$test->setInternalThing($test3);
+
+if ($test->a != 3) {
+    echo '$a is not 3, it is ' . $test->a, "\n";
+}
+?>
+===DONE===
+--EXPECT--
+===DONE===
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   If a modification is made to <literal>File3.php</literal>, the
+   run-phpt command will detect that only <literal>test4.phpt</literal> uses
+   this file, and will run that test.  If a modification is made to
+   <literal>File2.php</literal>, <literal>test2.phpt</literal>,
+   <literal>test3.phpt</literal> and <literal>test4.phpt</literal> will all be
+   executed, even though <literal>test4.phpt</literal> does not directly
+   use the <literal>File2</literal> class, because <literal>File3</literal>
+   extends <literal>File2</literal> and so the file is loaded.  If a modification
+   is made to <literal>File1.php</literal>, <literal>test1.phpt</literal>,
+   <literal>test2.phpt</literal> and <literal>test4.phpt</literal> will all
+   be executed.  Finally, if any of the phpt test files are executed, or any
+   external files that they include are modified, they will be run again.  If a
+   new test, <literal>test5.phpt</literal> is added, the run-phpt command will
+   also detect the test and run it.
+  </para>
+  <para>
+   This allows extremely efficient development, as surgically running only
+   tests that are affected by source code changes allows assurance that even
+   the most remote file dependencies are validated, and irrelevant tests are not
+   executed unnecessarily.  By relying upon the coverage report, it is also
+   easy to catch subtle logic bugs preventing code blocks from being
+   executed, resulting in far more robust code much faster.  Pyrus itself
+   was developed using this technique.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.runphpt.recursive">
+  <title>--recursive</title>
+  <para>
+   The <literal>--recursive</literal> or <literal>-r</literal> option causes Pyrus
+   to recursively traverse directories specified
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.runphpt.coverage">
+  <title>--coverage</title>
+  <para>
+   the <literal>--coverage</literal> or <literal>-x</literal> option causes
+   Pyrus to record coverage using the <literal>xdebug</literal> extension's
+   code coverage capabilities.
+  </para>
+ </section>
+</section>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.generateext">
+ <info><title>generate-ext - Create the subversion source layout for a new PHP extension that is PECL-ready</title></info>
+
+ <section xml:id="pyrus.commands.generateext.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>generate-pecl</literal> command is used to create a bare
+   skeleton for a new PECL package or PHP extension as it will reside in
+   Subversion. This is designed to provide all of the functionality of the
+   ext_skel command but also generates a package.xml and other files that can
+   be used to automatically update for a release.
+  </para>
+  <para>
+   One argument is accepted, <literal>extension</literal>.
+  </para>
+  <para>
+  This command automatically creates class definitions as well as ZEND_ARG_INFO
+  for parameters to provide useful reflection to your extension's users.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.generateext.extension">
+  <title>extension</title>
+  <para>
+   The <literal>extension</literal> argument is the name of the package to create
+   a skeleton for. This is used as the directory name and as the extension name
+   used within files related to creating a PECL package.
+  </para>
+ </section>
+ <section xml:id="pyrus.commands.generateext.proto">
+  <title>--proto</title>
+  <para>
+   The <literal>--proto</literal> or <literal>-p</literal> option specifies a
+   file containing function and method prototypes to create in your new extension.
+  </para>
+  <para>
+   As an example, here are some supported protos:
+   <itemizedlist>
+    <listitem>
+     <simpara>
+      <literal>
+       int myfunc(string firstarg, unicode secondarg, array thirdarg,
+       object fourtharg [, double optionalarg1
+       [, float optionalarg2 [, callback optionalarg3 [, text optionalarg4]]]])
+      </literal>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>
+       void Myclass::myfunc(array|object arg1, bool arg2, class arg3,
+       resource arg4, mixed arg5 [, ... varargs])
+      </literal>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>
+       static int Myclass::staticfunc()
+      </literal>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>
+       protected string Myclass::otherguy([mixed optionalarg])
+      </literal>
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>
+       static protected object Myclass::factory(text path)
+      </literal>
+     </simpara>
+    </listitem>
+   </itemizedlist>
+  </para>
+  <para>
+   A proto begins with either the return type or access modifiers
+   <literal>static</literal> and one of <literal>public</literal>,
+   <literal>protected</literal> and <literal>private</literal> followed
+   by the return type.  Next, the name of the function, or name of the
+   class::method is specified, followed by an argument list.  Optional
+   methods are enclosed in <literal>[brackets]</literal> and whitespace
+   is important, so follow the conventions as in the above examples.
+  </para>
+  <para>
+   Each argument consists of a type followed by an argument name.  The types are
+   informed by parameter parsing as supported by PHP's internal
+   <function>zend_parse_parameters</function>.  This is thoroughly documented
+   in the file <literal>README.PARAMETER_PARSING</literal> inside PHP's
+   source code.  Note that some of the parameter parsing choices only work
+   in PHP 6, in particular the unicode-related options.
+  </para>
+  <para>
+   The following types are supported:
+   <itemizedlist>
+    <listitem>
+     <simpara>
+      <literal>array</literal> (maps to <literal>'a'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>array|object</literal> (maps to <literal>'A'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>bool</literal> (maps to <literal>'b'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>boolean</literal> (maps to <literal>'b'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>callback</literal> (maps to <literal>'f'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>class</literal> (Maps to <literal>'C'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>double</literal> (maps to <literal>'d'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>float</literal> (maps to <literal>'d'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>handle</literal> (maps to <literal>'r'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>int</literal> (Maps to <literal>'L'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>long</literal> (Maps to <literal>'L'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>mixed</literal> (maps to <literal>'z'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>object</literal> (maps to <literal>'o'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>resource</literal> (maps to <literal>'r'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>string</literal> (maps to <literal>'s'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>text</literal> (Maps to <literal>'T'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>unicode</literal> (maps to <literal>'u'</literal> in parameter parsing)
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>void</literal>, use only for the return value of a function that returns nothing
+     </simpara>
+    </listitem>
+    <listitem>
+     <simpara>
+      <literal>...</literal> (varags: maps to <literal>'*'</literal> in parameter parsing)
+      However, if the parameter is not optional, if maps to <literal>'+'</literal>
+      is used.
+     </simpara>
+    </listitem>
+   </itemizedlist>
+  </para>
+ </section>
+</section>

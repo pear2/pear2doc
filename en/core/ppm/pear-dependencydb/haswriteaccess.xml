@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-dependencydb.haswriteaccess">
+ <refnamediv>
+  <refname>
+   <function>PEAR_DependencyDB::hasWriteAccess</function>
+  </refname>
+  <refpurpose>determines whether a dependency DB can be modified</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/DependencyDB.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_DependencyDB::hasWriteAccess</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-dependencydb.haswriteaccess.desc">
+  &title.desc;
+  <para>
+   This method is used by the installer to prevent attempts to create/modify the
+   dependency DB if the current user does not have write access to the registry.
+   Without this method, simple read-only commands like <literal>pear info</literal>
+   would not work.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.haswriteaccess.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-dependencydb.haswriteaccess.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.getssl">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::getSSL</function>
+  </refname>
+  <refpurpose>get SSL support for a channel or mirror</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_ChannelFile::getSSL</function>
+    </funcdef>
+    <paramdef choice="opt">
+     mixed
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.getssl.desc">
+  &title.desc;
+  <para>
+   This function can be used to determine whether a channel or mirror requires a
+   secure connection through SSL in order to access the packages.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getssl.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>
+       Mirror name or false for primary server
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getssl.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   Determines whether secure sockets layer (SSL) is used to connect to this channel
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getssl.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.getssl.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

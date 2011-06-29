@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.system.intro">
+   <refnamediv>
+    <refname>Introduction</refname>
+    <refpurpose>General usage informations</refpurpose>
+  </refnamediv>
+
+  <refsection xml:id="core.pear.system.intro.clistyle"><info><title>Command line style</title></info>
+     
+    <para>
+     The <classname>System</classname> functions are called like there
+     commandline pendants
+     <programlisting role="php">
+   <![CDATA[
+if (!System::rm('-r file1 dir1')) {
+	print "Could not delete all the files";
+}
+   ]]>
+     </programlisting>
+     The arguments of the functions can be introduced as string or array:
+    <programlisting role="php">
+	System::rm(array('-r', 'file1', 'dir1'));
+    </programlisting>
+	System works like any other PHP function and will return
+	<parameter>FALSE</parameter>,
+	when the operation could not be completed entirely or partially. System
+	won't stop when a error is found, it will try to continue. For example,
+	if you are trying to delete three files and the first one can't be deleted,
+	the next two files will be deleted but the function will return
+	<parameter>FALSE</parameter>.
+    </para>
+	<para>
+  Errors will be printed out using the PHP function 
+  <function>trigger_error()</function> so all
+	the System methods can be silenced prefix a '@' sign before the function
+ call (for example: <command>@System::mkdir('-p dir1/dir2/dir3');</command>).
+	</para>
+
+  </refsection>
+  <refsection xml:id="core.pear.system.intro.compatibility"><info><title>Compatibility</title></info>
+    
+    <para>
+     <classname>System</classname> provides file system functions.
+     They are named like the file system commands on Unix systems
+     and supports the same options <emphasis>independent</emphasis>
+     of your operation system.
+    </para>
+    <para>
+     At the moment the functions are tested under Linux and Windows. Further
+     reports about compatibility on other systems are welcome.
+    </para>
+    <warning>
+     <para>
+      In earlier versions of PHP 4, <function>unlink</function> may fail
+      on Windows. This bug is already fixed in up-to-date versions.
+     </para>
+    </warning>
+   </refsection>
+
+   <refsection xml:id="core.pear.system.intro.manpages"><info><title>Man Pages</title></info>
+    
+    <para>
+     This manual describes the parameters of the <classname>System</classname>
+     functions, most only a string. The arguments and options of the specific
+     command are <emphasis>not</emphasis> documented in the manual. Please take
+     a look on the man-pages on unix-like systems
+     <programlisting>
+     <command>man</command> <parameter>commandname</parameter>
+     </programlisting>
+     or when man-pages not available on your system, visit the
+     <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.man.index;">On-line UNIX manual pages</link>
+    </para>
+   </refsection>
+
+  </refentry>

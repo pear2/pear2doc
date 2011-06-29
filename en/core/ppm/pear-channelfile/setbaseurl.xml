@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setbaseurl">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setBaseURL</function>
+  </refname>
+  <refpurpose>set the base URL for a REST resource, or set of REST resources</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_ChannelFile::setBaseURL</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$resourceType</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$url</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setbaseurl.desc">
+  &title.desc;
+  <para>
+   Set the base URL that users should use to access a REST resource or
+   set of REST resources.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setbaseurl.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$resourceType</parameter>
+     </term>
+     <listitem>
+      <para>Resource Type this url links to</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$url</parameter>
+     </term>
+     <listitem>
+      <para>URL</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>mirror name, if this is not a primary server REST base URL</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setbaseurl.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setbaseurl.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

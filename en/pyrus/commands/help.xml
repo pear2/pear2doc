@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.commands.help">
+ <info><title>help - list commands or get detailed help on a command</title></info>
+
+ <section xml:id="pyrus.commands.help.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   The <literal>help</literal> command simply lists all available commands.  If
+   a command name is passed as an argument, help will provide detailed help
+   on that command.
+  </para>
+  <para>
+   <screen>php pyrus.phar help download</screen>
+  </para>
+ </section>
+</section>

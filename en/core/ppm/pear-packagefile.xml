@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile"><info><title>PEAR</title></info>
+ 
+ <refentry xml:id="core.ppm.pear-packagefile-summary">
+  <refnamediv>
+   <refname>
+    Class Summary
+    <classname>PEAR_PackageFile</classname>
+   </refname>
+   <refpurpose>Abstraction for the package.xml package description file</refpurpose>
+  </refnamediv>
+  <refsection><info><title>Abstraction for the package.xml package description file</title></info>
+   
+   <para>
+    Parse and retrieve a package.xml object from various sources.
+   </para>
+  </refsection>
+  <refsection><info><title>
+    Class Trees for
+    <classname>PEAR_PackageFile</classname>
+   </title></info>
+   
+   <para>
+    <itemizedlist>
+     <listitem>
+      <para>PEAR_PackageFile</para>
+     </listitem>
+    </itemizedlist>
+   </para>
+  </refsection>
+ </refentry>
+ &core.ppm.pear-packagefile.pear-packagefile;
+&core.ppm.pear-packagefile.factory;
+&core.ppm.pear-packagefile.fromanyfile;
+&core.ppm.pear-packagefile.fromarray;
+&core.ppm.pear-packagefile.frompackagefile;
+&core.ppm.pear-packagefile.fromtgzfile;
+&core.ppm.pear-packagefile.fromxmlstring;
+&core.ppm.pear-packagefile.parserfactory;
+&core.ppm.pear-packagefile.rawreturn;
+&core.ppm.pear-packagefile.setlogger;
+&core.ppm.pear-packagefile.constants;
+</section>

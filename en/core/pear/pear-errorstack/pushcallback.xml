@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-errorstack.pushcallback">
+   <refnamediv>
+    <refname><function>PEAR_ErrorStack::pushCallback</function></refname>
+    <refpurpose>Set an error Callback  If set to a valid callback, this will be called
+every time an error  is pushed onto the stack.  The return value will be
+used to determine  whether to allow an error to be pushed or logged.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once &apos;PEAR/ErrorStack.php&apos;;
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void      <function>PEAR_ErrorStack::pushCallback</function></funcdef>
+      <paramdef choice="req">string|array <parameter>$cb</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+
+    <refsection xml:id="core.pear.pear-errorstack.pushcallback.desc">
+     &title.desc;
+     <para>The return value must be one of the PEAR_ERRORSTACK_* constants.</para>
+     <para>This functionality can be used to emulate PEAR&apos;s pushErrorHandling, and 
+      the PEAR_ERROR_CALLBACK mode, without affecting the integrity of  the error stack or logging
+     </para>
+
+    </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pushcallback.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        <type>string|array</type>
+        <parameter>$cb</parameter>
+       </term>
+       <listitem>
+        <para>
+         
+        </para>
+       </listitem>
+      </varlistentry>     
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pushcallback.throws">
+    &title.throws;
+        <para>
+      <emphasis>throws</emphasis> no exceptions thrown
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pushcallback.see">
+    &title.see;
+        <para>
+      <emphasis>see</emphasis> <link linkend="core.pear.pear-errorstack.popcallback"><function>PEAR_ErrorStack::popCallback</function></link>
+    </para>
+        <para>
+      <emphasis>see</emphasis> <link linkend="core.pear.pear-errorstack.constants.details.errorstack---php"><constant>PEAR_ERRORSTACK_PUSHANDLOG</constant></link>, <link linkend="core.pear.pear-errorstack.constants.details.errorstack---php"><constant>PEAR_ERRORSTACK_PUSH</constant></link>, <link linkend="core.pear.pear-errorstack.constants.details.errorstack---php"><constant>PEAR_ERRORSTACK_LOG</constant></link>
+    </para>
+       </refsection>
+   <refsection xml:id="core.pear.pear-errorstack.pushcallback.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

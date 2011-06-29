@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="pyrus.configuration.system.srcdir">
+ <info><title>src_dir</title></info>
+
+ <section xml:id="pyrus.configuration.system.srcdir.intro">
+  <info><title>Introduction</title></info>
+  <para>
+   Files with the <literal>src</literal> role are installed into
+   <literal>src_dir</literal>, and building of PECL packages
+   also happens in this directory.
+  </para>
+ </section>
+</section>

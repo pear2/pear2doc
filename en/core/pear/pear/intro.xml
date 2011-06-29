@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear.intro">
+   <refnamediv>
+    <refname>Introduction</refname>
+    <refpurpose>
+     How to handle the PEAR base class (destructors, error handling)
+    </refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <synopsis>require_once "PEAR.php";</synopsis>
+    <synopsis>class <replaceable>classname</replaceable> extends <classname>PEAR</classname> { ... }</synopsis>
+   </refsynopsisdiv>
+   <refsection><info><title>Description</title></info>
+    
+    <simpara>
+     The PEAR base class provides standard functionality that is used
+     by most PEAR classes.  Normally you never make an instance of the
+     PEAR class directly, you use it by subclassing it.
+    </simpara>
+    <para>
+     Its key features are:
+     <itemizedlist>
+      <listitem>
+       <simpara>request-shutdown object "destructors"</simpara>
+      </listitem>
+      <listitem>
+       <simpara>error handling</simpara>
+      </listitem>
+     </itemizedlist>
+    </para>
+   </refsection>
+   <refsection xml:id="destructors"><info><title>PEAR "destructors"</title></info>
+    
+    <simpara>
+     If you inherit <classname>PEAR</classname> in a class called
+     <replaceable>ClassName</replaceable>, you can define a method in
+     it called _<replaceable>ClassName</replaceable> (the
+     class name with an underscore prepended) that will be invoked
+     when the request is over.  This is not a destructor in the sense
+     that you can "delete" an object and have the destructor called,
+     but in the sense that PHP gives you a callback in the object
+     when PHP is done executing.  See <link linkend="example.destructors">the example</link> below.
+    </simpara>
+    <para>
+     <warning xml:id="destructors.warning"><info><title>Important!</title></info>
+      
+      <para>
+       In order for destructors to work properly, you must
+       instantiate your class with the "=&amp; new" operator like
+       this:
+       <programlisting role="php">
+<![CDATA[
+$obj =& new MyClass();
+]]>
+       </programlisting>
+      </para>
+      <simpara>
+       If you only use "= new", the object registered in PEAR's
+       shutdown list will be a copy of the object at the time the
+       constructor is called, and it will be this copy's "destructor"
+       that will be called upon request shutdown.
+      </simpara>
+     </warning>
+    </para>
+   </refsection>
+   <refsection xml:id="error-handling"><info><title>PEAR Error Handling</title></info>
+    
+    <simpara>
+     PEAR's base class also provides a way of passing around more
+     complex errors than a true/false value or a numeric code.  A
+     PEAR error is an object that is either an instance of the class
+     <classname>PEAR_Error</classname>, or some class inheriting
+     <classname>PEAR_Error</classname>.
+    </simpara>
+    <simpara>
+     One of the design criteria of PEAR's errors is that it should not
+     force a particular type of output on the user, it should be
+     possible to handle errors without any output at all if that is
+     desirable. This makes it possible to handle errors gracefully,
+     also when your output format is different from HTML (for example
+     WML or some other XML format).
+    </simpara>
+    <simpara>
+     The error object can be configured to do a number of things when
+     it is created, such as printing an error message, printing the
+     message and exiting, raising an error with PHP's
+     <function>trigger_error</function> function, invoke a callback,
+     or none of the above.  This is typically specified in
+     <classname>PEAR_Error</classname>'s constructor, but all of the
+     parameters are optional, and you can set up defaults for errors
+     generated from each object based on the
+     <classname>PEAR</classname> class. See the <link linkend="example.error1">PEAR error examples</link> for how
+     to use it and the <classname>PEAR_Error</classname> reference
+     for the full details.
+    </simpara>
+   </refsection>
+   <refsection><info><title>Examples</title></info>
+    
+    <para>
+     The example below shows how to use the PEAR's "poor man's kinda
+     emulated destructors" to implement a simple class that holds the
+     contents of a file, lets you append data to the object and
+     flushes the data back to the file at the end of the request:
+     <example xml:id="example.destructors"><info><title>PEAR: emulated destructors</title></info>
+      
+      <programlisting role="php">
+<![CDATA[
+require_once "PEAR.php";
+
+class FileContainer extends PEAR
+{
+    var $file = '';
+    var $contents = '';
+    var $modified = 0;
+
+    function FileContainer($file)
+    {
+        $this->PEAR(); // this calls the parent class constructor
+        $fp = fopen($file, "r");
+        if (!is_resource($fp)) {
+            return;
+        }
+	$this->file = $file;
+        while ($data = fread($fp, 2048)) {
+            $this->contents .= $data;
+    	}
+        fclose($fp);
+    }
+
+    function append($str)
+    {
+        $this->contents .= $str;
+        $this->modified++;
+    }
+
+    // The "destructor" is named like the constructor
+    // but with an underscore in front.
+    function _FileContainer()
+    {
+        if ($this->modified) {
+            $fp = fopen($this->file, "w");
+            if (!is_resource($fp)) {
+                return;
+            }
+            fwrite($fp, $this->contents);
+            fclose($fp);
+        }
+    }
+}
+
+$fileobj =& new FileContainer("testfile");
+$fileobj->append("this ends up at the end of the file\n");
+
+// When the request is done and PHP shuts down, $fileobj's
+// "destructor" is called and updates the file on disk.
+]]>
+      </programlisting>
+     </example>
+     <note>
+      <simpara>
+       PEAR "destructors" use PHP's shutdown callbacks
+       (<function>register_shutdown_function</function>), and
+       in PHP &lt; 4.1, you can't output anything from these when
+       PHP is running in a web server.  So anything printed in a
+       "destructor" gets lost except when PHP is used in
+       command-line mode. In PHP 4.1 and higher, output can
+       be also generated in the destructor.
+      </simpara>
+      <simpara>
+       Also, see the <link linkend="destructors.warning">warning</link> about how to
+       instantiate objects if you want to use the destructor.
+      </simpara>
+     </note>
+    </para>
+    <simpara>
+     The next examples illustrate different ways of using PEAR's error
+     handling mechanism.
+    </simpara>
+    <para>
+     <example xml:id="example.error1"><info><title>PEAR error example (1)</title></info>
+      
+      <programlisting role="php">
+<![CDATA[
+function mysockopen($host = "localhost", $port = 8090)
+{
+    $fp = fsockopen($host, $port, $errno, $errstr);
+    if (!is_resource($fp)) {
+        return new PEAR_Error($errstr, $errno);
+    }
+    return $fp;
+}
+
+$sock = mysockopen();
+if (PEAR::isError($sock)) {
+    print "mysockopen error: ".$sock->getMessage()."\n";
+}
+]]>
+      </programlisting>
+     </example>
+    </para>
+    <simpara>
+     This example shows a wrapper to <function>fsockopen</function>
+     that delivers the error code and message (if any) returned by
+     fsockopen in a PEAR error object.  Notice that
+     <function>PEAR::isError</function> is used to detect whether a
+     value is a PEAR error.
+    </simpara>
+    <simpara>
+     PEAR_Error's mode of operation in this example is simply
+     returning the error object and leaving the rest to the user
+     (programmer).  This is the default error mode.
+    </simpara>
+    <simpara>
+     In the next example we're showing how to use default error modes:
+    </simpara>
+    <para>
+     <example xml:id="example.error2"><info><title>PEAR error example (2)</title></info>
+      
+      <programlisting role="php">
+<![CDATA[
+class TCP_Socket extends PEAR
+{
+    var $sock;
+
+    function TCP_Socket()
+    {
+        $this->PEAR();
+    }
+
+    function connect($host, $port)
+    {
+        $sock = fsockopen($host, $port, $errno, $errstr);
+        if (!is_resource($sock)) {
+            return $this->raiseError($errstr, $errno);
+        }
+    }
+}
+
+$sock = new TCP_Socket;
+$sock->setErrorHandling(PEAR_ERROR_DIE);
+$sock->connect('localhost', 8090);
+print "still alive\n";
+]]>
+      </programlisting>
+     </example>
+    </para>
+    <simpara>
+     Here, we set the default error mode to
+     <constant>PEAR_ERROR_DIE</constant>, and since we don't specify
+     any error mode in the raiseError call (that'd be the third
+     parameter), raiseError uses the default error mode and exits if
+     fsockopen fails.
+    </simpara>
+   </refsection>
+   <refsection><info><title>Global Variables Used</title></info>
+    
+    <para>
+     The PEAR class uses some global variables to register global
+     defaults, and an object list used by the "destructors".  All of
+     the global variables associated with the PEAR class have a
+     <literal>_PEAR_</literal> name prefix.
+    </para>
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>$_PEAR_default_error_mode</term>
+       <listitem>
+	<simpara>
+	 If no default error mode is set in an object, this mode will
+	 be used.  Must be one of
+	 <constant>PEAR_ERROR_RETURN</constant>,
+	 <constant>PEAR_ERROR_PRINT</constant>,
+	 <constant>PEAR_ERROR_TRIGGER</constant>,
+	 <constant>PEAR_ERROR_DIE</constant> or
+	 <constant>PEAR_ERROR_CALLBACK</constant>.
+	</simpara>
+	<para>
+	 Don't set this variable directly, call
+	 <function>PEAR::setErrorHandling</function> as a static
+	 method like this:
+	 <informalexample>
+	  <programlisting role="php">
+<![CDATA[
+PEAR::setErrorHandling(PEAR_ERROR_DIE);
+]]>
+      </programlisting>
+	 </informalexample>
+	</para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>$_PEAR_default_error_options</term>
+       <listitem>
+	<simpara>
+	 If the error mode is <constant>PEAR_ERROR_TRIGGER</constant>,
+	 this is the error level (one of
+	 <constant>E_USER_NOTICE</constant>,
+	 <constant>E_USER_WARNING</constant> or
+	 <constant>E_USER_ERROR</constant>).
+	</simpara>
+	<para>
+	 Don't set this variable directly, call
+	 <function>PEAR::setErrorHandling</function> as a static
+	 method like this:
+	 <informalexample>
+	  <programlisting role="php">
+<![CDATA[
+PEAR::setErrorHandling(PEAR_ERROR_TRIGGER, E_USER_ERROR);
+]]>
+      </programlisting>
+	 </informalexample>
+	</para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>$_PEAR_default_error_callback</term>
+       <listitem>
+	<simpara>
+	 If no <replaceable>options</replaceable> parameter is used
+	 when an error is raised and the error mode is
+	 <constant>PEAR_ERROR_CALLBACK</constant>, the value of this
+	 variable is used as the callback.  This means that you can
+	 switch the error mode temporarily and return to callback mode
+	 without specifying the callback function again.  A string
+	 value represents a function, a two-element array with an
+	 object at index 0 and a string at index 1 represents a
+	 method.
+	</simpara>
+	<para>
+	 Again, don't set this variable directly, call
+	 <function>PEAR::setErrorHandling</function> as a static
+	 method like this:
+	 <informalexample>
+	  <programlisting role="php">
+<![CDATA[
+PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, "my_error_handler");
+]]>
+      </programlisting>
+	 </informalexample>
+	</para>
+	<para>
+	 Here is an example of how you can switch back and forth
+	 without specifying the callback function again:
+	 <informalexample>
+	  <programlisting role="php">
+<![CDATA[
+PEAR::setErrorHandling(PEAR_ERROR_CALLBACK, "my_function_handler");
+do_some_stuff();
+PEAR::setErrorHandling(PEAR_ERROR_DIE);
+do_some_critical_stuff();
+PEAR::setErrorHandling(PEAR_ERROR_CALLBACK);
+// now we're back to using my_function_handler again
+]]>
+</programlisting>
+	 </informalexample>
+	</para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+  </refentry>

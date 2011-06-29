@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="package.categorie.mypackage.myclass.myfunction">
+ <refnamediv>
+  <refname>My_Class::myFunction()</refname>
+  <refpurpose>Outputs short description of the method</refpurpose>
+  <!--
+   The refpurpose should use 3rd person declarative
+   rather than 2nd person imperative.
+      Gets the label  (preferred)
+      Get the label   (avoid)
+  -->
+ </refnamediv>
+
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>
+    require_once 'category/Package.php';
+   </funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>string <function>My_Class::myFunction</function></funcdef>
+    <paramdef choice="req">
+     string <parameter>$param1</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     int <parameter>$param2 = defaultvalue</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+
+ <refsection xml:id="package.categorie.mypackage.myclass.myfunction.desc">
+  &title.desc;
+  <para>
+   The method is self-descriptive
+  </para>
+
+  <para>
+   Keep in mind that many foreign translations require
+   the use of HTML entities to represent individual
+   letters (i.e. &eacute;). Therefore, wrap your lines
+   around 60 columns in order to make it easier for
+   translators to compare their version with the original.
+  </para>
+
+  <para>
+   The following paragraph contains examples of several
+   elements you may find useful while writing your
+   documentation...
+  </para>
+
+  <para>
+   If <varname>$foo</varname> equals <literal>bar</literal>
+   then <filename>baz.txt</filename> is used as the data
+   source rather than the <database>baz</database> database.
+   If you need to manually administer the database, use the
+   <command>mysql</command> command to start the client. To
+   log on as a particular user, use <option>-u</option>
+   <replaceable>username</replaceable> option. The default
+   system administrator user name is <userinput>root</userinput>.
+   The <option>-p</option> option tells the program to issue
+   the <prompt>Enter password:</prompt> prompt. If the logon
+   is successful, you'll see
+   <computeroutput>Welcome to the MySQL monitor.</computeroutput>
+   The <constant>PATH_SEPARATOR</constant> is helpful when
+   setting <envar>PATH</envar>. Anyway, once the program is
+   running, it creates an object from <classname>Bar</classname>.
+
+   <!--
+    The complete list of &title, &type, &warn and similar
+    entities can be found in /peardoc/en/language-snippets.ent.
+    If you are translating into another language, use your
+    language code rather than "en."
+
+    Helpful entities for common URL's, email addresses, etc
+    are in /peardoc/global.ent
+
+    Keep in mind that if you need to use ", &, < or >
+    in the text, you need to use their entities instead:
+    &quot;, &amp;, &lt; or &gt;.
+
+    Definitely check out the "DocBook Element Reference"
+    section of "DocBook: The Definitive Guide" at
+    http://www.docbook.org/tdg/en/html-ng/part2.html
+    It provides detailed information about each element
+    including which elements can (and must) be used as
+    parents and children.
+   -->
+  </para>
+
+ </refsection>
+
+ <refsection xml:id="package.categorie.mypackage.myclass.myfunction.parameter">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$param1</parameter>
+     </term>
+     <listitem>
+      <para>
+       the first parameter of the method
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$param2</parameter>
+     </term>
+     <listitem>
+      <para>
+       the second parameter
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+
+ <refsection xml:id="package.categorie.mypackage.myclass.myfunction.return">
+  &title.returns;
+  <para>
+   &type.string; - foo-bar encrypted data
+   or &class.pear-error; on failure
+  </para>
+ </refsection>
+
+ <refsection xml:id="package.categorie.mypackage.myclass.myfunction.throws">
+  &title.throws;
+  <para>
+   <table><title>&title.throws.tablename;</title>
+    
+    <tgroup cols="4">
+     <thead>
+      <row>
+       <entry>Error code</entry>
+       <entry>Error value</entry>
+       <entry>Meaning</entry>
+       <entry>Solution</entry>
+      </row>
+     </thead>
+     <tbody>
+      <row>
+       <entry>1000</entry>
+       <entry><quote>Guru Meditation</quote></entry>
+       <entry>Your computer was overtaken by Jay Miner</entry>
+       <entry>Use Kickstart 2.04 and ask Denise for a date</entry>
+      </row>
+     </tbody>
+    </tgroup>
+   </table>
+  </para>
+ </refsection>
+
+ <refsection xml:id="package.categorie.mypackage.myclass.myfunction.note">
+  &title.note;
+  &note.canstatic;
+  &note.deprecated;
+  <simpara>
+   Method deprecated in: Release 2.0.0
+  </simpara>
+  <simpara>
+   Method available since: Release 1.12.0
+  </simpara>
+  <warning>
+   <para>
+    This method works only on a ZX 81.
+   </para>
+  </warning>
+ </refsection>
+
+ <refsection xml:id="package.categorie.mypackage.myclass.myfunction.example">
+  &title.example;
+  <example><info><title>Using <function>myFunction</function></title></info>
+   
+   <programlisting role="php">
+    <![CDATA[
+<?php
+require_once 'My/Package.php';
+
+$data = My_Package::myFunction('foo', 1024);
+echo $data;
+?>
+    ]]>
+   </programlisting>
+   <para>
+    Output:
+   </para>
+   <screen>
+    <![CDATA[
+bloblableblabloo
+    ]]>
+   </screen>
+  </example>
+ </refsection>
+
+ <refsection xml:id="packages.categorie.mypackage.myclass.myfunction.see">
+  &title.see;
+  <para>
+   <link linkend="package.categorie.mypackage.myclass.othermethod">
+    <function>otherMethod</function></link>
+  </para>
+ </refsection>
+</refentry>

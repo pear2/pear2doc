@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setvalidationpackage">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setValidationPackage</function>
+  </refname>
+  <refpurpose>
+   Set the package validation object if it differs from PEAR&apos;s default.
+  </refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     boolean
+     <function>PEAR_ChannelFile::setValidationPackage</function>
+    </funcdef>
+    <paramdef choice="req">
+     string|false
+     <parameter>$validateclass</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$version</parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setvalidationpackage.desc">
+  &title.desc;
+  <para>
+   The class must be either in memory (<classname>PEAR_Validate</classname> or
+   <classname>PEAR_Validate_PECL</classname>) or be available for <function>include_once</function>
+   via a simple formula:  Transform the underscores (<literal>_</literal>) into
+   directory separators (<literal>/</literal>), append <literal>.php</literal> and
+   include.
+  </para>
+  <para>
+   A validation class named <classname>Foo_Bar_Baz</classname> should be available for
+   inclusion via this code:
+  </para>
+  <para>
+   <programlisting>
+    <![CDATA[
+<?php
+include_once 'Foo/Bar/Baz.php';
+?>
+    ]]>
+   </programlisting>
+  </para>
+  <para>
+   In addition, the validation package must be available for installation from the channel
+   with the version number to install specified by the <parameter>$version</parameter> parameter.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setvalidationpackage.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$validateclass</parameter>
+     </term>
+     <listitem>
+      <para>pass in &false; to reset to the default packagename regex</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para>
+       The package version that must be installed for this channel to validate properly.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setvalidationpackage.returns">
+  &title.returns;
+  <para>
+   <emphasis>returns</emphasis>
+   success
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setvalidationpackage.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setvalidationpackage.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

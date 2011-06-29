@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.setport">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::setPort</function>
+  </refname>
+  <refpurpose>Set the socket number (port) that is used to connect to this channel</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_ChannelFile::setPort</function>
+    </funcdef>
+    <paramdef choice="req">
+     integer
+     <parameter>$port</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$mirror</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.setport.desc">
+  &title.desc;
+  <para>
+   As web services connect to channels through web servers, this can be used to set the
+   port that should be used to connect.  Default is 80 for regular webservers, and 443 for
+   SSL secure servers.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setport.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$port</parameter>
+     </term>
+     <listitem>
+      <para>
+       port number
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>name of the mirror server, or &false; for the primary server</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setport.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.setport.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

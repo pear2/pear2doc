@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.r-package-latesttxt"><info><title>latest.txt</title></info>
+ 
+ <synopsis>The latest package version</synopsis>
+
+ <para>
+  The only content of this file is the version number of the latest
+  version in pure plain text. The stability state does not matter;
+  the highest version number is written down here.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.r-package-latesttxt.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/latest.txt</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+  <para>
+   This file does not exist when no release has been made yet.
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.r-package-latesttxt.example"><info><title>Example</title></info>
+  
+
+  <para>
+   A package has a stable version <literal>1.0.0</literal>, two beta versions
+   <literal>0.9.8</literal> and <literal>1.0.9</literal> and a development
+   version <literal>1.0.1</literal>. The highest version number is
+   <literal>1.0.9</literal>, and this is put in <filename>latest.txt</filename>.
+  </para>
+
+  <programlisting role="text"><![CDATA[1.0.9]]></programlisting>
+ </section>
+
+</section>

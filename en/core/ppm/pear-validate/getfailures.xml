@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.getfailures">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::getFailures</function>
+  </refname>
+  <refpurpose>getFailures</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::getFailures</function>
+    </funcdef>
+    <paramdef choice="req"/>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.getfailures.desc">
+  &title.desc;
+  <para>
+   Returns a list of failures recorded by the last validation attempt.  The list is in
+   format:
+  </para>
+  <para>
+   <programlisting role="php">
+    <![CDATA[
+<?php
+array(
+    'error' =>
+        array(
+            array('field' => 'name', 'name must contain only letters, numbers or underscore'),
+        ),
+    'warning' =>
+        array(
+            array('field' => 'version', 'version should be less than 2.0'),
+        )
+);
+?>
+    ]]>
+   </programlisting>
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.getfailures.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.getfailures.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

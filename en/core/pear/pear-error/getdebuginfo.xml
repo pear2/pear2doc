@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.getdebuginfo">
+   <refnamediv>
+    <refname>PEAR_Error::getDebugInfo()</refname>
+    <refpurpose>get debug information</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Error::getDebugInfo</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.getdebuginfo.desc">
+    &title.desc;
+    <para>
+     Returns debug information about an error
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.getdebuginfo.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     error debug information
+    </para>
+   </refsection>      
+   <refsection xml:id="core.pear.pear-error.getdebuginfo.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>         
+  </refentry>

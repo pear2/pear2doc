@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-registry.removepackagedep">
+   <refnamediv>
+    <refname><function>PEAR_Registry::removePackageDep</function></refname>
+    <refpurpose>Remove dependency information of a Package</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/Registry.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>mixed <function>PEAR_Registry::removePackageDep</function></funcdef>
+      <paramdef choice="req">string <parameter>$package</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-registry.removepackagedep.desc">
+     &title.desc;
+     <para>
+      Removes the dependency information of a Package from
+      the registry.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-registry.removepackagedep.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$package</parameter>
+       </term>
+       <listitem>
+        <para>
+         Package name
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-registry.removepackagedep.return">
+    &title.returns;
+    <para>
+     &type.mixed; -
+     &true; if successful; or
+     an array with a list of Packages depending on this Package
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.removepackagedep.throws">
+    &title.throws;
+    <para>
+     <table><title>&title.throws.errortable;</title>
+      
+      <tgroup cols="4">
+
+       <thead>
+        <row>
+         <entry>Error code</entry>
+         <entry>Error value</entry>
+         <entry>Meaning</entry>
+         <entry>Solution</entry>
+        </row>
+       </thead>
+       <tbody>
+        <row>
+         <entry/>
+         <entry><quote/></entry>
+         <entry/>
+         <entry/>
+        </row>
+       </tbody>
+      </tgroup>
+     </table>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-registry.removepackagedep.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

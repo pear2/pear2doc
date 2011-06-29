@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-config.pear-config">
+   <refnamediv>
+    <refname><function>PEAR_Config::PEAR_Config</function></refname>
+    <refpurpose>Constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/config.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void       <function>PEAR_Config::PEAR_Config</function></funcdef>
+      <paramdef choice="opt">string <parameter>$user_file = ''</parameter></paramdef>
+      <paramdef choice="opt">string <parameter>$system_file = ''</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-config.pear-config.desc">
+     &title.desc;
+     <para>Constructor</para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-config.pear-config.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$user_file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file to read user-defined options from
+        </para>
+       </listitem>
+      </varlistentry>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$system_file</parameter>
+       </term>      
+       <listitem>
+        <para>
+         file to read system-wide defaults from
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-config.pear-config.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

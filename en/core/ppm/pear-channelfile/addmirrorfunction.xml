@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-channelfile.addmirrorfunction">
+ <refnamediv>
+  <refname>
+   <function>PEAR_ChannelFile::addMirrorFunction</function>
+  </refname>
+  <refpurpose>Add a protocol to a mirror&apos;s provides section</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/ChannelFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     bool
+     <function>PEAR_ChannelFile::addMirrorFunction</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$mirror</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$type</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$version</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>
+      $name = ''
+     </parameter>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirrorfunction.desc">
+  &title.desc;
+  <para>
+   This is a direct way to add a <literal>xmlrpc</literal> or <literal>soap</literal>
+   function to a mirror.  See docs for
+   <link linkend="core.ppm.pear-channelfile.addfunction"><function>addFunction</function></link>.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirrorfunction.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$mirror</parameter>
+     </term>
+     <listitem>
+      <para>mirror name (server)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$type</parameter>
+     </term>
+     <listitem>
+      <para>protocol type</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$version</parameter>
+     </term>
+     <listitem>
+      <para>protocol version</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>protocol name, if any</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirrorfunction.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-channelfile.addmirrorfunction.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

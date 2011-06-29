@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-validate.validpackagename">
+ <refnamediv>
+  <refname>
+   <function>PEAR_Validate::validPackageName</function>
+  </refname>
+  <refpurpose>utility method to validate a package name string</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/Validate.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     void
+     <function>PEAR_Validate::validPackageName</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$name</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string
+     <parameter>$validatepackagename</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-validate.validpackagename.desc">
+  &title.desc;
+  <para>
+   Validate a package name string.  The second parameter should be the name of the
+   channel validation package, as defined by channel.xml for the current channel.
+   If the package name being validated is the same as the validation package (case-insensitive),
+   then it will be validated using the default rules for PEAR packages.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-validate.validpackagename.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$name</parameter>
+     </term>
+     <listitem>
+      <para>package name to validate</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$validatepackagename</parameter>
+     </term>
+     <listitem>
+      <para>name of channel-specific validation package</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validpackagename.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validpackagename.final"><info><title>Final</title></info>
+  
+  <para>
+   <emphasis>final</emphasis> - this method should not be overridden.
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-validate.validpackagename.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

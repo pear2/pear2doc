@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.rest.fileformats.r-package-develtxt"><info><title>devel.txt</title></info>
+ 
+ <synopsis>The latest development version</synopsis>
+
+ <para>
+  The only content of this file is the version number of the latest
+  development version in pure plain text.
+ </para>
+
+
+ <section xml:id="core.rest.fileformats.r-package-develtxt.location"><info><title>Location</title></info>
+  
+  <para>
+   <filename>r/${packagename}/devel.txt</filename>
+  </para>
+  <note>
+   <para>
+    The package name is lowercased.
+   </para>
+  </note>
+  <para>
+   This file does not exist when no development release exists.
+  </para>
+ </section>
+
+
+ <section xml:id="core.rest.fileformats.r-package-develtxt.example"><info><title>Example</title></info>
+  
+  <programlisting role="text"><![CDATA[0.1.2]]></programlisting>
+ </section>
+
+</section>

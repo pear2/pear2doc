@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-common.pear-common">
+   <refnamediv>
+    <refname><function>PEAR_Common::PEAR_Common</function></refname>
+    <refpurpose>PEAR_Common constructor</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/common.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>void
+       <function>PEAR_Common::PEAR_Common</function></funcdef>
+<void/>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-common.pear-common.desc">
+     &title.desc;
+     <para>PEAR_Common constructor</para>
+    </refsection>
+ 
+    <refsection xml:id="core.ppm.pear-common.pear-common.note">
+    &title.note;
+    &note.canstatic;
+   </refsection>
+</refentry>

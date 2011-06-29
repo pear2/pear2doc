@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-autoloader.addaggregateobject">
+   <refnamediv>
+    <refname><function>PEAR_Autoloader::addAggregateObject</function></refname>
+    <refpurpose>Add an aggregate object to object.</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+             require_once 'PEAR/autoloader.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef><replaceable>void</replaceable>       <function>PEAR_Autoloader::addAggregateObject</function></funcdef>
+      <paramdef choice="req">string <parameter>$classname</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-autoloader.addaggregateobject.desc">
+     &title.desc;
+     <para>
+             Add an aggregate object to this object.  If the specified class 
+             is not defined, loading it will be attempted following PEAR's  file 
+             naming scheme.  All the methods in the class will be  aggregated, 
+             except private ones (name starting with an  underscore) and constructors.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.addaggregateobject.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$classname</parameter>
+       </term>      
+       <listitem>
+        <para>
+         what class to instantiate for the object.
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+  
+   <refsection xml:id="core.ppm.pear-autoloader.addaggregateobject.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>

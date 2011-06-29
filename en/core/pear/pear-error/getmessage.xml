@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.pear.pear-error.getmessage">
+   <refnamediv>
+    <refname>PEAR_Error::getMessage()</refname>
+    <refpurpose>get error message</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>string <function>PEAR_Error::getMessage</function></funcdef>
+      <paramdef choice="req"/>
+     </funcprototype>
+    </funcsynopsis>
+   </refsynopsisdiv>
+   <refsection xml:id="core.pear.pear-error.getmessage.desc">
+    &title.desc;
+    <para>
+     Returns the error message coming with the error object.
+    </para>
+   </refsection>   
+   <refsection xml:id="core.pear.pear-error.getmessage.return">
+    &title.returns;
+    <para>
+     <parameter>string</parameter> - 
+     error message
+    </para>
+   </refsection>     
+   <refsection xml:id="core.pear.pear-error.getmessage.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>            
+  </refentry>

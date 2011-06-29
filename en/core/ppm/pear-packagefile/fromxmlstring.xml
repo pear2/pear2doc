@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-packagefile.fromxmlstring">
+ <refnamediv>
+  <refname>
+   <function>PEAR_PackageFile::fromXmlString</function>
+  </refname>
+  <refpurpose>fromXmlString</refpurpose>
+ </refnamediv>
+ <refsynopsisdiv>
+  <funcsynopsis>
+   <funcsynopsisinfo>require_once &apos;/PackageFile.php&apos;;</funcsynopsisinfo>
+   <funcprototype>
+    <funcdef>
+     PEAR_PackageFile_v1|PEAR_PackageFile_v2|PEAR_Error&amp;
+     <function>PEAR_PackageFile::fromXmlString</function>
+    </funcdef>
+    <paramdef choice="req">
+     string
+     <parameter>$data</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     int
+     <parameter>$state</parameter>
+    </paramdef>
+    <paramdef choice="req">
+     string
+     <parameter>$file</parameter>
+    </paramdef>
+    <paramdef choice="opt">
+     string|false
+     <parameter>$archive</parameter>
+     <initializer>false</initializer>
+    </paramdef>
+   </funcprototype>
+  </funcsynopsis>
+ </refsynopsisdiv>
+ <refsection xml:id="core.ppm.pear-packagefile.fromxmlstring.desc">
+  &title.desc;
+  <para>
+   parse and return a package.xml object, or a
+   <link linkend="core.pear.pear-error"><classname>PEAR_Error</classname></link> object
+   upon error.
+  </para>
+</refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromxmlstring.param">
+  &title.param;
+  <para>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$data</parameter>
+     </term>
+     <listitem>
+      <para>contents of package.xml file</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.int;
+      <parameter>$state</parameter>
+     </term>
+     <listitem>
+      <para>package state (one of 
+      <link linkend="core.ppm.pear-validate.constants"><literal>PEAR_VALIDATE_*</literal></link> constants)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;
+      <parameter>$file</parameter>
+     </term>
+     <listitem>
+      <para>full path to the package.xml file (and the files it references)</para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+   <variablelist>
+    <varlistentry>
+     <term>
+      &type.string;|&false;
+      <parameter>$archive</parameter>
+     </term>
+     <listitem>
+      <para>
+       full path to the full package .tgz file containing the package.xml, or
+       false for none.
+      </para>
+     </listitem>
+    </varlistentry>
+   </variablelist>
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromxmlstring.throws">
+  &title.throws;
+  <para>
+   <emphasis>throws</emphasis>
+   no exceptions thrown
+  </para>
+ </refsection>
+ <refsection xml:id="core.ppm.pear-packagefile.fromxmlstring.note">
+  &title.note;
+  &note.notstatic;
+</refsection>
+</refentry>

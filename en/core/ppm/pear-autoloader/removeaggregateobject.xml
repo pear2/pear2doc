@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="lillet" xml:id="core.ppm.pear-autoloader.removeaggregateobject">
+   <refnamediv>
+    <refname><function>PEAR_Autoloader::removeAggregateObject</function></refname>
+    <refpurpose>Remove an aggregate object</refpurpose>
+   </refnamediv>
+   <refsynopsisdiv>
+    <funcsynopsis>
+     <funcsynopsisinfo>
+      require_once 'PEAR/autoloader.php';
+     </funcsynopsisinfo>
+     <funcprototype>
+      <funcdef>bool       <function>PEAR_Autoloader::removeAggregateObject</function></funcdef>
+      <paramdef choice="req">string <parameter>$classname</parameter></paramdef>
+     </funcprototype>
+    </funcsynopsis>
+    </refsynopsisdiv>
+    <refsection xml:id="core.ppm.pear-autoloader.removeaggregateobject.desc">
+     &title.desc;
+     <para>
+      Remove an aggregate object.
+     </para>
+    </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.removeaggregateobject.param">
+    &title.param;
+    <para>
+     <variablelist>
+      <varlistentry>
+       <term>
+        &type.string;
+         <parameter>$classname</parameter>
+       </term>      
+       <listitem>
+        <para>
+         the class of the object to remove
+        </para>
+       </listitem>
+      </varlistentry>
+     </variablelist>
+    </para>
+   </refsection>
+   <refsection xml:id="core.ppm.pear-autoloader.removeaggregateobject.return">
+    &title.returns;
+
+    <para>
+            <parameter>bool</parameter> &return.success;
+    </para>
+   </refsection>
+
+   <refsection xml:id="core.ppm.pear-autoloader.removeaggregateobject.note">
+    &title.note;
+    &note.notstatic;
+   </refsection>
+</refentry>
