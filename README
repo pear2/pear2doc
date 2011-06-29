@@ -1,1 +1,8 @@
 Currently same as peardoc, with sections not pertaining to Pyrus removed
+
+Build Instructions:
+pear channel-discover doc.php.net
+pear install doc.php.net/phd
+pear install doc.php.net/phd_pear
+git clone git://github.com/mfonda/peardoc_pyrus.git
+php configure.php && phd -L en -P PEAR -f xhtml -o build/en -d .manual.xml
